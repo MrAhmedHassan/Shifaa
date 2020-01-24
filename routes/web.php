@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+route::get('/test','Test\TestController@index');
+route::get('/profiles','Profile\ProfileController@index');
 
 Auth::routes();
 

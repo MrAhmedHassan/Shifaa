@@ -7,7 +7,12 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
+use Illuminate\Http\Request;
+use App\Http\Requests\UsersValidation;
+
 
 class RegisterController extends Controller
 {
@@ -52,7 +57,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:1', 'confirmed'],
+            'avatar' => ['mimes:jpeg,jpg,png','max:2000'],
+            'certification' => ['required' , 'mimes:jpeg,jpg,png' , 'max:2000'],
+            'role'=>['required']
         ]);
     }
 
@@ -64,10 +72,32 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        if(request()->has('certification')) {
+            $certificationUploaded = \request()->file('certification');
+            $certificationName = time() . '.' . $certificationUploaded->getClientOriginalExtension();
+            $certificationPath = public_path('/image/certification');
+            $certificationUploaded->move($certificationPath, $certificationName);
+        }
+
+        $avatarUploaded='/image/avatar/default.jpg';
+        if(request()->has('avatar')) {
+            $avatarUploaded = \request()->file('avatar');
+            $avatarName = time() . '.' . $avatarUploaded->getClientOriginalExtension();
+            $avatarPath = public_path('/image/avatar');
+            $avatarUploaded->move($avatarPath, $avatarName);
+        }
+
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'DoctorCertificate' => '/image/certification/'.$certificationName,
+            'avatar' => '/image/avatar/'.$avatarName
         ]);
+
+        $roleInput = request()->role;
+        $role =  Role::where('name','=',$roleInput)->first();
+        $user->assignRole([$role->name]);
+        return $user;
     }
 }
