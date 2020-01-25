@@ -16,6 +16,8 @@
 
                     You are logged in!
                 </div>
+                <a href="/diseases" class="card-link d-block">Diseases</a>
+
             </div>
         </div>
     </div>
