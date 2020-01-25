@@ -161,6 +161,12 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        //added by me to the rate
+        
+        willvincent\Rateable\RateableServiceProvider::class,
+        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
+        Illuminate\Auth\AuthServiceProvider::class,
+        
 
         /*
          * Package Service Providers...

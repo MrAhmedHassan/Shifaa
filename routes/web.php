@@ -18,3 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/humanbody', 'humanBodyController\humanBodyController@index')->name('humanbody.index');
+Route::get('/humanbody/{humanbody}','humanBodyController\humanBodyController@show')->name('teachers.show');
+Route::get('/articles/{id}', 'articlesController\articlesController@show')->name('articles.show');
+
+//this routes for rate
+Route::get('posts', 'rateController\rateController@posts')->name('posts');
+
+Route::post('posts', 'rateController\rateController@postPost')->name('posts.post');
+
+Route::get('posts/{id}', 'rateController\rateController@show')->name('posts.show');
+
+//get the user data with their articles
+Route::get('userart/{id}', 'rateController\rateController@exper')->name('posts.exper');
