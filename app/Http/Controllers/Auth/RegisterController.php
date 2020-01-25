@@ -79,7 +79,7 @@ class RegisterController extends Controller
             $certificationUploaded->move($certificationPath, $certificationName);
         }
 
-        $avatarUploaded='/image/avatar/default.jpg';
+        $avatarName='default.jpg';
         if(request()->has('avatar')) {
             $avatarUploaded = \request()->file('avatar');
             $avatarName = time() . '.' . $avatarUploaded->getClientOriginalExtension();
