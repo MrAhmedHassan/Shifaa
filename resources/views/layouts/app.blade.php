@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,16 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-<!--added by me to the rate-->
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Amiri|Changa|Reem+Kufi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('mymaincss.css') }}" rel="stylesheet">
+    <link href="{{ asset('all.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!--added by me to the rate-->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet"> 
@@ -32,15 +41,25 @@
 
 <link href="{{ asset('css/preview.css') }}" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body align=right dir=rtl>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm fixed-top" style="background-color: rgb(52, 105, 123) !important">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                    <h3>شفاء</h3>
+
+
+    <!-- Styles -->
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+{{-- </head> --}}
+{{-- <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Laravel') }} --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -48,12 +67,36 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav my_main_navbar m-auto">
 
+                            <!-- Navbar Links -->
+                            <li class="nav-item mainA">
+                                <a class="nav-link ml-4" href="#">الرئيسية</a>
+                            </li>
+
+                            <li class="nav-item ml-4">
+                                <a class="nav-link" href="#">المقالات الطبية</a>
+                            </li>
+
+                            <li class="nav-item ml-4">
+                                <a class="nav-link" href="#">الأطباء</a>
+                            </li>
+
+                            <li class="nav-item ml-4">
+                                <a class="nav-link" href="#">جسم الإنسان</a>
+                            </li>
+
+                            <li class="nav-item ml-4">
+                                <a class="nav-link" href="#">من نحن ؟</a>
+                            </li>
+
+                            <li class="nav-item ml-4">
+                                <a class="nav-link" href="#">تواصل معنا</a>
+                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav w-25 mr-auto my_user" >
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -65,35 +108,43 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item dropdown mr-5">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle mr-5" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <a class="dropdown-item " href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        {{ __('خروج') }}
                                     </a>
+                                    <hr>
+                                    <div id="div_user_profile" >
+                                    <a href="#" class="ml-3" id="user_profile">البروفايل</a>
+                                    </div>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
+
+                            <img class="rounded-circle" style="width: 15%" src="{{ asset('/eee.jpg') }}">
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <main class="text-right">
+        <main class="py-4" align=right dir=rtl>
             @yield('content')
         </main>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

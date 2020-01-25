@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\rateController;
+use willvincent\Rateable\Rateable;
 
+use App\Post;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -65,14 +68,14 @@ class rateController extends Controller
     {
 
         $post = User::find($id);
-        dd($post->article);
+       // dd($post->articles);
         echo $post."<br>";
         echo "the data of the articles that created by this user is<br> ";
-        for($i=0;$i<count($post->article);$i++){
-        echo "id :". $post->article[$i]->id."<br>";
-        echo "title :".$post->article[$i]->title."<br>";
-        echo "avatar :"."<img src=../images/". $post->article[$i]->avatar."><br>";
-        echo "description :".$post->article[$i]->description."<br>";
+        for($i=0;$i<count($post->articles);$i++){
+        echo "id :". $post->articles[$i]->id."<br>";
+        echo "title :".$post->articles[$i]->title."<br>";
+        echo "avatar :"."<img src=../images/". $post->articles[$i]->avatar."><br>";
+        echo "description :".$post->articles[$i]->description."<br>";
 
     }
         //return view('postsShow',compact('post'));
