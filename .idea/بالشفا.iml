@@ -24,6 +24,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/ui" />
+<<<<<<< HEAD
+=======
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravelcollective/html" />
+>>>>>>> 312eed782da9d6325bf49cb4994880975472b62b
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/commonmark-ext-table" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
@@ -66,6 +70,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />
+<<<<<<< HEAD
+=======
+      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/laravel-permission" />
+>>>>>>> 312eed782da9d6325bf49cb4994880975472b62b
       <excludeFolder url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/css-selector" />

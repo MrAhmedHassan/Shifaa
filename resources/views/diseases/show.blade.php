@@ -12,7 +12,7 @@
                 <h5 class="card-title">العنوان : </h5>
                 <p class="card-text">{{$diseases->title}}</p>
                 <h5 class="card-title">الوصف : </h5>
-                <p class="card-text">{{$diseases->body}}</p>
+                <p class="card-text">{{$diseases->description}}</p>
     
             </div>
         </div>

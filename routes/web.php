@@ -30,6 +30,12 @@ Route::get('/comments/create', 'ArticleController@createcomment')->name('comment
 Route::get('/comments/approve/{id}', 'ArticleController@approvecomment')->name('comments.approve');
 Route::delete('/comments/{id}', 'ArticleController@destroycomment')->name('comments.destroy');
 
+Route::get('/test','Test\TestController@index');
 
+Route::get('/profiles','Profile\ProfileController@index');
+Route::get('/profiles/{Profile}','Profile\ProfileController@show')->name('profiles.show');
+Route::get('/profiles/{profile}/edit','Profile\ProfileController@edit');
+Route::put('/profiles/{profile}','Profile\ProfileController@update')->name('profiles.update');
 
-
+Route::get('/doctors','Doctor\DoctorController@index');
+Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
