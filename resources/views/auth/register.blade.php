@@ -8,7 +8,8 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <!-- <form method="POST" action="{{ route('register') }}"> -->
+                    <form method="POST" enctype='multipart/form-data' action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -58,6 +59,52 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Avatar</label>
+                            <div class="col-md-6">
+                                <input id="avatar" type="file" name="avatar"  class="form-control @error('password') is-invalid @enderror"><br>
+
+                                @error('avatar')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Doctor'sCertificate</label>
+                            <div class="col-md-6">
+                                <input type="file" id="certification" required class="form-control @error('certification') is-invalid @enderror" name="certification"><br>
+                                @error('certification')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ __('Choose Character') }}</label>
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input type="radio" class="form-control @error('role') is-invalid @enderror" name="role" value="Doctor">
+                                    <label class="form-check-label">Doctor</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-control @error('role') is-invalid @enderror" name="role" value="Patient">
+                                    <label class="form-check-label">Patient</label>
+                                </div>
+                                @error('role')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
