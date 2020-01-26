@@ -43,7 +43,12 @@ Route::get('/comments/create', 'ArticleController@createcomment')->name('comment
 Route::get('/comments/approve/{id}', 'ArticleController@approvecomment')->name('comments.approve');
 Route::delete('/comments/{id}', 'ArticleController@destroycomment')->name('comments.destroy');
 
-Route::get('/test','Test\TestController@index');
+//Route::get('/test','Test\TestController@index');
+Route::get('/test',function (){
+//    $user = \App\User::find(auth()->user()->id);
+//    $cat = \App\Category::find(7);
+//    dd($cat->users[0]);
+});
 
 Route::get('/profiles','Profile\ProfileController@index');
 Route::get('/profiles/{Profile}','Profile\ProfileController@show')->name('profiles.show');

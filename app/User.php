@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'DoctorCertificate'
+        'name', 'email', 'password', 'avatar', 'DoctorCertificate','category_id'
     ];
 
     /**
@@ -44,7 +44,12 @@ class User extends Authenticatable
     return $this->hasMany(Article::class,'user_id');
 }
 
-   
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
-    
+
+
+
 }
