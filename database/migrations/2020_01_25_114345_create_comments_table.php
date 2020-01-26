@@ -17,7 +17,10 @@ class CreateCommentsTable extends Migration
             $table->text('comment');
             $table->boolean('is_approved')->default(false);
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->BigInteger('article_id')->unsigned()->nullable();
+            $table->foreign('article_id')->references('id')->on('articles');
             $table->timestamps();
+
         });
     }
 

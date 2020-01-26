@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\rateController;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use willvincent\Rateable\Rateable;
@@ -22,7 +21,6 @@ class rateController extends Controller
 
     {
         $post = Post::find($id);
-
         return view('postsShow',compact('post'));
     }
 
@@ -57,13 +55,11 @@ class rateController extends Controller
     public function exper($id)
 
     {
-        dd('gemy is here'); 
 
         $post = User::find($id);
-        dd($post->articles);
         echo $post."<br>";
         echo "the data of the articles that created by this user is<br> ";
-        for($i=0;$i<count($post->articles);$i++){
+        for($i=0; $i<count($post->articles);$i++){
         echo "id :". $post->articles[$i]->id."<br>";
         echo "title :".$post->articles[$i]->title."<br>";
         echo "avatar :"."<img src=../images/". $post->articles[$i]->avatar."><br>";

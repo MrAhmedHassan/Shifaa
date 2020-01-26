@@ -10,32 +10,37 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">User_id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Article</th>
       <th scope="col">User_id</th>
       <th scope="col">Comment</th>
-      <th scope="col">Created_at</th>
 
       <!-- <th scope="col"><span style="margin-left: 100px">CRUD</span></th> -->
     </tr>
   </thead>
   <tbody>
+    
+  @foreach($articles as $article => $value)  
+  <tr>
+      <td>{{$value['user_id']}}</td>
+      <td>{{$value['title']}}</td>
+      <td>{{$value['description']}}</td>
+  @endforeach
   @foreach($comments as $comment => $value)  
-    <tr>
-      <th scope="row">{{$value['id']}}</th>
       <td>{{$value['user_id']}}</td>
       <td>{{$value['comment']}}</td>
-      <td>{{$value['created_at']}}</td>
      
 
 
 
       <td class="d-flex ">
-      <a href="comments/approve/{{$value['id']}}" class="mx-2"><button type="button" class="btn btn-info">Approve</button></a>
+      <a href="comments/approve/{{$value['id']}}" class="mx-2"><button type="button" class="btn btn-info">Approve C</button></a>
     
       <form method="post" action="/comments/{{$value['id']}}">
       {{method_field('DELETE')}}
       @csrf
-      <button type="submit" class="btn btn-danger" onclick='return confirm("Do you Really Want to Delete ?!!")'>Delete</button>
+      <button type="submit" class="btn btn-danger" onclick='return confirm("Do you Really Want to Delete ?!!")'>Delete c</button>
       </form>
 
       </td>

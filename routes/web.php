@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +10,8 @@
 |
 */
 
+use App\Article;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,27 +22,43 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/humanbody', 'humanBodyController\humanBodyController@index')->name('humanbody.index');
 Route::get('/humanbody/{humanbody}','humanBodyController\humanBodyController@show')->name('teachers.show');
-Route::get('/articles/{id}', 'articlesController\articlesController@show')->name('articles.show');
+Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.show');
+// Route::get('/articles/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
+
 
 //this routes for rate
 Route::get('posts', 'rateController\rateController@posts')->name('posts');
 
 Route::post('posts', 'rateController\rateController@postPost')->name('posts.post');
-
 Route::get('posts/{id}', 'rateController\rateController@show')->name('posts.show');
 
 //get the user data with their articles
 Route::get('userart/{id}', 'rateController\rateController@exper')->name('posts.exper');
-Route::get('/diseases', 'DiseaseController@index')->name('diseases.index');
+Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
 
-Route::get('/diseases/{disease}','DiseaseController@show')->name('diseases.show');
+Route::get('/diseases/{disease}','Disease\DiseaseController@show')->name('diseases.show');
 
-// Route::get('/test','CategoryController@index');
+// test route
+// Route::get('/cat', 'Category\CategoryController@index');
 
-Route::get('/comments', 'ArticleController@indexcomment')->name('comments.index');
-Route::get('/comments/create', 'ArticleController@createcomment')->name('comments.create');
-Route::get('/comments/approve/{id}', 'ArticleController@approvecomment')->name('comments.approve');
-Route::delete('/comments/{id}', 'ArticleController@destroycomment')->name('comments.destroy');
+// test route
+// Route::get('/art/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
+
+//test here without controller
+// Route::get('/art/{id}', function(){
+//     $art = Article::find(2);
+//     dd($art->comments);
+// });
+
+
+
+
+
+
+Route::get('/comments', 'Article\ArticleController@indexcomment')->name('comments.index');
+Route::get('/comments/create', 'Article\ArticleController@createcomment')->name('comments.create');
+Route::get('/comments/approve/{id}', 'Article\ArticleController@approvecomment')->name('comments.approve');
+Route::delete('/comments/{id}', 'Article\ArticleController@destroycomment')->name('comments.destroy');
 
 Route::get('/test','Test\TestController@index');
 
@@ -52,3 +69,4 @@ Route::put('/profiles/{profile}','Profile\ProfileController@update')->name('prof
 
 Route::get('/doctors','Doctor\DoctorController@index');
 Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
+

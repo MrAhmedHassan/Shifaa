@@ -44,8 +44,5 @@ class User extends Authenticatable
 {
     return $this->hasMany(Article::class,'user_id');
 }
-
-   
-
     
 }
