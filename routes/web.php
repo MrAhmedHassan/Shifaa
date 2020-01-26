@@ -42,9 +42,15 @@ Route::get('/comments/create', 'Article\ArticleController@createcomment')->name(
 Route::get('/comments/approve/{id}', 'Article\ArticleController@approvecomment')->name('comments.approve');
 Route::delete('/comments/{id}', 'Article\ArticleController@destroycomment')->name('comments.destroy');
 
-Route::get('/test','Test\TestController@index');
+//Route::get('/test/{id}','Profile\ProfileController@showAnotherProfile');
+//Route::get('/test',function (){
+//    $user = \App\User::find(auth()->user()->id);
+//    $cat = \App\Category::find(7);
+//    dd($cat->users[0]);
+//    return view('profile/show');
+//});
 
-Route::get('/profiles','Profile\ProfileController@index');
+Route::get('/profiles','Profile\ProfileController@showMyProfile');
 Route::get('/profiles/{Profile}','Profile\ProfileController@show')->name('profiles.show');
 Route::get('/profiles/{profile}/edit','Profile\ProfileController@edit');
 Route::put('/profiles/{profile}','Profile\ProfileController@update')->name('profiles.update');

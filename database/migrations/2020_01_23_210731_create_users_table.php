@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('DoctorCertificate')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->BigInteger('category_id')->unsigned()->nullable();
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->rememberToken();
             $table->timestamps();
         });
