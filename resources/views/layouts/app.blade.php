@@ -30,7 +30,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
-<link href="{{ asset('css/preview.css') }}" rel="stylesheet">
+<!--link href="{{ asset('css/preview.css') }}" rel="stylesheet"-->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

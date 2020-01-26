@@ -19,29 +19,28 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/humanbody', 'humanBodyController\humanBodyController@index')->name('humanbody.index');
-Route::get('/humanbody/{humanbody}','humanBodyController\humanBodyController@show')->name('teachers.show');
-Route::get('/articles/{id}', 'articlesController\articlesController@show')->name('articles.show');
+Route::get('/bodies', 'Body\BodyController@index')->name('body.index');
+Route::get('/bodies/{body}','Body\BodyController@show')->name('body.show');
+Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.show');
 
 //this routes for rate
-Route::get('posts', 'rateController\rateController@posts')->name('posts');
+Route::get('posts', 'Rate\RateController@posts')->name('posts');
 
-Route::post('posts', 'rateController\rateController@postPost')->name('posts.post');
+Route::post('posts', 'Rate\RateController@postPost')->name('posts.post');
 
-Route::get('posts/{id}', 'rateController\rateController@show')->name('posts.show');
+Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
 
-//get the user data with their articles
-Route::get('userart/{id}', 'rateController\rateController@exper')->name('posts.exper');
+
 Route::get('/diseases', 'DiseaseController@index')->name('diseases.index');
 
 Route::get('/diseases/{disease}','DiseaseController@show')->name('diseases.show');
 
 // Route::get('/test','CategoryController@index');
 
-Route::get('/comments', 'ArticleController@indexcomment')->name('comments.index');
-Route::get('/comments/create', 'ArticleController@createcomment')->name('comments.create');
-Route::get('/comments/approve/{id}', 'ArticleController@approvecomment')->name('comments.approve');
-Route::delete('/comments/{id}', 'ArticleController@destroycomment')->name('comments.destroy');
+Route::get('/comments', 'Article\ArticleController@indexcomment')->name('comments.index');
+Route::get('/comments/create', 'Article\ArticleController@createcomment')->name('comments.create');
+Route::get('/comments/approve/{id}', 'Article\ArticleController@approvecomment')->name('comments.approve');
+Route::delete('/comments/{id}', 'Article\ArticleController@destroycomment')->name('comments.destroy');
 
 Route::get('/test','Test\TestController@index');
 
