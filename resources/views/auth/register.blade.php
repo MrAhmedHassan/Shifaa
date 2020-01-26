@@ -102,25 +102,55 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">{{ __('Choose Character') }}</label>
 
-                            <div class="col-md-6">
-                                <div class="form-check">
-                                    <input type="radio" class="form-control @error('role') is-invalid @enderror" name="role" value="Doctor">
-                                    <label class="form-check-label">Doctor</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="radio" class="form-control @error('role') is-invalid @enderror" name="role" value="Patient">
-                                    <label class="form-check-label">Patient</label>
-                                </div>
-                                @error('role')
-                                <span class="invalid-feedback" role="alert">
+
+
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <div class="form-check">
+                                        <label class="form-check-label ml-5" for="exampleRadios1">
+                                            Doctor
+                                        </label>
+                                        <input type="radio" class="form-check-input @error('role') is-invalid @enderror" name="role" value="Doctor">
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label ml-5" for="exampleRadios1">
+                                            Patient
+                                        </label>
+                                        <input type="radio" class="form-check-input @error('role') is-invalid @enderror" name="role" value="Patient">
+                                    </div>
+
+                                    @error('role')
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
+
+                                </div>
                             </div>
-                        </div>
+
+{{--                        <div class="form-group row">--}}
+{{--                            <label class="col-md-4 col-form-label text-md-right">{{ __('Choose Character') }}</label>--}}
+{{--                            <div class="col-md-6">--}}
+{{--                                <div class="form-check">--}}
+{{--                                    <label class="form-check-label" for="exampleRadios1">--}}
+{{--                                        Doctor--}}
+{{--                                    </label>--}}
+{{--                                    <input type="radio" class="form-check-input form-control @error('role') is-invalid @enderror" name="role" value="Doctor">--}}
+{{--                                </div>--}}
+{{--                                <div class="form-check">--}}
+{{--                                    <label class="form-check-label" for="exampleRadios1">--}}
+{{--                                        Patient--}}
+{{--                                    </label>--}}
+{{--                                    <input type="radio" class="form-check-input form-control @error('role') is-invalid @enderror" name="role" value="Patient">--}}
+{{--                                </div>--}}
+{{--                                @error('role')--}}
+{{--                                <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         @php
                         $categories = \App\Category::all();
@@ -130,7 +160,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <select name="category" class="form-control form-control-lg">
+                                    <select name="category" class="form-control">
                                       @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->category}}</option>
                                         @endforeach

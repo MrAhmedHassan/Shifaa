@@ -10,17 +10,19 @@ use Spatie\Permission\Models\Role;
 class ProfileController extends Controller
 {
     public function showMyProfile(){
-        $user = User::find(auth()->user()->id);
-        dd($user);
-        return $user;
+//        $user = User::find(auth()->user()->id);
+//        dd($user);
+//        return $user;
+        return view('profile/show');
     }
 
     public function showAnotherProfile($profile){
         $user = User::find($profile);
-        if($user->hasRole('Admin')){
-            dd('Sorry You Can see the Admin Profile');
-        }else{
+        if(!$user->hasRole('Admin')){
+            return view('test',['user'=>$user]);
             dd($user);
+        }else{
+            dd('Sorry You Can see the Admin Profile');
         }
     }
 
