@@ -1,0 +1,17 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use App\User;
+
+class Reveal extends Model
+{
+    protected $fillable = ['day','time','limit','doctor_id'];
+
+
+    public function doctor()
+    {
+        return $this->belongsTo(User::class);
+    }
+}
