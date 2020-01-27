@@ -6,9 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use willvincent\Rateable\Rateable;
 
 class User extends Authenticatable
 {
+    use Rateable;
     use Notifiable;
     use HasRoles;
 
@@ -18,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'DoctorCertificate'
+        'name', 'email', 'password', 'avatar', 'DoctorCertificate','category_id'
     ];
 
     /**
@@ -43,5 +45,13 @@ class User extends Authenticatable
 {
     return $this->hasMany(Article::class,'user_id');
 }
-    
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+
+
+
 }

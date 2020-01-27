@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Article;
+<<<<<<< HEAD
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use BeyondCode\Comments\Traits\HasComments;
@@ -58,4 +59,22 @@ class ArticleController extends Controller
    
 
     
+=======
+use App\Article;
+use App\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class ArticleController extends Controller
+{
+    public function show($id)
+    {
+        $articles = Article::find($id);
+        dd($articles);
+        //the dd below is to show the user data that created the article
+       // dd($articles->user);
+       
+    }
+    
+>>>>>>> 5b285cd12dc6d1c5d479782f63ffbea27e1d702c
 }

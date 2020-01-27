@@ -5,18 +5,25 @@ namespace App\Http\Controllers\Profile;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class ProfileController extends Controller
 {
-    public function index(){
+    public function showMyProfile(){
 //        $user = User::find(auth()->user()->id);
 //        dd($user);
 //        return $user;
+        return view('profile/show');
     }
 
-    public function show($profile){
+    public function showAnotherProfile($profile){
         $user = User::find($profile);
-        dd($user);
+        if(!$user->hasRole('Admin')){
+            return view('test',['user'=>$user]);
+            dd($user);
+        }else{
+            dd('Sorry You Can see the Admin Profile');
+        }
     }
 
     public function edit($profile){

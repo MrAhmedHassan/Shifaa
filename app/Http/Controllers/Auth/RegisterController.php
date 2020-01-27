@@ -60,7 +60,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:1', 'confirmed'],
             'avatar' => ['mimes:jpeg,jpg,png','max:2000'],
             'certification' => ['required' , 'mimes:jpeg,jpg,png' , 'max:2000'],
-            'role'=>['required']
+            'role'=>['required'],
+
         ]);
     }
 
@@ -92,7 +93,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'DoctorCertificate' => '/image/certification/'.$certificationName,
-            'avatar' => '/image/avatar/'.$avatarName
+            'avatar' => '/image/avatar/'.$avatarName,
+            'category_id'=> \request()->category
         ]);
 
         $roleInput = request()->role;
