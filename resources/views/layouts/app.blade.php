@@ -41,6 +41,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
 
+<!-- <link href="{{ asset('css/preview.css') }}" rel="stylesheet"> -->
 
 </head>
 <body align=right dir=rtl>

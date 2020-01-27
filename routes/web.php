@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +10,8 @@
 |
 */
 
+use App\Article;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,6 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/articles/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
 
 Route::get('/bodies', 'Body\BodyController@index')->name('body.index');
 Route::get('/bodies/{body}','Body\BodyController@show')->name('body.show');
@@ -26,16 +28,23 @@ Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.s
 //this routes for rate
 Route::get('posts', 'Rate\RateController@posts')->name('posts');
 
+
+//get the user data with their articles
+Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
+Route::get('/diseases/{disease}','Disease\DiseaseController@show')->name('diseases.show');
+
+// test route
+// Route::get('/cat', 'Category\CategoryController@index');
 Route::post('posts', 'Rate\RateController@postPost')->name('posts.post');
-
 Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
+// test route
+// Route::get('/art/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
 
-
-Route::get('/diseases', 'DiseaseController@index')->name('diseases.index');
-
-Route::get('/diseases/{disease}','DiseaseController@show')->name('diseases.show');
-
-// Route::get('/test','CategoryController@index');
+//test here without controller
+// Route::get('/art/{id}', function(){
+//     $art = Article::find(2);
+//     dd($art->comments);
+// });
 
 Route::get('/comments', 'Article\ArticleController@indexcomment')->name('comments.index');
 Route::get('/comments/create', 'Article\ArticleController@createcomment')->name('comments.create');
