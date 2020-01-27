@@ -5,9 +5,10 @@
 
 
     <div class='container mt-5'>
-        <form method='post' action='/reveals' enctype="multipart/form-data">
+    <form method='post' action='/reveals/{{$reveal->id}}' enctype="multipart/form-data">
+            {{method_field('PUT')}}
             @csrf
-            <div class="form-group">
+       
 
           
                 <label for="exampleFormControlInput1" class='font-weight-bold'>day</label>
@@ -25,16 +26,16 @@
 {{$reveal}}
             <div class="form-group">
                 <label for="exampleFormControlInput2" class='font-weight-bold'>from</label>
-                <input type="time" name="from" class="form-control" id="exampleFormControlInput2" >
+                <input type="time" value={{$reveal->from}} name="from" class="form-control" id="exampleFormControlInput2" >
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput2" class='font-weight-bold'>to</label>
-                <input type="time" name="to" class="form-control" id="exampleFormControlInput2" >
+                <input type="time" name="to" value={{$reveal->to}} class="form-control" id="exampleFormControlInput2" >
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlInput3" class='font-weight-bold'>limit</label>
-                <input type="number" name="limit" class="form-control" id="exampleFormControlInput3" required>
+                <input type="number" name="limit" value={{$reveal->limit}} class="form-control" id="exampleFormControlInput3" required>
             </div>
 
 
