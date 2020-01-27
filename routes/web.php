@@ -73,5 +73,14 @@ Route::get('/assistants','Assistant\AssistantController@index');
 Route::get('/assistants/create','Assistant\AssistantController@create');
 Route::post('/assistants','Assistant\AssistantController@store');
 
+//create routes for and reveal time 
+
+Route::get('/reveals','RevealTime\RevealTimeController@index')->name('reveal.index');
+Route::get('/reveals/create','RevealTime\RevealTimeController@create')->name('reveal.create');
+Route::post('/reveals','RevealTime\RevealTimeController@store');
+Route::get('/reveals/{reveal}/edit','RevealTime\RevealTimeController@edit')->name('reveals.edit');
+Route::put('/reveals/{reveal}','RevealTime\RevealTimeController@update')->name('courses.update');
+//Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
+
 //reservation
 Route::get('/reservations','Reservation\ReservationController@index');

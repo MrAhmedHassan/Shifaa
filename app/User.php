@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->belongsTo(Category::class);
     }
 
+    
+    public function reveals()
+    {
+        return $this->hasMany(Reveal::class,'doctor_id');
+    }
     public function assistants(){
         return $this->hasMany(User::class , 'doctor_id_assistant');
     }
