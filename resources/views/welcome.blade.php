@@ -81,11 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-<<<<<<< HEAD
                     Laravel
-=======
-                    Final Project
->>>>>>> 37ae648b5c38b8ad052d4d1ec41b72ea7082891f
                 </div>
 
                 <div class="links">
@@ -100,10 +96,5 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 37ae648b5c38b8ad052d4d1ec41b72ea7082891f
     </body>
 </html>

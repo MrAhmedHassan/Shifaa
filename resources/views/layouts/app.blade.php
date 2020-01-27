@@ -27,7 +27,7 @@
     <!--added by me to the rate-->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet"> 
+<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">  -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
 
@@ -39,7 +39,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
-<link href="{{ asset('css/preview.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('css/preview.css') }}" rel="stylesheet"> -->
 
 </head>
 <body align=right dir=rtl>

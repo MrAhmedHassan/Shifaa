@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="e7c26e36-29bd-4729-a5ce-3ede8c840d3f" name="Default Changelist" comment="" />
-=======
-<<<<<<< HEAD
-    <list default="true" id="e7c26e36-29bd-4729-a5ce-3ede8c840d3f" name="Default Changelist" comment="" />
-=======
+
     <list default="true" id="e7c26e36-29bd-4729-a5ce-3ede8c840d3f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -17,33 +13,21 @@
       <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
     </list>
->>>>>>> 312eed782da9d6325bf49cb4994880975472b62b
->>>>>>> 37ae648b5c38b8ad052d4d1ec41b72ea7082891f
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
+
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
-=======
-<<<<<<< HEAD
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
-=======
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
->>>>>>> 312eed782da9d6325bf49cb4994880975472b62b
->>>>>>> 37ae648b5c38b8ad052d4d1ec41b72ea7082891f
+
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
   </component>
-<<<<<<< HEAD
-  <component name="ProjectId" id="1WmqeKemNkEkkzXGizfsxbjjjgE" />
-=======
-<<<<<<< HEAD
-  <component name="ProjectId" id="1WmqeKemNkEkkzXGizfsxbjjjgE" />
-=======
+
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -141,10 +125,8 @@
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1WmqeKemNkEkkzXGizfsxbjjjgE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
->>>>>>> 312eed782da9d6325bf49cb4994880975472b62b
->>>>>>> 37ae648b5c38b8ad052d4d1ec41b72ea7082891f
+
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -171,16 +153,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579765215612</updated>
-<<<<<<< HEAD
       <workItem from="1579765233629" duration="274000" />
-=======
-<<<<<<< HEAD
-      <workItem from="1579765233629" duration="274000" />
-=======
+
       <workItem from="1579765233629" duration="582000" />
       <workItem from="1579802986872" duration="2389000" />
->>>>>>> 312eed782da9d6325bf49cb4994880975472b62b
->>>>>>> 37ae648b5c38b8ad052d4d1ec41b72ea7082891f
+
     </task>
     <servers />
   </component>
@@ -188,22 +165,16 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 37ae648b5c38b8ad052d4d1ec41b72ea7082891f
+
     <state x="367" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1579765233714">
       <screen x="58" y="28" width="1308" height="740" />
     </state>
     <state x="367" y="225" key="com.intellij.ide.util.TipDialog/58.28.1308.740@58.28.1308.740" timestamp="1579765233714" />
-<<<<<<< HEAD
-=======
-=======
+
     <state x="367" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1579803036877">
       <screen x="58" y="28" width="1308" height="740" />
     </state>
     <state x="367" y="225" key="com.intellij.ide.util.TipDialog/58.28.1308.740@58.28.1308.740" timestamp="1579803036877" />
->>>>>>> 312eed782da9d6325bf49cb4994880975472b62b
->>>>>>> 37ae648b5c38b8ad052d4d1ec41b72ea7082891f
+
   </component>
 </project>
