@@ -10,9 +10,11 @@ use Spatie\Permission\Models\Role;
 class ProfileController extends Controller
 {
     public function showMyProfile(){
-//        $user = User::find(auth()->user()->id);
+        $user = User::find(auth()->user()->id);
 //        dd($user);
 //        return $user;
+//        dd('here');
+//        dd(auth()->user());
         return view('profile/show');
     }
 
