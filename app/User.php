@@ -20,7 +20,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'DoctorCertificate','category_id'
+        'name', 'email', 'password', 'avatar',
+        'DoctorCertificate','category_id' ,
+        'doctor_id_assistant'
     ];
 
     /**
@@ -51,7 +53,13 @@ class User extends Authenticatable
         return $this->belongsTo(Category::class);
     }
 
+    public function assistants(){
+        return $this->hasMany(User::class);
+    }
 
+    public function doctor(){
+        return $this->belongsTo(User::class);
+    }
 
 
 }

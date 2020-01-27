@@ -67,6 +67,6 @@ Route::put('/profiles/{profile}','Profile\ProfileController@update')->name('prof
 Route::get('/doctors','Doctor\DoctorController@index');
 Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
-
-//create routes for and reveal time 
+Route::get('/assistants','Assistant\AssistantController@index');
+//create routes for and reveal time
 
