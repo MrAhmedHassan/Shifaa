@@ -74,4 +74,4 @@ Route::get('/assistants/create','Assistant\AssistantController@create');
 Route::post('/assistants','Assistant\AssistantController@store');
 
 //reservation
-Route::get('/reservation','Reservation\ReservationController');
+Route::get('/reservations','Reservation\ReservationController@index');

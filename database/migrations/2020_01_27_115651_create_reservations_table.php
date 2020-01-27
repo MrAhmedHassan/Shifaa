@@ -13,7 +13,7 @@ class CreateReservationTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservation', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('patientName');
             $table->date('date');
@@ -22,7 +22,7 @@ class CreateReservationTable extends Migration
             $table->unsignedBigInteger('patient_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('patient_id')->references('id')->on('users');
             $table->unsignedBigInteger('reveal_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
-            $table->foreign('reveal_id')->references('id')->on('reveal_time');
+            $table->foreign('reveal_id')->references('id')->on('reveals');
             $table->timestamps();
         });
     }

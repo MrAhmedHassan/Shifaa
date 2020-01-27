@@ -13,13 +13,12 @@ class CreateRevealTimeTable extends Migration
      */
     public function up()
     {
-        Schema::create('reveal_time', function (Blueprint $table) {
+        Schema::create('reveals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('day', ['satrday', 'sunday','monday','tuesday'
+            $table->enum('day', ['saturday', 'sunday','monday','tuesday'
             ,'wednesday','thursday','friday']);
             $table->time('time', 0);
             $table->bigInteger('limit');
-
             $table->unsignedBigInteger('doctor_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('doctor_id')->references('id')->on('users');
 

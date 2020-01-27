@@ -13,13 +13,13 @@ class CreateDoctorProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_profile', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('abstract');
             $table->string('address');
             $table->bigInteger('price');
-            $table->unsignedBigInteger('doctor_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
-            $table->foreign('doctor_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
