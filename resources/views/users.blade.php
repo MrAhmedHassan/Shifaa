@@ -43,4 +43,10 @@
 <script type="text/javascript">
     $("#input-id").rating();
 </script>
+
+    <script>
+    $(document).ready(function(){
+        $('#input-8').rating({rtl: true, containerClass: 'is-star'});
+    });
+    </script>
 @endsection
