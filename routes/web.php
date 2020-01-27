@@ -58,15 +58,20 @@ Route::delete('/comments/{id}', 'Article\ArticleController@destroycomment')->nam
 //    dd($cat->users[0]);
 //    return view('profile/show');
 //});
-
+// profile
 Route::get('/profiles','Profile\ProfileController@showMyProfile');
 Route::get('/profiles/{Profile}','Profile\ProfileController@show')->name('profiles.show');
 Route::get('/profiles/{profile}/edit','Profile\ProfileController@edit');
 Route::put('/profiles/{profile}','Profile\ProfileController@update')->name('profiles.update');
 
+//doctor
 Route::get('/doctors','Doctor\DoctorController@index');
 Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
+//assistant
 Route::get('/assistants','Assistant\AssistantController@index');
-//create routes for and reveal time
+Route::get('/assistants/create','Assistant\AssistantController@create');
+Route::post('/assistants','Assistant\AssistantController@store');
 
+//reservation
+Route::get('/reservation','Reservation\ReservationController');

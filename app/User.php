@@ -54,11 +54,11 @@ class User extends Authenticatable
     }
 
     public function assistants(){
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class , 'doctor_id_assistant');
     }
 
     public function doctor(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class , 'doctor_id_assistant');
     }
 
 
