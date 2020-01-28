@@ -28,13 +28,14 @@ Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.s
 //this routes for rate
 Route::get('posts', 'Rate\RateController@posts')->name('posts');
 
-
 //get the user data with their articles
 Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
 Route::get('/diseases/{disease}','Disease\DiseaseController@show')->name('diseases.show');
 
 // test route
 // Route::get('/cat', 'Category\CategoryController@index');
+// test route
+Route::get('/prof', 'Profile\ProfileController@index');
 Route::post('posts', 'Rate\RateController@postPost')->name('posts.post');
 Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
 // test route
@@ -46,10 +47,15 @@ Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
 //     dd($art->comments);
 // });
 
-Route::get('/comments', 'Article\ArticleController@indexcomment')->name('comments.index');
-Route::get('/comments/create', 'Article\ArticleController@createcomment')->name('comments.create');
-Route::get('/comments/approve/{id}', 'Article\ArticleController@approvecomment')->name('comments.approve');
-Route::delete('/comments/{id}', 'Article\ArticleController@destroycomment')->name('comments.destroy');
+Route::get('/articles', 'Article\ArticleController@index')->name('articles.index');
+Route::post('/articles/create', 'Article\ArticleController@store')->name('articles.create');
+Route::get('/articles/{article}', 'Article\ArticleController@show')->name('articles.show');
+Route::delete('/articles/{id}', 'Article\ArticleController@destroy')->name('articles.destroy');
+
+Route::get('/comments', 'Comment\CommentController@index')->name('comments.index');
+Route::post('/comments/{article}', 'Comment\CommentController@store')->name('comments.create');
+Route::get('/comments/approve/{id}', 'Comment\CommentController@approve')->name('comments.approve');
+Route::delete('/comments/{id}', 'Comment\CommentController@destroy')->name('comments.destroy');
 
 //Route::get('/test/{id}','Profile\ProfileController@showAnotherProfile');
 //Route::get('/test',function (){
@@ -59,10 +65,15 @@ Route::delete('/comments/{id}', 'Article\ArticleController@destroycomment')->nam
 //    return view('profile/show');
 //});
 
-Route::get('/profiles','Profile\ProfileController@showMyProfile');
-Route::get('/profiles/{Profile}','Profile\ProfileController@show')->name('profiles.show');
-Route::get('/profiles/{profile}/edit','Profile\ProfileController@edit');
+// Route::get('/profiles','Profile\ProfileController@showMyProfile')->name('profiles.showMy');;
+Route::get('/profiles/{Profile}','Profile\ProfileController@showMyProfile')->name('profiles.show');
+Route::get('/profiles/{profile}/edit','Profile\ProfileController@edit')->name('profiles.edit');
 Route::put('/profiles/{profile}','Profile\ProfileController@update')->name('profiles.update');
+
+Route::get('/profiles/{profile}/complete','Profile\CompleteController@store')->name('profiles.complete');
+
+// Route::put('/profiles/{profile}',"function(){dd('pooop')}");
+
 
 Route::get('/doctors','Doctor\DoctorController@index');
 Route::get('/doctors/{doctor}','Doctor\DoctorController@show');

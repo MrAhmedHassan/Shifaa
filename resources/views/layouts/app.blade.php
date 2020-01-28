@@ -113,7 +113,7 @@
                                     </a>
                                     <hr>
                                     <div id="div_user_profile" >
-                                    <a href="#" class="ml-3" id="user_profile">البروفايل</a>
+                                    <a href="/profiles/{{Auth::user()->id}}" class="ml-3" id="user_profile">البروفايل</a>
                                     </div>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
