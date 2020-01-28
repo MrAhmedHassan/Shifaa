@@ -73,7 +73,7 @@ Route::get('/assistants','Assistant\AssistantController@index');
 Route::get('/assistants/create','Assistant\AssistantController@create');
 Route::post('/assistants','Assistant\AssistantController@store');
 
-//create routes for and reveal time 
+//create routes for and reveal time
 
 Route::get('/reveals','RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create','RevealTime\RevealTimeController@create')->name('reveal.create');
@@ -84,3 +84,5 @@ Route::put('/reveals/{reveal}','RevealTime\RevealTimeController@update')->name('
 
 //reservation
 Route::get('/reservations','Reservation\ReservationController@index');
+Route::post('reservations/{reveal}/{doctor}','Reservation\ReservationController@store');
+Route::delete('reservations/{reveal}','Reservation\ReservationController@softDelete');

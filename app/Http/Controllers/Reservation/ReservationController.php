@@ -23,7 +23,7 @@ class ReservationController extends Controller
 //            ForAssistant
         }else if(auth()->user()->hasRole('Assistant')){
             $myDoctor =auth()->user()->doctor;
-            $reservations = $myDoctor->doctorReservation;
+            $reservations = $myDoctor->doctorReservations;
             dd($reservations);
         }
     }
