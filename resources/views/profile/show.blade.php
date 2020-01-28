@@ -51,7 +51,12 @@
                                 </div>
                                 <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right d-flex">
                                     <a href="/profiles/{{$user->id}}/edit" class="btn btn-info btn-sm ml-2 h-50">تعديل الملف الشخصي</a>
-                                    <a href="/profiles/{{$user->id}}/complete" class="btn btn-info btn-sm h-50">أكمل الملف الشخصي</a>
+                                    <a href="/profile/complete" class="btn btn-info btn-sm ml-2 h-50">أكمل الملف الشخصي</a>
+
+                                    <!-- <form method='post' action='/profiles/complete' enctype="multipart/form-data">
+                                    @csrf
+                                    <button class="btn btn-info btn-sm ml-2 h-50">أكمل الملف الشخصي</button>
+                                    </form> -->
 
                                 </div>
                             </div>
