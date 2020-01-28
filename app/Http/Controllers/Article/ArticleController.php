@@ -43,6 +43,30 @@ class ArticleController extends Controller
         $article->delete();
         return redirect('/articles/index');
       }
+    
+
+    public function createcomment(){
+      $post = Article::find(1);
+      $comment = $post->comment('This is a comment from a user.');
+      return redirect('/comments');
+  }
+  public function indexcomment(){
+      $comments = Comment::all();
+      return view('/comments/index')->with('comments',$comments);
+  }
+  public function approvecomment($id){
+      $post = Comment::find($id);
+      $post->approve();
+      return redirect('/comments');
+  }
+  public function destroycomment($id){
+      $post = Comment::find($id);
+      $post->delete();
+      return redirect('/comments');
+    }
+   
+
+    
 }
     
 

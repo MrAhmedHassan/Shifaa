@@ -20,7 +20,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'DoctorCertificate','category_id'
+        'name', 'email', 'password', 'avatar',
+        'DoctorCertificate','category_id' ,
+        'doctor_id_assistant'
     ];
 
     /**
@@ -54,6 +56,28 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profile::class,'user_id');
+    }
+
+
+    public function reveals()
+    {
+        return $this->hasMany(Reveal::class,'doctor_id');
+    }
+
+    public function assistants(){
+        return $this->hasMany(User::class , 'doctor_id_assistant');
+    }
+
+    public function doctor(){
+        return $this->belongsTo(User::class , 'doctor_id_assistant');
+    }
+
+    public function patientReservations(){
+        return $this->hasMany(Reservation::class,'patient_id');
+    }
+
+    public function doctorReservations(){
+        return $this->hasMany(Reservation::class,'doctor_id');
     }
 
 

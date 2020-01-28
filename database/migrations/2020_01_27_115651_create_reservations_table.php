@@ -15,14 +15,15 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('patientName');
-            $table->date('date');
-            $table->softDeletes();
-            $table->string('phone');
+            $table->unsignedBigInteger('reveal_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('reveal_id')->references('id')->on('reveals');
             $table->unsignedBigInteger('patient_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('patient_id')->references('id')->on('users');
             $table->unsignedBigInteger('reveal_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('reveal_id')->references('id')->on('reveals');
+            $table->unsignedBigInteger('doctor_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('doctor_id')->references('id')->on('users');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }
