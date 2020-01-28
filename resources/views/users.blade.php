@@ -24,7 +24,9 @@
          <td>{{ $user->name }}</td><td>
          <input id="input-1" name="input-1" class="rating rating-loading"
           data-min="0" data-max="5" data-step="0.1" 
-         value="{{ $user->averageRating }}" data-size="xs" disabled=""></td>
+         value="{{ $user->averageRating }}" data-size="xs" disabled="">
+         <input id="input-1" style="color:red;" name="input-1" value="4.3" class="rating rating-loading">
+        </td>
          
  
          
@@ -40,13 +42,14 @@
 </div>
     </div>
 </div>
+
 <script type="text/javascript">
     $("#input-id").rating();
+    
+    $(document).ready(function(){
+    $('#input-1').rating({min: 0, max: 8, step: 0.1, stars: 8});
+});
 </script>
 
-    <script>
-    $(document).ready(function(){
-        $('#input-8').rating({rtl: true, containerClass: 'is-star'});
-    });
-    </script>
+    
 @endsection

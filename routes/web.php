@@ -79,7 +79,8 @@ Route::get('/reveals','RevealTime\RevealTimeController@index')->name('reveal.ind
 Route::get('/reveals/create','RevealTime\RevealTimeController@create')->name('reveal.create');
 Route::post('/reveals','RevealTime\RevealTimeController@store');
 Route::get('/reveals/{reveal}/edit','RevealTime\RevealTimeController@edit')->name('reveals.edit');
-Route::put('/reveals/{reveal}','RevealTime\RevealTimeController@update')->name('courses.update');
+Route::put('/reveals/{reveal}','RevealTime\RevealTimeController@update')->name('reveals.update');
+Route::delete('/reveals/{reveal}','RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
 //reservation

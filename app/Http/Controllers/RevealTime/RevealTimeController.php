@@ -12,10 +12,10 @@ class RevealTimeController extends Controller
 
     public function index(){
         $reveal = Reveal::all();
-       // echo "<a href='/reveals/create'>create new reveal</a>";
-       // dd( $reveal);
-       $doctor =$reveal[0]->doctor;
-        dd($doctor );
+        echo "<a href='/reveals/create'>create new reveal</a>";
+        dd( $reveal);
+      // $doctor =$reveal[0]->doctor;
+       // dd($doctor );
        
     }
     public function create()
@@ -30,7 +30,7 @@ class RevealTimeController extends Controller
       
         $reveal = new Reveal;
        
-        $reveal ->day = $request->input('day');
+        $reveal ->date = $request->input('date');
         $reveal ->from=  $request ->input('from');
         $reveal ->to=  $request ->input('to');
         $reveal ->limit = $request->input('limit');
@@ -53,12 +53,20 @@ class RevealTimeController extends Controller
     {
         $reveal =  Reveal::find($id);
         
-        $reveal ->day =request()->input('day');
+        $reveal ->date =request()->input('date');
         $reveal ->from= request() ->input('from');
         $reveal ->to= request() ->input('to');
         $reveal ->limit =request() ->input('limit');
         $reveal ->doctor_id = auth()->user()->id;
         $reveal -> save() ;
+        //return redirect('/teachers');
+    }
+
+
+    public function destroy($id)
+    {
+        $reveal = Reveal::find($id);
+        $reveal -> delete();
         //return redirect('/teachers');
     }
 }

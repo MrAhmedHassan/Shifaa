@@ -15,8 +15,7 @@ class CreateRevealsTable extends Migration
     {
         Schema::create('reveals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('day', ['saturday', 'sunday','monday','tuesday'
-            ,'wednesday','thursday','friday']);
+            $table->date('date');
             $table->time('from', 0);
             $table->time('to', 0);
             $table->bigInteger('limit');

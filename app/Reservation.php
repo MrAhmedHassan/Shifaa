@@ -15,4 +15,6 @@ class Reservation extends Model
     public function user(){
         $this->belongsTo(User::class,'patient_id');
     }
+    
+
 }
