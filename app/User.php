@@ -53,11 +53,12 @@ class User extends Authenticatable
         return $this->belongsTo(Category::class);
     }
 
-    
+
     public function reveals()
     {
         return $this->hasMany(Reveal::class,'doctor_id');
     }
+
     public function assistants(){
         return $this->hasMany(User::class , 'doctor_id_assistant');
     }
@@ -66,9 +67,15 @@ class User extends Authenticatable
         return $this->belongsTo(User::class , 'doctor_id_assistant');
     }
 
-    public function reservations(){
+    public function patientReservations(){
         return $this->hasMany(Reservation::class,'patient_id');
     }
+
+    public function doctorReservations(){
+        return $this->hasMany(Reservation::class,'doctor_id');
+    }
+
+
 
 
 }
