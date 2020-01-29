@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\RevealTime;
 
 use App\Http\Requests\RevealValidation;
+use App\Http\Requests\TestVlidation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Reveal;
@@ -25,6 +26,13 @@ class RevealTimeController extends Controller
     
     }
 
+    public function create2()
+    {
+      
+     return view('gemytest2/gemytest2');
+    
+    }
+
     public function store(RevealValidation $request )
     {
       
@@ -36,8 +44,27 @@ class RevealTimeController extends Controller
         $reveal ->limit = $request->input('limit');
         $reveal ->doctor_id = auth()->user()->id;
         $reveal -> save() ;
+
        
         //return redirect('/reaval');
+    }
+
+    public function store2(TestVlidation $request1)
+    {
+      
+      $answer=[];
+      $answer1= $request1->input('gender');
+      $answer2= $request1->input('a');
+      $answer3= $request1->input('b');
+      $answer4= $request1->input('c');
+     
+      $answer[]=$answer1;
+      $answer[]=$answer2;
+      $answer[]=$answer3;
+      $answer[]=$answer4;
+
+      return view('gemytest2/result')->with('answer' , $answer);
+    //return redirect('/reaval');
     }
 
 
