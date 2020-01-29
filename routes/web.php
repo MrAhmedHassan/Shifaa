@@ -70,7 +70,14 @@ Route::get('/profiles/{Profile}','Profile\ProfileController@showMyProfile')->nam
 Route::get('/profiles/{profile}/edit','Profile\ProfileController@edit')->name('profiles.edit');
 Route::put('/profiles/{profile}','Profile\ProfileController@update')->name('profiles.update');
 
-Route::get('/profiles/{profile}/complete','Profile\CompleteController@store')->name('profiles.complete');
+
+Route::get('/profile/complete','Complete\CompleteController@show')->name('profiles.create');
+
+Route::post('/profiles','Complete\CompleteController@store')->name('profiles.complete');
+// Route::post('/reveals','RevealTime\RevealTimeController@store');
+
+
+
 
 // Route::put('/profiles/{profile}',"function(){dd('pooop')}");
 
