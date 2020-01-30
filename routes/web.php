@@ -72,6 +72,7 @@ Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 Route::get('/assistants','Assistant\AssistantController@index');
 Route::get('/assistants/create','Assistant\AssistantController@create');
 Route::post('/assistants','Assistant\AssistantController@store');
+Route::delete('/assistants/{assistant}','Assistant\AssistantController@delete');
 
 //create routes for and reveal time
 

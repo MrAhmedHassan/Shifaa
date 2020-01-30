@@ -53,4 +53,9 @@ class AssistantController extends Controller
         dd($user);
     }
 
+    public function delete($assistant){
+        $user = User::find($assistant);
+        $user->delete();
+    }
+
 }
