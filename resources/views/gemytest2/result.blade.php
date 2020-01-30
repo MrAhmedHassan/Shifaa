@@ -4,35 +4,28 @@
     <div class="row">
         <div class="col-md-12">
             <br><br><br><br><br><br>
-        @php
+       
+ 
+@php
+//echo $results;
+for($i=0;$i<count($results);$i++)
+{
+$range=range($results[$i]->from,$results[$i]->to);
+if(in_array($sum,$range))
+{
+echo $results[$i]->result;
+}
 
-       $sum=0;
-      foreach($answer as $ans)
-      {
-         $sum+=$ans;
-      }
-              $array1=[1,2,3,30,401] ;  
-              $good=range(0,5);
-              $bad=range(6,10);
-              $verybad=range(11,15);
-              $veryverybad=range(16,20);
+}
+  
 
-              if(in_array($sum,$good))
-              {
-                  echo"<div class='text text-light bg-dark p-2'>you are good</div>";
-              }else if(in_array($sum,$bad))
-              {
-                echo"<div class='text text-light bg-dark p-2'>you are bad</div>";
-              }else if(in_array($sum,$verybad))
-              {
-                echo"<div class='text text-light bg-dark p-2'>you are verybad</div>";
-              }
-              else if(in_array($sum,$veryverybad))
-              {
-                echo"<div class='text text-light bg-dark p-2'>you are very very bad</div>";
-              }
+
+   @endphp
+     
+       
+             
               
-         @endphp
+    
                    
 </div>
     </div>

@@ -102,8 +102,10 @@ Route::delete('/reveals/{reveal}','RevealTime\RevealTimeController@destroy')->na
 
  
 // this route is only for test
- Route::get('/test/create','RevealTime\RevealTimeController@create2')->name('reveal.create2');
- Route::post('/test','RevealTime\RevealTimeController@store2');
+ Route::get('/tests','Personal\PersonalController@index');
+ Route::get('/tests/{test}','Personal\PersonalController@show');
+ Route::post('/tests/{test}','Personal\PersonalController@store');
+ 
 
 //reservation
 Route::get('/reservations','Reservation\ReservationController@index');
