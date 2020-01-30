@@ -16,11 +16,9 @@
       <div class="row">
 
         <div class="col-md-3">
-          <div class="">
-            <img src="{{$user->avatar}}" class="avatar img-circle" alt="avatar">
+            <img src="{{$user->avatar}}" class="avatar img-circle img-fluid" alt="avatar">
             <h6 style="font-family: 'Cairo', sans-serif">تغيير الصورة الشخصية</h6>
             <input type="file" class="form-control" name="avatar">
-          </div>
         </div>
 
         <div class="col-md-9">

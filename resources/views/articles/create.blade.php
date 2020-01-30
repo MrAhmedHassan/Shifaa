@@ -16,7 +16,7 @@
 
             <!-- Form -->
             <form class="text-right" method="post" action="/articles/store" enctype="multipart/form-data">
-            @csrf
+                @csrf
                 <!-- title -->
                 <div class="md-form mt-3 mb-3" style="font-family: 'Cairo', sans-serif">
                     <label>عنوان المقال</label>
@@ -41,20 +41,10 @@
                 <!-- Subject -->
                 <span style="font-family: 'Cairo', sans-serif">التخصص</span>
                 <div class="dropdown mt-2">
-                    <select class="mdb-select caret btn btn-default dropdown-toggle">
-                        <option value="" disabled>اختر تخصص</option>
-                        <option value="1" selected>جلدية</option>
-                        <option value="2">مخ وأعصاب</option>
-                        <option value="3">رمد</option>
-                        <option value="4">أنف, أذن وحنجرة</option>
-                        <option value="5">أسنان</option>
-                        <option value="6">عظام</option>
-                        <option value="7">قلب وأوعية دموية</option>
-                        <option value="8">باطنة</option>
-                        <option value="9">مسالك بولية</option>
-                        <option value="10">أطفال</option>
-                        <option value="11">نساء وتوليد</option>
-                        <option value="12">جراحة</option>
+                    <select class="mdb-select caret btn btn-default dropdown-toggle" name="category">
+                        @foreach ($categories as $category => $value)
+                        <option value="{{$value->id}}">{{$value->category}}</option>
+                        @endforeach
                     </select>
                 </div>
 

@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use BeyondCode\Comments\Traits\HasComments;
-use BeyondCode\Comments\Comment;
 use App\Article;
+use App\Category;
 use App\User;
 
 class ArticleController extends Controller
 {
-    use HasComments;
 
     public function index(){
         $articles = Article::all();
@@ -19,7 +17,9 @@ class ArticleController extends Controller
      }
 
      public function create(){
-        return view('/articles/create');
+        $category = Category::all();
+
+        return view('/articles/create')->with(['categories'=>$category]);
     }
 
      public function store(){
@@ -27,6 +27,8 @@ class ArticleController extends Controller
         $profile = new Article;
         $profile ->title = request()->input('title');
         $profile ->description= request() ->input('description');
+        $profile ->category_id= request() ->input('category');
+
         // $profile ->avatar= request()->input('avatar');
 
         if(request()->has('avatar')) {

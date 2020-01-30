@@ -44,9 +44,14 @@ class User extends Authenticatable
     ];
 
     public function articles()
-{
+    {
     return $this->hasMany(Article::class,'user_id');
-}
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class,'user_id');
+    }
 
     public function category()
     {
@@ -79,7 +84,6 @@ class User extends Authenticatable
     public function doctorReservations(){
         return $this->hasMany(Reservation::class,'doctor_id');
     }
-
 
 
 
