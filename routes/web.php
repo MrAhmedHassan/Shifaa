@@ -9,7 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 use App\Article;
 
 Route::get('/', function () {
@@ -32,9 +31,11 @@ Route::get('posts', 'Rate\RateController@posts')->name('posts');
 Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
 Route::get('/diseases/{disease}','Disease\DiseaseController@show')->name('diseases.show');
 
-// test route
+// test route 
 // Route::get('/cat', 'Category\CategoryController@index');
-// test route
+// test route cat with article
+Route::get('/cat', 'Category\CategoryController@index');
+
 Route::get('/prof', 'Profile\ProfileController@index');
 Route::post('posts', 'Rate\RateController@postPost')->name('posts.post');
 Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
@@ -48,7 +49,13 @@ Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
 // });
 
 Route::get('/articles', 'Article\ArticleController@index')->name('articles.index');
-Route::post('/articles/create', 'Article\ArticleController@store')->name('articles.create');
+Route::get('/article/create', 'Article\ArticleController@create')->name('articles.create');
+Route::post('/articles/store', 'Article\ArticleController@store')->name('articles.store');
+
+Route::get('/articles/{article}/edit','Article\ArticleController@edit')->name('articles.edit');
+Route::put('/articles/{article}','Article\ArticleController@update')->name('articles.update');
+
+
 Route::get('/articles/{article}', 'Article\ArticleController@show')->name('articles.show');
 Route::delete('/articles/{id}', 'Article\ArticleController@destroy')->name('articles.destroy');
 
@@ -70,17 +77,10 @@ Route::get('/profiles/{Profile}','Profile\ProfileController@showMyProfile')->nam
 Route::get('/profiles/{profile}/edit','Profile\ProfileController@edit')->name('profiles.edit');
 Route::put('/profiles/{profile}','Profile\ProfileController@update')->name('profiles.update');
 
-
 Route::get('/profile/complete','Complete\CompleteController@show')->name('profiles.create');
-
 Route::post('/profiles','Complete\CompleteController@store')->name('profiles.complete');
-// Route::post('/reveals','RevealTime\RevealTimeController@store');
-
-
-
 
 // Route::put('/profiles/{profile}',"function(){dd('pooop')}");
-
 
 Route::get('/doctors','Doctor\DoctorController@index');
 Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
@@ -89,9 +89,9 @@ Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 Route::get('/assistants','Assistant\AssistantController@index');
 Route::get('/assistants/create','Assistant\AssistantController@create');
 Route::post('/assistants','Assistant\AssistantController@store');
+Route::delete('/assistants/{assistant}','Assistant\AssistantController@delete');
 
 //create routes for and reveal time
-
 Route::get('/reveals','RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create','RevealTime\RevealTimeController@create')->name('reveal.create');
 Route::post('/reveals','RevealTime\RevealTimeController@store');

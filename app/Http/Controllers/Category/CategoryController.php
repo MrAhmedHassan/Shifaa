@@ -16,4 +16,12 @@ class CategoryController extends Controller
     //     dd($cat->diseases);
     //     dd($cat);
     // }
+
+    //   test category relation with disease
+    public function index(){
+        $cat = Category::find(1);
+        // dd($cat);
+        dd($cat->articles);
+        // dd($cat);
+    }
 }

@@ -52,16 +52,7 @@ class ProfileController extends Controller
             $myProfile -> abstract = request()->input('abstract');
             $myProfile -> address = request()->input('address');
             $myProfile -> price = request()->input('price');
-
-            // $user -> profile -> address = request()->input('address');
-
-            // $lala = Profile::where([
-            //     ['user_id', auth()->user()->id],
-            //     ['rateable_id', $request->id],
-            //     ['rateable_type', 'App\User']
-            // ])->first();
-
-
+            
             if(request()->has('avatar')) {
                 $avatarUploaded = \request()->file('avatar');
                 $avatarName = time() . '.' . $avatarUploaded->getClientOriginalExtension();
