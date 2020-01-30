@@ -1,12 +1,12 @@
 @extends('layouts.app')
-
 @section('content')
+
     {{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">--}}
     {{--    <link href="{{ asset('css/preview.css') }}" rel="stylesheet">--}}
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/profile.css') }}">
     {{--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
-    <div class="container main-secction">
+    <div class="container main-secction mt-4">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 image-section">
                 <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">

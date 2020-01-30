@@ -71,7 +71,7 @@
                             </li>
 
                             <li class="nav-item ml-4">
-                                <a class="nav-link" href="#">المقالات الطبية</a>
+                                <a class="nav-link" href="/articles">المقالات الطبية</a>
                             </li>
 
                             <li class="nav-item ml-4">
