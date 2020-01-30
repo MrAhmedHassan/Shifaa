@@ -1,5 +1,4 @@
 @extends('layouts.app')
-{{-- @include('layouts.side-bar') --}}
 @section('content')
 
     {{-- <div class='container d-flex flex-column justify-content-end'>

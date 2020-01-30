@@ -20,6 +20,8 @@ class CreateArticlesTable extends Migration
             $table->string('avatar');
             $table->unsignedBigInteger('user_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('category_id')->nullable()->on('categories')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
 

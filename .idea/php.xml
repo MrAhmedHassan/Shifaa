@@ -90,14 +90,10 @@
       <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter" />
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
+
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
->>>>>>> 312eed782da9d6325bf49cb4994880975472b62b
->>>>>>> 37ae648b5c38b8ad052d4d1ec41b72ea7082891f
+
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
