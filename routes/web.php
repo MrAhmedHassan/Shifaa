@@ -9,7 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 use App\Article;
 
 Route::get('/', function () {
@@ -81,11 +80,7 @@ Route::put('/profiles/{profile}','Profile\ProfileController@update')->name('prof
 Route::get('/profile/complete','Complete\CompleteController@show')->name('profiles.create');
 Route::post('/profiles','Complete\CompleteController@store')->name('profiles.complete');
 
-
-
-
 // Route::put('/profiles/{profile}',"function(){dd('pooop')}");
-
 
 Route::get('/doctors','Doctor\DoctorController@index');
 Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
@@ -97,7 +92,6 @@ Route::post('/assistants','Assistant\AssistantController@store');
 Route::delete('/assistants/{assistant}','Assistant\AssistantController@delete');
 
 //create routes for and reveal time
-
 Route::get('/reveals','RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create','RevealTime\RevealTimeController@create')->name('reveal.create');
 Route::post('/reveals','RevealTime\RevealTimeController@store');
