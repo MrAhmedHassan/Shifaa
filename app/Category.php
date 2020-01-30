@@ -19,4 +19,9 @@ class Category extends Model
     {
         return $this->hasMany('App\User');
     }
+
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
+    }
 }

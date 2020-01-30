@@ -10,7 +10,7 @@ class Reveal extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['day','time','limit','doctor_id'];
+    protected $fillable = ['date','from','to','limit','doctor_id'];
 
 
     public function doctor()

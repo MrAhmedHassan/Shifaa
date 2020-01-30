@@ -1,45 +1,33 @@
-
 @extends('/layouts/app')
+
 @section('content')
 
 
-
     <div class='container mt-5'>
-    <form method='post' action='/reveals/{{$reveal->id}}' enctype="multipart/form-data">
-            {{method_field('PUT')}}
+
+        <form method='post' action='/reveals' enctype="multipart/form-data">
             @csrf
-       
-
-          
-                <label for="exampleFormControlInput1" class='font-weight-bold'>day</label>
-
-               <select name="day">
-                   <option value="saturday">saturday</option>
-                   <option value="sunday">sunday</option>
-                   <option value="monday">monday</option>
-                   <option value="tuesday">tuesday</option>
-                   <option value="wednesday">wednesday</option>
-                   <option value="thursday">thursday</option>
-                   <option value="friday">friday</option>
-               </select>
-            </div>
-{{$reveal}}
             <div class="form-group">
-                <label for="exampleFormControlInput2" class='font-weight-bold'>from</label>
-                <input type="time" value={{$reveal->from}} name="from" class="form-control" id="exampleFormControlInput2" >
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlInput2" class='font-weight-bold'>to</label>
-                <input type="time" name="to" value={{$reveal->to}} class="form-control" id="exampleFormControlInput2" >
+                <label for="exampleFormControlInput1" class='font-weight-bold'>Name</label>
+                <input type="date" name="date" class="form-control" id="exampleFormControlInput1" required>
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlInput3" class='font-weight-bold'>limit</label>
-                <input type="number" name="limit" value={{$reveal->limit}} class="form-control" id="exampleFormControlInput3" required>
+                <label for="exampleFormControlInput2" class='font-weight-bold'>Password</label>
+                <input type="time" name="from" class="form-control" id="exampleFormControlInput2" required>
             </div>
 
+            <div class="form-group">
+                <label for="exampleFormControlInput2" class='font-weight-bold'>Password</label>
+                <input type="time" name="to" class="form-control" id="exampleFormControlInput2" required>
+            </div>
 
-            <input type="submit" value="create" class="btn btn-success">Create</input>
+            <div class="form-group">
+                <label for="exampleFormControlInput3" class='font-weight-bold'>Email</label>
+                <input type="number" name="limit" class="form-control" id="exampleFormControlInput3" required>
+            </div>
+
+            <button type="submit" class="btn btn-success">Create</button>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -52,8 +40,6 @@
             @endif
 
         </form>
-
     </div>
 
 @endsection
-

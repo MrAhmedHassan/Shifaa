@@ -12,50 +12,79 @@ class ArticleController extends Controller
 {
     use HasComments;
 
+    public function index(){
+        $articles = Article::all();
+         return view('/articles/index');
+
+     }
+
+     public function create(){
+        return view('/articles/create');
+    }
+
+     public function store(){
+
+        $profile = new Article;
+        $profile ->title = request()->input('title');
+        $profile ->description= request() ->input('description');
+        // $profile ->avatar= request()->input('avatar');
+
+        if(request()->has('avatar')) {
+            $avatarUploaded = request()->file('avatar');
+            $avatarName = time() . '.' . $avatarUploaded->getClientOriginalExtension();
+            $avatarPath = public_path('/image/avatar');
+            $avatarUploaded->move($avatarPath, $avatarName);
+            $profile->avatar = '/image/avatar/'.$avatarName;
+        }
+        
+        $profile ->user_id = auth()->user()->id;
+        $profile -> save() ;
+
+        dd('saved successfuly');
+        
+    }
+
+    public function edit($id){
+
+            $article = Article::find($id);
+            return view('articles/edit')->with(['article'=>$article]);
+
+    }
+
+    public function update($id){
+             $article = Article::find($id);
+             $article -> title = request()->input('title');
+             $article -> description = request()->input('description');
+            //  dd(request()->input('avatar'));
+
+             
+             if(request()->has('avatar')) {
+                 $avatarUploaded = request()->file('avatar');
+                 $avatarName = time() . '.' . $avatarUploaded->getClientOriginalExtension();
+                 $avatarPath = public_path('/image/avatar');
+                 $avatarUploaded->move($avatarPath, $avatarName);
+                 $article->avatar = '/image/avatar/'.$avatarName;
+             }
+             $article -> save();
+           
+             return view('/articles/index',['article'=>$article]);
+ 
+            }
+     
+
     public function show($id)
     {
-        $articles = Article::find($id);
-        // dd($articles);
-        // return view('/articles/index')->with('articles',$articles);
-       return view('/articles/index',['articles'=> $articles]);
+       $article = Article::find($id);
+       $comments = $article->comments; 
+       return view('/test2')->with(['article'=> $article,'comments'=>$comments]);
     }
+  
+    public function destroy($id){
+        $article = Article::find($id);
+        $article->delete();
+        return redirect('/articles/index');
+      }
 
-    public function indexarticle($id)
-    {
-        $art = Article::find($id);
-        dd($art->comments);
-    }
-
-    public function storearticle(){
-        Article::create([
-            'title'=>request()->title,
-            'description'=>request()->description,
-            'avatar'=>request()->avatar,
-            'user_id'=>auth()->user()->id,
-        ]);
-    }
-    
-
-    public function createcomment(){
-      $post = Article::find(1);
-      $comment = $post->comment('This is a comment from a user.');
-      return redirect('/comments');
-  }
-  public function indexcomment(){
-      $comments = Comment::all();
-      return view('/comments/index')->with('comments',$comments);
-  }
-  public function approvecomment($id){
-      $post = Comment::find($id);
-      $post->approve();
-      return redirect('/comments');
-  }
-  public function destroycomment($id){
-      $post = Comment::find($id);
-      $post->delete();
-      return redirect('/comments');
-    }
-   
-
-    
 }
+    
+

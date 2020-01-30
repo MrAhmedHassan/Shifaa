@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->belongsTo(Category::class);
     }
 
+    public function profile()
+    {
+        return $this->hasOne(Profile::class,'user_id');
+    }
+
 
     public function reveals()
     {
