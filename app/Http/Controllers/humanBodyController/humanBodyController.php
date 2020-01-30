@@ -10,13 +10,12 @@ class humanBodyController extends Controller
     public function index(){
       
         $humanbody = Body::all();
-        for ($i=0;$i<count($humanbody);$i++){
 
-       echo $humanbody[$i]['id'].$humanbody[$i]['title'].
-        $humanbody[$i]['description']."<img src=images/".$humanbody[$i]['image'].">"."<br>";
+return view('/human_body/index');
+
     }
       
-    }
+    
 
 
     public function show($id)
