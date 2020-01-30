@@ -105,6 +105,13 @@ Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name(
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
+ 
+// this route is only for test
+ Route::get('/tests','Personal\PersonalController@index');
+ Route::get('/tests/{test}','Personal\PersonalController@show');
+ Route::post('/tests/{test}','Personal\PersonalController@store');
+ 
+
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');

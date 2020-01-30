@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class='container d-flex flex-column justify-content-end'>
+    {{-- <div class='container d-flex flex-column justify-content-end'>
 
 
         <div class="card bg-light mb-3 mt-5 w-75">
@@ -17,5 +17,5 @@
         </div>
 
         <a href="/diseases" class="btn btn-primary btn-lg active w-25 py-2 my-3" style="margin-left: 25%" role="button" aria-pressed="true">Back to table</a>
-    {{-- <h4>{{$myposts->links()}}</h4> --}}
+    <h4>{{$myposts->links()}}</h4> --}}
 @endsection

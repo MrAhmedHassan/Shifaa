@@ -10,7 +10,8 @@ class BodyController extends Controller
     public function index(){
       
         $humanbody = Body::all();
-        dd($humanbody);
+        return view('human_body/index')->with('humanbody',$humanbody);
+        // dd($humanbody);
       
     }
 
@@ -18,7 +19,8 @@ class BodyController extends Controller
     public function show($id)
     {
         $humanbody = Body::find($id);
-        dd($humanbody);
+        return view('human_body/show')->with('humanbody',$humanbody);
+        // dd($humanbody);
         
     }
 }

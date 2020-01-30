@@ -85,7 +85,9 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
+                    {{-- Final Project --}}
                 </div>
+
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
@@ -99,5 +101,7 @@
                 </div>
             </div>
         </div>
+
+
     </body>
 </html>

@@ -16,7 +16,7 @@
 
                     You are logged in!
                 </div>
-                <a href="/diseases" class="card-link d-block">Diseases</a>
+                {{-- <a href="/home" class="card-link d-block">home</a> --}}
 
             </div>
         </div>
