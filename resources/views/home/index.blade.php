@@ -66,7 +66,8 @@
 
 <div class="top_rated_doctors container" >
 <div class="row">
-  <div class="col-md-3" >
+  <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content">أشهر الاطباء</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
+  <div class="col-md-3 " >
     <div class="item-doctor ">
       <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_4.PNG') }}" >
         <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column" >
@@ -126,9 +127,15 @@
         </div>
       </div>
 
+
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div  class="col-md-12 man_body d-flex flex-column justify-content-center align-items-center"><h2 class="mydiv_content">شخص نفسك</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
+  </div>
+</div>
 
 {{-- Third Section "body_hover" --}}
 <div class="body_hover" id="body_hover">
@@ -264,6 +271,12 @@
 
 
 {{-- Fourth Section "most_diseases" --}}
+<div class="container">
+  <div class="row">
+    <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> أمراض العصر</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
+  </div>
+</div>
+
 <div class="most_diseases container my-4" id="most_diseases">
 
   <!--Carousel Wrapper-->
@@ -386,7 +399,8 @@
 {{-- Fifth Section "questions" --}}
 <div class="questions container" id="questions">
   <div class="row">
-    
+    <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> اختبر نفسك</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
+
     {{-- style="width: 18rem;" --}}
     <div class="col-md-4 mb-3">
       <a href="#">
@@ -461,6 +475,8 @@
       </div>
       </a>
     </div>
+
+    <div  class="questions_box col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content">من نحن ؟</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
 
   </div>
 </div>
