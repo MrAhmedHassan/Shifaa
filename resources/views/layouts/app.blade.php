@@ -56,7 +56,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm fixed-top" style="background-color: rgb(52, 105, 123) !important">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-  
+
                     <h3>شفاء</h3>
 
                 </a>
@@ -99,11 +99,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('دخول') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل') }}</a>
                                 </li>
                             @endif
                         @else
@@ -120,7 +120,7 @@
                                     </a>
                                     <hr>
                                     <div id="div_user_profile" >
-                                    <a href="/profiles/{{Auth::user()->id}}" class="ml-3" id="user_profile">البروفايل</a>
+                                    <a href="/profiles" class="ml-3" id="user_profile">البروفايل</a>
                                     </div>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -129,7 +129,7 @@
                                 </div>
                             </li>
 
-                            <img class="rounded-circle" style="width: 15%" src="{{ asset('/eee.jpg') }}">
+                            <img class="rounded-circle" style="width: 15%" src="{{Auth::user()->avatar}}">
                         @endguest
                     </ul>
                 </div>

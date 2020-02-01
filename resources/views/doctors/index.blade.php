@@ -1,18 +1,21 @@
 @extends('layouts.app')
 @section('content')
-{{ asset('/imgs/docImage.jpg') }}
+{{--{{ asset('/imgs/docImage.jpg') }}--}}
 <div class="container ">
+
+
+    @foreach($doctors as $doctor)
     <div class="contentDoctor doctors ">
         <div class="row mt-5 p-3 bg-dark doc">
             <div class="col-md-2 tall">
-                <img class="docImage" src="{{ asset('/imgs/docImage.jpg') }}" alt="Doctor">
-                <div class="d-flex justify-content-center mt-3">
-                    <a href="" class="badge pl-4 pr-4 border border-warning advertise">إعلان</a>
-                </div>
+                <img class="docImage img-fluid" src="{{ asset($doctor->avatar) }}" alt="Doctor">
+{{--                <div class="d-flex justify-content-center mt-3">--}}
+{{--                    <a href="" class="badge pl-4 pr-4 border border-warning advertise">إعلان</a>--}}
+{{--                </div>--}}
             </div>
             <div class="col-md-5 tall">
-                <h4 class="text-primary">مركز شاينى وايت لزراعة و تجميل الاسنان د شادى على حسين</h4>
-                <p class="text-white">نخبة من افضل الاطباء المتخصصين فى طب وجراحة وتجميل الاسنان والحاصلين على الدكتوراه او الماجستير واعضاء بهيئة التدريس</p>
+               <a href="/profiles/{{$doctor->id}}"> <h4 class="text-primary">د/{{$doctor->name}}</h4></a>
+                <p class="text-white">دكتور {{$doctor->category->category}}</p>
                 <div class="d-flex justify-content-start stars">
                     <i class="fa fa-star fa-2x" id="fifthStar"></i>
                     <i class="fa fa-star fa-2x" id="fourthStar"></i>
@@ -20,18 +23,15 @@
                     <i class="fa fa-star fa-2x" id="secondStar"></i>
                     <i class="fa fa-star fa-2x" id="firstStar"></i>
                 </div>
-                <p class="d-flex justify-content-start text-white">التقييم العام من 195 زاروا الدكتور</p>
                 <i class="fa fa-stethoscope fa-2x d-flex justify-content-start mb-3 text-primary">
                     <span class="details mt-2 ml-3 text-white">
-                 دكتور اسنان متخصص في تقويم الأسنان، حشو وعلاج الجذور والأعصاب، تجميل أسنان، زراعة أسنان، جراحة وجه وفكين،أسنان أطفال، علاج اللثة، تركيبات أسنان، أسنان مسنين، أشعة أسنان، أسنان بالغين
+                          نبذة : {{$doctor->profile->abstract}}
                     </span>
                 </i>
                 <i class="fa fa-map-marker fa-2x d-flex justify-content-start mb-3 mr-2 text-primary">
-                    <span class="details mt-2 text-white">شارع التسعين الشمالى - مول سى ام سى الطبى - أعلى بنك سى اى بيه - الدور الأول</span>
+                    <span class="details mt-2 text-white">عنوان العيادة : {{$doctor->profile->address}}</span>
                 </i>
-                <i class="fa fa-money fa-2x d-flex justify-content-start mb-3 text-primary"><span class="details mt-2 mr-2 text-white">الكشف : 200 جنيه</span></i>  
-                <i class="fa fa-clock-o fa-2x d-flex justify-content-start mb-3 text-primary"><span class="details mt-2 mr-2 text-white">مدة الأنتظار : 22 دقيقة</span></i>
-                <i class="fa fa-mobile fa-2x d-flex justify-content-start mb-3 text-primary"><span class="details mt-2 mr-3 text-white">67661-سعر مكالمة عادية</span></i>
+                    <i class="fa fa-money fa-2x d-flex justify-content-start mb-3 text-primary"><span class="details mt-2 mr-2 text-white">سعر الكشف :{{$doctor->profile->price}} جنيه </span></i>
             </div>
             <div class="col-md-5 tall">
                 <div class="row editPartitionsOfPartThree">
@@ -72,6 +72,7 @@
             </div>
         </div>
     </div>
+        @endforeach
 </div>
 
 <script>

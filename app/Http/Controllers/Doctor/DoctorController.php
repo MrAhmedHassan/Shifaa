@@ -9,16 +9,16 @@ use Illuminate\Http\Request;
 class DoctorController extends Controller
 {
     public function index(){
-        // $doctors=[];
-        // $users = User::all();
-        // foreach ($users as $user){
-        //     if($user->hasRole('Doctor')){
-        //         $doctors[] = $user;
-        //     }
-        // }
-        // dd($doctors);
-        // return $doctors;
-        return view('doctors/index');
+         $doctors=[];
+         $users = User::all();
+         foreach ($users as $user){
+             if($user->hasRole('Doctor')){
+                 $doctors[] = $user;
+             }
+         }
+//         dd($doctors);
+//         return $doctors;
+        return view('doctors/index',['doctors'=>$doctors]);
     }
 
     public function show($doctor){
