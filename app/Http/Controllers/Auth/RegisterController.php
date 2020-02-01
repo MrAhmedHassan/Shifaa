@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:1', 'confirmed'],
             'avatar' => ['mimes:jpeg,jpg,png','max:2000'],
-            'certification' => ['required' , 'mimes:jpeg,jpg,png' , 'max:2000'],
+            'certification' => ['mimes:jpeg,jpg,png' , 'max:2000'],
             'role'=>['required'],
 
         ]);
@@ -73,6 +73,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $certificationName = 'default.jpg';
         if(request()->has('certification')) {
             $certificationUploaded = \request()->file('certification');
             $certificationName = time() . '.' . $certificationUploaded->getClientOriginalExtension();

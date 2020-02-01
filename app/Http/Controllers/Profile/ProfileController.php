@@ -61,7 +61,6 @@ class ProfileController extends Controller
                 $user -> avatar = '/image/avatar/'.$avatarName;
             }
             $user -> save();
-            // $user -> save();
             $myProfile -> save();
 
             return view('/profile/show',['user'=>$user]);

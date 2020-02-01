@@ -167,78 +167,79 @@
       <div class="box" id="box">
 
           <div id="hisEye" class="list-group">
-              <a href="#" class="list-group-item">جفاف العين و الفم</a>
-              <a href="#" class="list-group-item">أفرازات العين</a>
-              <a href="#" class="list-group-item">ألم العين</a>
+              <a href="/diseases/9" class="list-group-item">جفاف العين و الفم</a>
+              <a href="/diseases/10" class="list-group-item">أفرازات العين</a>
+              <a href="/diseases/11" class="list-group-item">ألم العين</a>
           </div>
 
           <div id="hisNose" class="list-group">
-              <a href="#" class="list-group-item">السعال و البرد</a>
-              <a href="#" class="list-group-item">جفاف الفم و العطش الزائد</a>
-              <a href="#" class="list-group-item">ألم الأذن عند الكبار</a>
-              <a href="#" class="list-group-item">السعال المزمن</a>
-              <a href="#" class="list-group-item">ألتهاب الحلق</a>
-              <a href="#" class="list-group-item">فقدان السمع المفاجئ</a>
-              <a href="#" class="list-group-item">صعوبة البلع</a>
-              <a href="#" class="list-group-item">طنين الأذن</a>
+              <a href="/diseases/12" class="list-group-item">السعال و البرد</a>
+              <a href="/diseases/13" class="list-group-item">جفاف الفم و العطش الزائد</a>
+              <a href="/diseases/14" class="list-group-item">ألم الأذن عند الكبار</a>
+              <a href="/diseases/15" class="list-group-item">السعال المزمن</a>
+              <a href="/diseases/16" class="list-group-item">ألتهاب الحلق</a>
+              <a href="/diseases/17" class="list-group-item">فقدان السمع المفاجئ</a>
+              <a href="/diseases/18" class="list-group-item">صعوبة البلع</a>
+              <a href="/diseases/19" class="list-group-item">طنين الأذن</a>
           </div>
 
           <div id="hisHead" class="list-group">
-              <a href="../myDevices/Pain.html" class="list-group-item">تساقط الشعر عند الرجال</a>
-              <a href="#" class="list-group-item">الصداع</a>
-              <a href="#" class="list-group-item">الدوار عند الوقوف</a>
-              <a href="#" class="list-group-item">ألم الرقبة</a>
-              <a href="#" class="list-group-item">فقدان الشم و التذوق</a>
-              <a href="#" class="list-group-item">تورم الغدد في الرقبة</a>
-              <a href="#" class="list-group-item">ألم الفك , اللثة أو الأسنان</a>
-              <a href="#" class="list-group-item">الأرق</a>
+              <a href="/diseases/1" class="list-group-item">تساقط الشعر عند الرجال</a>
+              <a href="/diseases/2" class="list-group-item">الصداع</a>
+              <a href="/diseases/3" class="list-group-item">الدوار عند الوقوف</a>
+              <a href="/diseases/4" class="list-group-item">ألم الرقبة</a>
+              <a href="/diseases/5" class="list-group-item">فقدان الشم و التذوق</a>
+              <a href="/diseases/6" class="list-group-item">تورم الغدد في الرقبة</a>
+              <a href="/diseases/7" class="list-group-item">ألم الفك , اللثة أو الأسنان</a>
+              <a href="/diseases/8" class="list-group-item">الأرق</a>
           </div>
 
           <div id="hisChest" class="list-group">
-              <a href="#" class="list-group-item">ألم الصدر</a>
-              <a href="#" class="list-group-item">خفقان القلب</a>
-              <a href="#" class="list-group-item">أسفل الظهر</a>
-              <a href="#" class="list-group-item">ضيق التنفس عند الكبار</a>
-              <a href="#" class="list-group-item">الصفير مع التنفس عند الكبار</a>
+              <a href="/diseases/20" class="list-group-item">ألم الصدر</a>
+              <a href="/diseases/21" class="list-group-item">خفقان القلب</a>
+              <a href="/diseases/22" class="list-group-item">أسفل الظهر</a>
+              <a href="/diseases/23" class="list-group-item">ضيق التنفس عند الكبار</a>
+              <a href="/diseases/24" class="list-group-item">الصفير مع التنفس عند الكبار</a>
           </div>
 
           <div id="hisArms" class="list-group">
-              <a href="#" class="list-group-item">ألم المرفق</a>
-              <a href="#" class="list-group-item">ألم اليد</a>
-              <a href="#" class="list-group-item">العامل الروماتويدي الأيجابي</a>
-              <a href="#" class="list-group-item">ألم الكتف</a>
-              <a href="#" class="list-group-item">ألم الرسخ</a>
+              <a href="/diseases/25" class="list-group-item">ألم المرفق</a>
+              <a href="/diseases/26" class="list-group-item">ألم اليد</a>
+              <a href="/diseases/27" class="list-group-item">مشاكل الأظافر</a>
+              <a href="/diseases/28" class="list-group-item">العامل الروماتويدي الأيجابي</a>
+              <a href="/diseases/29" class="list-group-item">ألم الكتف</a>
+              <a href="/diseases/30" class="list-group-item">ألم الرسغ</a>
           </div>
 
           <div id="hisBely" class="list-group">
-              <a href="#" class="list-group-item">علاج أرتداد حمض المعدة</a>
-              <a href="#" class="list-group-item">غازات الأمعاء</a>
-              <a href="#" class="list-group-item">الدم في البول عند الرجال</a>
-              <a href="#" class="list-group-item">فحص سرطان القولون</a>
-              <a href="#" class="list-group-item">الأمساك عند الكبار</a>
-              <a href="#" class="list-group-item">الأسهال</a>
-              <a href="#" class="list-group-item">صعوبة التبول</a>
-              <a href="#" class="list-group-item">ضعف العضلات</a>
-              <a href="#" class="list-group-item">ألم مفصل الحوض</a>
-              <a href="#" class="list-group-item">فقد السيطرة علي التبول عند الرجال</a>
-              <a href="#" class="list-group-item">ورم أو ألم ف كيس الخصيتين</a>
-              <a href="#" class="list-group-item">كثرة التبول أو التبول المؤلم عند الرجال</a>
-              <a href="#" class="list-group-item">ألم القضيب قروحه,أفرازاته أو أورامه</a>
-              <a href="#" class="list-group-item">نزيف المستقيم</a>
-              <a href="#" class="list-group-item">ألم المستقيم و الحكة</a>
-              <a href="#" class="list-group-item">ألم المتكرر في البطن</a>
-              <a href="#" class="list-group-item">ألم البطن الشديد حديث الظهور</a>
-              <a href="#" class="list-group-item">مستضد البروستاتا</a>
+              <a href="/diseases/31" class="list-group-item">علاج أرتداد حمض المعدة</a>
+              <a href="/diseases/32" class="list-group-item">غازات الأمعاء</a>
+              <a href="/diseases/33" class="list-group-item">الدم في البول عند الرجال</a>
+              <a href="/diseases/34" class="list-group-item">فحص سرطان القولون</a>
+              <a href="/diseases/35" class="list-group-item">الأمساك عند الكبار</a>
+              <a href="/diseases/36" class="list-group-item">الأسهال</a>
+              <a href="/diseases/37" class="list-group-item">صعوبة التبول</a>
+              <a href="/diseases/38" class="list-group-item">ضعف العضلات</a>
+              <a href="/diseases/39" class="list-group-item">ألم مفصل الحوض</a>
+              <a href="/diseases/40" class="list-group-item">فقد السيطرة علي التبول عند الرجال</a>
+              <a href="/diseases/41" class="list-group-item">ورم أو ألم ف كيس الخصيتين</a>
+              <a href="/diseases/42" class="list-group-item">كثرة التبول أو التبول المؤلم عند الرجال</a>
+              <a href="/diseases/43" class="list-group-item">ألم القضيب قروحه,أفرازاته أو أورامه</a>
+              <a href="/diseases/44" class="list-group-item">نزيف المستقيم</a>
+              <a href="/diseases/45" class="list-group-item">ألم المستقيم و الحكة</a>
+              <a href="/diseases/46" class="list-group-item">ألم المتكرر في البطن</a>
+              <a href="/diseases/47" class="list-group-item">ألم البطن الشديد حديث الظهور</a>
+              <a href="/diseases/48" class="list-group-item">مستضد البروستاتا</a>
           </div>
 
           <div id="hisLegs" class="list-group">
-              <a href="#" class="list-group-item">ألم القدم</a>
-              <a href="#" class="list-group-item">النقرس</a>
-              <a href="#" class="list-group-item">ألم الركبة</a>
-              <a href="#" class="list-group-item">تورم القدم الحاد</a>
-              <a href="#" class="list-group-item">الألتهاب العظمي المفصلي للركبة</a>
-              <a href="#" class="list-group-item">تورم الركبة المزمن</a>
-              <a href="#" class="list-group-item">ألم الكاحل</a>
+              <a href="/diseases/49" class="list-group-item">ألم القدم</a>
+              <a href="/diseases/50" class="list-group-item">النقرس</a>
+              <a href="/diseases/51" class="list-group-item">ألم الركبة</a>
+              <a href="/diseases/52" class="list-group-item">تورم القدم الحاد</a>
+              <a href="/diseases/53" class="list-group-item">الألتهاب العظمي المفصلي للركبة</a>
+              <a href="/diseases/54" class="list-group-item">تورم الركبة المزمن</a>
+              <a href="/diseases/55" class="list-group-item">ألم الكاحل</a>
           </div>
       </div>
   </div>
@@ -246,7 +247,7 @@
       <div id="figura">
           <img style="opacity: .4;" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
           <map name="recortes">
-              <area id="eye" shape="poly" coords="128,37,190,37,190,45,128,45" href="" alt="eye" title="العين">
+              <area id="eye" shape="poly" coords="128,37,190,37,190,45,128,45" href="#" alt="eye" title="العين">
               <area id="nose" shape="poly" coords="131,45,156,45,156,55,165,55,165,45,188,45,188,60,183,60,165,80,165,89,156,89,156,80,136,60,131,60" href="" alt="nose" title="أنف,أذن,حنجرة">
               <area id="head" shape="poly" coords="123,4,123,90,190,90,190,4" href="" alt="head" title="الرأس,العنق">
               <area id="chest" shape="poly" coords="104,93,107,151,133,151,158,140,179,151,210,151,213,93,179,86,159,90,141,86" href="" title="الصدر">
