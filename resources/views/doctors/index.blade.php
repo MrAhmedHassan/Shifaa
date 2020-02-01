@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-{{ asset('/imgs/docImage.jpg') }}
+
 <div class="container ">
     <div class="contentDoctor doctors ">
         <div class="row mt-5 p-3 bg-dark doc">
@@ -33,43 +33,56 @@
                 <i class="fa fa-clock-o fa-2x d-flex justify-content-start mb-3 text-primary"><span class="details mt-2 mr-2 text-white">مدة الأنتظار : 22 دقيقة</span></i>
                 <i class="fa fa-mobile fa-2x d-flex justify-content-start mb-3 text-primary"><span class="details mt-2 mr-3 text-white">67661-سعر مكالمة عادية</span></i>
             </div>
-            <div class="col-md-5 tall">
-                <div class="row editPartitionsOfPartThree">
-                    <div class="col-md-3 tall editPartitionsOfPartThree">
-                        <h4 class="text-center pt-3 pb-3 rounded bg-primary text-white">الأيام</h4>
-                        <div class="text-center text-primary border border-warning rounded">
-                            <p class="mt-4">السبت</p>
-                            <p class="mt-4">الأحد</p>
-                            <p class="mt-4">الأثنين</p>
-                            <p class="mt-4">الثلاثاء</p>
-                            <p class="mt-4">الأربعاء</p>
-                            <p class="mt-4">الخميس</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 tall editPartitionsOfPartThree">
-                        <h4 class="text-center pt-3 pb-3 rounded bg-primary text-white">من / إلي</h4>
-                        <div class="text-center text-primary border border-warning rounded">
-                            <p class="mt-4">5:00pm / 1:00pm</p>
-                            <p class="mt-4">5:00pm / 1:00pm</p>
-                            <p class="mt-4">5:00pm / 1:00pm</p>
-                            <p class="mt-4">5:00pm / 1:00pm</p>
-                            <p class="mt-4">5:00pm / 1:00pm</p>
-                            <p class="mt-4">5:00pm / 1:00pm</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 tall editPartitionsOfPartThree">
-                        <h4 class="text-center pt-3 pb-3 rounded bg-primary text-white">أحجز</h4>
-                        <div class="text-center border border-warning pt-2 pb-2 rounded">
-                            <button class="btn btn-danger mb-2 mt-2">أحجز</button>
-                            <button class="btn btn-danger mb-2">أحجز</button>
-                            <button class="btn btn-danger mb-2">أحجز</button>
-                            <button class="btn btn-danger mb-2">أحجز</button>
-                            <button class="btn btn-danger mb-2">أحجز</button>
-                            <button class="btn btn-danger mb-2">أحجز</button>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="col-md-5">
+                <table class="table table-striped table-dark text-center border border-warning">
+                    <thead class="bg-primary">
+                      <tr style="font-size: 20px; color:#ffd7db">
+                        <th scope="col">الأيام</th>
+                        <th scope="col">من / إلي</th>
+                        <th scope="col">الحجز</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-primary">
+                        <td><p style="font-size: 20px">السبت</p></td>
+                        <td><p style="font-size: 20px">5:00pm / 1:00pm</p></td>
+                        <td><button type="button" class="btn btn-success">احجز</button></td>
+                      </tr>
+                      <tr class="text-primary">
+                        <td><p style="font-size: 20px">الاحد</p></td>
+                        <td><p style="font-size: 20px">5:00pm / 1:00pm</p></td>
+                        <td><button type="button" class="btn btn-success">احجز</button></td>
+                      </tr>
+                      <tr class="text-primary">
+                        <td><p style="font-size: 20px">الاثنين</p></td>
+                        <td ><p style="font-size: 20px">5:00pm / 1:00pm</p></td>
+                        <td><button type="button" class="btn btn-success">احجز</button></td>
+                      </tr>
+                      <tr class="text-primary">
+                        <td><p style="font-size: 20px">الثلاثاء</p></td>
+                        <td ><p style="font-size: 20px">5:00pm / 1:00pm</p></td>
+                        <td><button type="button" class="btn btn-success">احجز</button></td>
+                      </tr>
+                      <tr class="text-primary">
+                        <td><p style="font-size: 20px">الاربعاء</p></td>
+                        <td ><p style="font-size: 20px">5:00pm / 1:00pm</p></td>
+                        <td><button type="button" class="btn btn-success">احجز</button></td>
+                      </tr>
+                      <tr class="text-primary">
+                        <td><p style="font-size: 20px">الخميس</p></td>
+                        <td ><p style="font-size: 20px">5:00pm / 1:00pm</p></td>
+                        <td><button type="button" class="btn btn-success">احجز</button></td>
+                      </tr>
+                      <tr class="text-primary">
+                        <td><p style="font-size: 20px">الجمعة</p></td>
+                        <td ><p style="font-size: 20px">5:00pm / 1:00pm</p></td>
+                        <td><button type="button" class="btn btn-success">احجز</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
+
         </div>
     </div>
 </div>

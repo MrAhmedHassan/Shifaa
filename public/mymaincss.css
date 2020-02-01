@@ -14,6 +14,27 @@ p
     font-family: 'Amiri', serif;
 }
 
+.mydiv_content
+{
+    color:rgb(8, 142, 255) ;
+    font-family: 'Cairo', sans-serif;
+
+}
+
+.myline_small
+{
+    border: 1px solid #5d5b6d;
+    width: 10%;
+    margin: 7px ;
+}
+
+.myline_big
+{
+    border: 1px solid #5d5b6d;
+    width: 20%;
+    margin: 0 ;
+}
+
 .my_main_navbar li a
 {
     color:white !important;
@@ -25,11 +46,19 @@ p
     font-weight: 700 !important;
 }
 
+/* 
 .my_main_navbar li a:hover
 {
-    color:rgb(224, 8, 8) !important;
+    color:rgb(224, 8, 8) !important; */
     /* background-color:darkslategray  ; */
     /* border-radius: 15%; */
+/* } */
+
+
+.my_main_navbar .nav-item-div .nav-item:hover a,.my_main_navbar .nav-item-div .nav-item:hover i
+{
+    color: #56a7fd !important;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -528,13 +557,21 @@ p
 
 .body_hover
 {
-    height: 900px;
+    height: 700px;
+    margin-top: 100px;
+}
+
+.man_body 
+{
+    margin-top: 80px ;
+}
+
+.questions_box
+{
+    margin-top: 100px;
 }
 
 /* 
-body {
-    padding: 0;
-    margin: 0;
     background: radial-gradient(ellipse at center,#bfdfe1 0%,#97c6c6 81%);
 } */
 svg, defs, clipPath {
@@ -591,16 +628,22 @@ svg, defs, clipPath {
 .body_hover .box {
     position: relative;
     width: 100%;
-    height: 882px;
+    height: 535px;
     overflow: hidden;
 }
 
 .body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs {
     position: absolute;
     top: 0px;
-    left: 450px;
+    /* left: 450px;  */
     opacity: 0;
     transition-duration: 1s;
+}
+
+.body_hover #hisBely 
+{
+    overflow: auto;
+    height: 535px;
 }
 
 .body_hover a:hover {
@@ -610,10 +653,37 @@ svg, defs, clipPath {
 }
 
 
+@media only screen and (max-width: 991px)
+{
+.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs 
+{
+    position: absolute; 
+    left: 10px !important;
+}
+}
+
+@media only screen and (max-width: 767px)
+{
+.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs 
+{
+    position: absolute; 
+    right: 30% ;
+    top: 10px;
+}
+}
+
+@media only screen and (max-width: 575px)
+{
+.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs 
+{
+    width: 70%;
+}
+}
+
  /* Fourth Section "most_diseases"  */
 .most_diseases
 {
-    margin-bottom: 250px !important;
+    margin-bottom: 150px !important;
 }
 
 
@@ -662,7 +732,7 @@ svg, defs, clipPath {
 .about_us
 {
     /* height: 550px; */
-    margin-top: 200px;
+    margin-top: 50px;
     background-image: url("./imgs/about_us1.jpg") ;
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -731,7 +801,7 @@ cursor: pointer;
 @media only screen and (max-width: 555px) 
 {
     .about_us .carousel-caption h4
-    {
+    {   
         font-size: 14px;
     }
 
@@ -910,9 +980,20 @@ margin-top: 20px ;
     background:radial-gradient(ellipse at center,#bfdfe1 0%,#97c6c6 81%);
 }
 
-
+@media only screen and (max-width: 767px) 
+{
+    .top_rated_doctors
+    {
+        margin-bottom: 400px;
+    }
+}
 
 /* "doctors" */
+
+.doctors
+{
+    margin-top: 80px !important;
+}
 
 .doctors .tall {
     font-family: 'Tajawal', sans-serif;
@@ -951,17 +1032,8 @@ body {
     padding-top: 6%;
 }
 
-@media only screen and (max-width: 991px) and (min-width: 767px)
-{
-    /* .doctors
-    {
-        ;
-    } */
-}
-
 
 /* human_body  show */
-
 
 .human_body_show .brainImag
 {
@@ -1015,5 +1087,6 @@ body {
 .pain .arrow:hover {
     color: darkblue;
 }
+
 
 
