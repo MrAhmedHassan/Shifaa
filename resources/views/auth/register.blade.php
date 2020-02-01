@@ -93,7 +93,7 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Doctor'sCertificate</label>
                             <div class="col-md-6">
-                                <input type="file" id="certification" class="form-control @error('certification') is-invalid @enderror" name="certification"><br>
+                                <input type="file" id="certification"  class="form-control @error('certification') is-invalid @enderror" name="certification"><br>
                                 @error('certification')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

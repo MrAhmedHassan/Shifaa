@@ -10,7 +10,7 @@
 //echo $results;
 for($i=0;$i<count($results);$i++)
 {
-$range=range($results[$i]->from,$results[$i]->to);
+$range=range($results[$i]->fromm,$results[$i]->too);
 if(in_array($sum,$range))
 {
 echo $results[$i]->result;

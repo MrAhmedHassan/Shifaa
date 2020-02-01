@@ -16,18 +16,24 @@ class ProfileController extends Controller
     //     dd($prof->user);
     // }
 
-    public function showMyProfile(){
+    public function showMyProfile()
+    {
        $user = User::find(auth()->user()->id);
-       return view('profile/show',['user'=>$user]);
+       if($user->hasRole('Doctor'))
+       {
+           return view('profile/doctor/show',['user'=>$user]);
+       }else if($user->hasRole('Patient'))
+       {
+           return view('profile/patient/show',['user'=>$user]);
+       }
     }
 
     public function showAnotherProfile($profile){
         $user = User::find($profile);
-        if(!$user->hasRole('Admin')){
-            return view('test',['user'=>$user]);
-            dd($user);
-        }else{
-            dd('Sorry You Can see the Admin Profile');
+        if($user->hasRole('Admin')){
+            dd('funk');
+        }else if($user->hasRole('Doctor')){
+            return view('profile/doctor/show',['user'=>$user]);
         }
     }
 
@@ -40,19 +46,20 @@ class ProfileController extends Controller
             dd('Sorry,You Can\'t edit');
         }
     }
+
     public function update($profile){
        if(auth()->user()->id == $profile){
             $user = User::find($profile);
-            $mypro = $user->profile->id; 
-            $myProfile = Profile::find($mypro);
+//            $mypro = $user->profile->id;
+//            $myProfile = Profile::find($mypro);
             // dd($myProfile);
 // dd(request()->input('address'));
             $user -> name = request()->input('name');
             $user -> email = request()->input('email');
-            $myProfile -> abstract = request()->input('abstract');
-            $myProfile -> address = request()->input('address');
-            $myProfile -> price = request()->input('price');
-            
+//            $myProfile ->abstract = request()->input('abstract');
+//            $myProfile -> address = request()->input('address');
+//            $myProfile -> price = request()->input('price');
+
             if(request()->has('avatar')) {
                 $avatarUploaded = \request()->file('avatar');
                 $avatarName = time() . '.' . $avatarUploaded->getClientOriginalExtension();
@@ -61,7 +68,7 @@ class ProfileController extends Controller
                 $user -> avatar = '/image/avatar/'.$avatarName;
             }
             $user -> save();
-            $myProfile -> save();
+            // $myProfile -> save();
 
             return view('/profile/show',['user'=>$user]);
 

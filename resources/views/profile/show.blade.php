@@ -29,13 +29,13 @@
                             <div class="col-md-12 col-sm-12 user-detail-section2 pull-right">
                                 <div class="border"></div>
                                 <p>عدد المقالات</p>
-                                <span>147</span>
+                                <span>{{count($user->articles)}}</span>
                             </div>
                         </div>
                         <div class="col-md-12 user-detail-section2">
                             <div class="border"></div>
-                            <p>عدد الحجوزات</p>
-                            <span>56 <small>and 42 review</small></span>
+                            <p>عدد الكشوفات</p>
+                            <span>{{count($user->doctorReservations)}}</span>
                         </div>
                     </div>
                 </div>
@@ -46,13 +46,17 @@
                                 <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
                                 {{$user->name}}
                                 <p> طبيب {{$user->category->category}}</p>
-                                <p></p>
+                                    <h5>نبذة عننا</h5>
+                                    <p class="fontOfHabd">{{$user->profile->abstract}}</p>
 
                                 </div>
                                 <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right d-flex">
-                                    <a href="/profiles/{{$user->id}}/edit" class="btn btn-info btn-sm ml-2 h-50">تعديل الملف الشخصي</a>
-                                    <a href="/profile/complete" class="btn btn-info btn-sm ml-2 h-50">أكمل الملف الشخصي</a>
-
+                                    @if(auth()->user()->id == $user->id)
+                                    <a href="/profiles/{{$user->id}}/edit" class="btn btn-info btn-sm ml-2 h-25">تعديل الملف الشخصي</a>
+                                    @endif
+                                    @if(auth()->user()->id == $user->id && auth()->user()->hasRole('Doctor'))
+                                    <a href="/profile/complete" class="btn btn-info btn-sm ml-2 h-25">أكمل الملف الشخصي</a>
+                                    @endif
                                     <!-- <form method='post' action='/profiles/complete' enctype="multipart/form-data">
                                     @csrf
                                     <button class="btn btn-info btn-sm ml-2 h-50">أكمل الملف الشخصي</button>
@@ -61,48 +65,41 @@
                                 </div>
                             </div>
                         </div>
+                        @if($user->hasRole('Doctor'))
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-8  profile-tag-section text-center">
                                     <div class="row">
-                                        <div class="col-md-3 col-sm-3 profile-tag">
-                                            <a href="#"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></a>
-                                            <p>معلومات</p>
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 profile-tag">
-                                            <a href="#"><i class="fa fa-address-book" aria-hidden="true"></i></a>
-                                            <p>مقالات</p>
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 profile-tag">
-                                            <a href="#"><i class="fa fa-id-card-o" aria-hidden="true"></i></a>
-                                            <p>حجوزات</p>
-                                        </div>
-                                       
+{{--                                        <div class="col-md-3 col-sm-3 profile-tag">--}}
+{{--                                            <a href="#"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></a>--}}
+{{--                                            <p>معلومات</p>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-3 col-sm-3 profile-tag">--}}
+{{--                                            <a href="#"><i class="fa fa-address-book" aria-hidden="true"></i></a>--}}
+{{--                                            <p>مقالات</p>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-3 col-sm-3 profile-tag">--}}
+{{--                                            <a href="#"><i class="fa fa-id-card-o" aria-hidden="true"></i></a>--}}
+{{--                                            <p>حجوزات</p>--}}
+{{--                                        </div>--}}
+
                                     </div>
                                 </div>
                                 <div class="col-md-4 img-main-rightPart">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="row image-right-part">
-                                                <div class="col-md-6 pull-left image-right-detail">
-                                                    <p>TODAYHIGHLIGHT</p>
-                                                </div>
-                                                <div class="col-md-6 pull-right image-right-detail text-right">
-                                                    <span><a href="http://nicesnippets.com">more</a></span>
-                                                </div>
-                                            </div>
+                                        <div class="col-md-12 text-center border border-primary rounded bg-primary">
+                                            <h3 class="text-white">سعر الكشف</h3>
+                                            <label>{{$user->profile->price}} جنيه</label>
+                                            <h3 class="text-white">عنوان العيادة</h3>
+                                            <label>{{$user->profile->address}}</label>
                                         </div>
-                                        <div  class="col-md-12 image-right">
-                                            <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">
-                                        </div>
-                                        <div class="col-md-12 image-right-detail-section2">
-                                            <p>Urban planning consulation</p>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisibj.</span>
-                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+                            @endif
                     </div>
                 </div>
             </div>

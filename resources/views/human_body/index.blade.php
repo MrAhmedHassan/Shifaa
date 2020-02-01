@@ -21,17 +21,71 @@
     </div>
     <div class="container d-flex justify-content-center">
         <map name="Devices">
-            <area shape="circle" coords="452,44,42" href="nerve.html" alt="Nerve" />
-            <area shape="circle" coords="485,169,42" href="" alt="Nerve" />
-            <area shape="circle" coords="518,293,42" href="" alt="Nerve" />
-            <area shape="circle" coords="544,425,42" href="" alt="Nerve" />
-            <area shape="circle" coords="530,557,42" href="" alt="Nerve" />
-            <area shape="circle" coords="469,686,42" href="" alt="Nerve" />
-            <area shape="circle" coords="161,101,42" href="" alt="Nerve" />
-            <area shape="circle" coords="78,232,42" href="" alt="Nerve" />
-            <area shape="circle" coords="42,374,42" href="" alt="Nerve" />
-            <area shape="circle" coords="47,524,42" href="" alt="Nerve" />
-            <area shape="circle" coords="94,672,42" href="" alt="Nerve" />
+     
+     @foreach($humanbody as $humanbod)
+     
+     
+         
+         @php
+         if($humanbod->title=="الجهاز العصبى")
+         {
+            echo "<area shape='circle' coords='452,44,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+         }elseif($humanbod->title=="الجهاز المناعى"){
+
+            echo "<area shape='circle'coords='485,169,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+         }elseif($humanbod->title=="الجهاز الهضمى"){
+
+            echo "<area shape='circle'coords='518,293,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+              }
+              elseif($humanbod->title=="الجهاز اللمفاوى"){
+
+echo "<area shape='circle'coords='544,425,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+  }
+  elseif($humanbod->title=="الغدد الصماء"){
+
+echo "<area shape='circle'coords='530,557,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+  } elseif($humanbod->title=="الجهاز اللحافى"){
+
+echo "<area shape='circle'coords='469,686,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+  }elseif($humanbod->title=="جهاز الدوران"){
+
+echo "<area shape='circle'coords='161,101,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+  }
+  elseif($humanbod->title=="الجهاز التنفسى"){
+
+echo "<area shape='circle'coords='78,232,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+  }elseif($humanbod->title=="الجهاز البولى"){
+
+echo "<area shape='circle'coords='42,374,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+  }
+  elseif($humanbod->title=="الجهاز التناسلى"){
+
+echo "<area shape='circle'coords='47,524,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+  }elseif($humanbod->title=="الجهاز الهيكلى والعظمى"){
+
+echo "<area shape='circle'coords='94,672,42' href='/bodies/{$humanbod->id}' alt='Nerve' />";
+
+  }
+         @endphp
+        
+    
+     @endforeach
+
+            <!--area shape="circle" coords="452,44,42" href="/bodies/{body}" alt="Nerve" /-->
+            
+            
+            
+            
+         
         </map>
         <img src="{{ asset('/imgs/body2.png') }}" alt="Body" usemap="#Devices" />
     </div>
