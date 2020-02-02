@@ -30,7 +30,7 @@ class AssistantController extends Controller
     }
 
     public function create(){
-        return view('test');
+        return view('dashboard.assistants.create');
     }
 
     public function store(Request $request){

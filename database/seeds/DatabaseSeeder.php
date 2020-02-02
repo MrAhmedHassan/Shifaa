@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         //     $this->call(testSeeder::class);
         // $this->call(resultSeeder::class);
         // $this->call(questionSeeder::class);
-        $this->call(testSeeder::class);
-        $this->call(questionSeeder::class);
-        $this->call(answerSeeder::class);
-
-        $this->call(resultSeeder::class);
+//        $this->call(testSeeder::class);
+//        $this->call(questionSeeder::class);
+//        $this->call(answerSeeder::class);
+//
+//        $this->call(resultSeeder::class);
     }
 }

@@ -48,7 +48,6 @@
                                 <p> طبيب {{$user->category->category}}</p>
                                 <h5>نبذة عننا</h5>
                                 <p class="fontOfHabd">{{$user->profile->abstract}}</p>
-
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right d-flex">
                                 @if(auth()->user()->id == $user->id)
@@ -57,31 +56,11 @@
                                 @if(auth()->user()->id == $user->id)
                                 <a href="/profile/complete" class="btn btn-info btn-sm ml-2 h-25">أكمل الملف الشخصي</a>
                                 @endif
-                                @csrf
-
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-8  profile-tag-section text-center">
-                                <div class="row">
-                                    {{-- <div class="col-md-3 col-sm-3 profile-tag">--}}
-                                    {{-- <a href="#"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></a>--}}
-                                    {{-- <p>معلومات</p>--}}
-                                    {{-- </div>--}}
-                                    {{-- <div class="col-md-3 col-sm-3 profile-tag">--}}
-                                    {{-- <a href="#"><i class="fa fa-address-book" aria-hidden="true"></i></a>--}}
-                                    {{-- <p>مقالات</p>--}}
-                                    {{-- </div>--}}
-                                    {{-- <div class="col-md-3 col-sm-3 profile-tag">--}}
-                                    {{-- <a href="#"><i class="fa fa-id-card-o" aria-hidden="true"></i></a>--}}
-                                    {{-- <p>حجوزات</p>--}}
-                                    {{-- </div>--}}
-
-                                </div>
-                            </div>
                             <div class="col-md-4 img-main-rightPart">
                                 <div class="row">
                                     <div class="col-md-12 text-center border border-primary rounded bg-primary">
@@ -90,8 +69,6 @@
                                         <h3 class="text-white">عنوان العيادة</h3>
                                         <label>{{$user->profile->address}}</label>
                                     </div>
-
-
                                 </div>
                             </div>
                             <table class="table table-striped table-dark text-center border border-warning">
@@ -103,69 +80,60 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $reveals = $user->reveals;
+                                @endphp
+                                @if(count($reveals) < 1)
                                     <tr class="text-primary">
                                         <td>
-                                            <p style="font-size: 20px">السبت</p>
-                                        </td>
+                                            <p style="font-size: 20px">لم يحدد</p>
                                         <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
+                                            <p style="font-size: 20px">لم يحدد</p>
                                         </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
+                                        <td>غيرمتاح</td>
                                     </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الاحد</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الاثنين</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الثلاثاء</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الاربعاء</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الخميس</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الجمعة</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
+                                @elseif(count($reveals) <= 3)
+                                    @foreach($reveals as $reveal)
+                                        <tr class="text-primary">
+                                            <td>
+                                            {{--                                <p style="font-size: 20px">السبت</p>--}}
+                                            {{ \Carbon\Carbon::parse($reveal->date)->format('D')}}
+                                            {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                            <td>
+                                                <p style="font-size: 20px">     {{$reveal->from}}
+                                                    /       {{$reveal->to}} </p>
+                                            </td>
+                                            <td>  <form method="post" action="/reservations/{{$reveal->id}}/{{$user->id}}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-success">احجز</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                @else
+
+                                    @for($i=0 ; $i<3 ;$i++)
+                                        <tr class="text-primary">
+                                            <td>
+                                            {{--                                <p style="font-size: 20px">السبت</p>--}}
+                                            {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('D')}}
+                                            {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                            <td>
+                                                <p style="font-size: 20px">     {{$reveals[$i]->from}}
+                                                    /       {{$reveals[$i]->to}} </p>
+                                            </td>
+                                            <td>
+                                                <form method='post' action="/reservations/{{$reveals[$i]->id}}/{{$user->id}}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-success">احجز</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endfor
+
+                                @endif
+
                                 </tbody>
                             </table>
                         </div>

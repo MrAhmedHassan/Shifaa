@@ -120,5 +120,5 @@ Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDe
 
 
 Route::get('/dash',function(){
-   return view('dashboard.index');
+   return view('dashboard.test');
 });

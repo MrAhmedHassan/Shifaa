@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Reservation;
 
 use App\Http\Controllers\Controller;
+use App\Reservation;
+use App\Reveal;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -43,7 +45,7 @@ class ReservationController extends Controller
                             'reveal_id'=>$reveal,
                             'doctor_id'=>$doctor
                         ]);
-                        return dd('done');
+                        return view('home.index');
                     }else{
                         return dd('this day is completed');
                     }

@@ -10,7 +10,7 @@ class DoctorController extends Controller
 {
     public function index(){
          $doctors=[];
-         $users = User::all();
+         $users = User::with('reveals')->paginate(2);
          foreach ($users as $user){
              if($user->hasRole('Doctor')){
                  $doctors[] = $user;

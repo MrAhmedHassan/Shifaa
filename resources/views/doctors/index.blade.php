@@ -45,69 +45,62 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                    @php
+                        $reveals = $doctor->reveals;
+                    @endphp
+                    @if(count($reveals) < 1)
                         <tr class="text-primary">
                             <td>
-                                <p style="font-size: 20px">السبت</p>
-                            </td>
+                                <p style="font-size: 20px">لم يحدد</p>
                             <td>
-                                <p style="font-size: 20px">5:00pm / 1:00pm</p>
+                                <p style="font-size: 20px">لم يحدد</p>
                             </td>
-                            <td><button type="button" class="btn btn-success">احجز</button></td>
+                            <td>غيرمتاح</td>
                         </tr>
-                        <tr class="text-primary">
-                            <td>
-                                <p style="font-size: 20px">الاحد</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                            </td>
-                            <td><button type="button" class="btn btn-success">احجز</button></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>
-                                <p style="font-size: 20px">الاثنين</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                            </td>
-                            <td><button type="button" class="btn btn-success">احجز</button></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>
-                                <p style="font-size: 20px">الثلاثاء</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                            </td>
-                            <td><button type="button" class="btn btn-success">احجز</button></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>
-                                <p style="font-size: 20px">الاربعاء</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                            </td>
-                            <td><button type="button" class="btn btn-success">احجز</button></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>
-                                <p style="font-size: 20px">الخميس</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                            </td>
-                            <td><button type="button" class="btn btn-success">احجز</button></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>
-                                <p style="font-size: 20px">الجمعة</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                            </td>
-                            <td><button type="button" class="btn btn-success">احجز</button></td>
-                        </tr>
+                        @elseif(count($reveals) <= 3)
+
+                        @foreach($reveals as $reveal)
+                            <tr class="text-primary">
+                                <td>
+                                {{--                                <p style="font-size: 20px">السبت</p>--}}
+                                {{ \Carbon\Carbon::parse($reveal->date)->format('D')}}
+                                {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                <td>
+                                    <p style="font-size: 20px">     {{$reveal->from}}
+                                        /       {{$reveal->to}} </p>
+                                </td>
+                                <td>  <form method="post" action="/reservations/{{$reveal->id}}/{{$doctor->id}}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">احجز</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                        @else
+
+                        @for($i=0 ; $i<3 ;$i++)
+                            <tr class="text-primary">
+                                <td>
+                                {{--                                <p style="font-size: 20px">السبت</p>--}}
+                                {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('D')}}
+                                {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                <td>
+                                    <p style="font-size: 20px">     {{$reveals[$i]->from}}
+                                        /       {{$reveals[$i]->to}} </p>
+                                </td>
+                                <td>
+                                    <form method='post' action="/reservations/{{$reveals[$i]->id}}/{{$doctor->id}}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">احجز</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endfor
+
+                        @endif
+
                     </tbody>
                 </table>
             </div>

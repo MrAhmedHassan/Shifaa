@@ -40,8 +40,7 @@ class ProfileController extends Controller
     public function edit($profile){
         if(auth()->user()->id == $profile){
             $user = User::find($profile);
-            return view('profile/edit',['user'=>$user]);
-            dd($user);
+            return view('profile.edit',['user'=>$user]);
         }else{
             dd('Sorry,You Can\'t edit');
         }
@@ -68,11 +67,11 @@ class ProfileController extends Controller
                 $user -> avatar = '/image/avatar/'.$avatarName;
             }
             $user -> save();
-            // $user -> save();
-//            $myProfile -> save();
-
-            return view('/profile/show',['user'=>$user]);
-
+        if($user->hasRole('Doctor')){
+            return view('profile.doctor.show',['user'=>$user]);
+        }else if($user->hasRole('Patient')){
+            return view('profile.patient.show',['user'=>$user]);
+        }
        }else{
             dd('Sorry, Your can\'t update');
        }
