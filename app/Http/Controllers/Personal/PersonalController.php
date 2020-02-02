@@ -18,17 +18,17 @@ class PersonalController extends Controller
 
         return view('gemytest2/showtest',compact('tests'));
 
-      
+
     }
     public function show($id)
 
     {
         $test = Test::find($id);
-       
-       
+
+
         return view('gemytest2/gemytest2',compact('test'));
 
-        
+
        // return view('gemytest2/gemytest',compact('results'));
     }
 
@@ -39,59 +39,67 @@ class PersonalController extends Controller
 
         return view('gemytest2/gemytest2',compact('questions'));
 
-      
-    } 
+
+    }
 
     public function store($id)
     {
 
       ///////////////////////////////////////////////////
     //  اللى شغاله
-    
+
+
+   $test = Test::find($id);
+    $aa=request()->aa;
+    $bb=request()->bb;
+    $test_id=request()->test_id;
    $doing= request()->doing;
    $wedding= request()->wedding;
    $friend= request()->friend;
    $car =   request()->car;
-   $angry=  request()->angry; 
+   $angry=  request()->angry;
 
    $doing2= request()->doing2;
    $wedding2= request()->wedding2;
    $friend2= request()->friend2;
    $car2 =   request()->car2;
-   $angry2=  request()->angry2;  
+   $angry2=  request()->angry2;
 
    $doing3= request()->doing3;
    $wedding3= request()->wedding3;
    $friend3= request()->friend3;
    $car3 =   request()->car3;
-   $angry3=  request()->angry3; 
+   $angry3=  request()->angry3;
 
    $doing4= request()->doing4;
    $wedding4= request()->wedding4;
    $friend4= request()->friend4;
    $car4 =   request()->car4;
-   $angry4=  request()->angry4; 
+   $angry4=  request()->angry4;
 
    $doing5= request()->doing5;
    $wedding5= request()->wedding5;
    $friend5= request()->friend5;
    $car5 =   request()->car5;
-   $angry5=  request()->angry5; 
+   $angry5=  request()->angry5;
 
    $doing6= request()->doing6;
    $wedding6= request()->wedding6;
    $friend6= request()->friend6;
    $car6 =   request()->car6;
-   $angry6=  request()->angry6; 
+   $angry6=  request()->angry6;
 
 
    $test = Test::find($id);
- 
+
 
     $sum=0;
 
     $arr=[];
     $arr2=[];
+    $arr[]=$aa;
+    $arr[]=$bb;
+    $arr2[]=$test_id;
     $arr[]=$doing;
     $arr[]= $wedding;
     $arr[]=$friend;
@@ -128,17 +136,18 @@ class PersonalController extends Controller
     $arr[]=$friend6;
     $arr[]= $angry6;
     $arr[]=$car6;
-    
+
    // $arr2[]=$test_id;
 
     for($i=0;$i<count($arr);$i++)
     {
         $sum+=$arr[$i];
     }
- 
+
    $test= Test::where([
+     ['id',$arr2[0]],
      ['id',$id],
-     
+
  ])->first();
 
   $id=$test['id'];
@@ -148,7 +157,7 @@ class PersonalController extends Controller
          ['test_id', $id],
      ])->get();
  return view('gemytest2/result' , ['results' => $results ,'sum' => $sum ]);
-       
+
 
 
     }

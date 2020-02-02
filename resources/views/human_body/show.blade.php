@@ -7,13 +7,13 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="content">
-               
-               
-                
+
+
+
                     <div class="container">
                         <div class="row pt-5 d-flex justify-content-center mb-5">
-                           
-                            
+
+
                             <img src= "../images/{{$humanbody->image}}" class="brainImag">
                         </div>
                         <div class="row">
@@ -21,19 +21,19 @@
                                 <h2 class="text-center text-danger">{{$humanbody->title}}</h2>
                             </div>
                         </div>
-                       
+
                         <div class="row">
                             <div class="col-md-8 m-auto text-break">
                                 <p class="text-right mb-5">
-                                   
+
                                 {{$humanbody->description}}
-                                  
+
                                 </p>
                             </div>
                         </div>
 
                     </div>
-                   
+
 
 
                 </div>

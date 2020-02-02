@@ -11,7 +11,6 @@ class testSeeder extends Seeder
      */
     public function run()
     {
-
         $name =[
             'اختبار العصبية',
             'اختبار الوزن',

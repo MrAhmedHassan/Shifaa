@@ -217,6 +217,7 @@
                             </div>
                             <div style="background-color: #f39c12">
                                 <span class="bring_right glyphicon glyphicon-pencil"></span>
+                                git pull --allow-unrelated-histories
 
                                 <h3>عدد المقالات</h3>
 

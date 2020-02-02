@@ -3,7 +3,7 @@
 
 <div class="container bg-dark mt-3 mb-3 rounded content human_body">
     <div class="container">
-        
+
         <div class="text-center p-5">
             <h1 class="mb-3 text-white">أجهزة جسم الإنسان</h1>
             <p class="text-white">
@@ -21,11 +21,11 @@
     </div>
     <div class="container d-flex justify-content-center">
         <map name="Devices">
-     
+
      @foreach($humanbody as $humanbod)
-     
-     
-         
+
+
+
          @php
          if($humanbod->title=="الجهاز العصبى")
          {
@@ -76,16 +76,16 @@ echo "<area shape='circle'coords='94,672,42' href='/bodies/{$humanbod->id}' alt=
 
   }
          @endphp
-        
-    
+
+
      @endforeach
 
             <!--area shape="circle" coords="452,44,42" href="/bodies/{body}" alt="Nerve" /-->
-            
-            
-            
-            
-         
+
+
+
+
+
         </map>
         <img src="{{ asset('/imgs/body2.png') }}" alt="Body" usemap="#Devices" />
     </div>

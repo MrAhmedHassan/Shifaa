@@ -12,7 +12,7 @@ class questionSeeder extends Seeder
      */
     public function run()
     {
-       
+
         $question =[
             'ماذا تفعل اذا حصلت على وجبة لا تروقك في المطعم؟',
             ' ذهبت الى حفلة زفاف لا تود أن تكون فيها حقا, فكيف تتصرف؟',
@@ -60,7 +60,7 @@ class questionSeeder extends Seeder
 
             'متى كانت المرة الأخيرة التي قمت فيها بغسل السيارة / الدراجة النارية / السكوتر أو غيرها؟ ',
             'هل ترتدي نفس الثياب مرتين دون غسلها؟  ',
-            
+
         ];
 
         $questionenglish =[
@@ -70,7 +70,7 @@ class questionSeeder extends Seeder
             'doing4', ' wedding4', ' friend4','car4 ','angry4  ',
             'doing5', ' wedding5', ' friend5','car5 ','angry5  ',
             'doing6', ' wedding6', ' friend6','car6 ','angry6  ',
-         
+
         ];
 
         $test_id =[
@@ -83,17 +83,17 @@ class questionSeeder extends Seeder
 
         ];
 
-       
+
         for( $i=0;$i<count($question); $i++){
             $questiont =new Question();
             $questiont->question = $question[$i];
             $questiont->questionEnglish =$questionenglish[$i];
             $questiont->test_id = $test_id[$i];
-           
+
             $questiont->save();
         }
 
-        
+
 
     }
 }

@@ -36,8 +36,8 @@ class resultSeeder extends Seeder
             '  انت مههوش نظافة   ',
             '  انت غير مهووس نظافة',
             ' اقرأ عن النظافة واتبع التعليمات',
-           
-         
+
+
         ];
         $fromm =[
             5,11,16,
@@ -47,7 +47,7 @@ class resultSeeder extends Seeder
             5,11,16,
             5,11,16,
 
-         
+
         ];
 
         $too=[
@@ -58,7 +58,7 @@ class resultSeeder extends Seeder
             10,15,20,
             10,15,20,
 
-          
+
         ];
 
         $test_id =[
@@ -68,17 +68,17 @@ class resultSeeder extends Seeder
             4,4,4,
             5,5,5,
             6,6,6,
-          
+
         ];
 
-       
+
         for( $i=0;$i<count($fromm); $i++){
             $result =new Result();
             $result ->result  = $result1[$i];
             $result ->fromm  = $fromm[$i];
             $result ->too =$too[$i];
             $result->test_id = $test_id[$i];
-           
+
             $result->save();
         }
     }
