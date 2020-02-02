@@ -10,67 +10,116 @@ use Spatie\Permission\Models\Role;
 
 class ProfileController extends Controller
 {
-//   test profile relation with user
+    //   test profile relation with user
     // public function index(){
     //     $prof = Profile::find(3);
     //     dd($prof->user);
     // }
+    // 
+      
 
-    public function showMyProfile(){
-       $user = User::find(auth()->user()->id);
-       return view('profile/show',['user'=>$user]);
+    // start rating
+    public function addRate(Request $request )
+
+    {
+        $newRating = request()->input('rate');
+
+        if($newRating>5)
+        {
+            $newRating=5;
+       }elseif($newRating<1)
+        {
+            $newRating=1;
+        }
+        
+        $post = User::find($request->id);
+        $rating = \willvincent\Rateable\Rating::where([
+            ['user_id', auth()->user()->id],
+            ['rateable_id', $request->id],
+            ['rateable_type', 'App\User']
+        ])->first();
+        
+       if( $rating){
+        $rating->rating = $newRating;
+        $post->ratings()->save($rating);
+       return redirect()->route("profiles.show");
+      }else{
+        request()->validate(['rate' => 'required']);
+        $post = User::find($request->id);
+        $rating = new \willvincent\Rateable\Rating;
+        $rating->rating = $request->rate;
+        $rating->user_id = auth()->user()->id;
+        $post->ratings()->save($rating);
+       return redirect()->route("profiles.show");
     }
+    
 
-    public function showAnotherProfile($profile){
-        $user = User::find($profile);
-        if(!$user->hasRole('Admin')){
-            return view('test',['user'=>$user]);
-            dd($user);
-        }else{
-            dd('Sorry You Can see the Admin Profile');
+
+
+    }
+    // end ratind
+
+    public function showMyProfile()
+    {
+        $user = User::find(auth()->user()->id);
+        if ($user->hasRole('Doctor')) {
+            //dd('fuck');
+            return view('profile/doctor/show', ['user' => $user]);
+        } else if ($user->hasRole('Patient')) {
+            return view('profile/patient/show', ['user' => $user]);
         }
     }
 
-    public function edit($profile){
-        if(auth()->user()->id == $profile){
+    public function showAnotherProfile($profile)
+    {
+        $user = User::find($profile);
+        if ($user->hasRole('Admin')) {
+            dd('funk');
+        } else if ($user->hasRole('Doctor')) {
+            return view('profile/doctor/show', ['user' => $user]);
+        }
+    }
+
+    public function edit($profile)
+    {
+        if (auth()->user()->id == $profile) {
             $user = User::find($profile);
-            return view('profile/edit',['user'=>$user]);
-            dd($user);
-        }else{
+            return view('profile.edit', ['user' => $user]);
+        } else {
             dd('Sorry,You Can\'t edit');
         }
     }
-    public function update($profile){
-       if(auth()->user()->id == $profile){
+
+    public function update($profile)
+    {
+        if (auth()->user()->id == $profile) {
             $user = User::find($profile);
-            $mypro = $user->profile->id; 
-            $myProfile = Profile::find($mypro);
+            //            $mypro = $user->profile->id;
+            //            $myProfile = Profile::find($mypro);
             // dd($myProfile);
-// dd(request()->input('address'));
-            $user -> name = request()->input('name');
-            $user -> email = request()->input('email');
-            $myProfile -> abstract = request()->input('abstract');
-            $myProfile -> address = request()->input('address');
-            $myProfile -> price = request()->input('price');
-            
-            if(request()->has('avatar')) {
+            // dd(request()->input('address'));
+            $user->name = request()->input('name');
+            $user->email = request()->input('email');
+            //            $myProfile ->abstract = request()->input('abstract');
+            //            $myProfile -> address = request()->input('address');
+            //            $myProfile -> price = request()->input('price');
+
+            if (request()->has('avatar')) {
                 $avatarUploaded = \request()->file('avatar');
                 $avatarName = time() . '.' . $avatarUploaded->getClientOriginalExtension();
                 $avatarPath = public_path('/image/avatar');
                 $avatarUploaded->move($avatarPath, $avatarName);
-                $user -> avatar = '/image/avatar/'.$avatarName;
+                $user->avatar = '/image/avatar/' . $avatarName;
             }
-            $user -> save();
-            // $user -> save();
-            $myProfile -> save();
+            $user->save();
 
-            return view('/profile/show',['user'=>$user]);
-
-       }else{
+            if ($user->hasRole('Doctor')) {
+                return view('profile.doctor.show', ['user' => $user]);
+            } else if ($user->hasRole('Patient')) {
+                return view('profile.patient.show', ['user' => $user]);
+            }
+        } else {
             dd('Sorry, Your can\'t update');
-       }
-
+        }
     }
-
-
 }

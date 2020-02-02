@@ -11,7 +11,6 @@ class testSeeder extends Seeder
      */
     public function run()
     {
-       
         $name =[
             'اختبار العصبية',
             'اختبار الوزن',
@@ -20,10 +19,10 @@ class testSeeder extends Seeder
             'اختبار  اﻻنتقائية',
             'اختبار  البخل',
             'اختبار  هوس النظافة',
-            
+
         ];
 
-        
+
 
 
 
@@ -31,11 +30,11 @@ class testSeeder extends Seeder
         for( $i=0;$i<count($name); $i++){
             $test =new Test();
             $test->name = $name[$i];
-           
+
              $test->save();
         }
 
-        
+
 
     }
 }

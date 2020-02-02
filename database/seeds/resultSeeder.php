@@ -53,7 +53,7 @@ class resultSeeder extends Seeder
           0,5,11,16,
           0,5,11,16,
 
-         
+
         ];
 
         $end=[
@@ -64,7 +64,7 @@ class resultSeeder extends Seeder
             4,10,15,20,
             4,10,15,20,
 
-          
+
         ];
 
         $test_id =[
@@ -84,7 +84,7 @@ class resultSeeder extends Seeder
             $result ->start  = $start[$i];
             $result ->end =$end[$i];
             $result->test_id = $test_id[$i];
-           
+
             $result->save();
         }
     }

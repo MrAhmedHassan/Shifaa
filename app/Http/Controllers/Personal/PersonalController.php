@@ -18,7 +18,6 @@ class PersonalController extends Controller
     {
         $test = Test::find($id);
 
-
         return view('gemytest2/gemytest2', compact('test'));
 
 

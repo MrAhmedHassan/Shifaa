@@ -4,8 +4,8 @@
     <div class="row">
         <div class="col-md-12">
             <br><br><br><br><br><br>
-       
- 
+
+
 @php
 //echo $results;
 if($sum==0)
@@ -22,27 +22,27 @@ echo $results[$i]->result;
 }
 
 }
-  
+
 
 
    @endphp
-     
-       
-             
-              
-    
-                   
+
+
+
+
+
+
 </div>
     </div>
 </div>
 
 <script type="text/javascript">
     $("#input-id").rating();
-    
+
     $(document).ready(function(){
     $('#input-1').rating({min: 0, max: 8, step: 0.1, stars: 8});
 });
 </script>
 
-    
+
 @endsection

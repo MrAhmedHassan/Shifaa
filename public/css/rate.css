@@ -4,33 +4,17 @@ body {
       font-family: "Segoe WP","Segoe UI", Helvetica, Arial, sans-serif;
       text-align:center;
   }
-  h1, h2 {
-      color: #888;
-      margin:0;
-      font-weight:normal;
-  }
-  h1{ padding-top: 1.5em; padding-bottom: 2em; } 
-  h2 {
-      clear:both;
-      color: #aaa;
-      padding: 2em 0 0.3em
-  }
+
+ 
   em {
       display: block;
       margin: .5em auto 2em;
       color: #bbb;
   }
 
-  p, p a { 
-      color: #aaa;
-      text-decoration: none;
-  }
-  p a:hover,
-  p a:focus {
-      text-decoration: underline;
-  }
-  p + p { color: #bbb; margin-top: 2em;}
-  .detail {position: absolute; text-align: right; right: 5px; bottom: 5px; width: 50%;}
+ 
+ 
+
   
   a[href*="intent"] {
       display:inline-block;
@@ -85,11 +69,7 @@ position: absolute;
 
 /*style of the tests */
 
-  body {
-    margin: 0px;
-    padding: 0px;
-   /* background-color: rgb(72, 152, 155);*/
-}
+
 
 .define {
     border: 1px solid blue;

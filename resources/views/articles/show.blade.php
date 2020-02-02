@@ -4,34 +4,60 @@
 <div class="blogs_show container" style="background-color:#b4b4b41e ">
     <div class="row">
         <div class="col-md-8 p-5 " style="background-color: white" >
-            <h1 class="text-primary">فوائد البطيخ الازرق</h1>
-            <h3 class="text-danger mb-2">د.محمد الجهجهوني</h3>
-            <h5 class="text-muted mb-5">15/1/2019</h5>
+            <h1 class="text-primary">{{$article->title}}</h1>
+            <h3 class="text-danger mb-2">طبيب {{$article->user->name}}</h3>
+            <h5 class="text-muted mb-5">{{$article->created_at}}</h5>
             <div class="blogs_show_img">
-                <img class="img-fluid" src="{{ asset('/imgs/blog_1.PNG') }}" alt="article img"></div>
+                <img class="img-fluid" src="{{$article->avatar}}" alt="article img" style="height: 365px;width: 730px"></div>
                 <h4 class="pt-5" style="font-family: 'Amiri', serif;
-                ">بيعمل حجات كتير اوي وعظيمة ومحدش فاهم حاجة و الدنيا مدعوكة و ناقصنا سوكة و
-                تربيتاااااتيراارارار </h4>
-            
+                ">{{$article->description}} </h4>
+
             <div class="row">
             <div class="col-md-12 " style="background-color: white">
+
                 <hr>
-                <h1> التعليقات :</h1>
+                <div class="d-flex">
+                <a href="/articles/{{$article->id}}/edit" class="btn btn-dark btn-sm ml-2">تعديل  المقال</a>
+
+                <form id="" action="/articles/{{$article->id}}" method="post">
+                        {{method_field('DELETE')}}
+                        @csrf
+                 <button type="submit" class="btn btn-danger btn-sm" onclick='return confirm("هل أنت متأكد من حذف هذا المقال")'>حذف المقال</button>
+                </form>
+            </div>
+                <hr>
+                <h2> التعليقات :</h2>
+                <hr>
                 <div class="comments">
                     <div class="user_comment d-flex">
                         <img class="rounded-circle mb-2" style="width: 6%" src="{{ asset('/eee.jpg') }}" alt="user img">
-                        <h4 class="mr-2 mt-2">البرنس اوي</h4>
+                        <h4 class="mr-2 mt-2">{{$article->user->name}}</h4>
                     </div>
                     <h5 id="div_comments" class="mb-3"></h5>
-                <form >
-                    {{-- {{method_field('PUT')}} --}}
-                    {{-- @csrf --}}
-                    <div class="form-group">
-                        <textarea class="form-control" id="text_area1" rows="2" style="font-size: 20px"></textarea>
+
+
+                    @foreach($comments as $comment)
+                    <div class="card">
+                    <h5 class="card-header">تمت كتابتة بواسطة {{$article->user->name}}</h5>
+                    <div class="card-body d-block">
+                        <h5 class="card-title">{{$comment->comment}}</h5>
+                        <form id="" action="/comment/{{$comment->id}}" method="post">
+                        {{method_field('DELETE')}}
+                        @csrf
+                        <button type="submit" class="btn btn-outline-danger btn-sm">حذف</button>
+                       </form>
+
                     </div>
-                    <button type="submit" class="btn btn-success" id="btn_modify">عدل تعليقك</button>
-                    <button type="submit" class="btn btn-primary" id="comment_btn_submit">سجل تعليقك</button>
-                </form>
+                    </div>
+                    @endforeach
+
+                    <form id="" action="/comments/store/{{$article->id}}" method="post" class="mt-2 container" enctype="multipart/form-data">
+                    @csrf
+                        <label>ابدأ بكتابة تعليقك هنا</label>
+                        <textarea name="comment" id="" class="form-control md-textarea" cols="4" rows="3" required></textarea>
+                        <button type="submit" class="btn btn-info mt-1" >إضافة تعليق</button>
+                    </form>
+
                 </div>
             </div>
           </div>
