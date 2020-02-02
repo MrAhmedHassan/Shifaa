@@ -50,12 +50,17 @@
                                 <p class="fontOfHabd">{{$user->profile->abstract}}</p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right d-flex">
+                                @if(auth()->user())
                                 @if(auth()->user()->id == $user->id)
                                 <a href="/profiles/{{$user->id}}/edit" class="btn btn-info btn-sm ml-2 h-25">تعديل الملف الشخصي</a>
                                 @endif
+                                @endif
+
+                                @if(auth()->user())
                                 @if(auth()->user()->id == $user->id)
                                 <a href="/profile/complete" class="btn btn-info btn-sm ml-2 h-25">أكمل الملف الشخصي</a>
                                 @endif
+                                    @endif
                             </div>
                         </div>
                     </div>
