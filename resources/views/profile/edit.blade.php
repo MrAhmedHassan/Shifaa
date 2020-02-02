@@ -43,40 +43,40 @@
             </div>
           </div>
 
-          <hr>
-          <div class="alert alert-info alert-dismissable" style="font-family: 'Cairo', sans-serif">
-            <i class="fa fa-address-card" aria-hidden="true"></i>
+{{--          <hr>--}}
+{{--          <div class="alert alert-info alert-dismissable" style="font-family: 'Cairo', sans-serif">--}}
+{{--            <i class="fa fa-address-card" aria-hidden="true"></i>--}}
 
-            <strong>اكمل ملفك الشخصي</strong> .. اختياري ..
-          </div>
+{{--            <strong>اكمل ملفك الشخصي</strong> .. اختياري ..--}}
+{{--          </div>--}}
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">نبذة :</label>
-            <div class="col-lg-8">
-              <textarea name="abstract" id="" class="form-control md-textarea" rows="3">{{$user->profile->abstract}}</textarea>
+{{--          <div class="form-group">--}}
+{{--            <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">نبذة :</label>--}}
+{{--            <div class="col-lg-8">--}}
+{{--              <textarea name="abstract" id="" class="form-control md-textarea" rows="3">{{$user->profile->abstract}}</textarea>--}}
 
-            </div>
-          </div>
+{{--            </div>--}}
+{{--          </div>--}}
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">عنوان العيادة :</label>
-            <div class="col-lg-8">
-              <input class="form-control" name="address" type="text" value="{{$user->profile->address}}">
-            </div>
-          </div>
+{{--          <div class="form-group">--}}
+{{--            <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">عنوان العيادة :</label>--}}
+{{--            <div class="col-lg-8">--}}
+{{--              <input class="form-control" name="address" type="text" value="{{$user->profile->address}}">--}}
+{{--            </div>--}}
+{{--          </div>--}}
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">سعر الكشف :</label>
-            <div class="col-lg-8">
-              <input class="form-control" name="price" type="text" value="{{$user->profile->price}}">
-            </div>
-          </div>
+{{--          <div class="form-group">--}}
+{{--            <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">سعر الكشف :</label>--}}
+{{--            <div class="col-lg-8">--}}
+{{--              <input class="form-control" name="price" type="text" value="{{$user->profile->price}}">--}}
+{{--            </div>--}}
+{{--          </div>--}}
           <button type="submit" class="btn btn-primary btn-lg btn-block container" style="font-family: 'Cairo', sans-serif"> حفظ التغييرات</button>
-
+</div>
+      </div>
     </form>
 
-  </div>
-</div>
+
 </div>
 </div>
 

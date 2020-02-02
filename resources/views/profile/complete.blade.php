@@ -12,7 +12,6 @@
     <!-- left column -->
     <form method='post' action='/profiles' enctype="multipart/form-data">
     @csrf
-
         <div class="alert alert-info alert-dismissable" style="font-family: 'Cairo', sans-serif">
           <i class="fa fa-address-card" aria-hidden="true"></i>
 
@@ -22,23 +21,21 @@
         <div class="form-group">
           <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">نبذة :</label>
           <div class="col-lg-8">
-            <textarea name="abstract" id="" class="form-control md-textarea" rows="3"></textarea>
-
-
+            <textarea name="abstract" id="" class="form-control md-textarea" rows="3">{{$user->profile->abstract}}</textarea>
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">عنوان العيادة :</label>
           <div class="col-lg-8">
-            <input class="form-control" name="address" type="text" value="">
+            <input class="form-control" name="address" type="text" value="{{$user->profile->address}}">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">سعر الكشف :</label>
           <div class="col-lg-8">
-            <input class="form-control" name="price" type="text" value="">
+            <input class="form-control" name="price" type="text" value="{{$user->profile->price}}">
           </div>
         </div>
         <button type="submit" class="btn btn-primary btn-lg btn-block container" style="font-family: 'Cairo', sans-serif"> حفظ التغييرات</button>

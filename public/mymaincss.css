@@ -14,6 +14,27 @@ p
     font-family: 'Amiri', serif;
 }
 
+.mydiv_content
+{
+    color:rgb(8, 142, 255) ;
+    font-family: 'Cairo', sans-serif;
+
+}
+
+.myline_small
+{
+    border: 1px solid #5d5b6d;
+    width: 10%;
+    margin: 7px ;
+}
+
+.myline_big
+{
+    border: 1px solid #5d5b6d;
+    width: 20%;
+    margin: 0 ;
+}
+
 .my_main_navbar li a
 {
     color:white !important;
@@ -25,11 +46,19 @@ p
     font-weight: 700 !important;
 }
 
+/* 
 .my_main_navbar li a:hover
 {
-    color:rgb(224, 8, 8) !important;
+    color:rgb(224, 8, 8) !important; */
     /* background-color:darkslategray  ; */
     /* border-radius: 15%; */
+/* } */
+
+
+.my_main_navbar .nav-item-div .nav-item:hover a,.my_main_navbar .nav-item-div .nav-item:hover i
+{
+    color: #56a7fd !important;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -235,7 +264,7 @@ p
 
     #h_4
     {
-        background-color:rgb(100, 184, 255);
+        background-color:rgb(100, 184, 255);  
         transition: .8s;
     }
 
@@ -264,22 +293,22 @@ p
         text-decoration: none !important;
     }
 
-    .my_skew #h_4 a:hover
+    .my_skew #h_4 a:hover 
     {
         color: rgba(0,0,0,0.5);
     }
 
-    .my_skew #h_3 a:hover
+    .my_skew #h_3 a:hover 
     {
         color: rgba(0,0,0,0.5);
     }
 
-    .my_skew #h_2 a:hover
+    .my_skew #h_2 a:hover 
     {
         color: rgba(0,0,0,0.5);
     }
 
-    .my_skew #h_1 a:hover
+    .my_skew #h_1 a:hover 
     {
         color: rgba(0,0,0,0.5);
     }
@@ -287,7 +316,7 @@ p
 
 
 /* Second Section "top_rated_doctors" */
-
+    
 .top_rated_doctors
 {
     height: 500px;
@@ -298,7 +327,7 @@ p
 {
     font-family: 'Amiri', serif;
     margin-left: 30px;
-    margin-right: 30px;
+    margin-right: 30px; 
 }
 
 .item-doctor
@@ -356,7 +385,7 @@ p
     bottom: 100%;
     left: 12px;
     background-color: rgba(0, 33, 71, 0.7);
-    text-align: center;
+    text-align: center; 
     transition:bottom 1s ;
 }
 
@@ -425,7 +454,7 @@ p
     {
         font-size: 1rem;
     }
-
+    
 }
 
 @media only screen and (max-width: 991px) and (min-width: 768px)
@@ -473,10 +502,10 @@ p
         position: absolute;
         bottom: 4% !important;
     }
-
+    
 }
 
-@media only screen and (max-width: 767px)
+@media only screen and (max-width: 767px) 
 {
     .top_rated_doctors
     {
@@ -504,23 +533,23 @@ p
     .top_rated_doctors .doctor-layer1 h4
     {
         margin-bottom: 20px;
-    }
-
+    }  
+    
     .top_rated_doctors .doctor-layer2 h4
     {
         font-size: 50px;
         margin-bottom: 40px;
-    }
-
-    .top_rated_doctors .doctor-layer2 p
+    }  
+    
+    .top_rated_doctors .doctor-layer2 p 
     {
         font-size: 40px;
-    }
-
-    .top_rated_doctors .doctor-layer2 a
+    } 
+    
+    .top_rated_doctors .doctor-layer2 a 
     {
         font-size: 20px;
-    }
+    }  
 }
 
 
@@ -528,13 +557,21 @@ p
 
 .body_hover
 {
-    height: 900px;
+    height: 700px;
+    margin-top: 100px;
 }
 
-/*
-body {
-    padding: 0;
-    margin: 0;
+.man_body 
+{
+    margin-top: 80px ;
+}
+
+.questions_box
+{
+    margin-top: 100px;
+}
+
+/* 
     background: radial-gradient(ellipse at center,#bfdfe1 0%,#97c6c6 81%);
 } */
 svg, defs, clipPath {
@@ -545,26 +582,26 @@ svg, defs, clipPath {
 }
 
 .body_hover #figura {
-    position: relative;
-    width: 314px;
-    height: 524px;
+    position: relative; 
+    width: 314px; 
+    height: 524px; 
     border: 1px solid black;
     margin: 10px auto;
     overflow: hidden;
 }
 .body_hover #capaRecorte {
-    width: 314px;
+    width: 314px; 
     height: 524px;
-    position: absolute;
+    position: absolute; 
     top: 0;
     left: 0;
 }
 .body_hover #imagen {
-    width: 314px;
-    height: 524px;
+    width: 314px; 
+    height: 524px; 
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; 
+    left: 0; 
 }
 .body_hover #figura map area:nth-of-type(1):hover ~ #capaRecorte {
     clip-path: url(#A1);
@@ -591,16 +628,22 @@ svg, defs, clipPath {
 .body_hover .box {
     position: relative;
     width: 100%;
-    height: 882px;
+    height: 535px;
     overflow: hidden;
 }
 
 .body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs {
     position: absolute;
     top: 0px;
-    left: 450px;
+    /* left: 450px;  */
     opacity: 0;
     transition-duration: 1s;
+}
+
+.body_hover #hisBely 
+{
+    overflow: auto;
+    height: 535px;
 }
 
 .body_hover a:hover {
@@ -610,15 +653,42 @@ svg, defs, clipPath {
 }
 
 
+@media only screen and (max-width: 991px)
+{
+.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs 
+{
+    position: absolute; 
+    left: 10px !important;
+}
+}
+
+@media only screen and (max-width: 767px)
+{
+.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs 
+{
+    position: absolute; 
+    right: 30% ;
+    top: 10px;
+}
+}
+
+@media only screen and (max-width: 575px)
+{
+.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs 
+{
+    width: 70%;
+}
+}
+
  /* Fourth Section "most_diseases"  */
 .most_diseases
 {
-    margin-bottom: 250px !important;
+    margin-bottom: 150px !important;
 }
 
 
  /* Fifth Section "questions"  */
-.questions .card
+.questions .card 
 {
     padding: 1em !important;
     border-radius: 2% !important;
@@ -627,7 +697,7 @@ svg, defs, clipPath {
 }
 
 
-.questions a
+.questions a 
 {
     text-decoration: none !important;
 }
@@ -651,7 +721,7 @@ svg, defs, clipPath {
     transition: 1.2s;
 }
 
-.questions img:hover
+.questions img:hover 
 {
     transform: scale(1.07);
     transition: 1.2s;
@@ -662,7 +732,7 @@ svg, defs, clipPath {
 .about_us
 {
     /* height: 550px; */
-    margin-top: 200px;
+    margin-top: 50px;
     background-image: url("./imgs/about_us1.jpg") ;
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -696,7 +766,7 @@ cursor: pointer;
     font-size: 20px;
 }
 
-@media only screen and (max-width: 991px)
+@media only screen and (max-width: 991px) 
 {
     .about_us .carousel-caption h4
     {
@@ -714,7 +784,7 @@ cursor: pointer;
     }
 }
 
-@media only screen and (max-width: 785px)
+@media only screen and (max-width: 785px) 
 {
     .about_us .carousel-caption h4
     {
@@ -728,10 +798,10 @@ cursor: pointer;
 
 }
 
-@media only screen and (max-width: 555px)
+@media only screen and (max-width: 555px) 
 {
     .about_us .carousel-caption h4
-    {
+    {   
         font-size: 14px;
     }
 
@@ -910,12 +980,21 @@ margin-top: 20px ;
     background:radial-gradient(ellipse at center,#bfdfe1 0%,#97c6c6 81%);
 }
 
-
+@media only screen and (max-width: 767px) 
+{
+    .top_rated_doctors
+    {
+        margin-bottom: 400px;
+    }
+}
 
 /* "doctors" */
-/* .define { */
-    /* border: 1px solid blue; */
-/* } */
+
+.doctors
+{
+    margin-top: 80px !important;
+}
+
 .doctors .tall {
     font-family: 'Tajawal', sans-serif;
 }
@@ -928,15 +1007,18 @@ margin-top: 20px ;
 }
 
 /**************PART TWO***************/
+/* 
+body {
+    background-color: rgb(170, 170, 161);
+} */
 .doctors .details {
     font-family: 'Tajawal', sans-serif;
     font-size: 15px;
 }
 
 .doctors .doc {
-    box-shadow: 5px 10px #b6b5f38c;
+    box-shadow: 5px 10px #06127e45;
     border-radius: 40px;
-    background-color: #668c98d1!important;
 }
 /**************PART THREE***************/
 
@@ -945,117 +1027,13 @@ margin-top: 20px ;
     border: 1px solid #000;
 }
 
-@media only screen and (max-width: 1199px) {
-    .docImage {
-        position: relative;
-        left: 15px;
-    }
+.doctors .editPartitionsOfPartThree
+{
+    padding-top: 6%;
 }
 
-@media only screen and (max-width: 991px) {
-    .docImage {
-        position: relative;
-        left: 10px;
-        width: 100px;
-        height: 100px;
-    }
-    .forH4 {
-        width: 60px;
-    }
-    .forMargin {
-        height: 67%;
-    }
-    .forMargin1 {
-        position: relative;
-        bottom: 10px;
-    }
-     .forMargin2 {
-        position: relative;
-        bottom: 30px;
-    }
-    .forMargin3 {
-        position: relative;
-        bottom: 50px;
-    }
-    .forMargin4 {
-        position: relative;
-        bottom: 70px;
-    }
-    .forMargin5 {
-        position: relative;
-        bottom: 90px;
-    }
-    .forMargin6 {
-        position: relative;
-        bottom: 110px;
-    }
-    .day2 {
-        position: relative;
-        top: 5px;
-    }
-    .day3 {
-        position: relative;
-        top: 8px;
-    }
-    .day4 {
-        position: relative;
-        top: 13px;
-    }
-    .day5 {
-        position: relative;
-        top: 16px;
-    }
-    .day6 {
-        position: relative;
-        top: 19px;
-    }
-    .register {
-        margin-top: 6px;
-    }
-}
-@media only screen and (max-width: 767px) {
-    .docImage {
-        width: 152px;
-        height: 152px;
-    }
-    .justifyAdvertise {
-        display: flex !important;
-        justify-content: start !important;
-    }
-    .advertise {
-        margin-right: 23px;
-    }
-    .forMargin {
-        height: 83%;
-    }
-    .forMargin1 {
-        position: relative;
-        top: 5px;
-    }
-    .forMargin2 {
-        position: relative;
-        top: 5px;
-    }
-    .forMargin3 {
-        position: relative;
-        top: 7px;
-    }
-    .forMargin4 {
-        position: relative;
-        top: 10px;
-    }
-    .forMargin5 {
-        position: relative;
-        top: 15px;
-    }
-    .forMargin6 {
-        position: relative;
-        top: 20px;
-    }
-}
 
 /* human_body  show */
-
 
 .human_body_show .brainImag
 {
@@ -1068,7 +1046,7 @@ margin-top: 20px ;
     transform: rotate(360deg);
 }
 
-.human_body_show .content
+.human_body_show .content 
 {
     font-family: 'Tajawal', sans-serif;
     font-size: 1.5rem;
@@ -1109,27 +1087,6 @@ margin-top: 20px ;
 .pain .arrow:hover {
     color: darkblue;
 }
-@media only screen and (max-width: 575px) {
-    .parent1_editPartitionsOfPartThree {
-        width: 25% ;
-    }
-    .parent2_editPartitionsOfPartThree {
-        width: 50% ;
-    }
 
-}
-/**************/
-.profileImage {
-    border-radius: 50%;
-}
-.profilArticles:hover {
-    text-decoration: none;
-    color: rgb(182, 0, 0);
-}
-.fontOfHabd
-{
-    font-family: 'Tajawal', sans-serif;
-    font-weight: bold;
 
-}
 

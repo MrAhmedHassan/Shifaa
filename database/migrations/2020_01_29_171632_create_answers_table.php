@@ -15,10 +15,10 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('answer');
-            $table->bigInteger('value');
-            $table->unsignedBigInteger('question_id')->nullable()->on('questions')->onUpdate('cascade')->onDelete('set null');
-            $table->foreign('question_id')->references('id')->on('questions');
+            $table->string('answer')->nullable();
+            $table->bigInteger('value')->nullable();
+            $table->unsignedBigInteger('question_id')->nullable()->on('questions')->onUpdate('cascade')->onDelete('set null')->nullable();
+            $table->foreign('question_id')->references('id')->on('questions')->nullable();
             $table->timestamps();
         });
     }

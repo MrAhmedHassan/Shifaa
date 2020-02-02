@@ -13,7 +13,7 @@
 use App\Article;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
 
 Auth::routes();
@@ -29,7 +29,7 @@ Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.s
 Route::get('posts', 'Rate\RateController@posts')->name('posts');
 
 //get the user data with their articles
-Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
+// Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
 Route::get('/diseases/{disease}', 'Disease\DiseaseController@show')->name('diseases.show');
 
 // test route
@@ -52,6 +52,9 @@ Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
 // });
 
 Route::get('/articles', 'Article\ArticleController@index')->name('articles.index');
+// show only this doctor articles
+Route::get('/articles/cat/{cat}', 'Article\ArticleController@category')->name('articles.category');
+
 Route::get('/article/create', 'Article\ArticleController@create')->name('articles.create');
 Route::post('/articles/store', 'Article\ArticleController@store')->name('articles.store');
 
@@ -62,14 +65,13 @@ Route::get('/articles/{article}', 'Article\ArticleController@show')->name('artic
 Route::delete('/articles/{id}', 'Article\ArticleController@destroy')->name('articles.destroy');
 
 // Route::get('/comments', 'Comment\CommentController@index')->name('comments.index');
-Route::get('/comments/store', 'Comment\CommentController@store')->name('comments.store');
+Route::post('/comments/store/{article_id}', 'Comment\CommentController@store')->name('comments.store');
 //this is needs a different view to show
 Route::get('/comments/{comment}/edit','Comment\CommentController@edit')->name('comments.edit');
 Route::put('/comments/{comment}', 'Comment\CommentController@update');
 
-// Route::delete('/comments/{id}', 'Comment\CommentController@destroy')->name('comments.destroy');
+Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('comment.destroy');
 
-//Route::get('/test/{id}','Profile\ProfileController@showAnotherProfile');
 //Route::get('/test',function (){
 //    $user = \App\User::find(auth()->user()->id);
 //    $cat = \App\Category::find(7);
@@ -78,7 +80,8 @@ Route::put('/comments/{comment}', 'Comment\CommentController@update');
 //});
 
 // Route::get('/profiles','Profile\ProfileController@showMyProfile')->name('profiles.showMy');;
-Route::get('/profiles/{Profile}', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
+Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
+Route::get('/profiles/{Profile}','Profile\ProfileController@showAnotherProfile');
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
 Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
 
@@ -93,7 +96,7 @@ Route::get('/doctors/{doctor}', 'Doctor\DoctorController@show');
 //assistant
 Route::get('/assistants', 'Assistant\AssistantController@index');
 Route::get('/assistants/create', 'Assistant\AssistantController@create');
-Route::post('/assistants', 'Assistant\AssistantController@store');
+Route::post('/assistants','Assistant\AssistantController@store');
 Route::delete('/assistants/{assistant}', 'Assistant\AssistantController@delete');
 
 //create routes for and reveal time
