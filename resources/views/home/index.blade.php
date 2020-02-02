@@ -383,14 +383,17 @@
   <!--/.Carousel Wrapper-->
 </div>
 
+
 {{-- Fifth Section "questions" --}}
 <div class="questions container" id="questions">
   <div class="row">
     
     {{-- style="width: 18rem;" --}}
+   
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/1">
       <div class="card" >
+      
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/angry.jpg') }}" alt="Card image cap">
         <div class="card-body">
           <h3 class="card-title">اختبار العصبية</h3>
@@ -401,7 +404,7 @@
     </div>
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/2">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/weight.jpg') }}" alt="Card image cap">
         <div class="card-body">
@@ -413,7 +416,7 @@
     </div>
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/3">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/alone.jpg') }}" alt="Card image cap">
         <div class="card-body">
@@ -425,7 +428,7 @@
     </div>
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/4">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/child.jpg') }}" alt="Card image cap">
         <div class="card-body">
@@ -438,7 +441,7 @@
 
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/5">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/stingy.jpg') }}" alt="Card image cap">
         <div class="card-body">
@@ -451,7 +454,7 @@
 
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/6">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/cleaning.jpg') }}" alt="Card image cap">
         <div class="card-body">

@@ -8,9 +8,14 @@
  
 @php
 //echo $results;
+if($sum==0)
+{
+    echo "لم نتلق اى اجابات من فضلك اعد اﻻختبار وجاوب على اﻻسئله";
+}
 for($i=0;$i<count($results);$i++)
 {
-$range=range($results[$i]->fromm,$results[$i]->too);
+$range=range($results[$i]->start,$results[$i]->end);
+
 if(in_array($sum,$range))
 {
 echo $results[$i]->result;

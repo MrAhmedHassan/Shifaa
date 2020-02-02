@@ -34,8 +34,8 @@ class RevealTimeController extends Controller
         $reveal = new Reveal;
        
         $reveal ->date = $request->input('date');
-        $reveal ->from=  $request ->input('from');
-        $reveal ->to=  $request ->input('to');
+        $reveal ->start=  $request ->input('start');
+        $reveal ->end=  $request ->input('end');
         $reveal ->limit = $request->input('limit');
         $reveal ->doctor_id = auth()->user()->id;
         $reveal -> save() ;

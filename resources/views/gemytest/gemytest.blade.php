@@ -14,12 +14,12 @@
 
             <div class="form-group">
                 <label for="exampleFormControlInput2" class='font-weight-bold'>Password</label>
-                <input type="time" name="from" class="form-control" id="exampleFormControlInput2" required>
+                <input type="time" name="start" class="form-control" id="exampleFormControlInput2" required>
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlInput2" class='font-weight-bold'>Password</label>
-                <input type="time" name="to" class="form-control" id="exampleFormControlInput2" required>
+                <input type="time" name="end" class="form-control" id="exampleFormControlInput2" required>
             </div>
 
             <div class="form-group">

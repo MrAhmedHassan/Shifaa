@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class RateController extends Controller
 {
-   public function posts()
+   public function doctors()
 
     {
 
@@ -19,22 +19,27 @@ class RateController extends Controller
         return view('users',compact('users'));
 
     }
-
-
     public function show($id)
 
     {
         $user = User::find($id);
-     
-        return view('postsShow',compact('user'));
+        return view('doctorsRate',compact('user'));
     }
 
 
     public function postPost(Request $request )
 
     {
-       
+      
         $newRating = request()->input('rate');
+
+        if($newRating>5)
+        {
+            $newRating=5;
+       }elseif($newRating<1)
+        {
+            $newRating=1;
+        }
         
         $post = User::find($request->id);
         $rating = \willvincent\Rateable\Rating::where([
@@ -42,10 +47,11 @@ class RateController extends Controller
             ['rateable_id', $request->id],
             ['rateable_type', 'App\User']
         ])->first();
+        
        if( $rating){
         $rating->rating = $newRating;
         $post->ratings()->save($rating);
-        return redirect()->route("posts");
+        return redirect()->route("doctors");
       }else{
         request()->validate(['rate' => 'required']);
         $post = User::find($request->id);
@@ -53,7 +59,7 @@ class RateController extends Controller
         $rating->rating = $request->rate;
         $rating->user_id = auth()->user()->id;
         $post->ratings()->save($rating);
-        return redirect()->route("posts");
+        return redirect()->route("doctors");
     }
     
 

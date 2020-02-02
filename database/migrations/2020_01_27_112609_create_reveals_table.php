@@ -16,8 +16,8 @@ class CreateRevealsTable extends Migration
         Schema::create('reveals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
-            $table->time('from', 0);
-            $table->time('to', 0);
+            $table->time('start', 0);
+            $table->time('end', 0);
             $table->bigInteger('limit');
             $table->unsignedBigInteger('doctor_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('doctor_id')->references('id')->on('users');

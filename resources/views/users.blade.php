@@ -22,16 +22,17 @@
          <td><img width="100px" height="100" style="text-align:center;" 
          src={{ $user->avatar }}></td>
          <td>{{ $user->name }}</td><td>
-         <input id="input-1" name="input-1" class="rating rating-loading"
+         <!--input id="input-1" name="input-1" class="rating rating-loading"
           data-min="0" data-max="5" data-step="0.1" 
-         value="{{ $user->averageRating }}" data-size="xs" disabled="">
-         <input id="input-1" style="color:red;" name="input-1" value="4.3" class="rating rating-loading">
-        </td>
-         
- 
-         
+         value="{{ $user->averageRating }}" data-size="xs" disabled=""-->
+         <i class="fa fa-star fa-2x" id="star5"></i>
+         <i class="fa fa-star fa-2x" id="star4"></i>
+         <i class="fa fa-star fa-2x" id="star3"></i>
+         <i class="fa fa-star fa-2x" id="star2"></i>
+         <i class="fa fa-star fa-2x" id="star1"></i>
+         <div id="val" style="display:none">{{$user->averageRating}}</div>
          <td>
-<a href="{{ route("posts.show",$user->id) }}" class="btn btn-primary btn-sm">View</a>
+<a href="{{ route("doctors.show",$user->id) }}" class="btn btn-primary btn-sm">Rate</a>
  </td> </tr>
                             @endif
                             @endforeach
@@ -44,10 +45,57 @@
 </div>
 
 <script type="text/javascript">
+ var star1= document.getElementById("star1");
+ var star2= document.getElementById("star2");
+ var star3= document.getElementById("star3");
+ var star4= document.getElementById("star4");
+ var star5= document.getElementById("star5");
+
+ var star= document.getElementById("val");
+  if(star.innerText>=1.0000&&star.innerText< 1.9000)
+  {
+      star1.style.color="yellow";
+  }else if(star.innerText>=2.0000&&star.innerText< 2.9000)
+  {
+    star1.style.color="yellow";
+    star2.style.color="yellow";
+  }else if(star.innerText>=3.0000&&star.innerText< 3.9000)
+  {
+    star1.style.color="yellow";
+    star2.style.color="yellow";
+    star3.style.color="yellow";
+  }else if(star.innerText>=4.0000&&star.innerText< 4.9000)
+  {
+    star1.style.color="yellow";
+    star2.style.color="yellow";
+    star3.style.color="yellow";
+    star4.style.color="yellow";
+  }
+  else if(star.innerText>=5.0000&&star.innerText< 5.9000)
+  {
+    star1.style.color="yellow";
+    star2.style.color="yellow";
+    star3.style.color="yellow";
+    star4.style.color="yellow";
+    star5.style.color="yellow";
+  }
+   
+
+
+
+
+
+
+
+
+
+
     $("#input-id").rating();
     
     $(document).ready(function(){
     $('#input-1').rating({min: 0, max: 8, step: 0.1, stars: 8});
+  
+  
 });
 </script>
 
