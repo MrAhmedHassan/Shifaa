@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin panel</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/icon.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/ar.css" rel="stylesheet" class="lang_css arabic">
+    <title>ShefaDash</title>
+    <link href="Adminy-master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Adminy-master/css/icon.css" rel="stylesheet">
+    <link href="Adminy-master/css/style.css" rel="stylesheet">
+    <link href="Adminy-master/css/ar.css" rel="stylesheet" class="lang_css arabic">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -118,21 +118,37 @@
                 </form>
 
                 <ul>
-                    <li><span class="glyphicon glyphicon-home"></span><a href="index.html">الصفحة الرئيسية</a></li>
-                    <li><span class="glyphicon glyphicon-cog"></span><a href="options.html">بيانات الموقع</a></li>
-                    <li><span class="glyphicon glyphicon-user"></span><a href="">إدارة الاعضاء</a>
+                    <li>
+                        <span class="glyphicon glyphicon-home"></span>
+                        <a href="/home">الصفحة الرئيسية</a>
+                    </li>
+                    <li>
+                        <span class="glyphicon glyphicon-user"></span>
+                        <a href="options.html">إدارة المساعدين</a>
                         <ul class="drop_main_menu">
-                            <li><a href="add_new_user.html">إضافة جديد</a></li>
-                            <li><a href="view_all_users.html">عرض الكل</a></li>
+                            <li><a href="add_new_photo.html">إضافة جديد</a></li>
+                            <li><a href="/users">عرض الكل</a></li>
                         </ul>
                     </li>
-                    <li><span class="glyphicon glyphicon-edit"></span><a href="">المواضييع والمقالات</a>
+                    <li>
+                        <span class="glyphicon glyphicon-edit"></span>
+                        <a href="">إدارة المقالات</a>
+                        <ul class="drop_main_menu">
+                            <li><a href="add_new_user.html">إضافة جديد</a></li>
+                            <li><a href="/articles">عرض الكل</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="glyphicon glyphicon-time"></span>
+                        <a href="">إدارة المواعيد</a>
                         <ul class="drop_main_menu">
                             <li><a href="add_new_topic.html">إضافة جديد</a></li>
                             <li><a href="view_all_topics.html">عرض الكل</a></li>
                         </ul>
                     </li>
-                    <li><span class="glyphicon glyphicon-picture"></span><a href="">البوم الصور</a>
+                    <li>
+                        <span class="glyphicon glyphicon-picture"></span>
+                        <a href="">إدارة الحجوزات</a>
                         <ul class="drop_main_menu">
                             <li><a href="add_new_photo.html">إضافة جديد</a></li>
                             <li><a href="view_all_photos.html">عرض الكل</a></li>
@@ -149,7 +165,7 @@
                 <!--Start system bath-->
                 <div class="home_pass hidden-xs">
                     <ul>
-                        <li class="bring_right"><span class="glyphicon glyphicon-home "></span></li>
+                        <li class="bring_right"><span class="glyphicon glyphicon-home"></span></li>
                         <li class="bring_right"><a href="">الصفحة الرئيسية للوحة تحكم الموقع</a></li>
                     </ul>
                 </div>
@@ -226,9 +242,9 @@
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/js.js"></script>
+<script type="text/javascript" src="Adminy-master/js/jquery-2.1.4.min.js"></script>
+<script src="Adminy-master/js/bootstrap.min.js"></script>
+<script src="Adminy-master/js/js.js"></script>
 </body>
 
 </html>

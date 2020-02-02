@@ -32,7 +32,7 @@ Route::get('posts', 'Rate\RateController@posts')->name('posts');
 Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
 Route::get('/diseases/{disease}', 'Disease\DiseaseController@show')->name('diseases.show');
 
-// test route 
+// test route
 // Route::get('/cat', 'Category\CategoryController@index');
 // test route cat with article
 // Route::get('/cat', 'Category\CategoryController@index');
@@ -105,14 +105,23 @@ Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name(
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
- 
+
 // this route is only for test
  Route::get('/tests','Personal\PersonalController@index');
  Route::get('/tests/{test}','Personal\PersonalController@show');
  Route::post('/tests/{test}','Personal\PersonalController@store');
- 
+
 
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');
+
+// Dashboard
+Route::get('/dash', function(){
+    return view('/dashboard/index');
+});
+
+Route::get('/users', function() {
+    return view('dashboard.assistants.index');
+});
