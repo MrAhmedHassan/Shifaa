@@ -18,13 +18,13 @@
                 </a>
                 <p class="text-white">دكتور {{$doctor->category->category}}</p>
                 <p>
-      <i class="fa fa-star fa-2x" id="star5"></i>
-         <i class="fa fa-star fa-2x" id="star4"></i>
-         <i class="fa fa-star fa-2x" id="star3"></i>
-         <i class="fa fa-star fa-2x" id="star2"></i>
-         <i class="fa fa-star fa-2x" id="star1"></i>
+         <i name="gemy" class="fa fa-star fa-2x" id="star5"></i>
+         <i name="gemy" class="fa fa-star fa-2x" id="star4"></i>
+         <i name="gemy" class="fa fa-star fa-2x" id="star3"></i>
+         <i name="gemy" class="fa fa-star fa-2x" id="star2"></i>
+         <i name="gemy" class="fa fa-star fa-2x" id="star1"></i>
        </p>
-       <div id="val" style="display:none">{{$doctor->averageRating}}</div>
+       <div name="gemy1" class="gemy2" id="val" style="display:none">{{$doctor->averageRating}}</div>
 
 
 
@@ -124,7 +124,47 @@
 
 <script type="text/javascript">
 
-var star1= document.getElementById("star1");
+var gemy=document.getElementsByName("gemy");
+var gemy1=document.getElementsByName("gemy1");
+
+
+
+for(var p=0;p<gemy.length;p++)
+{
+
+  
+}
+
+const arraySparse = [1,3,,7]
+let numCallbackRuns = 0
+
+const arraySparse2 = ["m","h","m","d","g","m"]
+let numCallbackRuns2 = 0
+/*
+arraySparse.forEach(function(element){
+  console.log(element);
+  arraySparse2.forEach(function(element2){
+    console.log(element2);
+    numCallbackRuns2++;
+  });
+
+
+  numCallbackRuns++;
+})
+*/
+
+
+
+
+
+    
+  
+
+    
+
+//console.log(document.getElementsByClassName("text-primary")[0]);
+
+/*var star1= document.getElementById("star1");
  var star2= document.getElementById("star2");
  var star3= document.getElementById("star3");
  var star4= document.getElementById("star4");
@@ -157,7 +197,7 @@ var star1= document.getElementById("star1");
     star3.style.color="yellow";
     star4.style.color="yellow";
     star5.style.color="yellow";
-  }
+  }*/
    
 </script>
 @endsection
