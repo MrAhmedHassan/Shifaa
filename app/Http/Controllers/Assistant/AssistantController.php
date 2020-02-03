@@ -13,14 +13,6 @@ class AssistantController extends Controller
 {
     public function index()
     {
-        // $user = auth()->user();
-        // if ($user->hasRole('Admin')) {
-            // $assistants = [];
-            // $users = User::all();
-            // foreach ($users as $user) {
-            //     if ($user->hasRole('Assistant')) {
-            //         $assistants[] = $user;
-                // }
                 $user = auth()->user();
                 if ($user->hasRole('Admin')) {
                 $assistants = User::role('Assistant')->get();
@@ -30,7 +22,7 @@ class AssistantController extends Controller
         elseif($user->hasRole('Doctor')) {
             $assistants = auth()->user()->assistants;
             return view('/dashboard/assistants/index')->with('assistants',$assistants);
-             }  
+             }
         }
 
     public function create()
