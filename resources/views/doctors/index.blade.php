@@ -126,32 +126,102 @@
 
 var gemy=document.getElementsByName("gemy");
 var gemy1=document.getElementsByName("gemy1");
-
-
-
-for(var p=0;p<gemy.length;p++)
-{
-
-  
+var arraySparsee2 = [];
+for (var i=0;i<gemy1.length;i++){
+    arraySparsee2.push(parseInt(gemy1[i].innerText)) ;
+}
+var start=0;
+var end=5;
+for (var i=0;i<arraySparsee2.length;i++){
+    console.log(arraySparsee2[i]);
+    if(arraySparsee2[i]==1){
+        arr=[];
+        for(j=start;j<end;j++)
+      { 
+        arr.push(gemy[j]);
+      }
+      console.log(arr[0]);
+    start+=5;
+    end+=5;
+    continue;
+   }else if(arraySparsee2[i]==2){
+       arr1=[];
+    for(j=start;j<end;j++)
+      { 
+       
+       arr1.push(gemy[j]);
+        
+      }
+      
+       arr1[0].style.color="yellow";
+       arr1[1].style.color="yellow";
+      
+    start+=5;
+    end+=5;
+    continue;
+   }else if(arraySparsee2[i]==3){
+       arr2=[];
+    for(j=start;j<end;j++)
+      { 
+        arr2.push(gemy[j]);
+      }
+     arr2[0].style.color="yellow";
+      arr2[1].style.color="yellow";
+       arr2[2].style.color="yellow";
+    start+=5;
+    end+=5;
+    continue;
+   }else if(arraySparsee2[i]==4){
+       arr3=[];
+    for(j=start;j<end;j++)
+      { 
+        
+        arr3.push(gemy[j]);
+      }
+    arr3[0].style.color="yellow";
+       arr3[1].style.color="yellow";
+       arr3[2].style.color="yellow";
+      arr3[3].style.color="yellow";
+    start+=5;
+    end+=5;
+    continue;
+   }else if(arraySparsee2[i]==5){
+       arr4=[];
+    for(j=start;j<end;j++)
+      { 
+        arr4.push(gemy[j]);
+      }
+      arr4[0].style.color="yellow";
+       arr4[1].style.color="yellow";
+       arr4[2].style.color="yellow";
+       arr4[3].style.color="yellow";
+       arr4[4].style.color="yellow";
+    start+=5;
+    end+=5;
+    continue;
+   }
 }
 
-const arraySparse = [1,3,,7]
+
+
+
+
+
+
+/*const arraySparse = ["a","b","c"]
 let numCallbackRuns = 0
 
-const arraySparse2 = ["m","h","m","d","g","m"]
-let numCallbackRuns2 = 0
-/*
-arraySparse.forEach(function(element){
-  console.log(element);
-  arraySparse2.forEach(function(element2){
-    console.log(element2);
-    numCallbackRuns2++;
-  });
+const arraySparse2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+var start=0;
+var end=5;
+arraySparse2.slice(start,end);
+for (var i=0;i<arraySparse.length;i++){
+    console.log(arraySparse[i]);
+    console.log(arraySparse2.slice(start,end));
+    start+=5;
+    end+=5;
 
-
-  numCallbackRuns++;
-})
-*/
+}*/
 
 
 
