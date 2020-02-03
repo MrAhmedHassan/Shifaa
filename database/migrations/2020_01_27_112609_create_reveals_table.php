@@ -16,11 +16,11 @@ class CreateRevealsTable extends Migration
         Schema::create('reveals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
-            $table->time('from', 0);
-            $table->time('to', 0);
+            $table->time('start');
+            $table->time('end');
             $table->bigInteger('limit');
-            $table->unsignedBigInteger('doctor_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
-            $table->foreign('doctor_id')->references('id')->on('users');
+            $table->unsignedBigInteger('doctor_id')->nullable();
+            $table->foreign('doctor_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');
 
             $table->timestamps();
         });

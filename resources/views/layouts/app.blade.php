@@ -144,6 +144,10 @@
                                 <div id="div_user_profile">
                                     <a href="/profiles" class="ml-3" id="user_profile">البروفايل</a>
                                 </div>
+                                <hr>
+                                <div id="div_user_profile">
+                                    <a href="/dashboard" class="ml-3" id="user_profile">لوحة التحكم</a>
+                                </div>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf

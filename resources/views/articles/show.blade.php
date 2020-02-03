@@ -30,7 +30,7 @@
                 <hr>
                 <div class="comments">
                     <div class="user_comment d-flex">
-                        <img class="rounded-circle mb-2" style="width: 6%" src="{{ asset('/eee.jpg') }}" alt="user img">
+                        <img class="rounded-circle mb-2" style="width: 6%" src="{{$article->user->avatar}}" alt="user img">
                         <h4 class="mr-2 mt-2">{{$article->user->name}}</h4>
                     </div>
                     <h5 id="div_comments" class="mb-3"></h5>

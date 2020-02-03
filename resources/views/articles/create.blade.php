@@ -20,13 +20,13 @@
                 <!-- title -->
                 <div class="md-form mt-3 mb-3" style="font-family: 'Cairo', sans-serif">
                     <label>عنوان المقال</label>
-                    <input type="text" name="title" id="" class="form-control" value="">
+                    <input type="text" name="title" id="" class="form-control" value="" required>
                 </div>
 
                 <!--article-->
                 <div class="md-form mb-3">
                     <label for="" style="font-family: 'Cairo', sans-serif">ابدأ بكتابة مقالك هنا</label>
-                    <textarea name="description" id="" class="form-control md-textarea" rows="7"></textarea>
+                    <textarea name="description" id="" class="form-control md-textarea" rows="7" required></textarea>
                 </div>
 
                 <!-- image -->

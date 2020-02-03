@@ -17,10 +17,10 @@ class CreateReservationsTable extends Migration
             $table->bigIncrements('id');
           /*  $table->unsignedBigInteger('reveal_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');*/
             /*$table->foreign('reveal_id')->references('id')->on('reveals');*/
-            $table->unsignedBigInteger('patient_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
-            $table->foreign('patient_id')->references('id')->on('users');
-            $table->unsignedBigInteger('doctor_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
-            $table->foreign('doctor_id')->references('id')->on('users');
+            $table->unsignedBigInteger('patient_id')->nullable();
+            $table->foreign('patient_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');
+            $table->unsignedBigInteger('doctor_id')->nullable();
+            $table->foreign('doctor_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
