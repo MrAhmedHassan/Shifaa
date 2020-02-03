@@ -189,6 +189,7 @@ var star1= document.getElementById("star1");
  var star5= document.getElementById("star5");
 
  var star= document.getElementById("val");
+ parseInt( star);
   if(star.innerText>=1.0000&&star.innerText< 1.9000)
   {
       star1.style.color="yellow";
