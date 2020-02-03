@@ -39,7 +39,7 @@ public function destroy($id)
     $comment = Comment::find($id);
     $comment->delete();
     $article = $comment->article->id;
-    
+
     return redirect("/articles/{$article}");
 }
 

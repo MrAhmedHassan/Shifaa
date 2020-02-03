@@ -15,10 +15,10 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('question')->nullable();
-            $table->string('questionEnglish')->nullable();
-            $table->unsignedBigInteger('test_id')->nullable()->on('tests')->onUpdate('cascade')->onDelete('set null')->nullable();
-            $table->foreign('test_id')->references('id')->on('tests')->nullable();
+            $table->string('question');
+            $table->string('questionEnglish');
+            $table->unsignedBigInteger('test_id')->nullable()->on('tests')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('test_id')->references('id')->on('tests');
             $table->timestamps();
         });
     }

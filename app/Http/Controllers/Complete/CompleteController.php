@@ -12,7 +12,7 @@ class CompleteController extends Controller
     public function show()
     {
         $user = auth()->user();
-       return view('/profile/complete',['user'=>$user]);
+       return view('profile.doctor.complete',['user'=>$user]);
     }
 
     public function store()
@@ -22,7 +22,7 @@ class CompleteController extends Controller
         $profile->address= request() ->input('address');
         $profile->price= request() ->input('price');
         $profile-> save();
-                return view('profile.show',['user' => auth()->user()]);
+                return view('profile.doctor.show',['user' => auth()->user()]);
     }
 
 }

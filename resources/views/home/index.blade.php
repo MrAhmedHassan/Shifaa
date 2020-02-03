@@ -72,58 +72,58 @@
       <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_4.PNG') }}" >
         <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column" >
         <h4>احمد النجم</h4>
-        <p>دكتور باطنة</p>    
+        <p>دكتور باطنة</p>
         </div>
-      
+
         <div class="doctor-layer2" id="top_rated_doctors">
         <h4> عن د. احمد النجم</h4>
         <p>إستشاري الباطنة والسكر والروماتيزم كلية الطب جامعة الإسكندرية</p> <a href="*" >اعرف المزيد</a>
-        </div>                
+        </div>
       </div>
     </div>
-  
+
     <div class="col-md-3">
     <div class="item-doctor ">
       <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_3.PNG') }}">
       <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column">
         <h4>محمود التمساح</h4>
-        <p>دكتور نفسية</p>    
+        <p>دكتور نفسية</p>
         </div>
-      
+
         <div class="doctor-layer2" >
         <h4> عن د. محمود التمساح</h4>
         <p>إستشاري الامراض النفسية كلية الطب جامعة الأزهر</p> <a href="*" >اعرف المزيد</a>
-          </div>                
+          </div>
       </div>
     </div>
-    
+
     <div class="col-md-3">
     <div class="item-doctor ">
       <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_2.PNG') }}">
       <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column">
         <h4>حمو الشبح</h4>
-        <p>دكتور جراحة عامة</p>    
+        <p>دكتور جراحة عامة</p>
         </div>
-      
+
         <div class="doctor-layer2" >
           <h4> عن د. حمو الشبح</h4>
           <p>إستشاري الجراحة العامة كلية الطب جامعة بني سويف</p> <a href="*" >اعرف المزيد</a>
-        </div>                
+        </div>
       </div>
     </div>
-  
+
     <div class="col-md-3">
       <div class="item-doctor ">
         <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_1.PNG') }}">
           <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column">
           <h4>محمد تيرافيرس</h4>
-          <p>دكتور عظام</p>    
+          <p>دكتور عظام</p>
           </div>
-        
+
           <div class="doctor-layer2" >
             <h4> عن د. محمد تيرافيرس</h4>
             <p>إستشاري عظام كلية الطب جامعة القاهرة</p> <a href="*" >اعرف المزيد</a>
-          </div>                
+          </div>
         </div>
       </div>
 
@@ -168,8 +168,8 @@
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <div class="container">
 <div class="d-flex flex-row-reverse">
-  
-  
+
+
   <div class="col-md-6 col-sm-6">
       <div class="box" id="box">
 
@@ -390,12 +390,13 @@
       </div>
       <!--/.Second slide-->
 
-      
+
     </div>
     <!--/.Slides-->
   </div>
   <!--/.Carousel Wrapper-->
 </div>
+
 
 {{-- Fifth Section "questions" --}}
 <div class="questions container" id="questions">
@@ -403,9 +404,11 @@
     <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> اختبر نفسك</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
 
     {{-- style="width: 18rem;" --}}
+   
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/1">
       <div class="card" >
+      
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/angry.jpg') }}" alt="Card image cap">
         <div class="card-body">
           <h3 class="card-title">اختبار العصبية</h3>
@@ -416,7 +419,7 @@
     </div>
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/2">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/weight.jpg') }}" alt="Card image cap">
         <div class="card-body">
@@ -428,7 +431,7 @@
     </div>
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/3">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/alone.jpg') }}" alt="Card image cap">
         <div class="card-body">
@@ -440,7 +443,7 @@
     </div>
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/4">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/child.jpg') }}" alt="Card image cap">
         <div class="card-body">
@@ -453,7 +456,7 @@
 
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/5">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/stingy.jpg') }}" alt="Card image cap">
         <div class="card-body">
@@ -466,7 +469,7 @@
 
 
     <div class="col-md-4 mb-3">
-      <a href="#">
+      <a href="/tests/6">
       <div class="card" >
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/cleaning.jpg') }}" alt="Card image cap">
         <div class="card-body">
@@ -556,10 +559,10 @@
       <div class="col-md-12 mr-5">
         <h1>تواصل معنا</h1>
       </div>
-      
+
       <div class="col-md-6 mt-5">
         <p class="text-center text-muted">يسعدنا تواصلكم معنا .. يمكنكم إرسال رسالة لنا وسوف يتم الرد عليكم  في اقرب وقت .. شكرا لكم</p>
-        
+
         <p class="text-center mb-4"><i class="fas fa-envelope text-muted mx-3"></i><a class="text-Primary" href="#">Hellow@gmail.com</a></p>
         <p class="text-center"><i class="fas fa-phone-alt text-muted mx-3"></i> 001-000-000-000</p>
           <div class="brands d-flex justify-content-center my-4 text-muted">
@@ -577,7 +580,7 @@
           <input type="email" placeholder="الايميل" class="form-control my-3" >
           <textarea type="text" placeholder="رسالتك" class="form-control my-3" rows="6" id="mytext4" ></textarea>
         </form>
-        <button class="btn btn-info p-3" id="Contact_send_message"> إرسال <span><i class="fas fa-arrow-left"></i> </span></button>          
+        <button class="btn btn-info p-3" id="Contact_send_message"> إرسال <span><i class="fas fa-arrow-left"></i> </span></button>
       </div>
     </div>
   </div>
@@ -591,7 +594,7 @@
 <script>
 
   let box = document.getElementById('box');
-  
+
   let eye = document.getElementById("eye");
   let nose = document.getElementById("nose");
   let head = document.getElementById("head");
@@ -599,7 +602,7 @@
   let arms = document.getElementById("arms");
   let bely = document.getElementById("bely");
   let legs = document.getElementById("legs");
-  
+
   let ulEye = document.getElementById("hisEye");
   let ulNose = document.getElementById("hisNose");
   let ulHead = document.getElementById("hisHead");
@@ -607,7 +610,7 @@
   let ulArms = document.getElementById("hisArms");
   let ulBely = document.getElementById("hisBely");
   let ulLegs = document.getElementById("hisLegs");
-  
+
   /************************Image*********************************/
   eye.addEventListener("mouseover", function() {
       ulEye.style.display = 'block';
@@ -621,7 +624,7 @@
       ulEye.style.transitionDuration = '1s';
       ulEye.style.opacity = '1';
   });
-  
+
   nose.addEventListener("mouseover", function() {
       ulEye.style.display = 'none';
       ulNose.style.display = 'block';
@@ -634,7 +637,7 @@
       ulNose.style.transitionDuration = '1s';
       ulNose.style.opacity = '1';
   });
-  
+
   head.addEventListener("mouseover", function() {
       ulEye.style.display = 'none';
       ulNose.style.display = 'none';
@@ -643,11 +646,12 @@
       ulArms.style.display = 'none';
       ulBely.style.display = 'none';
       ulLegs.style.display = 'none';
-      ulHead.style.left = '220px';
+      ulHead.style.left
+ = '220px';
       ulHead.style.transitionDuration = '1s';
       ulHead.style.opacity = '1';
   });
-  
+
   chest.addEventListener("mouseover", function() {
       ulEye.style.display = 'none';
       ulNose.style.display = 'none';
@@ -660,7 +664,7 @@
       ulChest.style.transitionDuration = '1s';
       ulChest.style.opacity = '1';
   });
-  
+
   arms.addEventListener("mouseover", function() {
       ulEye.style.display = 'none';
       ulNose.style.display = 'none';
@@ -673,7 +677,7 @@
       ulArms.style.transitionDuration = '1s';
       ulArms.style.opacity = '1';
   });
-  
+
   bely.addEventListener("mouseover", function() {
       ulEye.style.display = 'none';
       ulNose.style.display = 'none';
@@ -686,7 +690,7 @@
       ulBely.style.transitionDuration = '1s';
       ulBely.style.opacity = '1';
   });
-  
+
   legs.addEventListener("mouseover", function() {
       ulEye.style.display = 'none';
       ulNose.style.display = 'none';
@@ -699,8 +703,8 @@
       ulLegs.style.transitionDuration = '1s';
       ulLegs.style.opacity = '1';
   });
-  
-  
+
+
   </script>
-  
+
 @endsection

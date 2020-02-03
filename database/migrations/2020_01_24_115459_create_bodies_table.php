@@ -17,7 +17,7 @@ class CreateBodiesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description');
-            $table->string('image')->default('avatar.jpg');
+            $table->string('image');
             $table->timestamps();
 
         });

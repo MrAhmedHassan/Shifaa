@@ -18,16 +18,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+// this route is only for test
+Route::get('/tests/{test}','Personal\PersonalController@show');
+Route::post('/tests/{test}','Personal\PersonalController@store');
+
+
+
 // Route::get('/articles/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
 
 Route::get('/bodies', 'Body\BodyController@index')->name('body.index');
 Route::get('/bodies/{body}', 'Body\BodyController@show')->name('body.show');
 Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.show');
-
-//this routes for rate
-Route::get('posts', 'Rate\RateController@posts')->name('posts');
 
 //get the user data with their articles
 // Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
@@ -41,8 +44,7 @@ Route::get('/diseases/{disease}', 'Disease\DiseaseController@show')->name('disea
 // Route::get('/user', 'Comment\CommentController@index');
 
 Route::get('/prof', 'Profile\ProfileController@index');
-Route::post('posts', 'Rate\RateController@postPost')->name('posts.post');
-Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
+
 // test route
 // Route::get('/art/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
 
@@ -65,7 +67,7 @@ Route::delete('/articles/{id}', 'Article\ArticleController@destroy')->name('arti
 // Route::get('/comments', 'Comment\CommentController@index')->name('comments.index');
 Route::post('/comments/store/{article_id}', 'Comment\CommentController@store')->name('comments.store');
 //this is needs a different view to show
-Route::get('/comments/{comment}/edit','Comment\CommentController@edit')->name('comments.edit');
+Route::get('/comments/{comment}/edit', 'Comment\CommentController@edit')->name('comments.edit');
 Route::put('/comments/{comment}', 'Comment\CommentController@update');
 
 Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('comment.destroy');
@@ -79,7 +81,9 @@ Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('
 
 // Route::get('/profiles','Profile\ProfileController@showMyProfile')->name('profiles.showMy');;
 Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
-Route::get('/profiles/{Profile}','Profile\ProfileController@showAnotherProfile');
+//route for rate
+Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
+Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
 Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
 
@@ -107,12 +111,9 @@ Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name(
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
+ 
 
-// this route is only for test
- Route::get('/tests','Personal\PersonalController@index');
- Route::get('/tests/{test}','Personal\PersonalController@show');
- Route::post('/tests/{test}','Personal\PersonalController@store');
-
+ 
 
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
@@ -123,6 +124,10 @@ Route::get('/reservations', 'Reservation\ReservationController@index');
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');
 
+// Dashboard
+Route::get('/dash', function () {
+    return view('/dashboard/index');
+});
 
 Route::get('/dashboard',function(){
    return view('dashboard.index');

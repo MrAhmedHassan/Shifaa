@@ -18,12 +18,44 @@
                         <img src="{{$user->avatar}}">
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
-                        <button class="btn btn-defult follow "><i class="fa fa-user-o" aria-hidden="true"></i> تقييم</button>
+
+
+
+<form action="/rate" method="POST">
+  {{ csrf_field() }}
+<div class="rating" >
+  <br>
+ <input id="e5" name="rate" value="5" type="radio"></a><label for="e5">☆</label>
+		<input  id="e4" name="rate" value="4" type="radio"></a><label for="e4">☆</label>
+		<input  id="e3" name="rate" value="3" type="radio"></a><label for="e3">☆</label>
+		<input id="e2" name="rate" value="2" type="radio"></a><label for="e2">☆</label>
+	<input  id="e1" name="rate" value="1" type="radio"></a><label for="e1">☆</label>
+     <input type="hidden" name="id" required="" value="{{ $user->id }}">
+   <br/> <button id="submitRate" class="btn btn-success">Submit Review</button>
+ </div>   
+ 
+ </form><br><br><br>
+
+
+    <i class="fa fa-user-o" aria-hidden="true"></i> <a href="#" class="btn btn-primary btn-sm">تقييم</a>
+
+
+
+
+
+
                     </div>
                     <div class="row user-detail-row">
                         <div class="col-md-12 col-sm-12 user-detail-section2 pull-left">
                             <div class="border"></div>
-                            <p>التقييم</p>
+                            <p>
+      <i class="fa fa-star fa-2x" id="star5"></i>
+         <i class="fa fa-star fa-2x" id="star4"></i>
+         <i class="fa fa-star fa-2x" id="star3"></i>
+         <i class="fa fa-star fa-2x" id="star2"></i>
+         <i class="fa fa-star fa-2x" id="star1"></i>
+       </p>
+       <div id="val" style="display:none">{{$user->averageRating}}</div>
                             <span>320</span>
                         </div>
                         <div class="col-md-12 col-sm-12 user-detail-section2 pull-right">
@@ -48,40 +80,24 @@
                                 <p> طبيب {{$user->category->category}}</p>
                                 <h5>نبذة عننا</h5>
                                 <p class="fontOfHabd">{{$user->profile->abstract}}</p>
-
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right d-flex">
+                                @if(auth()->user())
                                 @if(auth()->user()->id == $user->id)
                                 <a href="/profiles/{{$user->id}}/edit" class="btn btn-info btn-sm ml-2 h-25">تعديل الملف الشخصي</a>
                                 @endif
+                                @endif
+
+                                @if(auth()->user())
                                 @if(auth()->user()->id == $user->id)
                                 <a href="/profile/complete" class="btn btn-info btn-sm ml-2 h-25">أكمل الملف الشخصي</a>
                                 @endif
-                                @csrf
-
+                                    @endif
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-8  profile-tag-section text-center">
-                                <div class="row">
-                                    {{-- <div class="col-md-3 col-sm-3 profile-tag">--}}
-                                    {{-- <a href="#"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></a>--}}
-                                    {{-- <p>معلومات</p>--}}
-                                    {{-- </div>--}}
-                                    {{-- <div class="col-md-3 col-sm-3 profile-tag">--}}
-                                    {{-- <a href="#"><i class="fa fa-address-book" aria-hidden="true"></i></a>--}}
-                                    {{-- <p>مقالات</p>--}}
-                                    {{-- </div>--}}
-                                    {{-- <div class="col-md-3 col-sm-3 profile-tag">--}}
-                                    {{-- <a href="#"><i class="fa fa-id-card-o" aria-hidden="true"></i></a>--}}
-                                    {{-- <p>حجوزات</p>--}}
-                                    {{-- </div>--}}
-
-                                </div>
-                            </div>
                             <div class="col-md-4 img-main-rightPart">
                                 <div class="row">
                                     <div class="col-md-12 text-center border border-primary rounded bg-primary">
@@ -90,8 +106,6 @@
                                         <h3 class="text-white">عنوان العيادة</h3>
                                         <label>{{$user->profile->address}}</label>
                                     </div>
-
-
                                 </div>
                             </div>
                             <table class="table table-striped table-dark text-center border border-warning">
@@ -103,69 +117,59 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $reveals = $user->reveals;
+                                @endphp
+                                @if(count($reveals) < 1)
                                     <tr class="text-primary">
                                         <td>
-                                            <p style="font-size: 20px">السبت</p>
-                                        </td>
+                                            <p style="font-size: 20px">لم يحدد</p>
                                         <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
+                                            <p style="font-size: 20px">لم يحدد</p>
                                         </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
+                                        <td>غيرمتاح</td>
                                     </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الاحد</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الاثنين</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الثلاثاء</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الاربعاء</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الخميس</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
-                                    <tr class="text-primary">
-                                        <td>
-                                            <p style="font-size: 20px">الجمعة</p>
-                                        </td>
-                                        <td>
-                                            <p style="font-size: 20px">5:00pm / 1:00pm</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-success">احجز</button></td>
-                                    </tr>
+                                @elseif(count($reveals) <= 3)
+                                    @foreach($reveals as $reveal)
+                                        <tr class="text-primary">
+                                            <td>
+                                            {{--                                <p style="font-size: 20px">السبت</p>--}}
+                                            {{ date('D', strtotime($reveal->date)) }}
+
+                                            {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                            <td>
+                                                <p style="font-size: 20px">     {{$reveal->start}}
+                                                    /       {{$reveal->end}} </p>
+                                            </td>
+                                            <td>  <form method="post" action="/reservations/{{$reveal->id}}/{{$user->id}}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-success">احجز</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                @else
+
+                                    @for($i=0 ; $i<3 ;$i++)
+                                        <tr class="text-primary">
+                                            <td>
+                                            {{ date('D', strtotime($reveals[$i]->date)) }}
+                                            <td>
+                                                <p style="font-size: 20px">     {{$reveals[$i]->start}}
+                                                    /       {{$reveals[$i]->end}} </p>
+                                            </td>
+                                            <td>
+                                                <form method='post' action="/reservations/{{$reveals[$i]->id}}/{{$user->id}}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-success">احجز</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endfor
+
+                                @endif
+
                                 </tbody>
                             </table>
                         </div>
@@ -175,4 +179,43 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+
+var star1= document.getElementById("star1");
+ var star2= document.getElementById("star2");
+ var star3= document.getElementById("star3");
+ var star4= document.getElementById("star4");
+ var star5= document.getElementById("star5");
+
+ var star= document.getElementById("val");
+ parseInt( star);
+  if(star.innerText>=1.0000&&star.innerText< 1.9000)
+  {
+      star1.style.color="yellow";
+  }else if(star.innerText>=2.0000&&star.innerText< 2.9000)
+  {
+    star1.style.color="yellow";
+    star2.style.color="yellow";
+  }else if(star.innerText>=3.0000&&star.innerText< 3.9000)
+  {
+    star1.style.color="yellow";
+    star2.style.color="yellow";
+    star3.style.color="yellow";
+  }else if(star.innerText>=4.0000&&star.innerText< 4.9000)
+  {
+    star1.style.color="yellow";
+    star2.style.color="yellow";
+    star3.style.color="yellow";
+    star4.style.color="yellow";
+  }
+  else if(star.innerText>=5.0000&&star.innerText< 5.9000)
+  {
+    star1.style.color="yellow";
+    star2.style.color="yellow";
+    star3.style.color="yellow";
+    star4.style.color="yellow";
+    star5.style.color="yellow";
+  }
+   
+</script>
 @endsection

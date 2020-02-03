@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Category;
+use App\User;
 use App\Comment;
 
 class ArticleController extends Controller
