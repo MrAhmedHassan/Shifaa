@@ -12,16 +12,25 @@ class ReservationController extends Controller
         //        forAdmin
         if (auth()->user()->hasRole('Admin')) {
             $reservations = Reservation::all();
-            dd($reservations);
+            // dd($reservations);
+
             //        forDoctor
+            dd('shit');
+            return view('/dashboard/reservations/index')->with('reservations', $reservations);
+
         } else if (auth()->user()->hasRole('Doctor')) {
+    //         $all = Reservation::find(1);
+    // dd($all);
             $reservations = auth()->user()->doctorReservations;
-            dd($reservations);
             //            ForAssistant
+            return view('/dashboard/reservations/index')->with('reservations', $reservations);
+
         } else if (auth()->user()->hasRole('Assistant')) {
             $myDoctor = auth()->user()->doctor;
             $reservations = $myDoctor->doctorReservations;
-            dd($reservations);
+            // dd($reservations);
+            return view('/dashboard/reservations/index')->with('reservations', $reservations);
+
         }
     }
 
@@ -55,10 +64,12 @@ class ReservationController extends Controller
     public function softDelete($reveal)
     {
         $reservations = Reservation::where('reveal_id', $reveal)->get();
+        dd($reservations);
         foreach ($reservations as $reservation) {
             $reservation->delete();
         }
         $reveal = Reveal::find($reveal)->delete();
-        dd('this reveal and it\'s reservations is deleted');
+
+        return redirect('/reservations');
     }
 }

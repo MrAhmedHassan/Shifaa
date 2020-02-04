@@ -30,25 +30,30 @@
                                 <td> التاريخ </td>
                                 <td>التحكم</td>
                             </tr>
-
+            @foreach($reservations as $value)
                             <tr class="text-center">
-                                <td>1</td>
-                                <td>#12</td>
-                                <td>محمد النمر</td>
-                                <td>الخميس</td>
-                                <td>8 م</td>
-                                <td>10 م</td>
-                                <td>13/13/2013</td>
+                                <td>{{$value->id}}</td>
+                                <td>{{$value->patient->id}}</td>
+                                <td>{{$value->doctor->name}}</td>
+                                <td>{{ date('D', strtotime($value->date)) }}</td>
+                           
+                                <td>{{$value->reveal->start}}</td>
+                                <td>{{$value->reveal->end}}</td>
+
+                                <td>{{$value->reveal->date}}</td>
                                 <td>
                                     <a href="#"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
                                         data-placement="top" title="تعديل"></button></a>
-                                        <form action="" style="display: inline-flex">
+
+                                        <form action="/reservations/{{$value->id}}" style="display: inline-flex" method="post">
+                                        {{method_field('DELETE')}}
                                          @csrf
                                      <button class="glyphicon glyphicon-remove" data-toggle="tooltip"
                                         data-placement="top" title="حذف" style="color: brown"></button>
                                         </form>
                                 </td>
                             </tr>
+             @endforeach
                         </table>
 
                         <nav class="text-center">
