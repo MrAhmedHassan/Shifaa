@@ -54,16 +54,13 @@ Route::get('/prof', 'Profile\ProfileController@index');
 //     dd($art->comments);
 // });
 
+// articles
 Route::get('/articles', 'Article\ArticleController@index')->name('articles.index');
-// show only this doctor articles
 Route::get('/articles/cat/{cat}', 'Article\ArticleController@category')->name('articles.category');
-
 Route::get('/article/create', 'Article\ArticleController@create')->name('articles.create');
 Route::post('/articles/store', 'Article\ArticleController@store')->name('articles.store');
-
 Route::get('/articles/{article}/edit', 'Article\ArticleController@edit')->name('articles.edit');
 Route::put('/articles/{article}', 'Article\ArticleController@update')->name('articles.update');
-
 Route::get('/articles/{article}', 'Article\ArticleController@show')->name('articles.show');
 Route::delete('/articles/{id}', 'Article\ArticleController@destroy')->name('articles.destroy');
 
@@ -100,14 +97,15 @@ Route::get('/doctors/{doctor}', 'Doctor\DoctorController@show');
 
 //assistant
 Route::get('/assistants', 'Assistant\AssistantController@index');
+// assistanse create with c
 Route::get('/assistants/create', 'Assistant\AssistantController@create');
-Route::post('/assistants', 'Assistant\AssistantController@store');
+Route::post('/assistants/store','Assistant\AssistantController@store');
 Route::delete('/assistants/{assistant}', 'Assistant\AssistantController@delete');
 
 //create routes for and reveal time
 Route::get('/reveals', 'RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create', 'RevealTime\RevealTimeController@create')->name('reveal.create');
-Route::post('/reveals', 'RevealTime\RevealTimeController@store');
+Route::post('/reveals/store', 'RevealTime\RevealTimeController@store');
 Route::get('/reveals/{reveal}/edit', 'RevealTime\RevealTimeController@edit')->name('reveals.edit');
 Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name('reveals.update');
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
@@ -119,6 +117,10 @@ Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->n
 
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
+// Route::get('/reservations', function(){
+//     return dd('ssss');
+// });
+
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');
 
@@ -127,6 +129,8 @@ Route::get('/dash', function () {
     return view('/dashboard/index');
 });
 
-Route::get('/dash', function () {
-    return view('dashboard.test');
+Route::get('/dashboard',function(){
+   return view('dashboard.index');
 });
+// Route::get('/assistant/create', 'Article\ArticleController@create')->name('articles.create');
+

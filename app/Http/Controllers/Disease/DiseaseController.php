@@ -18,8 +18,6 @@ class DiseaseController extends Controller
     public function show($id)
     {
        $diseases = Disease::find($id);
-       //please choose mr hoda
-       return view('/diseases/show')->with('diseases',$diseases);
        return view('/diseases/index')->with('diseases',$diseases);
     }
 }
