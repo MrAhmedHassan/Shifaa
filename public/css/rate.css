@@ -5,28 +5,27 @@ body {
       text-align:center;
   }
 
- 
+
   em {
       display: block;
       margin: .5em auto 2em;
       color: #bbb;
   }
 
- 
- 
 
-  
+
+
+
   a[href*="intent"] {
       display:inline-block;
       margin-top: 0.4em;
   }
 
-  /*  
+  /*
    * Rating styles
    */
   .rating {
       width: 226px;
-      margin: 0 auto 1em;
       font-size: 45px;
       overflow:hidden;
   }
@@ -38,7 +37,7 @@ position: absolute;
   .rating a,
 .rating label {
       float:right;
-      color: #aaa;
+      color: #ddd;
       text-decoration: none;
       -webkit-transition: color .4s;
       -moz-transition: color .4s;
