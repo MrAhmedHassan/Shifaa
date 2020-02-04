@@ -134,11 +134,12 @@
                                         <tr class="text-primary">
                                             <td>
                                             {{--                                <p style="font-size: 20px">السبت</p>--}}
-                                            {{ \Carbon\Carbon::parse($reveal->date)->format('D')}}
+                                            {{ date('D', strtotime($reveal->date)) }}
+
                                             {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
                                             <td>
-                                                <p style="font-size: 20px">     {{$reveal->from}}
-                                                    /       {{$reveal->to}} </p>
+                                                <p style="font-size: 20px">     {{$reveal->start}}
+                                                    /       {{$reveal->end}} </p>
                                             </td>
                                             <td>  <form method="post" action="/reservations/{{$reveal->id}}/{{$user->id}}">
                                                     @csrf
@@ -153,12 +154,10 @@
                                     @for($i=0 ; $i<3 ;$i++)
                                         <tr class="text-primary">
                                             <td>
-                                            {{--                                <p style="font-size: 20px">السبت</p>--}}
-                                            {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('D')}}
-                                            {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                            {{ date('D', strtotime($reveals[$i]->date)) }}
                                             <td>
-                                                <p style="font-size: 20px">     {{$reveals[$i]->from}}
-                                                    /       {{$reveals[$i]->to}} </p>
+                                                <p style="font-size: 20px">     {{$reveals[$i]->start}}
+                                                    /       {{$reveals[$i]->end}} </p>
                                             </td>
                                             <td>
                                                 <form method='post' action="/reservations/{{$reveals[$i]->id}}/{{$user->id}}">

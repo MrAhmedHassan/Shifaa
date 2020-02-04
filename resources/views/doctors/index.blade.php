@@ -79,8 +79,8 @@
                                 {{ \Carbon\Carbon::parse($reveal->date)->format('D')}}
                                 {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
                                 <td>
-                                    <p style="font-size: 20px">     {{$reveal->from}}
-                                        /       {{$reveal->to}} </p>
+                                    <p style="font-size: 20px">     {{$reveal->start}}
+                                        /       {{$reveal->end}} </p>
                                 </td>
                                 <td>  <form method="post" action="/reservations/{{$reveal->id}}/{{$doctor->id}}">
                                         @csrf
@@ -99,8 +99,8 @@
                                 {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('D')}}
                                 {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
                                 <td>
-                                    <p style="font-size: 20px">     {{$reveals[$i]->from}}
-                                        /       {{$reveals[$i]->to}} </p>
+                                    <p style="font-size: 20px">     {{$reveals[$i]->start}}
+                                        /       {{$reveals[$i]->end}} </p>
                                 </td>
                                 <td>
                                     <form method='post' action="/reservations/{{$reveals[$i]->id}}/{{$doctor->id}}">
