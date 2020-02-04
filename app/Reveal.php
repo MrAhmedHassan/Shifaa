@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reveal extends Model
 {
-    // use SoftDeletes;
+    use SoftDeletes;
 
-    protected $fillable = ['date','from','to','limit','doctor_id'];
+    protected $fillable = ['date','start','end','limit','doctor_id'];
 
 
     public function doctor()

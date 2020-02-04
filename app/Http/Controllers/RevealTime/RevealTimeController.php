@@ -5,6 +5,7 @@ namespace App\Http\Controllers\RevealTime;
 use App\Http\Requests\RevealValidation;
 use App\Http\Requests\TestVlidation;
 use App\Http\Controllers\Controller;
+use App\Reservation;
 use Illuminate\Http\Request;
 use App\Reveal;
 
@@ -73,8 +74,17 @@ class RevealTimeController extends Controller
 
     public function destroy($id)
     {
-        $reveal = Reveal::find($id);
-        $reveal->delete();
+        // dd("poop");
+        // $reveal = Reveal::find($id);
+        // $reveal->delete();
+
+        $reservations = Reservation::where('reveal_id', $id)->get();
+        // dd($reservations);
+        foreach ($reservations as $reservation) {
+            $reservation->delete();
+        }
+        $reveal = Reveal::find($id)->delete();
+
         return redirect('/reveals');
     }
 }

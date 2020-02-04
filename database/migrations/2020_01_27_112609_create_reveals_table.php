@@ -21,7 +21,7 @@ class CreateRevealsTable extends Migration
             $table->bigInteger('limit');
             $table->unsignedBigInteger('doctor_id')->nullable();
             $table->foreign('doctor_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');
-
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

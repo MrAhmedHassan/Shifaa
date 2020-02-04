@@ -33,26 +33,18 @@ class PersonalController extends Controller
         return view('gemytest2/gemytest2', compact('questions'));
     }
 
-    public function store($id ,TestVlidation $request)
+    public function store($id )
     {
 
         ///////////////////////////////////////////////////
        
         $test = Test::find($id);
-      /*  if($test->id==3)
-        {
-         
-           PersonalController::store($id);
-        }else{
-           // dd("222");
-        }*/
-     
-        $doing =  $request->doing;
-        $wedding = $request->wedding;
-        $friend = $request->friend;
-        $car =    $request->car;
-        $angry = $request->angry;
-
+        $doing = request()->doing;
+        $wedding =request()->wedding;
+        $friend =request()->friend;
+        $car =   request()->car;
+        $angry =request()->angry;
+        
         $doing2 = request()->doing2;
         $wedding2 = request()->wedding2;
         $friend2 = request()->friend2;
@@ -84,6 +76,69 @@ class PersonalController extends Controller
         $car6 =   request()->car6;
         $angry6 =  request()->angry6;
 
+        if(!($doing&&$wedding&&$friend&& $car&&$angry)&&$test->id==1)
+        {
+            $validatedData = request()->validate([
+                'doing' => 'required',
+                'wedding' => 'required',
+                'friend' => 'required',
+                'car' => 'required',
+                'angry' => 'required',
+            ]);
+
+        }else if(!($doing2&&$wedding2&&$friend2&& $car2&&$angry2)&&$test->id==2)
+        {
+            $validatedData = request()->validate([
+                'doing2' => 'required',
+                'wedding2' => 'required',
+                'friend2' => 'required',
+                'car2' => 'required',
+                'angry2' => 'required',
+            ]);
+
+        }else if(!($doing3&&$wedding3&&$friend3&& $car3&&$angry3)&&$test->id==3)
+        {
+            $validatedData = request()->validate([
+                'doing3' => 'required',
+                'wedding3' => 'required',
+                'friend3' => 'required',
+                'car3' => 'required',
+                'angry3' => 'required',
+            ]);
+
+        }else if(!($doing4&&$wedding4&&$friend4&& $car4&&$angry4)&&$test->id==4)
+        {
+            $validatedData = request()->validate([
+                'doing4' => 'required',
+                'wedding4' => 'required',
+                'friend4' => 'required',
+                'car4' => 'required',
+                'angry4' => 'required',
+            ]);
+
+        }else if(!($doing5&&$wedding5&&$friend5&& $car5&&$angry5)&&$test->id==5)
+        {
+            $validatedData = request()->validate([
+                'doing5' => 'required',
+                'wedding5' => 'required',
+                'friend5' => 'required',
+                'car5' => 'required',
+                'angry5' => 'required',
+            ]);
+
+        }else if(!($doing6&&$wedding6&&$friend6&& $car6&&$angry6)&&$test->id==6)
+        {
+            $validatedData = request()->validate([
+                'doing6' => 'required',
+                'wedding6' => 'required',
+                'friend6' => 'required',
+                'car6' => 'required',
+                'angry6' => 'required',
+            ]);
+
+        }
+
+       
 
         $sum = 0;
 
