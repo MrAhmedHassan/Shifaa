@@ -9,7 +9,7 @@
             <div class="row">
 
             <aside class="single_sidebar_widget post_category_widget col-md-4 col-sm-6">
-            <a href="/article/create" class="btn btn-outline-info w-100 mb-3"> إنشاء مقال </a>
+            <a href="/article/create" class="btn btn-info w-100 mb-3"> إنشاء مقال </a>
 
                 <div class="d-flex justify-content-center"><h3 class="widget_title">الأقسام</h3></div>
                 <ul class="list cat-list">

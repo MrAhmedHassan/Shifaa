@@ -37,12 +37,9 @@
  </form><br><br><br>
 
 
+    <a href="/doctor_article/{{$user->id}}" class="btn btn-primary btn-sm">مقالاتي</a>
+
     <i class="fa fa-user-o" aria-hidden="true"></i> <a href="#" class="btn btn-primary btn-sm">تقييم</a>
-
-
-
-
-
 
                     </div>
                     <div class="row user-detail-row">

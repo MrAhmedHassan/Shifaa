@@ -21,6 +21,13 @@ class ArticleController extends Controller
         return view('/articles/index')->with(['articles' => $articles,'categories'=>$categories]);
     }
 
+    public function doctor_article($id)
+    {
+        $articles = Article::where(['user_id'=>$id])->get();
+        $categories = Category::all();
+        return view('/articles/doctor_article')->with(['articles' => $articles,'categories'=>$categories]);
+    }
+
     public function category($cat)
     {
         $category = Category::where(['id'=>$cat])->first();

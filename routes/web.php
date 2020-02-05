@@ -56,6 +56,8 @@ Route::get('/prof', 'Profile\ProfileController@index');
 
 // articles
 Route::get('/articles', 'Article\ArticleController@index')->name('articles.index');
+Route::get('/doctor_article/{doctor}', 'Article\ArticleController@doctor_article')->name('doctor.article');
+
 Route::get('/articles/cat/{cat}', 'Article\ArticleController@category')->name('articles.category');
 Route::get('/article/create', 'Article\ArticleController@create')->name('articles.create');
 Route::post('/articles/store', 'Article\ArticleController@store')->name('articles.store');
@@ -72,16 +74,9 @@ Route::put('/comments/{comment}', 'Comment\CommentController@update');
 
 Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('comment.destroy');
 
-//Route::get('/test',function (){
-//    $user = \App\User::find(auth()->user()->id);
-//    $cat = \App\Category::find(7);
-//    dd($cat->users[0]);
-//    return view('profile/show');
-//});
 
-// Route::get('/profiles','Profile\ProfileController@showMyProfile')->name('profiles.showMy');;
 Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
-//route for rate
+
 Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
 Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');

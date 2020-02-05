@@ -71,27 +71,5 @@
         </div>
     </div>
 
-<script>
-
-    let comment_btn_submit = document.getElementById('comment_btn_submit');
-    let div_comments = document.getElementById('div_comments');
-    let arr_comments = [];
-
-    comment_btn_submit.addEventListener('click', function (e) {
-        let text_area_value = document.getElementById('text_area1').value;
-        arr_comments.push(text_area_value);
-        e.preventDefault();
-
-        for (let i = 0; i < arr_comments.length; i++) {
-            div_comments.append(arr_comments[i]);
-            arr_comments = [];
-
-            // $("#div_comments").after("<br />");
-
-        }
-        document.getElementById('text_area1').value = "";
-    })
-
-</script>
 
 @endsection
