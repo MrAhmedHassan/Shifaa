@@ -55,7 +55,7 @@ Route::get('/prof', 'Profile\ProfileController@index');
 // });
 
 // articles
-Route::namespace('Article')->group(function () {
+Route::group(['namespace'=>'Article'],function () {
     // Controllers Within The "App\Http\Controllers\Article" Namespace
     Route::get('/articles', 'ArticleController@index')->name('articles.index');
     Route::get('/article/create', 'ArticleController@create')->name('articles.create')->middleware(['role:Admin|Doctor','auth']);
@@ -100,12 +100,16 @@ Route::get('/doctors', 'Doctor\DoctorController@index');
 Route::get('/doctors/{doctor}', 'Doctor\DoctorController@show');
 
 //assistant
-
-Route::get('/assistants', 'Assistant\AssistantController@index');
-Route::get('/assistants/create', 'Assistant\AssistantController@create');
-Route::post('/assistants/store','Assistant\AssistantController@store');
-Route::delete('/assistants/{assistant}', 'Assistant\AssistantController@delete');
-
+Route::group([
+    'middleware' => ['auth','role:Admin|Doctor'],
+    'namespace' => 'Assistant',
+    'prefix' => 'assistants'
+    ],function () {
+    Route::get('/', 'AssistantController@index');
+    Route::get('create', 'AssistantController@create');
+    Route::post('store', 'AssistantController@store');
+    Route::delete('{assistant}', 'AssistantController@delete');
+});
 //create routes for and reveal time
 Route::get('/reveals', 'RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create', 'RevealTime\RevealTimeController@create')->name('reveal.create');
