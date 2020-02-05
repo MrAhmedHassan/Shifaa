@@ -55,14 +55,18 @@ Route::get('/prof', 'Profile\ProfileController@index');
 // });
 
 // articles
-Route::get('/articles', 'Article\ArticleController@index')->name('articles.index');
-Route::get('/articles/cat/{cat}', 'Article\ArticleController@category')->name('articles.category');
-Route::get('/article/create', 'Article\ArticleController@create')->name('articles.create');
-Route::post('/articles/store', 'Article\ArticleController@store')->name('articles.store');
-Route::get('/articles/{article}/edit', 'Article\ArticleController@edit')->name('articles.edit');
-Route::put('/articles/{article}', 'Article\ArticleController@update')->name('articles.update');
-Route::get('/articles/{article}', 'Article\ArticleController@show')->name('articles.show');
-Route::delete('/articles/{id}', 'Article\ArticleController@destroy')->name('articles.destroy');
+Route::namespace('Article')->group(function () {
+    // Controllers Within The "App\Http\Controllers\Article" Namespace
+    Route::get('/articles', 'ArticleController@index')->name('articles.index');
+    Route::get('/articles/cat/{cat}', 'ArticleController@category')->name('articles.category');
+    Route::get('/article/create', 'ArticleController@create')->name('articles.create');
+    Route::post('/articles/store', 'ArticleController@store')->name('articles.store');
+    Route::get('/articles/{article}/edit', 'ArticleController@edit')->name('articles.edit');
+    Route::put('/articles/{article}', 'ArticleController@update')->name('articles.update');
+    Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
+    Route::delete('/articles/{id}', 'ArticleController@destroy')->name('articles.destroy');
+});
+
 
 // Route::get('/comments', 'Comment\CommentController@index')->name('comments.index');
 Route::post('/comments/store/{article_id}', 'Comment\CommentController@store')->name('comments.store');
@@ -111,9 +115,9 @@ Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name(
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
- 
 
- 
+
+
 
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
@@ -134,3 +138,7 @@ Route::get('/dashboard',function(){
 });
 // Route::get('/assistant/create', 'Article\ArticleController@create')->name('articles.create');
 
+// not found page redirect to home page
+Route::fallback(function () {
+  return  redirect('/');
+});

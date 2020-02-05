@@ -16,8 +16,6 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
         $categories = Category::all();
-
-
         return view('/articles/index')->with(['articles' => $articles,'categories'=>$categories]);
     }
 
