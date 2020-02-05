@@ -100,8 +100,8 @@ Route::get('/doctors', 'Doctor\DoctorController@index');
 Route::get('/doctors/{doctor}', 'Doctor\DoctorController@show');
 
 //assistant
+
 Route::get('/assistants', 'Assistant\AssistantController@index');
-// assistanse create with c
 Route::get('/assistants/create', 'Assistant\AssistantController@create');
 Route::post('/assistants/store','Assistant\AssistantController@store');
 Route::delete('/assistants/{assistant}', 'Assistant\AssistantController@delete');
