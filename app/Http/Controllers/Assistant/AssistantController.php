@@ -21,10 +21,12 @@ class AssistantController extends Controller
                     $assistants [] = $user;
                 }
             }
-            dd($assistants);
+            // dd($assistants);
+            return view('/dashboard/assistants/index')->with('assistants',$assistants);
         }else{
             $assistants = auth()->user()->assistants;
-            dd($assistants);
+            // dd($assistants);
+            return view('/dashboard/assistants/index')->with('assistants',$assistants);
         }
 
     }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Reservation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Reservation;
+use App\Reveal;
 
 class ReservationController extends Controller
 {
@@ -11,18 +13,24 @@ class ReservationController extends Controller
         //        forAdmin
                 if(auth()->user()->hasRole('Admin')){
                     $reservations = Reservation::all();
-                    dd($reservations);
+                    // dd($reservations);
+                    return view('/dashboard/reservations/index')->with('reservations',$reservations);
+
         
         //        forDoctor
                 }else if(auth()->user()->hasRole('Doctor')){
                     $reservations = auth()->user()->doctorReservations;
-                    dd($reservations);
+                    // dd($reservations);
+                    return view('/dashboard/reservations/index')->with('reservations',$reservations);
+
         
         //            ForAssistant
                 }else if(auth()->user()->hasRole('Assistant')){
                     $myDoctor =auth()->user()->doctor;
                     $reservations = $myDoctor->doctorReservations;
-                    dd($reservations);
+                    // dd($reservations);
+                    return view('/dashboard/reservations/index')->with('reservations',$reservations);
+
                 }
             }
         

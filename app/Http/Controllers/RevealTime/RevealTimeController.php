@@ -12,12 +12,12 @@ class RevealTimeController extends Controller
 {
 
     public function index(){
-        $reveal = Reveal::all();
-        echo "<a href='/reveals/create'>create new reveal</a>";
-        dd( $reveal);
-      // $doctor =$reveal[0]->doctor;
-       // dd($doctor );
-       
+        $reveals = Reveal::all();
+        // echo "<a href='/reveals/create'>create new reveal</a>";
+        // dd( $reveal);
+        // $doctor =$reveal[0]->doctor;
+        // dd($doctor );
+        return view('/dashboard/reveals/index')->with('reveals',$reveals);
     }
     public function create()
     {

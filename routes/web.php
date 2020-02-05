@@ -116,3 +116,12 @@ Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->n
 Route::get('/reservations', 'Reservation\ReservationController@index');
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');
+
+
+Route::get('/dashboard', function(){
+     return view('dashboard/index');
+});
+
+
+
+

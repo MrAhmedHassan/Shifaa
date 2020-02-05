@@ -1,7 +1,7 @@
 body
 {
 /* background-color: #FBFBFB !important; */
-background-color: #b4b4b41e !important;
+background-color: #b4b4b41e ;
 }
 
 html
@@ -18,7 +18,16 @@ p
 {
     color:rgb(8, 142, 255) ;
     font-family: 'Cairo', sans-serif;
+}
 
+.navbar
+{
+    background-color: rgb(69, 170, 255);
+}
+
+.navbar .shefa_brand h1,i
+{
+    color: rgb(0, 101, 225);
 }
 
 .myline_small
@@ -35,6 +44,50 @@ p
     margin: 0 ;
 }
 
+#colors_div
+{
+height: 100px;
+width: 500px;
+position: fixed;
+right: 0px;
+top: 85px;
+z-index: 999;
+}
+
+#colors_option
+{
+    background-color: rgb(224, 189, 189);
+    padding-left: 20px;
+    border-radius: 10%;
+    border: 2px solid yellow;
+    float: right;
+}
+
+#colors_div ul
+{
+display: flex;
+}
+
+#colors_div ul li
+{
+    height: 20px;
+    width: 25px;
+    background-color: red;
+    margin: 5px 8px 0px 0px;
+    cursor: pointer;
+}
+
+#colors_div i
+{
+    background-color: rgb(224, 189, 189);
+    color: orangered;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
 .my_main_navbar li a
 {
     color:white !important;
@@ -46,30 +99,15 @@ p
     font-weight: 700 !important;
 }
 
-/* 
-.my_main_navbar li a:hover
-{
-    color:rgb(224, 8, 8) !important; */
-    /* background-color:darkslategray  ; */
-    /* border-radius: 15%; */
-/* } */
-
-
 .my_main_navbar .nav-item-div .nav-item:hover a,.my_main_navbar .nav-item-div .nav-item:hover i
 {
     color: #56a7fd !important;
     cursor: pointer;
 }
 
+
+
 @media only screen and (max-width: 1199px) {
-    .my_main_navbar li a{
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .mainA
-    {
-        margin-left: 20px !important;
-    }
 
     .my_skew section
     {
@@ -84,31 +122,10 @@ p
     }
     }
 
-@media only screen and (max-width: 991px) {
-    .my_main_navbar li a{
-        background-color: transparent !important ;
-        margin: 10px !important;
-    }
-    .my_main_navbar {
-        background-color: darkslategray !important ;
-        margin: 10px !important;
-    }
-
-    }
-
-    /* @media only screen and (max-width: 991px) and (min-width: 961px) {
-    .my_skew
-    {
-        margin-top: 20px;
-    }
-    } */
-
 @media only screen and (max-width: 1263px){
     .my_user a
     {
-        margin-left: 20px !important;
         margin-right: 0 !important;
-        width: 75%;
     }
     }
 
@@ -118,6 +135,145 @@ p
         width: 100%;
     }
     }
+
+.nav-item i
+{
+font-size:25px;
+}
+
+@media only screen and (max-width: 1348px) and (min-width: 1225px) 
+{
+    .my_main_navbar a
+    {
+        font-size: 15px;
+        padding: 0 !important;
+        padding-right: 10px !important;
+    }
+
+    .nav-item i
+    {
+        font-size:20px;
+    }
+}
+
+@media only screen and (max-width: 1225px) and (min-width: 1127px)
+{
+    .my_main_navbar a
+    {
+        font-size: 14px;
+        padding: 0 !important;
+        padding-right: 5px !important; 
+    }
+
+    .nav-item i
+    {
+        font-size:17px;
+    }
+}
+
+@media only screen and (max-width: 1127px) and (min-width: 991px)
+{
+    .navbar-brand i
+    {
+        font-size: 12px !important;
+    }
+
+    .navbar-brand h1
+    {
+        font-size: 22px;
+    }
+
+    .my_main_navbar a
+    {
+        font-size: 13px;
+        padding: 0 !important;
+        padding-right: 5px !important;
+    }
+
+    .my_main_navbar
+    {
+        padding: 0 !important;
+        padding-right: 3px !important;
+    }
+
+    .my_user
+    {
+        padding: 0 !important;
+    }
+
+    .nav-item i
+    {
+        font-size:17px;
+    }
+}
+
+
+@media only screen and (max-width: 991px) {
+    .my_main_navbar li a{
+        background-color: transparent !important ;
+        margin:0px 10px 10px 0px !important;
+    }
+    .my_main_navbar
+    {
+        background-color: darkslategray !important ;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: start !important;
+        align-items: flex-start !important;
+    }
+
+    .my_main_navbar
+    {
+        padding: 0px !important;
+    }
+
+    #user_img
+    {
+        width: 50px !important;
+    }
+
+    #nav_1_i
+    {
+        margin-right: 30px !important;
+    }
+    #nav_2_i
+    {
+        margin-right: 35px !important;
+    }
+    #nav_3_i
+    {
+        margin-right: 35px !important;
+    }
+    #nav_4_i
+    {
+        margin-right: 35px !important;
+    }
+    #nav_5_i
+    {
+        margin-right: 35px !important;
+    }
+    #nav_6_i
+    {
+        margin-right: 35px !important;
+    }
+
+    .my_user
+    {
+        display: flex ;
+        flex-direction: row ;
+        /* justify-content: start ; */
+        /* align-items: flex-end ; */
+    }
+
+    .my_user img
+    {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+}
+
 
     #user_profile{
         text-decoration: none !important;
@@ -143,7 +299,7 @@ p
     {
         width: 30%;
         height: 41%;
-        background-color: rgba(0,0,0,0.4);
+        background-color: rgba(0,0,0,0.45);
         position: absolute;
         top: 35%;
         right: 35%;
@@ -152,7 +308,8 @@ p
 
     .home_slider .carousel-caption h1
     {
-        color: rgb(22, 41, 153);
+        /* color: rgb(22, 41, 153); */
+        color: rgb(0, 101, 225);
         font-family: 'Amiri', serif;
     }
 
@@ -511,7 +668,6 @@ p
     {
         height: 2500px;
         margin-top: 600px;
-        /* margin-bottom: 1200px; */
     }
 
     .top_rated_doctors .item-doctor
@@ -635,7 +791,6 @@ svg, defs, clipPath {
 .body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs {
     position: absolute;
     top: 0px;
-    /* left: 450px;  */
     opacity: 0;
     transition-duration: 1s;
 }
@@ -717,7 +872,6 @@ svg, defs, clipPath {
 
 .questions img
 {
-    /* box-sizing: content-box; */
     transition: 1.2s;
 }
 
@@ -731,7 +885,6 @@ svg, defs, clipPath {
 
 .about_us
 {
-    /* height: 550px; */
     margin-top: 50px;
     background-image: url("./imgs/about_us1.jpg") ;
     background-size: 100% 100%;
@@ -1087,6 +1240,4 @@ body {
 .pain .arrow:hover {
     color: darkblue;
 }
-
-
 
