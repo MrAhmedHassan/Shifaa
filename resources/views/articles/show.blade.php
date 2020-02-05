@@ -19,14 +19,19 @@
                 <div class="d-flex">
                     @if(auth()->user())
                         @if(auth()->user()->hasRole('Admin') || auth()->user()->id ==$article->user->id )
-                <a href="/articles/{{$article->id}}/edit" class="btn btn-dark btn-sm ml-2">تعديل  المقال</a>
+                             <a href="/articles/{{$article->id}}/edit" class="btn btn-dark btn-sm ml-2">تعديل  المقال</a>
                         @endif
                     @endif
-                <form id="" action="/articles/{{$article->id}}" method="post">
-                        {{method_field('DELETE')}}
-                        @csrf
-                 <button type="submit" class="btn btn-danger btn-sm" onclick='return confirm("هل أنت متأكد من حذف هذا المقال")'>حذف المقال</button>
-                </form>
+
+                        @if(auth()->user())
+                            @if(auth()->user()->hasRole('Admin') || auth()->user()->id ==$article->user->id )
+                                <form id="" action="/articles/{{$article->id}}" method="post">
+                                        {{method_field('DELETE')}}
+                                        @csrf
+                                 <button type="submit" class="btn btn-danger btn-sm" onclick='return confirm("هل أنت متأكد من حذف هذا المقال")'>حذف المقال</button>
+                                </form>
+                            @endif
+                        @endif
             </div>
                 <hr>
                 <h2> التعليقات :</h2>
