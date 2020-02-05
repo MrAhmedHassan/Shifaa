@@ -15,7 +15,7 @@ class AssistantController extends Controller
     {
                 $user = auth()->user();
                 if ($user->hasRole('Admin')) {
-                $assistants = User::role('Assistant')->get();
+                $assistants = User::role('Assistant')->paginate(4);
                 return view('/dashboard/assistants/index')->with('assistants',$assistants);
                 }
 
