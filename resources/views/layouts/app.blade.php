@@ -21,7 +21,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Tajawal|Rakkas|Cairo|Amiri|Changa|Reem+Kufi|Aref+Ruqaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal|Rakkas|Cairo|Amiri|Changa|Reem+Kufi|Harmattan|Aref+Ruqaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Amiri|Changa|Reem+Kufi&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
