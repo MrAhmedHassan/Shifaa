@@ -17,6 +17,7 @@
 
                 <hr>
                 <div class="d-flex">
+
                 <a href="/articles/{{$article->id}}/edit" class="btn btn-dark btn-sm ml-2">تعديل  المقال</a>
 
                 <form id="" action="/articles/{{$article->id}}" method="post">

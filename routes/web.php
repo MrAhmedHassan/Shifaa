@@ -58,13 +58,13 @@ Route::get('/prof', 'Profile\ProfileController@index');
 Route::namespace('Article')->group(function () {
     // Controllers Within The "App\Http\Controllers\Article" Namespace
     Route::get('/articles', 'ArticleController@index')->name('articles.index');
-    Route::get('/articles/cat/{cat}', 'ArticleController@category')->name('articles.category');
     Route::get('/article/create', 'ArticleController@create')->name('articles.create')->middleware(['role:Admin|Doctor','auth']);
     Route::post('/articles/store', 'ArticleController@store')->name('articles.store')->middleware(['role:Admin|Doctor','auth']);
     Route::get('/articles/{article}/edit', 'ArticleController@edit')->name('articles.edit')->middleware(['role:Admin|Doctor','auth']);
     Route::put('/articles/{article}', 'ArticleController@update')->name('articles.update')->middleware(['role:Admin|Doctor','auth']);
     Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
     Route::delete('/articles/{id}', 'ArticleController@destroy')->name('articles.destroy')->middleware(['role:Admin|Doctor','auth']);
+    Route::get('/articles/cat/{cat}', 'ArticleController@category')->name('articles.category');
 });
 
 
