@@ -97,8 +97,9 @@ Route::post('/profiles', 'Complete\CompleteController@store')->name('profiles.co
 // Route::put('/profiles/{profile}',"function(){dd('pooop')}");
 
 Route::get('/doctors', 'Doctor\DoctorController@index');
+Route::get('/dashboardDoctors', 'Doctor\DoctorController@dashboardDoctors');
 Route::get('/doctors/{doctor}', 'Doctor\DoctorController@show');
-
+Route::delete('/doctors/{doctor}', 'Doctor\DoctorController@delete');
 //assistant
 Route::group([
     'middleware' => ['auth','role:Admin|Doctor'],

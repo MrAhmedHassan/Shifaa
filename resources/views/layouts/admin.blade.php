@@ -127,7 +127,7 @@
                         <a href="options.html">إدارة الدكاترة</a>
                         <ul class="drop_main_menu">
 {{--                            <li><a href="/assistants/create">إضافة مساعد جديد</a></li>--}}
-                            <li><a href="#">عرض الكل</a></li>
+                            <li><a href="/dashboardDoctors">عرض الكل</a></li>
                         </ul>
                     </li>
                     @endrole
