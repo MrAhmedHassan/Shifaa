@@ -45,8 +45,13 @@
                 @if(auth()->user())
                     @if(auth()->user()->id == $user->id)
                         <a href="/profile/complete" class="btn btn-info">أكمل الملف الشخصي</a>
+                        <a href="/doctor_article/{{$user->id}}" class="btn btn-dark">مقالاتي</a>
+
                     @endif
                 @endif
+
+
+
         </div>
     </div>
     <div class="row mt-5">
@@ -187,7 +192,7 @@ var star1= document.getElementById("star1");
     star2.style.color="yellow";
     star3.style.color="yellow";
     star4.style.color="yellow";
-    star5.style.color="yellow";
+    star5.style.color="yellow";•
   }
 
 </script>
