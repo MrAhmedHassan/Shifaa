@@ -15,11 +15,11 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fromm')->nullable();
-            $table->bigInteger('too')->nullable();
-            $table->string('result')->nullable();
-            $table->unsignedBigInteger('test_id')->nullable()->on('tests')->onUpdate('cascade')->onDelete('set null')->nullable();
-            $table->foreign('test_id')->references('id')->on('tests')->nullable();
+            $table->bigInteger('start');
+            $table->bigInteger('end');
+            $table->string('result');
+            $table->unsignedBigInteger('test_id')->nullable()->on('tests')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('test_id')->references('id')->on('tests');
             $table->timestamps();
         });
     }

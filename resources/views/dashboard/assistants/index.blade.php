@@ -26,34 +26,34 @@
                                 <td>البريد الالكتروني</td>
                                 <td>التحكم</td>
                             </tr>
+
+                            @foreach($assistants as $value)
                             <tr class="text-center">
-                                <td>1</td>
-                                <td><img src="{{ asset('/imgs/docImage.jpg') }}" class="img-rounded user_thumb"></td>
-                                <td>كريم كرملة</td>
-                                <td>karmla@gmail.com</td>
+                                <td>{{$value->id}}</td>
+                                <td><img src="{{$value->avatar}}" class="img-rounded user_thumb"></td>
+                                <td>{{$value->name}}</td>
+                                <td>{{$value->email}}</td>
                                 <td>
                                     <a href="#"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
                                         data-placement="top" title="تعديل"></button></a>
-                                        <form action="" style="display: inline-flex">
+
+                                        <form action="/assistants/{{$value->id}}" style="display: inline-flex" method="post">
+                                        {{method_field('DELETE')}}
                                          @csrf
                                      <button class="glyphicon glyphicon-remove" data-toggle="tooltip"
                                         data-placement="top" title="حذف" style="color: brown"></button>
                                         </form>
+
+
                                 </td>
                             </tr>
-                            
+                            @endforeach
+
                         </table>
 
                         <nav class="text-center">
                             <ul class="pagination">
-                                <li class="disabled"><a aria-label="Previous" href="#"><span aria-hidden="true">»</span></a>
-                                </li>
-                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a aria-label="Next" href="#"><span aria-hidden="true">«</span></a></li>
+                                {{ $assistants->links() }}
                             </ul>
                         </nav>
                     </div>
@@ -61,6 +61,4 @@
             </div>
         </div>
         <!--/End Main content container-->
-
-
 @endsection

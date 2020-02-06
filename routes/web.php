@@ -13,26 +13,30 @@
 use App\Article;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// this route is only for test
+Route::get('/tests/{test}','Personal\PersonalController@show');
+Route::post('/tests/{test}','Personal\PersonalController@store');
+
+
+
 // Route::get('/articles/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
 
 Route::get('/bodies', 'Body\BodyController@index')->name('body.index');
 Route::get('/bodies/{body}', 'Body\BodyController@show')->name('body.show');
 Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.show');
 
-//this routes for rate
-Route::get('posts', 'Rate\RateController@posts')->name('posts');
-
 //get the user data with their articles
-Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
+// Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
 Route::get('/diseases/{disease}', 'Disease\DiseaseController@show')->name('diseases.show');
 
-// test route 
+// test route
 // Route::get('/cat', 'Category\CategoryController@index');
 // test route cat with article
 // Route::get('/cat', 'Category\CategoryController@index');
@@ -40,8 +44,7 @@ Route::get('/diseases/{disease}', 'Disease\DiseaseController@show')->name('disea
 // Route::get('/user', 'Comment\CommentController@index');
 
 Route::get('/prof', 'Profile\ProfileController@index');
-Route::post('posts', 'Rate\RateController@postPost')->name('posts.post');
-Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
+
 // test route
 // Route::get('/art/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
 
@@ -51,25 +54,28 @@ Route::get('posts/{id}', 'Rate\RateController@show')->name('posts.show');
 //     dd($art->comments);
 // });
 
-Route::get('/articles', 'Article\ArticleController@index')->name('articles.index');
-Route::get('/article/create', 'Article\ArticleController@create')->name('articles.create');
-Route::post('/articles/store', 'Article\ArticleController@store')->name('articles.store');
+// articles
+Route::group(['namespace'=>'Article'],function () {
+    // Controllers Within The "App\Http\Controllers\Article" Namespace
+    Route::get('/articles', 'ArticleController@index')->name('articles.index');
+    Route::get('/article/create', 'ArticleController@create')->name('articles.create')->middleware(['role:Admin|Doctor','auth']);
+    Route::post('/articles/store', 'ArticleController@store')->name('articles.store')->middleware(['role:Admin|Doctor','auth']);
+    Route::get('/articles/{article}/edit', 'ArticleController@edit')->name('articles.edit')->middleware(['role:Admin|Doctor','auth']);
+    Route::put('/articles/{article}', 'ArticleController@update')->name('articles.update')->middleware(['role:Admin|Doctor','auth']);
+    Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
+    Route::delete('/articles/{id}', 'ArticleController@destroy')->name('articles.destroy')->middleware(['role:Admin|Doctor','auth']);
+    Route::get('/articles/cat/{cat}', 'ArticleController@category')->name('articles.category');
+});
 
-Route::get('/articles/{article}/edit', 'Article\ArticleController@edit')->name('articles.edit');
-Route::put('/articles/{article}', 'Article\ArticleController@update')->name('articles.update');
-
-Route::get('/articles/{article}', 'Article\ArticleController@show')->name('articles.show');
-Route::delete('/articles/{id}', 'Article\ArticleController@destroy')->name('articles.destroy');
 
 // Route::get('/comments', 'Comment\CommentController@index')->name('comments.index');
-Route::get('/comments/store', 'Comment\CommentController@store')->name('comments.store');
+Route::post('/comments/store/{article_id}', 'Comment\CommentController@store')->name('comments.store');
 //this is needs a different view to show
-Route::get('/comments/{comment}/edit','Comment\CommentController@edit')->name('comments.edit');
+Route::get('/comments/{comment}/edit', 'Comment\CommentController@edit')->name('comments.edit');
 Route::put('/comments/{comment}', 'Comment\CommentController@update');
 
-// Route::delete('/comments/{id}', 'Comment\CommentController@destroy')->name('comments.destroy');
+Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('comment.destroy');
 
-//Route::get('/test/{id}','Profile\ProfileController@showAnotherProfile');
 //Route::get('/test',function (){
 //    $user = \App\User::find(auth()->user()->id);
 //    $cat = \App\Category::find(7);
@@ -78,7 +84,10 @@ Route::put('/comments/{comment}', 'Comment\CommentController@update');
 //});
 
 // Route::get('/profiles','Profile\ProfileController@showMyProfile')->name('profiles.showMy');;
-Route::get('/profiles/{Profile}', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
+Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
+//route for rate
+Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
+Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
 Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
 
@@ -88,40 +97,53 @@ Route::post('/profiles', 'Complete\CompleteController@store')->name('profiles.co
 // Route::put('/profiles/{profile}',"function(){dd('pooop')}");
 
 Route::get('/doctors', 'Doctor\DoctorController@index');
+Route::get('/dashboardDoctors', 'Doctor\DoctorController@dashboardDoctors');
 Route::get('/doctors/{doctor}', 'Doctor\DoctorController@show');
-
+Route::delete('/doctors/{doctor}', 'Doctor\DoctorController@delete');
 //assistant
-Route::get('/assistants', 'Assistant\AssistantController@index');
-Route::get('/assistants/create', 'Assistant\AssistantController@create');
-Route::post('/assistants', 'Assistant\AssistantController@store');
-Route::delete('/assistants/{assistant}', 'Assistant\AssistantController@delete');
-
+Route::group([
+    'middleware' => ['auth','role:Admin|Doctor'],
+    'namespace' => 'Assistant',
+    'prefix' => 'assistants'
+    ],function () {
+    Route::get('/', 'AssistantController@index');
+    Route::get('create', 'AssistantController@create');
+    Route::post('store', 'AssistantController@store');
+    Route::delete('{assistant}', 'AssistantController@delete');
+});
 //create routes for and reveal time
 Route::get('/reveals', 'RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create', 'RevealTime\RevealTimeController@create')->name('reveal.create');
-Route::post('/reveals', 'RevealTime\RevealTimeController@store');
+Route::post('/reveals/store', 'RevealTime\RevealTimeController@store');
 Route::get('/reveals/{reveal}/edit', 'RevealTime\RevealTimeController@edit')->name('reveals.edit');
 Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name('reveals.update');
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
- 
-// this route is only for test
- Route::get('/tests','Personal\PersonalController@index');
- Route::get('/tests/{test}','Personal\PersonalController@show');
- Route::post('/tests/{test}','Personal\PersonalController@store');
- 
+
+
+
 
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
+// Route::get('/reservations', function(){
+//     return dd('ssss');
+// });
+
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');
 
-
-Route::get('/dashboard', function(){
-     return view('dashboard/index');
+// Dashboard
+Route::get('/dash', function () {
+    return view('/dashboard/index');
 });
 
+Route::get('/dashboard',function(){
+   return view('dashboard.index');
+});
+// Route::get('/assistant/create', 'Article\ArticleController@create')->name('articles.create');
 
-
-
+// not found page redirect to home page
+Route::fallback(function () {
+  return  redirect('/');
+});

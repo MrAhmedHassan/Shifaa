@@ -113,23 +113,23 @@ class humanBodySeeder extends Seeder
             
         ];
 
-       /* $images =[
-            'الجهاز العصبى',
-            'الجهاز الدورى',
-            'الجهاز المناعى',
+       $image =[
+            'asaby.png',
+            'dawry.png',
+            'manaey.png',
 
-            'الجهاز الهضمى',
-            'الجهاز البولى',
-            'الجهاز التنفسى',
+            'hadmy.png',
+            'bawly.png',
+            'tanafosy.png',
 
-            'الجهاز الليمفاوى',
-            'الجهاز التناسلى',
-            'الغدد الصماء',
+            'lemfawe.png',
+            'tanasoly.png',
+            'samma.png',
 
-            'الجهاز اللحافى',
-            'الجهاز الهيكلى والعضلى'
+            'lahafy.png ',
+            'haykaly.png'
             
-        ];*/
+        ];
 
 
 
@@ -137,6 +137,7 @@ class humanBodySeeder extends Seeder
             $human_body_model =new Body();
             $human_body_model->title = $titles[$i];
             $human_body_model->description = $descriptions[$i];
+            $human_body_model->image = $image[$i];
             $human_body_model->save();
         }
 

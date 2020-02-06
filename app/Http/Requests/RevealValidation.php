@@ -29,21 +29,21 @@ class RevealValidation extends FormRequest
         if($this->method()=="put")
         {
             $date='required';
-            $from = 'required';
-            $to = 'required';
+            $start = 'required';
+            $end = 'required';
             $limit = 'required';
         }
         else
         {
             $date='required';
-            $from = 'required';
-            $to = 'required';
+            $start = 'required';
+            $end = 'required';
             $limit = 'required';
         }
         return [
             'date' => $date,
-            'from' => $from,
-            'to' => $to,
+            'start' => $start,
+            'end' => $end,
             'limit' => $limit,
         ];
    

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Profile;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -59,7 +60,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:1', 'confirmed'],
             'avatar' => ['mimes:jpeg,jpg,png','max:2000'],
-            'certification' => ['required' , 'mimes:jpeg,jpg,png' , 'max:2000'],
+            'certification' => ['mimes:jpeg,jpg,png' , 'max:2000'],
             'role'=>['required'],
 
         ]);
@@ -73,6 +74,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $certificationName='default.jpg';
         if(request()->has('certification')) {
             $certificationUploaded = \request()->file('certification');
             $certificationName = time() . '.' . $certificationUploaded->getClientOriginalExtension();
@@ -95,6 +97,13 @@ class RegisterController extends Controller
             'DoctorCertificate' => '/image/certification/'.$certificationName,
             'avatar' => '/image/avatar/'.$avatarName,
             'category_id'=> \request()->category
+        ]);
+
+        Profile::create([
+            'abstract' => 'مستخدم حديث',
+            'address'=> 'غير معروف الان',
+            'price'=> 0,
+            'user_id'=> $user->id
         ]);
 
         $roleInput = request()->role;

@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description');
-            $table->string('avatar');
+            $table->string('avatar')->default('/image/article/default.jpg');
             $table->unsignedBigInteger('user_id')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('category_id')->nullable()->on('categories')->onUpdate('cascade')->onDelete('set null');
@@ -35,5 +35,6 @@ class CreateArticlesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('articles');
+
     }
 }

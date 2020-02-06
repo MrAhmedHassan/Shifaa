@@ -1,34 +1,34 @@
-@extends('layouts.app')
-@section('content')
-<div class="mt-5">
-  <div class="container-fluid">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">الرقم</th>
-                <th scope="col">العنوان</th>
-                <th scope="col">المقال</th>
-                <th scope="col">الصورة</th>
+{{--@extends('layouts.app')--}}
+{{--@section('content')--}}
+{{--<div class="mt-5">--}}
+{{--  <div class="container-fluid">--}}
+{{--        <table class="table table-striped">--}}
+{{--            <thead>--}}
+{{--            <tr>--}}
+{{--                <th scope="col">الرقم</th>--}}
+{{--                <th scope="col">العنوان</th>--}}
+{{--                <th scope="col">المقال</th>--}}
+{{--                <th scope="col">الصورة</th>--}}
 
-                <th scope="col"><span style="margin-left: 90px">تفاصيل   </span></th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($articles as $index => $value)
-                <tr>
-                    <th scope="row">{{$value['id']}}</th>
-                    <td>{{$value['title']}}</td>
-                    <td>{{$value['description']}}</td>
-                    <td>{{$value['avatar']}}</td>
-                   
-                    <td class="d-flex ">
-                        <a href="{{route('articles.show',['article' => $value['id']])}}" class="mx-2"><button type="button" class="btn btn-info">المقال وتعليقاته</button></a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
+{{--                <th scope="col"><span style="margin-left: 90px">تفاصيل   </span></th>--}}
+{{--            </tr>--}}
+{{--            </thead>--}}
+{{--            <tbody>--}}
+{{--            @foreach($articles as $index => $value)--}}
+{{--                <tr>--}}
+{{--                    <th scope="row">{{$value['id']}}</th>--}}
+{{--                    <td>{{$value['title']}}</td>--}}
+{{--                    <td>{{$value['description']}}</td>--}}
+{{--                    <td>{{$value['avatar']}}</td>--}}
+{{--                   --}}
+{{--                    <td class="d-flex ">--}}
+{{--                        <a href="{{route('articles.show',['article' => $value['id']])}}" class="mx-2"><button type="button" class="btn btn-info">المقال وتعليقاته</button></a>--}}
+{{--                    </td>--}}
+{{--                </tr>--}}
+{{--            @endforeach--}}
+{{--            </tbody>--}}
+{{--        </table>--}}
+{{--    </div>--}}
 {{--@foreach($users as $user)--}}
 {{--    <div>--}}
 {{--<img src="{{$user->avatar}}">--}}
@@ -240,3 +240,90 @@
 </form>
     </div>
 @endsection
+{{--@extends('layouts.app')--}}
+
+{{--@section('content')--}}
+{{--    <div class="mt-5">--}}
+{{--<form method="POST" enctype='multipart/form-data' action="/assistants">--}}
+{{--    @csrf--}}
+
+{{--    --}}{{-- <div class="form-group row">--}}
+{{--        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label> --}}
+{{--    <div class="form-group row">--}}
+{{--        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('الاسم') }}</label>--}}
+
+{{--        <div class="col-md-6">--}}
+{{--            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>--}}
+
+{{--            @error('name')--}}
+{{--            <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--            @enderror--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
+{{--    <div class="form-group row">--}}
+{{--        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('الإيميل') }}</label>--}}
+
+{{--        <div class="col-md-6">--}}
+{{--            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">--}}
+
+{{--            @error('email')--}}
+{{--            <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--            @enderror--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
+{{--    <div class="form-group row">--}}
+{{--        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('كلمة السر') }}</label>--}}
+
+{{--        <div class="col-md-6">--}}
+{{--            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">--}}
+
+{{--            @error('password')--}}
+{{--            <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--            @enderror--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
+{{--    <div class="form-group row">--}}
+{{--        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('تأكيد كلمة السر') }}</label>--}}
+
+{{--        <div class="col-md-6">--}}
+{{--            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class="form-group row">--}}
+{{--        <label class="col-md-4 col-form-label text-md-right">Avatar</label>--}}
+{{--        <div class="col-md-6">--}}
+{{--            <input id="avatar" type="file" name="avatar"  class="form-control @error('password') is-invalid @enderror"><br>--}}
+
+{{--            @error('avatar')--}}
+{{--            <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--            @enderror--}}
+
+{{--        </div>--}}
+{{--    </div>--}}
+
+
+{{--    <div class="form-group row mb-0">--}}
+{{--        <div class="col-md-6 offset-md-4">--}}
+{{--            <button type="submit" class="btn btn-primary">--}}
+{{--                {{ __('Register') }}--}}
+{{--            </button>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</form>--}}
+{{--    </div>--}}
+{{--@endsection--}}
+{{--<form method="post" action="reservations/1/1">--}}
+{{--    @csrf--}}
+{{--    <input type="submit" value="haha">--}}
+{{--</form>--}}

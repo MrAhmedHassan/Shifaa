@@ -9,17 +9,17 @@ use Illuminate\Http\Request;
 class DoctorController extends Controller
 {
     public function index(){
-        // $doctors=[];
-        // $users = User::all();
-        // foreach ($users as $user){
-        //     if($user->hasRole('Doctor')){
-        //         $doctors[] = $user;
-        //     }
-        // }
-        // dd($doctors);
-        // return $doctors;
-        return view('doctors/index');
+         $doctors = User::role('Doctor')->get();
+        return view('doctors/index',['doctors'=>$doctors]);
     }
+
+    public function dashboardDoctors(){
+        $doctors = User::role('Doctor')->paginate(4);
+        return view('dashboard.doctors.index',['doctors'=>$doctors]);
+    }
+
+
+
 
     public function show($doctor){
         $user = User::find($doctor);
@@ -29,12 +29,12 @@ class DoctorController extends Controller
         }else{
             dd('Your Can see the data of this user');
         }
-//        dd($user->getRoleNames()[0]);
-//        if($user->getRoleNames()[0]='Admin'){
-//            dd('Sorry Man I am Admin');
-//        }else{
-//
-//        }
-//        return response()->json($user);
+    }
+
+    public function delete($doctor)
+    {
+        $user = User::find($doctor);
+        $user->delete();
+        return redirect('/dashboardDoctors');
     }
 }

@@ -28,22 +28,28 @@
                                 <td>الحد الاقصى </td>
                                 <td>التحكم</td>
                             </tr>
+
+                            @foreach($reveals as $value)
                             <tr class="text-center">
-                                <td>1</td>
-                                <td>السبت</td>
-                                <td>5 ص</td>
-                                <td>8 م</td>
-                                <td>25</td>
+                                <td>{{$value->id}}</td>
+                                <td>{{ date('D', strtotime($value->created_at)) }}</td>
+                                <td>{{$value->start}}</td>
+                                <td>{{$value->end}}</td>
+                                <td>{{$value->limit}}</td>
                                 <td>
                                     <a href="#"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
                                         data-placement="top" title="تعديل"></button></a>
-                                        <form action="" style="display: inline-flex">
+
+                                        <form action="/reveals/{{$value->id}}" style="display: inline-flex" method="post">
+                                        {{method_field('DELETE')}}
                                          @csrf
                                      <button class="glyphicon glyphicon-remove" data-toggle="tooltip"
                                         data-placement="top" title="حذف" style="color: brown"></button>
                                         </form>
                                 </td>
                             </tr>
+                            @endforeach
+
                         </table>
 
                         <nav class="text-center">

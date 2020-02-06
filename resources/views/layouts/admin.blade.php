@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ShefaDash</title>
-    <link href="Adminy-master/css/bootstrap.min.css" rel="stylesheet">
-    <link href="Adminy-master/css/icon.css" rel="stylesheet">
-    <link href="Adminy-master/css/style.css" rel="stylesheet">
-    <link href="Adminy-master/css/ar.css" rel="stylesheet" class="lang_css arabic">
+    <link href="../Adminy-master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Adminy-master/css/icon.css" rel="stylesheet">
+    <link href="../Adminy-master/css/style.css" rel="stylesheet">
+    <link href="../Adminy-master/css/ar.css" rel="stylesheet" class="lang_css arabic">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -121,14 +121,27 @@
                         <span class="glyphicon glyphicon-home"></span>
                         <a href="/home">الصفحة الرئيسية</a>
                     </li>
+                    @role('Admin')
+                    <li>
+                        <span class="glyphicon glyphicon-user"></span>
+                        <a href="options.html">إدارة الدكاترة</a>
+                        <ul class="drop_main_menu">
+{{--                            <li><a href="/assistants/create">إضافة مساعد جديد</a></li>--}}
+                            <li><a href="/dashboardDoctors">عرض الكل</a></li>
+                        </ul>
+                    </li>
+                    @endrole
+                    @role('Admin|Doctor')
                     <li>
                         <span class="glyphicon glyphicon-user"></span>
                         <a href="options.html">إدارة المساعدين</a>
                         <ul class="drop_main_menu">
-                            <li><a href="add_new_photo.html">إضافة مساعد جديد</a></li>
+                            <li><a href="/assistants/create">إضافة مساعد جديد</a></li>
                             <li><a href="/assistants">عرض الكل</a></li>
                         </ul>
                     </li>
+                    @endrole
+                    @role('Admin|Doctor')
                     <li>
                         <span class="glyphicon glyphicon-edit"></span>
                         <a href="">إدارة المقالات</a>
@@ -137,22 +150,27 @@
                             <li><a href="/articles">عرض الكل</a></li>
                         </ul>
                     </li>
+                    @endrole
+                    @role('Admin|Doctor|Assistant')
                     <li>
                         <span class="glyphicon glyphicon-time"></span>
                         <a href="">إدارة المواعيد</a>
                         <ul class="drop_main_menu">
-                            <li><a href="add_new_topic.html">إضافة ميعاد جديد</a></li>
+                            <li><a href="/reveals/create">إضافة ميعاد جديد</a></li>
                             <li><a href="/reveals">عرض الكل</a></li>
                         </ul>
                     </li>
+                    @endrole
+                    @role('Admin|Doctor|Assistant')
                     <li>
                         <span class="glyphicon glyphicon-picture"></span>
                         <a href="">إدارة الحجوزات</a>
                         <ul class="drop_main_menu">
-                            <li><a href="add_new_photo.html">حجز جديد</a></li>
+                            <!-- <li><a href="add_new_photo.html">حجز جديد</a></li> -->
                             <li><a href="/reservations">عرض الكل</a></li>
                         </ul>
                     </li>
+                    @endrole
                 </ul>
             </div>
         </div>
@@ -169,9 +187,9 @@
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script type="text/javascript" src="Adminy-master/js/jquery-2.1.4.min.js"></script>
-<script src="Adminy-master/js/bootstrap.min.js"></script>
-<script src="Adminy-master/js/js.js"></script>
+<script type="text/javascript" src="../Adminy-master/js/jquery-2.1.4.min.js"></script>
+<script src="../Adminy-master/js/bootstrap.min.js"></script>
+<script src="../Adminy-master/js/js.js"></script>
 </body>
 
 </html>
