@@ -10,52 +10,44 @@ use Spatie\Permission\Models\Role;
 
 class ProfileController extends Controller
 {
-    //   test profile relation with user
-    // public function index(){
-    //     $prof = Profile::find(3);
-    //     dd($prof->user);
-    // }
-    // 
-      
+    
+    public function __construct()
 
-    // start rating
-    public function addRate(Request $request )
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
+    public function addRate(Request $request)
 
     {
         $newRating = request()->input('rate');
 
-        if($newRating>5)
-        {
-            $newRating=5;
-       }elseif($newRating<1)
-        {
-            $newRating=1;
+        if ($newRating > 5) {
+            $newRating = 5;
+        } elseif ($newRating < 1) {
+            $newRating = 1;
         }
-        
+
         $post = User::find($request->id);
         $rating = \willvincent\Rateable\Rating::where([
             ['user_id', auth()->user()->id],
             ['rateable_id', $request->id],
             ['rateable_type', 'App\User']
         ])->first();
-        
-       if( $rating){
-        $rating->rating = $newRating;
-        $post->ratings()->save($rating);
-       return redirect()->route("profiles.show");
-      }else{
-        request()->validate(['rate' => 'required']);
-        $post = User::find($request->id);
-        $rating = new \willvincent\Rateable\Rating;
-        $rating->rating = $request->rate;
-        $rating->user_id = auth()->user()->id;
-        $post->ratings()->save($rating);
-       return redirect()->route("profiles.show");
-    }
-    
 
-
-
+        if ($rating) {
+            $rating->rating = $newRating;
+            $post->ratings()->save($rating);
+            return redirect()->route("profiles.show");
+        } else {
+            request()->validate(['rate' => 'required']);
+            $post = User::find($request->id);
+            $rating = new \willvincent\Rateable\Rating;
+            $rating->rating = $request->rate;
+            $rating->user_id = auth()->user()->id;
+            $post->ratings()->save($rating);
+            return redirect()->route("profiles.show");
+        }
     }
     // end ratind
 

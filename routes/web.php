@@ -16,7 +16,7 @@ Route::get('/', function () {
     return view('home.index');
 });
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -105,10 +105,6 @@ Route::get('/reveals/{reveal}/edit', 'RevealTime\RevealTimeController@edit')->na
 Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name('reveals.update');
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
-
- 
-
- 
 
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
