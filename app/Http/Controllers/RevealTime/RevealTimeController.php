@@ -14,9 +14,20 @@ class RevealTimeController extends Controller
 
     public function index()
     {
-        $reveals = Reveal::all();
-        //    return view('/reveals');
-        return view('/dashboard/reveals/index')->with('reveals', $reveals);
+        $user = auth()->user();
+        if ($user->hasRole('Admin')) {
+            $reveals = Reveal::paginate(4);
+            return view('/dashboard/reveals/index')->with('reveals', $reveals);
+
+        } else if ($user->hasRole('Doctor')) {
+            $reveals = Reveal::with('doctor')->where('doctor_id', '=', $user->id)->paginate(4);
+            return view('/dashboard/reveals/index')->with('reveals', $reveals);
+
+        } else if ($user->hasRole('Assistant')) {
+            $reveals = Reveal::with('doctor')->where('doctor_id', '=', $user->doctor->id)->paginate(4);
+            return view('/dashboard/reveals/index')->with('reveals', $reveals);
+
+        }
     }
     public function create()
     {
@@ -40,10 +51,7 @@ class RevealTimeController extends Controller
         } else if (auth()->user()->hasRole('Assistant')) {
             $reveal->doctor_id = auth()->user()->doctor->id;
         }
-        // $reveal ->doctor_id = auth()->user()->id;
         $reveal->save();
-
-        //    dd($reveal);
         return redirect('/reveals');
     }
 
@@ -53,7 +61,7 @@ class RevealTimeController extends Controller
     public  function edit($id)
     {
         $reveal = Reveal::find($id);
-        // dd($reveal);
+        // rename fucking gemytest page 
         return view('gemytest/gemytest', ['reveal' => $reveal]);
     }
 
@@ -74,15 +82,11 @@ class RevealTimeController extends Controller
 
     public function destroy($id)
     {
-        // dd("poop");
-        // $reveal = Reveal::find($id);
-        // $reveal->delete();
-
         $reservations = Reservation::where('reveal_id', $id)->get();
-        // dd($reservations);
         foreach ($reservations as $reservation) {
             $reservation->delete();
         }
+        
         $reveal = Reveal::find($id)->delete();
 
         return redirect('/reveals');

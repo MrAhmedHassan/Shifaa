@@ -75,9 +75,8 @@
                         @foreach($reveals as $reveal)
                             <tr class="text-primary">
                                 <td>
-                                {{--                                <p style="font-size: 20px">السبت</p>--}}
-                                {{ \Carbon\Carbon::parse($reveal->date)->format('D')}}
-                                {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                {{ \Carbon\Carbon::parse($reveal->date)->format('d/m D')}}
+                                </td>
                                 <td>
                                     <p style="font-size: 20px">     {{$reveal->start}}
                                         /       {{$reveal->end}} </p>
@@ -95,9 +94,8 @@
                         @for($i=0 ; $i<3 ;$i++)
                             <tr class="text-primary">
                                 <td>
-                                {{--                                <p style="font-size: 20px">السبت</p>--}}
-                                {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('D')}}
-                                {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('d/m D')}}
+                                </td>
                                 <td>
                                     <p style="font-size: 20px">     {{$reveals[$i]->start}}
                                         /       {{$reveals[$i]->end}} </p>

@@ -12,23 +12,15 @@ class ReservationController extends Controller
         //        forAdmin
         if (auth()->user()->hasRole('Admin')) {
             $reservations = Reservation::all();
-            // dd($reservations);
-
-            //        forDoctor
-            dd('shit');
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         } else if (auth()->user()->hasRole('Doctor')) {
-    //         $all = Reservation::find(1);
-    // dd($all);
             $reservations = auth()->user()->doctorReservations;
-            //            ForAssistant
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         } else if (auth()->user()->hasRole('Assistant')) {
             $myDoctor = auth()->user()->doctor;
             $reservations = $myDoctor->doctorReservations;
-            // dd($reservations);
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         }
@@ -52,9 +44,12 @@ class ReservationController extends Controller
                     'reveal_id' => $reveal,
                     'doctor_id' => $doctor
                 ]);
-                return view('home.index');
+                return response()->json(['message','نجح الحجز']);
+                // return redirect("profiles/$doctor");
             } else {
-                return dd('this day is completed');
+                return response()->json(['message','الحجز ممتلئ']);
+
+                // return dd('this day is completed');
             }
         } else {
             return view('auth.login');
