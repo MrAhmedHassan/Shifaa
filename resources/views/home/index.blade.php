@@ -1,6 +1,18 @@
 @extends('layouts.app')
 @section('content')
 
+{{-- loading page --}}
+
+<section id="loading">
+  <div class="sk-folding-cube">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+  <h1 class="text-white dotted_loading">شفاء</h1>
+  <div class="loader">...</div>
+</section>
 
 
 {{-- fly Section "color_option" --}}
@@ -607,8 +619,6 @@
 <a href="#home_slider"><i class="fas fa-chevron-circle-up" style="font-size: 50px;margin:0 60px 80px 0;color: #17a2b8"></i></a>
 </div>
 
-
-
 <script>
 
   let box = document.getElementById('box');
@@ -741,6 +751,18 @@ li_collection.on( "click", function() {
   $(".navbar").css('backgroundColor',li_color);
   $(".carousel-caption h1,.mydiv_content").css('color',li_color);
 });
+
+
+// loading page
+
+$(document).ready(function(){
+  $("#loading").fadeOut( 2000, function() {
+    $("body").css("overflow","auto");
+  });
+})
+
+
+
 
   </script>
 
