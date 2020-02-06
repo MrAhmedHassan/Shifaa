@@ -16,8 +16,6 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
         $categories = Category::all();
-
-
         return view('/articles/index')->with(['articles' => $articles,'categories'=>$categories]);
     }
 
@@ -37,18 +35,15 @@ class ArticleController extends Controller
     public function create()
     {
         $category = Category::all();
-
         return view('/articles/create')->with(['categories' => $category]);
     }
 
     public function store()
     {
-
         $profile = new Article;
         $profile->title = request()->input('title');
         $profile->description = request()->input('description');
         $profile->category_id = request()->input('category');
-
         if (request()->has('avatar')) {
             $avatarUploaded = request()->file('avatar');
             $avatarName = time() . '.' . $avatarUploaded->getClientOriginalExtension();

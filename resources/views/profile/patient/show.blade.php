@@ -3,7 +3,36 @@
 
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">--}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/profile.css') }}">
-    <div class="container main-secction mt-4">
+
+    <div class="container myMain-Section mt-5">
+        <div class="row">
+            <div class="col-sm-12 myImage-Section">
+                <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">
+            </div>
+        </div>
+        <div class="doctor-image">
+            <img src="{{$user->avatar}}">
+            <span class="Doc-Name">{{$user->name}}</span>
+        </div>
+        <div class="row btnsForProfil mt-3">
+            <div class="col-sm-2 sdefine"></div>
+            <div class="col-sm-5 sdefine"></div>
+            <div class="col-sm-5 zdefine d-flex justify-content-end">
+                    @if(auth()->user())
+                        @if(auth()->user()->id == $user->id)
+                            <a href="/profiles/{{$user->id}}/edit" class="btn btn-info ml-3">تعديل الملف الشخصي</a>
+                        @endif
+                    @endif
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    {{-- <div class="container main-secction mt-4">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 image-section">
                 <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">
@@ -32,5 +61,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

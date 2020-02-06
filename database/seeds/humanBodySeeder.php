@@ -116,15 +116,15 @@ class humanBodySeeder extends Seeder
        $image =[
             'asaby.png',
             'dawry.png',
-            ' manaey.png',
+            'manaey.png',
 
-            ' hadmy.png',
-            ' bawly.png',
-            ' tanafosy.png',
+            'hadmy.png',
+            'bawly.png',
+            'tanafosy.png',
 
-            ' lemfawe.png',
-            ' tanasoly.png',
-            ' samma.png',
+            'lemfawe.png',
+            'tanasoly.png',
+            'samma.png',
 
             'lahafy.png ',
             'haykaly.png'

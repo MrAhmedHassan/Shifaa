@@ -2,6 +2,23 @@
 @section('content')
 
 
+
+{{-- fly Section "color_option" --}}
+
+<div id="colors_div">
+  <div id="colors_option">
+      <h5 align=right class="mr-2">اختر لون الموقع :</h5>
+      <ul class="list-unstyled">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+  </div>
+  <i class="fas fa-cog mt-2" id="color_icon"></i>
+  <div class="clearfix"></div>
+</div>
+
 {{-- First Section "home_slider" --}}
 
 <div class="home_slider m-0 p-0" id="home_slider">
@@ -591,6 +608,7 @@
 </div>
 
 
+
 <script>
 
   let box = document.getElementById('box');
@@ -703,7 +721,26 @@
       ulLegs.style.transitionDuration = '1s';
       ulLegs.style.opacity = '1';
   });
+  
 
+// colors_option 
+
+$("#colors_div i").click(function () {
+  $("#colors_option").toggle();
+  });
+
+let li_collection = $('#colors_option ul li');
+li_collection.eq(0).css('backgroundColor','#6a8caf');
+li_collection.eq(1).css('backgroundColor','#75b79e');
+li_collection.eq(2).css('backgroundColor','#8c8eb1');
+li_collection.eq(3).css('backgroundColor','#14a59e');
+
+li_collection.on( "click", function() {
+  let li_color = $(this).css('backgroundColor');
+  // $('html').css('backgroundColor',li_color);
+  $(".navbar").css('backgroundColor',li_color);
+  $(".carousel-caption h1,.mydiv_content").css('color',li_color);
+});
 
   </script>
 

@@ -10,6 +10,15 @@
         <div class="col-sm-12 mt-3 d-flex justify-content-center">
 
             <div class="jumbotron">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
                 <form method='post' action='/tests/{{$test->id}}' enctype="multipart/form-data">
                     @csrf
                     
@@ -25,6 +34,8 @@
                   
                 
                     <input type="submit" value="submit" class="btn btn-success">
+
+               
                 </form>
 
 

@@ -55,16 +55,19 @@ Route::get('/prof', 'Profile\ProfileController@index');
 // });
 
 // articles
-Route::get('/articles', 'Article\ArticleController@index')->name('articles.index');
-Route::get('/doctor_article/{doctor}', 'Article\ArticleController@doctor_article')->name('doctor.article');
+Route::group(['namespace'=>'Article'],function () {
+    // Controllers Within The "App\Http\Controllers\Article" Namespace
+    Route::get('/articles', 'ArticleController@index')->name('articles.index');
+    Route::get('/doctor_article/{doctor}', 'Article\ArticleController@doctor_article')->name('doctor.article');
+    Route::get('/article/create', 'ArticleController@create')->name('articles.create')->middleware(['role:Admin|Doctor','auth']);
+    Route::post('/articles/store', 'ArticleController@store')->name('articles.store')->middleware(['role:Admin|Doctor','auth']);
+    Route::get('/articles/{article}/edit', 'ArticleController@edit')->name('articles.edit')->middleware(['role:Admin|Doctor','auth']);
+    Route::put('/articles/{article}', 'ArticleController@update')->name('articles.update')->middleware(['role:Admin|Doctor','auth']);
+    Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
+    Route::delete('/articles/{id}', 'ArticleController@destroy')->name('articles.destroy')->middleware(['role:Admin|Doctor','auth']);
+    Route::get('/articles/cat/{cat}', 'ArticleController@category')->name('articles.category');
+});
 
-Route::get('/articles/cat/{cat}', 'Article\ArticleController@category')->name('articles.category');
-Route::get('/article/create', 'Article\ArticleController@create')->name('articles.create');
-Route::post('/articles/store', 'Article\ArticleController@store')->name('articles.store');
-Route::get('/articles/{article}/edit', 'Article\ArticleController@edit')->name('articles.edit');
-Route::put('/articles/{article}', 'Article\ArticleController@update')->name('articles.update');
-Route::get('/articles/{article}', 'Article\ArticleController@show')->name('articles.show');
-Route::delete('/articles/{id}', 'Article\ArticleController@destroy')->name('articles.destroy');
 
 // Route::get('/comments', 'Comment\CommentController@index')->name('comments.index');
 Route::post('/comments/store/{article_id}', 'Comment\CommentController@store')->name('comments.store');
@@ -88,15 +91,20 @@ Route::post('/profiles', 'Complete\CompleteController@store')->name('profiles.co
 // Route::put('/profiles/{profile}',"function(){dd('pooop')}");
 
 Route::get('/doctors', 'Doctor\DoctorController@index');
+Route::get('/dashboardDoctors', 'Doctor\DoctorController@dashboardDoctors');
 Route::get('/doctors/{doctor}', 'Doctor\DoctorController@show');
-
+Route::delete('/doctors/{doctor}', 'Doctor\DoctorController@delete');
 //assistant
-Route::get('/assistants', 'Assistant\AssistantController@index');
-// assistanse create with c
-Route::get('/assistants/create', 'Assistant\AssistantController@create');
-Route::post('/assistants/store','Assistant\AssistantController@store');
-Route::delete('/assistants/{assistant}', 'Assistant\AssistantController@delete');
-
+Route::group([
+    'middleware' => ['auth','role:Admin|Doctor'],
+    'namespace' => 'Assistant',
+    'prefix' => 'assistants'
+    ],function () {
+    Route::get('/', 'AssistantController@index');
+    Route::get('create', 'AssistantController@create');
+    Route::post('store', 'AssistantController@store');
+    Route::delete('{assistant}', 'AssistantController@delete');
+});
 //create routes for and reveal time
 Route::get('/reveals', 'RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create', 'RevealTime\RevealTimeController@create')->name('reveal.create');
@@ -125,3 +133,7 @@ Route::get('/dashboard',function(){
 });
 // Route::get('/assistant/create', 'Article\ArticleController@create')->name('articles.create');
 
+// not found page redirect to home page
+Route::fallback(function () {
+  return  redirect('/');
+});

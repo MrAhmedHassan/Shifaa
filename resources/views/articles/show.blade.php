@@ -17,38 +17,60 @@
 
                 <hr>
                 <div class="d-flex">
-                <a href="/articles/{{$article->id}}/edit" class="btn btn-dark btn-sm ml-2">تعديل  المقال</a>
+                    @if(auth()->user())
+                        @if(auth()->user()->hasRole('Admin') || auth()->user()->id ==$article->user->id )
+                             <a href="/articles/{{$article->id}}/edit" class="btn btn-dark btn-sm ml-2">تعديل  المقال</a>
+                        @endif
+                    @endif
 
-                <form id="" action="/articles/{{$article->id}}" method="post">
-                        {{method_field('DELETE')}}
-                        @csrf
-                 <button type="submit" class="btn btn-danger btn-sm" onclick='return confirm("هل أنت متأكد من حذف هذا المقال")'>حذف المقال</button>
-                </form>
+                        @if(auth()->user())
+                            @if(auth()->user()->hasRole('Admin') || auth()->user()->id ==$article->user->id )
+                                <form id="" action="/articles/{{$article->id}}" method="post">
+                                        {{method_field('DELETE')}}
+                                        @csrf
+                                 <button type="submit" class="btn btn-danger btn-sm" onclick='return confirm("هل أنت متأكد من حذف هذا المقال")'>حذف المقال</button>
+                                </form>
+                            @endif
+                        @endif
             </div>
                 <hr>
                 <h2> التعليقات :</h2>
                 <hr>
                 <div class="comments">
-                    <div class="user_comment d-flex">
-                        <img class="rounded-circle mb-2" style="width: 6%" src="{{$article->user->avatar}}" alt="user img">
-                        <h4 class="mr-2 mt-2">{{$article->user->name}}</h4>
-                    </div>
+
                     <h5 id="div_comments" class="mb-3"></h5>
 
-
                     @foreach($comments as $comment)
-                    <div class="card">
-                    <h5 class="card-header">تمت كتابتة بواسطة {{$article->user->name}}</h5>
-                    <div class="card-body d-block">
-                        <h5 class="card-title">{{$comment->comment}}</h5>
-                        <form id="" action="/comment/{{$comment->id}}" method="post">
-                        {{method_field('DELETE')}}
-                        @csrf
-                        <button type="submit" class="btn btn-outline-danger btn-sm">حذف</button>
-                       </form>
 
-                    </div>
-                    </div>
+                        <div class="card">
+                            <h4 class="card-header" style="font-family: 'Harmattan', sans-serif;">تمت كتابتة بواسطة {{$comment->user->name}}</h4>
+                            <div class="card-body">
+                                <div class="row no-gutters">
+                                    <div class="col-md-1">
+                                        <img class="rounded-circle mb-2 img-fluid" style="width: 50px; height:50px" src="{{$comment->user->avatar}}" alt="user img">
+                                    </div>
+
+                                    <div class="col-md-8 pr-3">
+                                        <p class="card-text">{{$comment->comment}}</p>
+                                    </div>
+
+                                    <div class="col-md-3 d-flex justify-content-end align-items-end">
+                                        @if(auth()->user())
+                                            @if(auth()->user()->hasRole('Admin') || auth()->user()->id ==$comment->user->id )
+
+                                                <form id="" action="/comment/{{$comment->id}}" method="post" class="m-0">
+                                                    {{method_field('DELETE')}}
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm pa">حذف</button>
+                                                </form>
+                                            @endif
+                                        @endif
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                     @endforeach
 
                     <form id="" action="/comments/store/{{$article->id}}" method="post" class="mt-2 container" enctype="multipart/form-data">
@@ -59,6 +81,7 @@
                     </form>
 
                 </div>
+
             </div>
           </div>
          </div>
