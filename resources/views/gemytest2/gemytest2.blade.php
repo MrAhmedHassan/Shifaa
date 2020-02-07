@@ -24,9 +24,9 @@
                     
                     @foreach($test->questions as $question )
                     <div class="text-white  pt-3 pb-3 mt-1 define ">
-                    <div class='text text-dark bg-light mt-0 p-2'>{{$question->question}} </div>
+                    <div class='text text-dark bg-light p-2'><h3>{{$question->question}}</h3> </div>
                     @foreach($question->answers as $answers)
-                    <input type='radio' class='text text-dark bg-light ' name={{$question->questionEnglish}} value={{$answers->value}}> {{ $answers->answer}}<br>
+                    <h4><input type='radio' class='text text-dark bg-light' name={{$question->questionEnglish}} value={{$answers->value}}> {{ $answers->answer}}</h4><br>
                     <input type="hidden" name="test_id" value={{$question->test_id}}>
                     @endforeach
                     </div>
