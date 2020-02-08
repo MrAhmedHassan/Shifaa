@@ -120,63 +120,20 @@
     $arravatar5=[];
     $arrname5=[];
     $arrcategory5=[];
-    $arrid4=[];
-    $arravatar4=[];
-    $arrname4=[];
-    $arrcategory4=[];
-    $arrid3=[];
-    $arravatar3=[];
-    $arrname3=[];
-    $arrcategory3=[];
-    $arrid2=[];
-    $arravatar2=[];
-    $arrname2=[];
-    $arrcategory2=[];
-    $arrid1=[];
-    $arravatar1=[];
-    $arrname1=[];
-    $arrcategory1=[];
 
 
     foreach($topRated as $topRate)
     {
-        if($topRate->averageRating<=5&&$topRate->averageRating>4)
+        if($topRate->averageRating==5)
         {
             $arrid5[]=$topRate->id;
             $arrname5[]=$topRate->name;
             $arravatar5[]=$topRate->avatar;
             $arrcategory5[]=$topRate->category->category;
-        }else if($topRate->averageRating<=4&&$topRate->averageRating>3)
-        {
-            $arrid4[]=$topRate->id;
-            $arrname4[]=$topRate->name;
-            $arravatar4[]=$topRate->avatar;
-            $arrcategory4[]=$topRate->category->category;
-        }
-        else if($topRate->averageRating<=3&&$topRate->averageRating>2)
-        {
-            $arrid3[]=$topRate->id;
-            $arrname3[]=$topRate->name;
-            $arravatar3[]=$topRate->avatar;
-            $arrcategory3[]=$topRate->category->category;
-        }
-        else if($topRate->averageRating<=2&&$topRate->averageRating>1)
-        {
-            $arrid2[]=$topRate->id;
-            $arrname2[]=$topRate->name;
-            $arravatar2[]=$topRate->avatar;
-            $arrcategory2[]=$topRate->category->category;
-        }
-        else if($topRate->averageRating<=1&&$topRate->averageRating>0)
-        {
-            $arrid1[]=$topRate->id;
-            $arrname1[]=$topRate->name;
-            $arravatar1[]=$topRate->avatar;
-            $arrcategory1[]=$topRate->category->category;
         }
     }
 
-   if(count($arrid5)==1 && count($arrid4)<1 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
+   if(count($arrid5)==1 )
    {
        for($i=0;$i<1;$i++)
        {
@@ -194,7 +151,7 @@
         <div class='doctor-layer2' >
         <h4> $arrname5[$i]  </h4>
         $arrcategory5[$i]
-     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>
+     <br> <a href='profiles/$arrid5[$i]' >اعرف المزيد</a>
           </div>
       </div>
     </div>
@@ -203,7 +160,7 @@
 
            ";
        }
-   }else if(count($arrid5)==2 && count($arrid4)<1 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
+   }else if(count($arrid5)==2)
    {
        for($i=0;$i<2;$i++)
        {
@@ -230,7 +187,7 @@
 
            ";
        }
-   }else if(count($arrid5)==3 && count($arrid4)<1 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
+   }else if(count($arrid5)==3 )
    {
        for($i=0;$i<3;$i++)
        {
@@ -257,7 +214,7 @@
 
            ";
        }
-   }else if(count($arrid5)==4 && count($arrid4)<1 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
+   }else if(count($arrid5)==4)
    {
        for($i=0;$i<4;$i++)
        {
@@ -284,7 +241,7 @@
 
            ";
        }
-   }else if(count($arrid5)==5 && count($arrid4)<1 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
+   }else if(count($arrid5)==5 )
    {
        for($i=0;$i<5;$i++)
        {
@@ -311,7 +268,7 @@
 
            ";
        }
-   }else if(count($arrid5)>5 && count($arrid4)<1 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
+   }else if(count($arrid5)>5)
    {
        for($i=0;$i<5;$i++)
        {
@@ -330,168 +287,6 @@
         <h4> $arrname5[$i]  </h4>
         $arrcategory5[$i]
      <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>
-          </div>
-      </div>
-    </div>
-
-
-
-           ";
-       }
-   }else  if(count($arrid5)<0 && count($arrid4)==1 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
-   {
-       for($i=0;$i<1;$i++)
-       {
-           echo "
-
-
-           <div class='col-md-3'>
-    <div class='item-doctor' >
-      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar4[$i]'>
-      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
-        <h4> $arrname4[$i] </h4>
-        $arrcategory4[$i]
-        </div>
-
-        <div class='doctor-layer2' >
-        <h4> $arrname4[$i]  </h4>
-        $arrcategory4[$i]
-     <br> <a href='profiles/ $arrid4[$i]' >اعرف المزيد</a>
-          </div>
-      </div>
-    </div>
-
-
-
-           ";
-       }
-   }else if(count($arrid5)<0 && count($arrid4)==2 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
-   {
-       for($i=0;$i<2;$i++)
-       {
-           echo "
-
-
-           <div class='col-md-3'>
-    <div class='item-doctor' >
-      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar4[$i]'>
-      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
-        <h4> $arrname4[$i] </h4>
-        $arrcategory4[$i]
-        </div>
-
-        <div class='doctor-layer2' >
-        <h4> $arrname4[$i]  </h4>
-        $arrcategory4[$i]
-     <br> <a href='profiles/ $arrid4[$i]' >اعرف المزيد</a>
-          </div>
-      </div>
-    </div>
-
-
-
-           ";
-       }
-   }else if(count($arrid5)<0 && count($arrid4)==3 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
-   {
-       for($i=0;$i<3;$i++)
-       {
-           echo "
-
-
-           <div class='col-md-3'>
-    <div class='item-doctor' >
-      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar4[$i]'>
-      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
-        <h4> $arrname4[$i] </h4>
-        $arrcategory4[$i]
-        </div>
-
-        <div class='doctor-layer2' >
-        <h4> $arrname4[$i]  </h4>
-        $arrcategory4[$i]
-     <br> <a href='profiles/ $arrid4[$i]' >اعرف المزيد</a>
-          </div>
-      </div>
-    </div>
-
-
-
-           ";
-       }
-   }else if(count($arrid5)<0 && count($arrid4)==4 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
-   {
-       for($i=0;$i<4;$i++)
-       {
-           echo "
-
-
-           <div class='col-md-3'>
-    <div class='item-doctor' >
-      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar4[$i]'>
-      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
-        <h4> $arrname4[$i] </h4>
-        $arrcategory4[$i]
-        </div>
-
-        <div class='doctor-layer2' >
-        <h4> $arrname4[$i]  </h4>
-        $arrcategory4[$i]
-     <br> <a href='profiles/ $arrid4[$i]' >اعرف المزيد</a>
-          </div>
-      </div>
-    </div>
-
-
-
-           ";
-       }
-   }else if(count($arrid5)<0 && count($arrid4)==5 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
-   {
-       for($i=0;$i<5;$i++)
-       {
-           echo "
-
-
-           <div class='col-md-3'>
-    <div class='item-doctor' >
-      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar4[$i]'>
-      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
-        <h4> $arrname4[$i] </h4>
-        $arrcategory4[$i]
-        </div>
-
-        <div class='doctor-layer2' >
-        <h4> $arrname4[$i]  </h4>
-        $arrcategory4[$i]
-     <br> <a href='profiles/ $arrid4[$i]' >اعرف المزيد</a>
-          </div>
-      </div>
-    </div>
-
-
-
-           ";
-       }
-   }else if(count($arrid5)<0 && count($arrid4)>5 && count($arrid3)<1 && count($arrid2)<1 && count($arrid2)<1)
-   {
-       for($i=0;$i<5;$i++)
-       {
-           echo "
-
-
-           <div class='col-md-3'>
-    <div class='item-doctor' >
-      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar4[$i]'>
-      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
-        <h4> $arrname4[$i] </h4>
-        $arrcategory4[$i]
-        </div>
-
-        <div class='doctor-layer2' >
-        <h4> $arrname4[$i]  </h4>
-        $arrcategory4[$i]
-     <br> <a href='profiles/ $arrid4[$i]' >اعرف المزيد</a>
           </div>
       </div>
     </div>
@@ -501,17 +296,7 @@
            ";
        }
    }
-
-
-
     @endphp
-
-
-
-
-
-
-
 
     @endif
 
@@ -970,7 +755,7 @@
           </div>
       </div>
       <div class="col-md-6">
-    
+
       @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

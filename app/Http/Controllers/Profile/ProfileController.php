@@ -42,11 +42,11 @@ class ProfileController extends Controller
           //  $avg=0;
         //}
 
-        $count= Rating::select("rating")->where('rateable_id',$request->id)->count();
+       // $count= Rating::select("rating")->where('rateable_id',$request->id)->count();
 
        if($rating){
         $rating->rating = $newRating;
-        $rating->average = (($post->averageRating)+ $newRating)/($count+1);
+       // $rating->average = (($post->averageRating)+ $newRating)/($count+1);
         $post->ratings()->save($rating);
        return redirect()->route('profiles.another', $request->id);
       }else{
@@ -54,7 +54,7 @@ class ProfileController extends Controller
         $post = User::find($request->id);
         $rating = new \willvincent\Rateable\Rating;
         $rating->rating = $request->rate;
-        $rating->average = (($post->averageRating)+$newRating)/($count+1);
+       // $rating->average = (($post->averageRating)+$newRating)/($count+1);
         $rating->user_id = auth()->user()->id;
         $post->ratings()->save($rating);
         return redirect()->route('profiles.another', $request->id);
