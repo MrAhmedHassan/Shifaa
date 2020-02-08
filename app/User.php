@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use willvincent\Rateable\Rateable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use Rateable;
     use Notifiable;
@@ -59,9 +59,9 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
-    
 
-    
+
+
 
     public function profile()
     {
@@ -93,7 +93,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function rate(){
         return  $this->hasOne(Rating::class,'rateable_id');
-      
+
     }
 
 

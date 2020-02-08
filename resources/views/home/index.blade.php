@@ -970,12 +970,25 @@
           </div>
       </div>
       <div class="col-md-6">
-        <form>
-          <input type="text" placeholder="الاسم" class="form-control my-3 " >
-          <input type="email" placeholder="الايميل" class="form-control my-3" >
-          <textarea type="text" placeholder="رسالتك" class="form-control my-3" rows="6" id="mytext4" ></textarea>
+    
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+        <form method="POST" action="/contact">
+        @csrf
+          <input type="text" placeholder="الاسم" name="name" class="form-control my-3 " >
+          <input type="email" placeholder="الايميل" name="email" class="form-control my-3" >
+          <textarea type="text" placeholder="رسالتك" name="message" class="form-control my-3" rows="6" id="mytext4" ></textarea>
+          <button class="btn btn-info p-3" id="Contact_send_message"> إرسال <span><i class="fas fa-arrow-left"></i> </span></button>
         </form>
-        <button class="btn btn-info p-3" id="Contact_send_message"> إرسال <span><i class="fas fa-arrow-left"></i> </span></button>
+
       </div>
     </div>
   </div>
@@ -1105,9 +1118,9 @@
       ulLegs.style.transitionDuration = '1s';
       ulLegs.style.opacity = '1';
   });
-  
 
-// colors_option 
+
+// colors_option
 
 $("#colors_div i").click(function () {
   $("#colors_option").toggle();

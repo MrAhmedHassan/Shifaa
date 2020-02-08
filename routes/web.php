@@ -31,6 +31,13 @@ Route::get('/tests/{test}','Personal\PersonalController@show');
 Route::post('/tests/{test}','Personal\PersonalController@store');
 
 
+//for the contact us
+
+Route::post('/contact', 'Contact\ContactController@store');
+Route::get('/contacts', 'Contact\ContactController@index');
+Route::delete('/contacts/{id}', 'Contact\ContactController@destroy');
+
+
 
 // Route::get('/articles/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
 

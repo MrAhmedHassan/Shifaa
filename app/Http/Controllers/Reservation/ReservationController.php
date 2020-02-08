@@ -45,7 +45,9 @@ class ReservationController extends Controller
                     'reveal_id' => $reveal,
                     'doctor_id' => $doctor
                 ]);
-                return view('home.index');
+              //  return view('home.index');
+              return redirect(' /profile/complete');
+
             } else {
                 return dd('this day is completed');
             }
