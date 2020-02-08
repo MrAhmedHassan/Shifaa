@@ -16,7 +16,7 @@
                     <div class="card-header">
                         فريق شفاء يتمنى لك الشفاء العاجل وينصحك بزيارة طبيب مختص
                     </div>
-                    @foreach($diseases->category->users as $user)
+                    @foreach($diseases->category->users as $user);
                     <div class="card-body">
                         <h5 class="card-title">   طبيب {{$user->name}} تخصص {{$user->category->category}}</h5>
                         <p><img src="{{$user->avatar}}" class="rounded-circle img-fluid" style="width:10rem"></p>

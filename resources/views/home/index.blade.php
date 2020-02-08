@@ -748,7 +748,7 @@ li_collection.eq(3).css('backgroundColor','#14a59e');
 li_collection.on( "click", function() {
   let li_color = $(this).css('backgroundColor');
   // $('html').css('backgroundColor',li_color);
-  $(".navbar").css('backgroundColor',li_color);
+  $(".navbar,#h_4,#h_3,#h_2,#h_1").css('backgroundColor',li_color);
   $(".carousel-caption h1,.mydiv_content").css('color',li_color);
 });
 
@@ -756,7 +756,7 @@ li_collection.on( "click", function() {
 // loading page
 
 $(document).ready(function(){
-  $("#loading").fadeOut( 2000, function() {
+  $("#loading").fadeOut( 3000, function() {
     $("body").css("overflow","auto");
   });
 })

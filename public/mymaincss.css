@@ -2,7 +2,7 @@ body
 {
 /* background-color: #FBFBFB !important; */
 background-color: #b4b4b41e ;
-overflow: hidden;
+/* overflow: hidden; */
 }
 
 html
@@ -58,7 +58,7 @@ z-index: 999;
 
 #colors_option
 {
-    background-color: rgb(224, 189, 189);
+    background-color: rgb(208, 201, 201);
     padding-left: 20px;
     border-radius: 10%;
     border: 2px solid yellow;
