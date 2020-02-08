@@ -2,7 +2,6 @@
 @section('content')
 
 {{-- loading page --}}
-
 <section id="loading">
   <div class="sk-folding-cube">
     <div class="sk-cube1 sk-cube"></div>
@@ -160,14 +159,14 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" id="body_hover">
   <div class="row">
     <div  class="col-md-12 man_body d-flex flex-column justify-content-center align-items-center"><h2 class="mydiv_content">شخص نفسك</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
   </div>
 </div>
 
 {{-- Third Section "body_hover" --}}
-<div class="body_hover" id="body_hover">
+<div class="body_hover">
 <!-- SVG -->
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
@@ -301,13 +300,13 @@
 
 
 {{-- Fourth Section "most_diseases" --}}
-<div class="container">
+<div class="container" id="most_diseases">
   <div class="row">
     <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> أمراض العصر</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
   </div>
 </div>
 
-<div class="most_diseases container my-4" id="most_diseases">
+<div class="most_diseases container my-4" >
 
   <!--Carousel Wrapper-->
   <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -428,9 +427,10 @@
 
 
 {{-- Fifth Section "questions" --}}
+
 <div class="questions container" id="questions">
   <div class="row">
-    <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> اختبر نفسك</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
+    <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5" ><h2 class="mydiv_content"> اختبر نفسك</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
 
     {{-- style="width: 18rem;" --}}
    
@@ -519,7 +519,8 @@
 
 {{-- sixth Section "About_us" --}}
 
-<div class="about_us" id="about_us">
+<div id="about_us"></div>
+<div class="about_us">
   <div class="bd-example">
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
@@ -531,38 +532,38 @@
 </ol>
 <div class="carousel-inner ">
 <div class="carousel-item text-center">
-  <img src="{{ asset('/imgs/doctor_3.PNG') }}" class=" rounded-circle " alt="...">
+  <img src="{{ asset('/imgs/hassan.jpg') }}" class=" rounded-circle " alt="...">
   <div class="carousel-caption ">
-     <p>Sed consectetur, elit eu sodales pellentesque, nulla magna pretium eros, ac porttitor ex lorem nec arcu. Suspendisse ipsum tellus, eleifend ac placerat ac, pulvinar vitae turpis. Curabitur ullamcorper rutrum orci nec porttitor.</p>
-      <h4>Joanna Doe - <span>ABC Corp</span></h4>
+    <p>  علوم جيولوجيا , شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+    <h2>احمد حسن</h2>
   </div>
 </div>
 <div class="carousel-item text-center">
-  <img src="{{ asset('/imgs/doctor_2.PNG') }}" class=" rounded-circle" alt="...">
+  <img src="{{ asset('/imgs/mostafa.jpg') }}" class=" rounded-circle" alt="...">
   <div class="carousel-caption ">
-    <p>Nullam commodo nisl lacinia, mattis nibh at, mollis justo. Integer massa sem, interdum sagittis velit ut, pretium porta libero.  Vivamus commodo augue lorem, ut laoreet risus pharetra in, vulputate est non, porttitor erat.</p>
-      <h4>Adam Hope -<span>Co Campany</span></h4>
+    <p>  مهندس كمبيوتر , شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+    <h2>محمد مصطفى</h2>
+  </div>
+</div>
+<div class="carousel-item text-center ">
+  <img src="{{ asset('/imgs/yehia.jpg') }}" class=" rounded-circle" alt="...">
+  <div class="carousel-caption ">
+     <p>  مهندس اتصالات وإلكترونيات , شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+      <h2>يحيي بسام</h2>
   </div>
 </div>
 <div class="carousel-item text-center active">
-  <img src="{{ asset('/imgs/doctor_1.PNG') }}" class=" rounded-circle" alt="...">
+  <img src="{{ asset('/imgs/zidan.jpg') }}" class=" rounded-circle" alt="...">
   <div class="carousel-caption ">
-     <p> Duis leo felis, porttitor ac interdum sit amet, volutpat sit amet nisi. Sed sit amet risus et ex accumsan placerat at tristique dui. Suspendisse eget lacinia elit. Donec accumsan eget lacus vel accumsan placerat at elementum.</p>
-      <h4>Alexandra Love - <span>Fashion Magazine</span></h4>
+    <p>  علوم كيمياء الأزهر, شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+      <h2>محمود زيدان</h2>
   </div>
 </div>
 <div class="carousel-item text-center ">
-  <img src="{{ asset('/imgs/doctor_2.PNG') }}" class=" rounded-circle" alt="...">
+  <img src="{{ asset('/imgs/gamal.jpeg') }}" class=" rounded-circle" alt="...">
   <div class="carousel-caption ">
-     <p> Duis leo felis, porttitor ac interdum sit amet, volutpat sit amet nisi. Sed sit amet risus et ex accumsan placerat at tristique dui. Suspendisse eget lacinia elit. Donec accumsan eget lacus vel accumsan placerat at elementum.</p>
-      <h4>Alexandra Love - <span>Fashion Magazine</span></h4>
-  </div>
-</div>
-<div class="carousel-item text-center ">
-  <img src="{{ asset('/imgs/doctor_3.PNG') }}" class=" rounded-circle" alt="...">
-  <div class="carousel-caption ">
-     <p> Duis leo felis, porttitor ac interdum sit amet, volutpat sit amet nisi. Sed sit amet risus et ex accumsan placerat at tristique dui. Suspendisse eget lacinia elit. Donec accumsan eget lacus vel accumsan placerat at elementum.</p>
-      <h4>Alexandra Love - <span>Fashion Magazine</span></h4>
+    <p>  علوم قسم حاسب , شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+      <h2>محمد جمال</h2>
   </div>
 </div>
 </div>
@@ -581,8 +582,8 @@
   </div>
 
 {{-- Seventh Section "Contact_us" --}}
-
-<div class="Contact_Us">
+<div id="contact_us"></div>
+<div class="Contact_Us" >
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-12 mr-5">
@@ -618,6 +619,14 @@
 <div>
 <a href="#home_slider"><i class="fas fa-chevron-circle-up" style="font-size: 50px;margin:0 60px 80px 0;color: #17a2b8"></i></a>
 </div>
+
+
+{{-- Footer Section --}}
+
+<div >
+  <footer class="container-fluid bg-primary text-white d-flex justify-content-center align-items-center navbar-fixed-bottom" style="position: relative;bottom:0px !important;height: 60px">Copyright by Ghosts 2020 ©</footer>
+</div>
+
 
 <script>
 
@@ -741,14 +750,14 @@ $("#colors_div i").click(function () {
 
 let li_collection = $('#colors_option ul li');
 li_collection.eq(0).css('backgroundColor','#6a8caf');
-li_collection.eq(1).css('backgroundColor','#75b79e');
+li_collection.eq(1).css('backgroundColor','#14a59e');
 li_collection.eq(2).css('backgroundColor','#8c8eb1');
-li_collection.eq(3).css('backgroundColor','#14a59e');
+li_collection.eq(3).css('backgroundColor','#45aaff');
 
 li_collection.on( "click", function() {
   let li_color = $(this).css('backgroundColor');
   // $('html').css('backgroundColor',li_color);
-  $(".navbar,#h_4,#h_3,#h_2,#h_1").css('backgroundColor',li_color);
+  $(".navbar,#h_1,#h_2,#h_3,#h_4").css('backgroundColor',li_color);
   $(".carousel-caption h1,.mydiv_content").css('color',li_color);
 });
 
@@ -756,7 +765,7 @@ li_collection.on( "click", function() {
 // loading page
 
 $(document).ready(function(){
-  $("#loading").fadeOut( 3000, function() {
+  $("#loading").fadeOut(1000, function() {
     $("body").css("overflow","auto");
   });
 })

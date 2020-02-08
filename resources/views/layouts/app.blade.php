@@ -105,14 +105,14 @@
                         <div class="nav-item-div">
                             <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
                                 <i class="fas fa-users text-white" id="nav_5_i"></i>
-                                <a class="nav-link" href="#"  >من نحن ؟</a>
+                                <a class="nav-link" href="/#about_us"  >من نحن ؟</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
                                 <i class="fab fa-weixin text-white " id="nav_6_i"></i>
-                                <a class="nav-link" href="#" >تواصل معنا</a>
+                                <a class="nav-link" href="/#contact_us" >تواصل معنا</a>
                             </li>
                         </div>
                     </ul>
@@ -122,11 +122,13 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('دخول') }}</a>
+                            {{-- <a class="nav-link" href="{{ route('login') }}">{{ __('دخول') }}</a> --}}
+                            <a class="nav-link ml-3" href="{{ route('login') }}"><h4 id="nav_register">دخول</h4></a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل') }}</a>
+                            {{-- <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل') }}</a> --}}
+                            <a class="nav-link" href="{{ route('register') }}"><h4 id="nav_register">تسجيل</h4></a>
                         </li>
                         @endif
                         @else
@@ -173,10 +175,6 @@
         <main class="py-4" align=right dir=rtl>
             @yield('content')
         </main>
-    </div>
-
-    <div class="container-fluid  bg-primary d-flex justify-content-center navbar-fixed-bottom" style="position: relative;bottom:0% !important;">
-        <footer>Copyright by Ghosts 2020 ©</footer>
     </div>
 
 

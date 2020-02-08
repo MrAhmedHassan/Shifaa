@@ -32,6 +32,16 @@ p
     color: rgb(0, 101, 225);
 }
 
+/* in app.blade.php */
+#nav_register{
+    color:#0065e1;
+    font-family: 'Amiri', sans-serif;
+}
+
+#nav_register:hover{
+    color:#03326b
+}
+
 .myline_small
 {
     border: 1px solid #5d5b6d;
@@ -568,7 +578,7 @@ font-size:25px;
 
 .doctor-layer2  a
 {
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 600;
     text-decoration: none !important;
     color: #ffb606;
@@ -908,10 +918,11 @@ cursor: pointer;
     margin-bottom: 180px;
 }
 
-.about_us .carousel-caption h4
+.about_us .carousel-caption h2
 {
-    font-size: 18px;
-    font-weight: 400px;
+    /* font-size: 18px; */
+    /* font-weight: 400px; */
+    margin-top: 20px;
     line-height: 21px;
     letter-spacing: 0.025em;
     margin-bottom: 100px;
@@ -925,10 +936,10 @@ cursor: pointer;
 
 @media only screen and (max-width: 991px) 
 {
-    .about_us .carousel-caption h4
+    /* .about_us .carousel-caption h2
     {
-        font-size: 16px;
-    }
+         font-size: 16px;
+    }  */
 
     .about_us .carousel-caption p
     {
@@ -943,10 +954,10 @@ cursor: pointer;
 
 @media only screen and (max-width: 785px) 
 {
-    .about_us .carousel-caption h4
+    /* .about_us .carousel-caption h2
     {
         font-size: 16px;
-    }
+    } */
 
     .about_us .carousel-caption p
     {
@@ -957,10 +968,10 @@ cursor: pointer;
 
 @media only screen and (max-width: 555px) 
 {
-    .about_us .carousel-caption h4
+    /* .about_us .carousel-caption h2
     {   
         font-size: 14px;
-    }
+    } */
 
     .about_us .carousel-caption p
     {
@@ -1418,4 +1429,5 @@ body {
     box-shadow: 0 2.5em 0 0;
   }
 }
+
 
