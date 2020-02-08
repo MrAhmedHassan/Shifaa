@@ -19,7 +19,7 @@ class HomeController extends Controller
     //$arr2[]= Rating::where('rateable_id',$topRate->id)->avg('rating');
  }
 
- dd( $arr2);
+ //dd( $arr2);
 
 
     /* $topRated =Rating::select('*')
