@@ -21,7 +21,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Tajawal|Rakkas|Cairo|Amiri|Changa|Reem+Kufi|Aref+Ruqaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal|Rakkas|Cairo|Amiri|Changa|Reem+Kufi|Harmattan|Aref+Ruqaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Amiri|Changa|Reem+Kufi&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -55,13 +55,13 @@
 
 <body align=right dir=rtl>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm fixed-top" style="background-color: rgb(52, 105, 123) !important">
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
 
-                    <div class="d-flex justify-content-center align-items-center">
-                        <i class="fas fa-hand-holding-heart ml-2" style="font-size: 30px;color:rgb(103, 172, 245);"></i>
-                        <h1 style="font-family: 'Aref Ruqaa', serif;color:rgb(103, 172, 245);">شفاء</h1>
+                    <div class="d-flex justify-content-center align-items-center shefa_brand">
+                        <i class="fas fa-hand-holding-heart ml-2" style="font-size: 30px;"></i>
+                        <h1 style="font-family: 'Aref Ruqaa', serif;">شفاء</h1>
                     </div>
 
                 </a>
@@ -71,62 +71,64 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav my_main_navbar m-auto">
+                    <ul class="navbar-nav my_main_navbar">
 
                         <!-- Navbar Links -->
                         <div class="nav-item-div">
                             <li class="nav-item mainA d-flex justify-content-center align-items-center">
-                                <i class="fas fa-home text-white fa-2x"></i>
-                                <a class="nav-link ml-4 " href="/">| الرئيسية</a>
+                                <i class="fas fa-home text-white" id="nav_1_i"></i>
+                                <a class="nav-link ml-4 " href="/" >الرئيسية</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fas fa-book text-white fa-2x"></i>
-                                <a class="nav-link" href="/articles"> المقالات الطبية</a>
+                                <i class="fas fa-book text-white" id="nav_2_i"></i>
+                                <a class="nav-link" href="/articles" > المقالات الطبية</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fas fa-user-md text-white fa-2x"></i>
-                                <a class="nav-link" href="/doctors">الأطباء</a>
+                                <i class="fas fa-user-md text-white" id="nav_3_i"></i>
+                                <a class="nav-link" href="/doctors"  >الأطباء</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fas fa-child text-white fa-2x"></i>
-                                <a class="nav-link" href="/bodies">جسم الإنسان</a>
+                                <i class="fas fa-child text-white" id="nav_4_i"></i>
+                                <a class="nav-link" href="/bodies" >جسم الإنسان</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fas fa-users text-white fa-2x"></i>
-                                <a class="nav-link" href="#">من نحن ؟</a>
+                                <i class="fas fa-users text-white" id="nav_5_i"></i>
+                                <a class="nav-link" href="/#about_us"  >من نحن ؟</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fab fa-weixin text-white fa-2x"></i>
-                                <a class="nav-link" href="#">تواصل معنا</a>
+                                <i class="fab fa-weixin text-white " id="nav_6_i"></i>
+                                <a class="nav-link" href="/#contact_us" >تواصل معنا</a>
                             </li>
                         </div>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav w-25 mr-auto my_user">
+                    <ul class="navbar-nav w-25 my_user" >
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('دخول') }}</a>
+                            {{-- <a class="nav-link" href="{{ route('login') }}">{{ __('دخول') }}</a> --}}
+                            <a class="nav-link ml-3" href="{{ route('login') }}"><h4 id="nav_register">دخول</h4></a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل') }}</a>
+                            {{-- <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل') }}</a> --}}
+                            <a class="nav-link" href="{{ route('register') }}"><h4 id="nav_register">تسجيل</h4></a>
                         </li>
                         @endif
                         @else
@@ -155,26 +157,31 @@
                             </div>
                         </li>
 
-                        <img class="rounded-circle" style="width: 15%" src="{{Auth::user()->avatar}}">
+                        <img class="rounded-circle" style="width: 50px" id="user_img" src="{{Auth::user()->avatar}}">
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
 
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {{-- <script src="{{ asset('project_js.js') }}"></script> --}}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
         <main class="py-4" align=right dir=rtl>
             @yield('content')
         </main>
     </div>
 
-    <footer class="bg-primary d-flex justify-content-center align-items-center navbar-fixed-bottom " style="height: 30px ;">Copyright by Ghosts 2020 ©</footer>
 
     <!--Scripts -->
-    
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <script src="{{ asset('project_js.js') }}"></script>
+
 
 </body>
 

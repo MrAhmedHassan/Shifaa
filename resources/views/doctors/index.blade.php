@@ -125,6 +125,10 @@
     @endforeach
 </div>
 
+<div >
+    <footer class="container-fluid bg-primary text-white d-flex justify-content-center align-items-center navbar-fixed-bottom" style="position: absolute;top:100% !important;height: 60px">Copyright by Ghosts 2020 ©</footer>
+</div>
+
 <script type="text/javascript">
 
 var gemy=document.getElementsByName("gemy");

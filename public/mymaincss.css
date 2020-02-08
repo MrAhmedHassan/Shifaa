@@ -1,7 +1,8 @@
 body
 {
 /* background-color: #FBFBFB !important; */
-background-color: #b4b4b41e !important;
+background-color: #b4b4b41e ;
+/* overflow: hidden; */
 }
 
 html
@@ -14,11 +15,31 @@ p
     font-family: 'Amiri', serif;
 }
 
+
 .mydiv_content
 {
     color:rgb(8, 142, 255) ;
     font-family: 'Cairo', sans-serif;
+}
 
+.navbar
+{
+    background-color: rgb(69, 170, 255);
+}
+
+.navbar .shefa_brand h1,i
+{
+    color: rgb(0, 101, 225);
+}
+
+/* in app.blade.php */
+#nav_register{
+    color:#0065e1;
+    font-family: 'Amiri', sans-serif;
+}
+
+#nav_register:hover{
+    color:#03326b
 }
 
 .myline_small
@@ -35,6 +56,51 @@ p
     margin: 0 ;
 }
 
+#colors_div
+{
+height: 100px;
+width: 500px;
+position: fixed;
+right: 0px;
+top: 85px;
+z-index: 999;
+}
+
+#colors_option
+{
+    background-color: rgb(208, 201, 201);
+    padding-left: 20px;
+    border-radius: 10%;
+    border: 2px solid yellow;
+    float: right;
+    display: none;
+}
+
+#colors_div ul
+{
+display: flex;
+}
+
+#colors_div ul li
+{
+    height: 20px;
+    width: 25px;
+    background-color: red;
+    margin: 5px 8px 0px 0px;
+    cursor: pointer;
+}
+
+#colors_div i
+{
+    background-color: rgb(224, 189, 189);
+    color: orangered;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
 .my_main_navbar li a
 {
     color:white !important;
@@ -46,30 +112,15 @@ p
     font-weight: 700 !important;
 }
 
-/* 
-.my_main_navbar li a:hover
-{
-    color:rgb(224, 8, 8) !important; */
-    /* background-color:darkslategray  ; */
-    /* border-radius: 15%; */
-/* } */
-
-
 .my_main_navbar .nav-item-div .nav-item:hover a,.my_main_navbar .nav-item-div .nav-item:hover i
 {
-    color: #56a7fd !important;
+    color: rgb(0, 101, 225) !important;
     cursor: pointer;
 }
 
+
+
 @media only screen and (max-width: 1199px) {
-    .my_main_navbar li a{
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .mainA
-    {
-        margin-left: 20px !important;
-    }
 
     .my_skew section
     {
@@ -84,31 +135,10 @@ p
     }
     }
 
-@media only screen and (max-width: 991px) {
-    .my_main_navbar li a{
-        background-color: transparent !important ;
-        margin: 10px !important;
-    }
-    .my_main_navbar {
-        background-color: darkslategray !important ;
-        margin: 10px !important;
-    }
-
-    }
-
-    /* @media only screen and (max-width: 991px) and (min-width: 961px) {
-    .my_skew
-    {
-        margin-top: 20px;
-    }
-    } */
-
 @media only screen and (max-width: 1263px){
     .my_user a
     {
-        margin-left: 20px !important;
         margin-right: 0 !important;
-        width: 75%;
     }
     }
 
@@ -118,6 +148,145 @@ p
         width: 100%;
     }
     }
+
+.nav-item i
+{
+font-size:25px;
+}
+
+@media only screen and (max-width: 1348px) and (min-width: 1225px) 
+{
+    .my_main_navbar a
+    {
+        font-size: 15px;
+        padding: 0 !important;
+        padding-right: 10px !important;
+    }
+
+    .nav-item i
+    {
+        font-size:20px;
+    }
+}
+
+@media only screen and (max-width: 1225px) and (min-width: 1127px)
+{
+    .my_main_navbar a
+    {
+        font-size: 14px;
+        padding: 0 !important;
+        padding-right: 5px !important; 
+    }
+
+    .nav-item i
+    {
+        font-size:17px;
+    }
+}
+
+@media only screen and (max-width: 1127px) and (min-width: 991px)
+{
+    .navbar-brand i
+    {
+        font-size: 12px !important;
+    }
+
+    .navbar-brand h1
+    {
+        font-size: 22px;
+    }
+
+    .my_main_navbar a
+    {
+        font-size: 13px;
+        padding: 0 !important;
+        padding-right: 5px !important;
+    }
+
+    .my_main_navbar
+    {
+        padding: 0 !important;
+        padding-right: 3px !important;
+    }
+
+    .my_user
+    {
+        padding: 0 !important;
+    }
+
+    .nav-item i
+    {
+        font-size:17px;
+    }
+}
+
+
+@media only screen and (max-width: 991px) {
+    .my_main_navbar li a{
+        background-color: transparent !important ;
+        margin:0px 10px 10px 0px !important;
+    }
+    .my_main_navbar
+    {
+        background-color: darkslategray !important ;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: start !important;
+        align-items: flex-start !important;
+    }
+
+    .my_main_navbar
+    {
+        padding: 0px !important;
+    }
+
+    #user_img
+    {
+        width: 50px !important;
+    }
+
+    #nav_1_i
+    {
+        margin-right: 30px !important;
+    }
+    #nav_2_i
+    {
+        margin-right: 35px !important;
+    }
+    #nav_3_i
+    {
+        margin-right: 35px !important;
+    }
+    #nav_4_i
+    {
+        margin-right: 35px !important;
+    }
+    #nav_5_i
+    {
+        margin-right: 35px !important;
+    }
+    #nav_6_i
+    {
+        margin-right: 35px !important;
+    }
+
+    .my_user
+    {
+        display: flex ;
+        flex-direction: row ;
+        /* justify-content: start ; */
+        /* align-items: flex-end ; */
+    }
+
+    .my_user img
+    {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+}
+
 
     #user_profile{
         text-decoration: none !important;
@@ -143,7 +312,7 @@ p
     {
         width: 30%;
         height: 41%;
-        background-color: rgba(0,0,0,0.4);
+        background-color: rgba(0,0,0,0.45);
         position: absolute;
         top: 35%;
         right: 35%;
@@ -152,7 +321,8 @@ p
 
     .home_slider .carousel-caption h1
     {
-        color: rgb(22, 41, 153);
+        /* color: rgb(22, 41, 153); */
+        color: rgb(0, 101, 225);
         font-family: 'Amiri', serif;
     }
 
@@ -231,7 +401,7 @@ p
 
     .my_skew section
     {
-        background: rgb(38, 156, 255);
+        /* background-color: rgb(38, 156, 255); */
         width: 35vh;
         height: 27vh;
         display: block;
@@ -245,6 +415,7 @@ p
     {
         margin-top: 6vh;
         margin-bottom: 3vh;
+        color: white;
     }
 
     .my_skew:hover section:nth-child(odd)
@@ -293,22 +464,22 @@ p
         text-decoration: none !important;
     }
 
-    .my_skew #h_4 a:hover 
+    .my_skew #h_4 a:hover i,.my_skew #h_4 a:hover h3
     {
         color: rgba(0,0,0,0.5);
     }
 
-    .my_skew #h_3 a:hover 
+    .my_skew #h_3 a:hover i,.my_skew #h_3 a:hover h3
     {
         color: rgba(0,0,0,0.5);
     }
 
-    .my_skew #h_2 a:hover 
+    .my_skew #h_2 a:hover i,.my_skew #h_2 a:hover h3
     {
         color: rgba(0,0,0,0.5);
     }
 
-    .my_skew #h_1 a:hover 
+    .my_skew #h_1 a:hover i,.my_skew #h_1a:hover h3
     {
         color: rgba(0,0,0,0.5);
     }
@@ -407,7 +578,7 @@ p
 
 .doctor-layer2  a
 {
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 600;
     text-decoration: none !important;
     color: #ffb606;
@@ -511,7 +682,6 @@ p
     {
         height: 2500px;
         margin-top: 600px;
-        /* margin-bottom: 1200px; */
     }
 
     .top_rated_doctors .item-doctor
@@ -635,7 +805,6 @@ svg, defs, clipPath {
 .body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs {
     position: absolute;
     top: 0px;
-    /* left: 450px;  */
     opacity: 0;
     transition-duration: 1s;
 }
@@ -717,7 +886,6 @@ svg, defs, clipPath {
 
 .questions img
 {
-    /* box-sizing: content-box; */
     transition: 1.2s;
 }
 
@@ -731,7 +899,6 @@ svg, defs, clipPath {
 
 .about_us
 {
-    /* height: 550px; */
     margin-top: 50px;
     background-image: url("./imgs/about_us1.jpg") ;
     background-size: 100% 100%;
@@ -751,10 +918,11 @@ cursor: pointer;
     margin-bottom: 180px;
 }
 
-.about_us .carousel-caption h4
+.about_us .carousel-caption h2
 {
-    font-size: 18px;
-    font-weight: 400px;
+    /* font-size: 18px; */
+    /* font-weight: 400px; */
+    margin-top: 20px;
     line-height: 21px;
     letter-spacing: 0.025em;
     margin-bottom: 100px;
@@ -768,10 +936,10 @@ cursor: pointer;
 
 @media only screen and (max-width: 991px) 
 {
-    .about_us .carousel-caption h4
+    /* .about_us .carousel-caption h2
     {
-        font-size: 16px;
-    }
+         font-size: 16px;
+    }  */
 
     .about_us .carousel-caption p
     {
@@ -786,10 +954,10 @@ cursor: pointer;
 
 @media only screen and (max-width: 785px) 
 {
-    .about_us .carousel-caption h4
+    /* .about_us .carousel-caption h2
     {
         font-size: 16px;
-    }
+    } */
 
     .about_us .carousel-caption p
     {
@@ -800,10 +968,10 @@ cursor: pointer;
 
 @media only screen and (max-width: 555px) 
 {
-    .about_us .carousel-caption h4
+    /* .about_us .carousel-caption h2
     {   
         font-size: 14px;
-    }
+    } */
 
     .about_us .carousel-caption p
     {
@@ -1088,5 +1256,178 @@ body {
     color: darkblue;
 }
 
+
+/* laoding page */
+
+.sk-folding-cube {
+  margin: 20px auto;
+  width: 65px;
+  height: 65px;
+  position: relative;
+  top:30%;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.sk-folding-cube .sk-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1); 
+}
+.sk-folding-cube .sk-cube:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+          animation: sk-foldCubeAngle 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+      -ms-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+.sk-folding-cube .sk-cube2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+          transform: scale(1.1) rotateZ(90deg);
+}
+.sk-folding-cube .sk-cube3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+          transform: scale(1.1) rotateZ(180deg);
+}
+.sk-folding-cube .sk-cube4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+          transform: scale(1.1) rotateZ(270deg);
+}
+.sk-folding-cube .sk-cube2:before {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.sk-folding-cube .sk-cube3:before {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s; 
+}
+.sk-folding-cube .sk-cube4:before {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+@-webkit-keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
+  } 
+}
+
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
+  }
+}
+
+#loading
+  {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: #2980b9;
+    z-index: 9999999;
+  } 
+
+  #loading h1
+  {
+    font-family: 'Aref Ruqaa', serif;
+    position: relative;
+    top: 29%;
+    right: 46%;
+    font-size: 80px;
+  }
+
+      /* loading dots */
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: #ffffff;
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  top: 12%;
+  right: 8%;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  right: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  right: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
 
 

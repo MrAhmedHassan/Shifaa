@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Reservation;
 use App\Reveal;
 use Illuminate\Http\Request;
+
 class ReservationController extends Controller
 {
     public function index()
@@ -12,23 +13,15 @@ class ReservationController extends Controller
         //        forAdmin
         if (auth()->user()->hasRole('Admin')) {
             $reservations = Reservation::all();
-            // dd($reservations);
-
-            //        forDoctor
-            dd('shit');
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         } else if (auth()->user()->hasRole('Doctor')) {
-    //         $all = Reservation::find(1);
-    // dd($all);
             $reservations = auth()->user()->doctorReservations;
-            //            ForAssistant
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         } else if (auth()->user()->hasRole('Assistant')) {
             $myDoctor = auth()->user()->doctor;
             $reservations = $myDoctor->doctorReservations;
-            // dd($reservations);
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         }
