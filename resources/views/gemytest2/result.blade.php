@@ -18,7 +18,7 @@ $range=range($results[$i]->start,$results[$i]->end);
 
 if(in_array($sum,$range))
 {
-echo $results[$i]->result;
+echo "<div class='text text-light bg-success p-3 '>".$results[$i]->result."</div>";
 }
 
 }

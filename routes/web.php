@@ -11,14 +11,20 @@
 */
 
 use App\Article;
+use App\Rating;
 
-Route::get('/', function () {
-    return view('home.index');
-});
+//Route::get('/', function () {
+
+
+//});
+
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//retreve the top rateable doctors in the main page
+Route::get('/', 'Home\HomeController@topRated');
+
 
 // this route is only for test
 Route::get('/tests/{test}','Personal\PersonalController@show');
@@ -83,7 +89,7 @@ Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('
 Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
 //route for rate
 Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
-Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
+Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile')->name('profiles.another');
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
 Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
 
@@ -111,9 +117,9 @@ Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name(
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
- 
 
- 
+
+
 
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');

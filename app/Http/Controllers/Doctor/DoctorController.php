@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\User;
+
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -22,4 +23,7 @@ class DoctorController extends Controller
             dd('Your Can see the data of this user');
         }
     }
+  
+  
+
 }

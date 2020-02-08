@@ -77,7 +77,7 @@
                         <div class="nav-item-div">
                             <li class="nav-item mainA d-flex justify-content-center align-items-center">
                                 <i class="fas fa-home text-white fa-2x"></i>
-                                <a class="nav-link ml-4 " href="/home">| الرئيسية</a>
+                                <a class="nav-link ml-4 " href="/">| الرئيسية</a>
                             </li>
                         </div>
 

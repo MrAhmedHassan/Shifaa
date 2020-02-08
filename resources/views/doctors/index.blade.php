@@ -24,7 +24,8 @@
          <i name="gemy" class="fa fa-star fa-2x" id="star2"></i>
          <i name="gemy" class="fa fa-star fa-2x" id="star1"></i>
        </p>
-       <div name="gemy1" class="gemy2" id="val" style="display:none">{{$doctor->averageRating}}</div>
+       <div name="gemy1" class="gemy2" id="val" style="display:none" >{{$doctor->averageRating}}</div>
+   
 
 
 
@@ -85,6 +86,8 @@
                                 <td>  <form method="post" action="/reservations/{{$reveal->id}}/{{$doctor->id}}">
                                         @csrf
                                         <button type="submit" class="btn btn-success">احجز</button>
+                                        
+
                                     </form>
                                 </td>
                             </tr>
@@ -128,19 +131,22 @@ var gemy=document.getElementsByName("gemy");
 var gemy1=document.getElementsByName("gemy1");
 var arraySparsee2 = [];
 for (var i=0;i<gemy1.length;i++){
+ 
     arraySparsee2.push(parseInt(gemy1[i].innerText)) ;
+
 }
 var start=0;
 var end=5;
 for (var i=0;i<arraySparsee2.length;i++){
-    console.log(arraySparsee2[i]);
+  //  console.log(arraySparsee2[i]);
+
     if(arraySparsee2[i]==1){
         arr=[];
         for(j=start;j<end;j++)
       { 
         arr.push(gemy[j]);
       }
-      console.log(arr[0]);
+      arr[0].style.color="yellow";
     start+=5;
     end+=5;
     continue;

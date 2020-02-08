@@ -13,9 +13,10 @@
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
+                        @if(count($errors->all())>0)
+                        <li>{{' كل الحقول مطلوبة ﻻ تترك حقﻻ فارغا' }}</li>
+                        @endif
+                      
                     </ul>
                 </div>
             @endif
