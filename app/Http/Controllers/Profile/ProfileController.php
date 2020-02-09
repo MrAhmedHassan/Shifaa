@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Profile;
+use App\Rating;
 
 use App\Http\Controllers\Controller;
 use App\User;
@@ -34,6 +35,35 @@ class ProfileController extends Controller
             ['rateable_id', $request->id],
             ['rateable_type', 'App\User']
         ])->first();
+
+       // $avg = Rating::select("rating")->where('rateable_id',$request->id)->avg('rating');
+       // if($avg=='')
+       // {
+          //  $avg=0;
+        //}
+
+       // $count= Rating::select("rating")->where('rateable_id',$request->id)->count();
+
+       if($rating){
+        $rating->rating = $newRating;
+       // $rating->average = (($post->averageRating)+ $newRating)/($count+1);
+        $post->ratings()->save($rating);
+       return redirect()->route('profiles.another', $request->id);
+      }else{
+        request()->validate(['rate' => 'required']);
+        $post = User::find($request->id);
+        $rating = new \willvincent\Rateable\Rating;
+        $rating->rating = $request->rate;
+       // $rating->average = (($post->averageRating)+$newRating)/($count+1);
+        $rating->user_id = auth()->user()->id;
+        $post->ratings()->save($rating);
+        return redirect()->route('profiles.another', $request->id);
+    }
+
+
+
+
+
 
         if ($rating) {
             $rating->rating = $newRating;

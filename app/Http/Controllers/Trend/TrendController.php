@@ -12,11 +12,11 @@ class TrendController extends Controller
 
 {
 
-    public function home()
-    {
-        $trends = Trend::all();
-        return view('/home/index')->with('trends', $trends);
-    }
+    // public function home()
+    // {
+    //     $trends = Trend::all();
+    //     return view('/home/index')->with('trends', $trends);
+    // }
 
     public function index()
     {

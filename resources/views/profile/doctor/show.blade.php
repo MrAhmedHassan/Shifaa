@@ -151,7 +151,6 @@
         </div>
     </div>
 </div>
-{{--------------------------The Fuckin Main Page-----------------------------------}}
 
 <script type="text/javascript">
 
@@ -162,6 +161,8 @@ var star1= document.getElementById("star1");
  var star5= document.getElementById("star5");
 
  var star= document.getElementById("val");
+
+
  parseInt( star);
   if(star.innerText>=1.0000&&star.innerText< 1.9000)
   {
@@ -188,7 +189,7 @@ var star1= document.getElementById("star1");
     star2.style.color="yellow";
     star3.style.color="yellow";
     star4.style.color="yellow";
-    star5.style.color="yellow";•
+    star5.style.color="yellow";
   }
 
 </script>

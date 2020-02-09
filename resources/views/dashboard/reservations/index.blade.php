@@ -1,8 +1,7 @@
-
 @extends('layouts.admin')
 @section('dashboard_content')
 
-
+    
         <!--Start Main content container-->
         <div class="main_content_container">
             <div class="main_container  main_menu_open">
