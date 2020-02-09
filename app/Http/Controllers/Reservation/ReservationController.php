@@ -11,16 +11,19 @@ class ReservationController extends Controller
     {
         //        forAdmin
         if (auth()->user()->hasRole('Admin')) {
-            $reservations = Reservation::all();
+            $reservations = Reservation::paginate(4);
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         } else if (auth()->user()->hasRole('Doctor')) {
-            $reservations = auth()->user()->doctorReservations;
+            $reservations = Reservation::with('doctor')->where('doctor_id',auth()->user()->id)->paginate(4);
+//            $reservations = auth()->user()->doctorReservations;
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         } else if (auth()->user()->hasRole('Assistant')) {
             $myDoctor = auth()->user()->doctor;
-            $reservations = $myDoctor->doctorReservations;
+            $reservations = Reservation::with('doctor')->where('doctor_id',$myDoctor->id)->paginate(4);
+
+//            $reservations = $myDoctor->doctorReservations;
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         }
@@ -32,7 +35,7 @@ class ReservationController extends Controller
 
 
 
-    public function store($reveal, $doctor)
+    public function store($reveal, $doctor,Request $request)
     {
         if (auth()->user()) {
             $limit = Reveal::find($reveal)->limit;
@@ -44,10 +47,10 @@ class ReservationController extends Controller
                     'reveal_id' => $reveal,
                     'doctor_id' => $doctor
                 ]);
-                return response()->json(['message','نجح الحجز']);
+                return response()->json(['message'=>'نجح الحجز']);
                 // return redirect("profiles/$doctor");
             } else {
-                return response()->json(['message','الحجز ممتلئ']);
+                return response()->json(['message'=>'الحجز ممتلئ']);
 
                 // return dd('this day is completed');
             }

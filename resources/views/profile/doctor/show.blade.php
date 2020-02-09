@@ -1,14 +1,7 @@
 @extends('layouts.app')
 @section('content')
-
-{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">--}}
-{{-- <link href="{{ asset('css/preview.css') }}" rel="stylesheet">--}}
-
 <link rel="stylesheet" type="text/css" href="{{ asset('css/profile.css') }}">
-{{-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
-
 <div class="container myMain-Section mt-5">
-
     <div class="row">
         <div class="col-sm-12 myImage-Section">
             <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">
@@ -107,17 +100,16 @@
                     @foreach($reveals as $reveal)
                         <tr class="text-primary">
                             <td>
-                       
+
                             {{ \Carbon\Carbon::parse($reveal->date)->format('d/m D')}}
                              </td>
                             <td>
                                 <p style="font-size: 20px">     {{$reveal->start}}
                                     /       {{$reveal->end}} </p>
                             </td>
-                            <td>  <form method="post" id="myForm" action="/reservations/{{$reveal->id}}/{{$user->id}}">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success" onclick='check()'>احجز</button>
-                                </form>
+
+                            <td>
+                                    <button  class="btn btn-success" onclick="btnAjax('/reservations/{{$reveal->id}}/{{$user->id}}');" >احج</button>
                             </td>
                         </tr>
                     @endforeach
@@ -134,24 +126,45 @@
                                     /       {{$reveals[$i]->end}} </p>
                             </td>
                             <td>
-                                <form method='post' action="/reservations/{{$reveals[$i]->id}}/{{$user->id}}">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success">احجز</button>
-                                </form>
+                                    <button class="btn btn-success" onclick="btnAjax('/reservations/{{$reveals[$i]->id}}/{{$user->id}}');" >احجز</button>
                             </td>
                         </tr>
                     @endfor
 
                 @endif
-<div id="message"></div>
                 </tbody>
             </table>
+            <div id="message"  class="alert alert-primary text-center" role="alert" style="display: none"></div>
         </div>
     </div>
 </div>
 {{--------------------------The Fuckin Main Page-----------------------------------}}
 
-<script type="text/javascript">
+<script  >
+   function btnAjax(url){
+        $.ajax({
+            headers: {
+
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type:'post',
+
+            url:url,
+
+            data:{reserved:true},
+            success:function(response){
+
+                let message = document.getElementById('message');
+                message.style.display = "block";
+                message.innerHTML = response.message;
+                console.log(response.message);
+            }
+        });
+    }
+
+</script>
+
+<script type="text/javascript"  >
 
 var star1= document.getElementById("star1");
  var star2= document.getElementById("star2");
@@ -161,6 +174,7 @@ var star1= document.getElementById("star1");
 
  var star= document.getElementById("val");
  parseInt( star);
+
   if(star.innerText>=1.0000&&star.innerText< 1.9000)
   {
       star1.style.color="yellow";
@@ -188,28 +202,6 @@ var star1= document.getElementById("star1");
     star4.style.color="yellow";
     star5.style.color="yellow";
   }
-
-//   function check(){
-//       let message = document.getElementById('message');
-//     // var revealId = 
-//     var x = document.getElementById("myForm").action;
-// //     $.ajax({url: x , success: function(result){
-        
-// //     $("#div1").html(result);
-// //   }});
-     
-//     console.log(x);
-//     //   $.ajax({
-//     //       url:'reservations//'
-
-//     //   });
-      
-//     //   console.log(message);
-
-
-//   }
-$(document)
-
 
 </script>
 @endsection

@@ -149,8 +149,21 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 });
 // Route::get('/assistant/create', 'Article\ArticleController@create')->name('articles.create');
+Route::get('/a',function (){
+
+    return response()->json(['success'=>'Got Simple Ajax Request.']);
+
+});
+
+Route::get('/ajax',function (){
+
+    return view('test');
+
+});
 
 // not found page redirect to home page
 Route::fallback(function () {
     return  redirect('/');
 });
+
+
