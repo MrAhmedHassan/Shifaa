@@ -125,14 +125,23 @@
                     <li>
                         <span class="glyphicon glyphicon-user"></span>
                         <a href="options.html">إدارة الدكاترة</a>
-                        <a href="/contacts">عرض الرسائل الواردة</a>
                         <ul class="drop_main_menu">
-{{--                            <li><a href="/assistants/create">إضافة مساعد جديد</a></li>--}}
-                            <li><a href="/dashboardDoctors">عرض الكل</a></li>
+                        <li><a href="/dashboardDoctors">عرض الكل</a></li>
 
                         </ul>
                     </li>
                     @endrole
+
+                    @role('Admin')
+                    <li>
+                        <span class="glyphicon glyphicon-user"></span>
+                        <a href="options.html">ادارة الرسائل الواردة</a>
+                        <ul class="drop_main_menu">
+                        <li><a href="/contacts">عرض الرسائل الواردة</a></li>
+                        </ul>
+                    </li>
+                    @endrole
+
                     @role('Admin|Doctor')
                     <li>
                         <span class="glyphicon glyphicon-user"></span>
@@ -143,7 +152,7 @@
                         </ul>
                     </li>
 
-                    <a href="/contacts">عرض الرسائل الواردة</a>
+
                     @endrole
                     @role('Admin|Doctor')
                     <li>

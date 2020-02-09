@@ -35,6 +35,10 @@ Route::post('/tests/{test}','Personal\PersonalController@store');
 
 Route::post('/contact', 'Contact\ContactController@store');
 Route::get('/contacts', 'Contact\ContactController@index');
+// Route::get('/contacts', function(){
+//     dd('fuck');
+// });
+
 Route::delete('/contacts/{id}', 'Contact\ContactController@destroy');
 
 

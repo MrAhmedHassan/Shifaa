@@ -4,7 +4,6 @@
 <!-- <a href="/article/create" class="btn btn-warning btn-lg ml-2 h-50"> كتابة مقال </a> -->
 <!-- <a href="/articles/3/edit" class="btn btn-dark btn-lg ml-2 h-50">حذف  المقال</a> -->
 </div>
-
     <article  class="container blogs">
             <div class="row">
 
@@ -41,22 +40,23 @@
                             <h4>{{ date('M', strtotime($article->created_at)) }}</h4>
                         </div>
                     </div>
-                    <div class="card-body">
-                      <h5 class="card-title text-primary">{{$article->title }}</h5>
-
-                      <p class="ArticleBody text-dark">{{ substr(strip_tags($article->description), 0, 200) }}
-                         {{ strlen(strip_tags($article->description)) > 50 ? "...اقرأ المزيد..." : "" }}
-                      </p>
-                      <a href="#" ><h5 class="text-muted d-inline ">طبيب {{$article->user->name}}</h5></a>
-                    <span class="text-muted" >|  التعليقات ( {{count($article->comments)}} )</span>
                 </div>
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{$article->title }}</h5>
 
-                </div></a>
-                @endforeach
-
+                    <p class="ArticleBody text-dark">{{ substr(strip_tags($article->description), 0, 200) }}
+                        {{ strlen(strip_tags($article->description)) > 50 ? "...اقرأ المزيد..." : "" }}
+                    </p>
+                    <a href="#" ><h5 class="text-muted d-inline ">طبيب {{$article->user->name}}</h5></a>
+                <span class="text-muted" >|  التعليقات ( {{count($article->comments)}} )</span>
             </div>
-            </div>
+            </div></a>
+            @endforeach
+        </div>
+        </div>
     </article>
+
+      
 
 
     <div >
