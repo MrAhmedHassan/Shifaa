@@ -46,7 +46,7 @@ p
     font-weight: 700 !important;
 }
 
-/* 
+/*
 .my_main_navbar li a:hover
 {
     color:rgb(224, 8, 8) !important; */
@@ -264,7 +264,7 @@ p
 
     #h_4
     {
-        background-color:rgb(100, 184, 255);  
+        background-color:rgb(100, 184, 255);
         transition: .8s;
     }
 
@@ -293,22 +293,22 @@ p
         text-decoration: none !important;
     }
 
-    .my_skew #h_4 a:hover 
+    .my_skew #h_4 a:hover
     {
         color: rgba(0,0,0,0.5);
     }
 
-    .my_skew #h_3 a:hover 
+    .my_skew #h_3 a:hover
     {
         color: rgba(0,0,0,0.5);
     }
 
-    .my_skew #h_2 a:hover 
+    .my_skew #h_2 a:hover
     {
         color: rgba(0,0,0,0.5);
     }
 
-    .my_skew #h_1 a:hover 
+    .my_skew #h_1 a:hover
     {
         color: rgba(0,0,0,0.5);
     }
@@ -316,7 +316,7 @@ p
 
 
 /* Second Section "top_rated_doctors" */
-    
+
 .top_rated_doctors
 {
     height: 500px;
@@ -327,7 +327,7 @@ p
 {
     font-family: 'Amiri', serif;
     margin-left: 30px;
-    margin-right: 30px; 
+    margin-right: 30px;
 }
 
 .item-doctor
@@ -385,7 +385,7 @@ p
     bottom: 100%;
     left: 12px;
     background-color: rgba(0, 33, 71, 0.7);
-    text-align: center; 
+    text-align: center;
     transition:bottom 1s ;
 }
 
@@ -454,7 +454,7 @@ p
     {
         font-size: 1rem;
     }
-    
+
 }
 
 @media only screen and (max-width: 991px) and (min-width: 768px)
@@ -502,10 +502,10 @@ p
         position: absolute;
         bottom: 4% !important;
     }
-    
+
 }
 
-@media only screen and (max-width: 767px) 
+@media only screen and (max-width: 767px)
 {
     .top_rated_doctors
     {
@@ -533,23 +533,23 @@ p
     .top_rated_doctors .doctor-layer1 h4
     {
         margin-bottom: 20px;
-    }  
-    
+    }
+
     .top_rated_doctors .doctor-layer2 h4
     {
         font-size: 50px;
         margin-bottom: 40px;
-    }  
-    
-    .top_rated_doctors .doctor-layer2 p 
+    }
+
+    .top_rated_doctors .doctor-layer2 p
     {
         font-size: 40px;
-    } 
-    
-    .top_rated_doctors .doctor-layer2 a 
+    }
+
+    .top_rated_doctors .doctor-layer2 a
     {
         font-size: 20px;
-    }  
+    }
 }
 
 
@@ -561,7 +561,7 @@ p
     margin-top: 100px;
 }
 
-.man_body 
+.man_body
 {
     margin-top: 80px ;
 }
@@ -571,7 +571,7 @@ p
     margin-top: 100px;
 }
 
-/* 
+/*
     background: radial-gradient(ellipse at center,#bfdfe1 0%,#97c6c6 81%);
 } */
 svg, defs, clipPath {
@@ -582,26 +582,26 @@ svg, defs, clipPath {
 }
 
 .body_hover #figura {
-    position: relative; 
-    width: 314px; 
-    height: 524px; 
+    position: relative;
+    width: 314px;
+    height: 524px;
     border: 1px solid black;
     margin: 10px auto;
     overflow: hidden;
 }
 .body_hover #capaRecorte {
-    width: 314px; 
+    width: 314px;
     height: 524px;
-    position: absolute; 
+    position: absolute;
     top: 0;
     left: 0;
 }
 .body_hover #imagen {
-    width: 314px; 
-    height: 524px; 
+    width: 314px;
+    height: 524px;
     position: absolute;
-    top: 0; 
-    left: 0; 
+    top: 0;
+    left: 0;
 }
 .body_hover #figura map area:nth-of-type(1):hover ~ #capaRecorte {
     clip-path: url(#A1);
@@ -640,7 +640,7 @@ svg, defs, clipPath {
     transition-duration: 1s;
 }
 
-.body_hover #hisBely 
+.body_hover #hisBely
 {
     overflow: auto;
     height: 535px;
@@ -655,18 +655,18 @@ svg, defs, clipPath {
 
 @media only screen and (max-width: 991px)
 {
-.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs 
+.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs
 {
-    position: absolute; 
+    position: absolute;
     left: 10px !important;
 }
 }
 
 @media only screen and (max-width: 767px)
 {
-.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs 
+.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs
 {
-    position: absolute; 
+    position: absolute;
     right: 30% ;
     top: 10px;
 }
@@ -674,7 +674,7 @@ svg, defs, clipPath {
 
 @media only screen and (max-width: 575px)
 {
-.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs 
+.body_hover #hisEye,.body_hover.body_hover #hisNose,.body_hover #hisHead,.body_hover #hisChest,.body_hover #hisArms,.body_hover #hisBely,.body_hover #hisLegs
 {
     width: 70%;
 }
@@ -688,7 +688,7 @@ svg, defs, clipPath {
 
 
  /* Fifth Section "questions"  */
-.questions .card 
+.questions .card
 {
     padding: 1em !important;
     border-radius: 2% !important;
@@ -697,7 +697,7 @@ svg, defs, clipPath {
 }
 
 
-.questions a 
+.questions a
 {
     text-decoration: none !important;
 }
@@ -721,7 +721,7 @@ svg, defs, clipPath {
     transition: 1.2s;
 }
 
-.questions img:hover 
+.questions img:hover
 {
     transform: scale(1.07);
     transition: 1.2s;
@@ -766,7 +766,7 @@ cursor: pointer;
     font-size: 20px;
 }
 
-@media only screen and (max-width: 991px) 
+@media only screen and (max-width: 991px)
 {
     .about_us .carousel-caption h4
     {
@@ -784,7 +784,7 @@ cursor: pointer;
     }
 }
 
-@media only screen and (max-width: 785px) 
+@media only screen and (max-width: 785px)
 {
     .about_us .carousel-caption h4
     {
@@ -798,10 +798,10 @@ cursor: pointer;
 
 }
 
-@media only screen and (max-width: 555px) 
+@media only screen and (max-width: 555px)
 {
     .about_us .carousel-caption h4
-    {   
+    {
         font-size: 14px;
     }
 
@@ -875,7 +875,23 @@ text-decoration: none;
     text-decoration: none;
 }
 
-.blogs .cat-list li a:hover {
+.theGoodDoctor {
+    background-color: rgb(52, 105, 123);
+}
+
+.theGoodDoctor aside ul div li:hover {
+    background-color: rgb(237, 242, 247);
+    color: black;
+    border: 1px solid yellow;
+}
+
+#myInput {
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ddd;
+}
+
+.blogs .cat-list li div:hover {
     color: rgb(46, 97, 138);
 }
 
@@ -980,7 +996,7 @@ margin-top: 20px ;
     background:radial-gradient(ellipse at center,#bfdfe1 0%,#97c6c6 81%);
 }
 
-@media only screen and (max-width: 767px) 
+@media only screen and (max-width: 767px)
 {
     .top_rated_doctors
     {
@@ -1007,7 +1023,7 @@ margin-top: 20px ;
 }
 
 /**************PART TWO***************/
-/* 
+/*
 body {
     background-color: rgb(170, 170, 161);
 } */
@@ -1046,7 +1062,7 @@ body {
     transform: rotate(360deg);
 }
 
-.human_body_show .content 
+.human_body_show .content
 {
     font-family: 'Tajawal', sans-serif;
     font-size: 1.5rem;
@@ -1088,5 +1104,5 @@ body {
     color: darkblue;
 }
 
-
+/*****************Human Devices*******************/
 

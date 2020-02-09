@@ -21,12 +21,23 @@
     </div>
   </div>
   <div class="container d-flex justify-content-center">
+
+    
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 380px; right: 410px; text-decoration: none">الجهاز العصبي</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 510px; right: 375px; text-decoration: none">الجهاز المناعي</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 630px; right: 340px; text-decoration: none">الجهاز الهضمي</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 765px; right: 310px; text-decoration: none">الجهاز اللمفاوي</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 900px; right: 340px; text-decoration: none">الغدد الصماء</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 1030px; right: 390px; text-decoration: none">الجهاز  اللحافي</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 1015px; left: 310px; text-decoration: none">الجهاز الهيكلي والعضلي</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 870px; left: 315px; text-decoration: none">الجهاز التناسلي</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 715px; left: 325px; text-decoration: none">الجهاز البولي</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 575px; left: 345px; text-decoration: none">الجهاز التنفسي</a>
+        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 440px; left: 445px; text-decoration: none">جهاز الدوران</a>
+
     <map name="Devices">
 
       @foreach($humanbody as $humanbod)
-
-
-
       @php
       if($humanbod->title=="الجهاز العصبى")
       {
