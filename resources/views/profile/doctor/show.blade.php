@@ -45,8 +45,13 @@
                 @if(auth()->user())
                     @if(auth()->user()->id == $user->id)
                         <a href="/profile/complete" class="btn btn-info">أكمل الملف الشخصي</a>
+                        <a href="/doctor_article/{{$user->id}}" class="btn btn-dark">مقالاتي</a>
+
                     @endif
                 @endif
+
+
+
         </div>
     </div>
     <div class="row mt-5">
@@ -150,7 +155,6 @@
         </div>
     </div>
 </div>
-{{--------------------------The Fuckin Main Page-----------------------------------}}
 
 <script type="text/javascript">
 
@@ -161,6 +165,8 @@ var star1= document.getElementById("star1");
  var star5= document.getElementById("star5");
 
  var star= document.getElementById("val");
+
+
  parseInt( star);
   if(star.innerText>=1.0000&&star.innerText< 1.9000)
   {

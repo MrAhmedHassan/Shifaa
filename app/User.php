@@ -8,7 +8,8 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use willvincent\Rateable\Rateable;
 
-class User extends Authenticatable implements MustVerifyEmail
+// class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable 
 {
     use Rateable;
     use Notifiable;
@@ -85,6 +86,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Reservation::class,'doctor_id');
     }
 
+
+    public function rate(){
+        return  $this->hasOne(Rating::class,'rateable_id');
+
+    }
 
 
 }

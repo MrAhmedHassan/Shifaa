@@ -3,7 +3,7 @@
 
 
 <div class="pain">
-    <div class="container">
+    <div class="container" id="up">
 
         <div class="row">
             <div class="col-md-8 column">
@@ -16,12 +16,12 @@
                     <div class="card-header">
                         فريق شفاء يتمنى لك الشفاء العاجل وينصحك بزيارة طبيب مختص
                     </div>
-                    @foreach($diseases->category->users as $user)
+                    @foreach($diseases->category->users as $user);
                     <div class="card-body">
                         <h5 class="card-title">   طبيب {{$user->name}} تخصص {{$user->category->category}}</h5>
                         <p><img src="{{$user->avatar}}" class="rounded-circle img-fluid" style="width:10rem"></p>
-                         <!-- this btn waiting handling of profile -->
-                         <a href="#" class="btn btn-primary">عرض الملف الشخصي</a>
+                        <!-- this btn waiting handling of profile -->
+                        <a href="#" class="btn btn-primary">عرض الملف الشخصي</a>
                     </div>
                     @endforeach
                 </div>

@@ -11,18 +11,31 @@
 */
 
 use App\Article;
+use App\Rating;
 
-Route::get('/', function () {
-    return view('home.index');
-});
+//Route::get('/', function () {
+
+
+//});
+
+
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+//retreve the top rateable doctors in the main page
+Route::get('/', 'Home\HomeController@topRated');
+
 
 // this route is only for test
 Route::get('/tests/{test}','Personal\PersonalController@show');
 Route::post('/tests/{test}','Personal\PersonalController@store');
+
+
+//for the contact us
+
+Route::post('/contact', 'Contact\ContactController@store');
+Route::get('/contacts', 'Contact\ContactController@index');
+Route::delete('/contacts/{id}', 'Contact\ContactController@destroy');
 
 
 
@@ -58,7 +71,7 @@ Route::get('/prof', 'Profile\ProfileController@index');
 Route::group(['namespace'=>'Article'],function () {
     // Controllers Within The "App\Http\Controllers\Article" Namespace
     Route::get('/articles', 'ArticleController@index')->name('articles.index');
-    Route::get('/doctor_article/{doctor}', 'Article\ArticleController@doctor_article')->name('doctor.article');
+    Route::get('/doctor_article/{doctor}', 'ArticleController@doctor_article')->name('doctor.article');
     Route::get('/article/create', 'ArticleController@create')->name('articles.create')->middleware(['role:Admin|Doctor','auth']);
     Route::post('/articles/store', 'ArticleController@store')->name('articles.store')->middleware(['role:Admin|Doctor','auth']);
     Route::get('/articles/{article}/edit', 'ArticleController@edit')->name('articles.edit')->middleware(['role:Admin|Doctor','auth']);
@@ -81,7 +94,7 @@ Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('
 Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
 
 Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
-Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
+Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile')->name('profiles.another');
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
 Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
 

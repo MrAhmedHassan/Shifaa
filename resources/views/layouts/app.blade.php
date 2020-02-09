@@ -10,7 +10,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -139,6 +138,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('خروج') }}
+                                </a>
+                                <hr>
                                 <div id="div_user_profile">
                                     <a href="/profiles" class="ml-3" id="user_profile">البروفايل</a>
                                 </div>
@@ -146,11 +150,6 @@
                                 <div id="div_user_profile">
                                     <a href="/dashboard" class="ml-3" id="user_profile">لوحة التحكم</a>
                                 </div>
-                                <hr>
-                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    {{ __('خروج') }}
-                                </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf

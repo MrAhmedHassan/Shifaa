@@ -89,11 +89,12 @@ class PersonalController extends Controller
         }else if(!($doing2&&$wedding2&&$friend2&& $car2&&$angry2)&&$test->id==2)
         {
             $validatedData = request()->validate([
-                'doing2' => 'required',
+                'donig.required' => 'the question  is required',
                 'wedding2' => 'required',
                 'friend2' => 'required',
                 'car2' => 'required',
                 'angry2' => 'required',
+               // 'title.required' => 'A title is required',
             ]);
 
         }else if(!($doing3&&$wedding3&&$friend3&& $car3&&$angry3)&&$test->id==3)
