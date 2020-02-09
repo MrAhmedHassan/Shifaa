@@ -1,4 +1,3 @@
-
 @extends('layouts.admin')
 @section('dashboard_content')
 
@@ -36,7 +35,7 @@
                                 <td>{{$value->patient->id}}</td>
                                 <td>{{$value->doctor->name}}</td>
                                 <td>{{ date('D', strtotime($value->date)) }}</td>
-                           
+
                                 <td>{{$value->reveal->start}}</td>
                                 <td>{{$value->reveal->end}}</td>
 

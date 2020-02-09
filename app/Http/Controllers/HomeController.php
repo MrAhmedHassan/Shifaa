@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use willvincent\Rateable\Rateable;
 use Illuminate\Http\Request;
 use App\Post;
+
 use App\User;
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 
 {
@@ -23,7 +25,7 @@ class HomeController extends Controller
 
     {
 
-        $this->middleware('auth');
+        $this->middleware(['auth','verified']);
 
     }
 
@@ -41,8 +43,12 @@ class HomeController extends Controller
     public function index()
 
     {
-        return view('home/index');
+        return redirect('/');
     }
+
+  
+
+    
 
 
 }

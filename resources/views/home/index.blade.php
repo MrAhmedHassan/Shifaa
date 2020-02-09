@@ -1,6 +1,34 @@
 @extends('layouts.app')
 @section('content')
 
+{{-- loading page --}}
+<section id="loading">
+  <div class="sk-folding-cube">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+  <h1 class="text-white dotted_loading">شفاء</h1>
+  <div class="loader">...</div>
+</section>
+
+
+{{-- fly Section "color_option" --}}
+
+<div id="colors_div">
+  <div id="colors_option">
+      <h5 align=right class="mr-2">اختر لون الموقع :</h5>
+      <ul class="list-unstyled">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+  </div>
+  <i class="fas fa-cog mt-2" id="color_icon"></i>
+  <div class="clearfix"></div>
+</div>
 
 {{-- First Section "home_slider" --}}
 
@@ -50,7 +78,7 @@
 {{-- <div class="my_skew"> --}}
     <div class="my_skew container">
       <div class="row">
-        <section id="h_4"><a href="#questions"><i class="far fa-question-circle"></i><h3>إختبر نفسك</h3></a></section>
+        <section id="h_4"><a href="#questions"><i class="far fa-question-circle"></i><h3>اختبر نفسك</h3></a></section>
         <section id="h_3"><a href="#most_diseases"><i class="fas fa-capsules"></i><h3>الوقاية من امراض العصر</h3></a></section>
         <section id="h_2"><a href="#body_hover"><i class="fas fa-child"></i><h3>شخص نفسك</h3></a></section>
         <section id="h_1"><a href="#top_rated_doctors"><i class="fas fa-user-nurse"></i><h3>اشهر الاطباء</h3></a></section>
@@ -64,81 +92,231 @@
 
 {{-- Second Section "top_rated_doctors" --}}
 
+
+
+
 <div class="top_rated_doctors container" >
 <div class="row">
   <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content">أشهر الاطباء</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
-  <div class="col-md-3 " >
-    <div class="item-doctor ">
-      <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_4.PNG') }}" >
-        <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column" >
-        <h4>احمد النجم</h4>
-        <p>دكتور باطنة</p>
-        </div>
 
-        <div class="doctor-layer2" id="top_rated_doctors">
-        <h4> عن د. احمد النجم</h4>
-        <p>إستشاري الباطنة والسكر والروماتيزم كلية الطب جامعة الإسكندرية</p> <a href="*" >اعرف المزيد</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3">
+  @if(count($topRated)<1)
+  <div class="col-md-3">
     <div class="item-doctor ">
       <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_3.PNG') }}">
       <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column">
-        <h4>محمود التمساح</h4>
-        <p>دكتور نفسية</p>
+        <h4>لم يحدد </h4>
+        <p> لم يحدد </p>
         </div>
 
         <div class="doctor-layer2" >
-        <h4> عن د. محمود التمساح</h4>
-        <p>إستشاري الامراض النفسية كلية الطب جامعة الأزهر</p> <a href="*" >اعرف المزيد</a>
+        <h4> لم يحدد  </h4>
+        <p>  لم يحدد  </p> <a href="*" >اعرف المزيد</a>
+          </div>
+      </div>
+    </div>
+    @else
+    @php
+    $arrid5=[];
+    $arravatar5=[];
+    $arrname5=[];
+    $arrcategory5=[];
+
+
+    foreach($topRated as $topRate)
+    {
+        if($topRate->averageRating==5)
+        {
+            $arrid5[]=$topRate->id;
+            $arrname5[]=$topRate->name;
+            $arravatar5[]=$topRate->avatar;
+            $arrcategory5[]=$topRate->category->category;
+        }
+    }
+
+   if(count($arrid5)==1 )
+   {
+       for($i=0;$i<1;$i++)
+       {
+           echo "
+
+
+           <div class='col-md-3'>
+    <div class='item-doctor' >
+      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>
+      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
+        <h4> $arrname5[$i] </h4>
+        $arrcategory5[$i]
+        </div>
+
+        <div class='doctor-layer2' >
+        <h4> $arrname5[$i]  </h4>
+        $arrcategory5[$i]
+     <br> <a href='profiles/$arrid5[$i]' >اعرف المزيد</a>
           </div>
       </div>
     </div>
 
-    <div class="col-md-3">
-    <div class="item-doctor ">
-      <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_2.PNG') }}">
-      <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column">
-        <h4>حمو الشبح</h4>
-        <p>دكتور جراحة عامة</p>
+
+
+           ";
+       }
+   }else if(count($arrid5)==2)
+   {
+       for($i=0;$i<2;$i++)
+       {
+           echo "
+
+
+           <div class='col-md-3'>
+    <div class='item-doctor' >
+      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>
+      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
+        <h4> $arrname5[$i] </h4>
+        $arrcategory5[$i]
         </div>
 
-        <div class="doctor-layer2" >
-          <h4> عن د. حمو الشبح</h4>
-          <p>إستشاري الجراحة العامة كلية الطب جامعة بني سويف</p> <a href="*" >اعرف المزيد</a>
-        </div>
+        <div class='doctor-layer2' >
+        <h4> $arrname5[$i]  </h4>
+        $arrcategory5[$i]
+     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>
+          </div>
       </div>
     </div>
 
-    <div class="col-md-3">
-      <div class="item-doctor ">
-        <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_1.PNG') }}">
-          <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column">
-          <h4>محمد تيرافيرس</h4>
-          <p>دكتور عظام</p>
-          </div>
 
-          <div class="doctor-layer2" >
-            <h4> عن د. محمد تيرافيرس</h4>
-            <p>إستشاري عظام كلية الطب جامعة القاهرة</p> <a href="*" >اعرف المزيد</a>
-          </div>
+
+           ";
+       }
+   }else if(count($arrid5)==3 )
+   {
+       for($i=0;$i<3;$i++)
+       {
+           echo "
+
+
+           <div class='col-md-3'>
+    <div class='item-doctor' >
+      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>
+      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
+        <h4> $arrname5[$i] </h4>
+        $arrcategory5[$i]
         </div>
+
+        <div class='doctor-layer2' >
+        <h4> $arrname5[$i]  </h4>
+        $arrcategory5[$i]
+     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>
+          </div>
       </div>
+    </div>
+
+
+
+           ";
+       }
+   }else if(count($arrid5)==4)
+   {
+       for($i=0;$i<4;$i++)
+       {
+           echo "
+
+
+           <div class='col-md-3'>
+    <div class='item-doctor' >
+      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>
+      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
+        <h4> $arrname5[$i] </h4>
+        $arrcategory5[$i]
+        </div>
+
+        <div class='doctor-layer2' >
+        <h4> $arrname5[$i]  </h4>
+        $arrcategory5[$i]
+     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>
+          </div>
+      </div>
+    </div>
+
+
+
+           ";
+       }
+   }else if(count($arrid5)==5 )
+   {
+       for($i=0;$i<5;$i++)
+       {
+           echo "
+
+
+           <div class='col-md-3'>
+    <div class='item-doctor' >
+      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>
+      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
+        <h4> $arrname5[$i] </h4>
+        $arrcategory5[$i]
+        </div>
+
+        <div class='doctor-layer2' >
+        <h4> $arrname5[$i]  </h4>
+        $arrcategory5[$i]
+     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>
+          </div>
+      </div>
+    </div>
+
+
+
+           ";
+       }
+   }else if(count($arrid5)>5)
+   {
+       for($i=0;$i<5;$i++)
+       {
+           echo "
+
+
+           <div class='col-md-3'>
+    <div class='item-doctor' >
+      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>
+      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>
+        <h4> $arrname5[$i] </h4>
+        $arrcategory5[$i]
+        </div>
+
+        <div class='doctor-layer2' >
+        <h4> $arrname5[$i]  </h4>
+        $arrcategory5[$i]
+     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>
+          </div>
+      </div>
+    </div>
+
+
+
+           ";
+       }
+   }
+    @endphp
+
+    @endif
+
+
+
+
+
 
 
   </div>
 </div>
 
-<div class="container">
+<div class="container" id="body_hover">
   <div class="row">
     <div  class="col-md-12 man_body d-flex flex-column justify-content-center align-items-center"><h2 class="mydiv_content">شخص نفسك</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
   </div>
 </div>
 
 {{-- Third Section "body_hover" --}}
-<div class="body_hover" id="body_hover">
+<div class="body_hover">
 <!-- SVG -->
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
@@ -272,13 +450,13 @@
 
 
 {{-- Fourth Section "most_diseases" --}}
-<div class="container">
+<div class="container" id="most_diseases">
   <div class="row">
     <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> أمراض العصر</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
   </div>
 </div>
 
-<div class="most_diseases container my-4" id="most_diseases">
+<div class="most_diseases container my-4" >
 
   <!--Carousel Wrapper-->
   <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -311,7 +489,7 @@
                 alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-title">الشيخوخة</h4>
-                <p class="card-text">كلما تقدمنا أكثر في العمر فان بشرتنا أيضا تصاب بالشيخوخة، فكيف يمكن تخفيف تأثيرات التقدم في العمر على البشرة؟</p>
+                <p class="card-text">هو مرض التقدم بالعمر وربنا يشفى كل مريض ان شاء الله</p>
                   <a class="btn btn-primary">اعرف المزيد</a>
                 </div>
             </div>
@@ -399,16 +577,17 @@
 
 
 {{-- Fifth Section "questions" --}}
+
 <div class="questions container" id="questions">
   <div class="row">
-    <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> اختبر نفسك</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
+    <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5" ><h2 class="mydiv_content"> اختبر نفسك</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
 
     {{-- style="width: 18rem;" --}}
-   
+
     <div class="col-md-4 mb-3">
       <a href="/tests/1">
       <div class="card" >
-      
+
         <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/angry.jpg') }}" alt="Card image cap">
         <div class="card-body">
           <h3 class="card-title">اختبار العصبية</h3>
@@ -490,7 +669,8 @@
 
 {{-- sixth Section "About_us" --}}
 
-<div class="about_us" id="about_us">
+<div id="about_us"></div>
+<div class="about_us">
   <div class="bd-example">
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
@@ -502,38 +682,38 @@
 </ol>
 <div class="carousel-inner ">
 <div class="carousel-item text-center">
-  <img src="{{ asset('/imgs/doctor_3.PNG') }}" class=" rounded-circle " alt="...">
+  <img src="{{ asset('/imgs/hassan.jpg') }}" class=" rounded-circle " alt="...">
   <div class="carousel-caption ">
-     <p>Sed consectetur, elit eu sodales pellentesque, nulla magna pretium eros, ac porttitor ex lorem nec arcu. Suspendisse ipsum tellus, eleifend ac placerat ac, pulvinar vitae turpis. Curabitur ullamcorper rutrum orci nec porttitor.</p>
-      <h4>Joanna Doe - <span>ABC Corp</span></h4>
+    <p>  علوم جيولوجيا , شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+    <h2>احمد حسن</h2>
   </div>
 </div>
 <div class="carousel-item text-center">
-  <img src="{{ asset('/imgs/doctor_2.PNG') }}" class=" rounded-circle" alt="...">
+  <img src="{{ asset('/imgs/mostafa.jpg') }}" class=" rounded-circle" alt="...">
   <div class="carousel-caption ">
-    <p>Nullam commodo nisl lacinia, mattis nibh at, mollis justo. Integer massa sem, interdum sagittis velit ut, pretium porta libero.  Vivamus commodo augue lorem, ut laoreet risus pharetra in, vulputate est non, porttitor erat.</p>
-      <h4>Adam Hope -<span>Co Campany</span></h4>
+    <p>  مهندس كمبيوتر , شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+    <h2>محمد مصطفى</h2>
+  </div>
+</div>
+<div class="carousel-item text-center ">
+  <img src="{{ asset('/imgs/yehia.jpg') }}" class=" rounded-circle" alt="...">
+  <div class="carousel-caption ">
+     <p>  مهندس اتصالات وإلكترونيات , شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+      <h2>يحيي بسام</h2>
   </div>
 </div>
 <div class="carousel-item text-center active">
-  <img src="{{ asset('/imgs/doctor_1.PNG') }}" class=" rounded-circle" alt="...">
+  <img src="{{ asset('/imgs/zidan.jpg') }}" class=" rounded-circle" alt="...">
   <div class="carousel-caption ">
-     <p> Duis leo felis, porttitor ac interdum sit amet, volutpat sit amet nisi. Sed sit amet risus et ex accumsan placerat at tristique dui. Suspendisse eget lacinia elit. Donec accumsan eget lacus vel accumsan placerat at elementum.</p>
-      <h4>Alexandra Love - <span>Fashion Magazine</span></h4>
+    <p>  علوم كيمياء الأزهر, شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+      <h2>محمود زيدان</h2>
   </div>
 </div>
 <div class="carousel-item text-center ">
-  <img src="{{ asset('/imgs/doctor_2.PNG') }}" class=" rounded-circle" alt="...">
+  <img src="{{ asset('/imgs/gamal.jpeg') }}" class=" rounded-circle" alt="...">
   <div class="carousel-caption ">
-     <p> Duis leo felis, porttitor ac interdum sit amet, volutpat sit amet nisi. Sed sit amet risus et ex accumsan placerat at tristique dui. Suspendisse eget lacinia elit. Donec accumsan eget lacus vel accumsan placerat at elementum.</p>
-      <h4>Alexandra Love - <span>Fashion Magazine</span></h4>
-  </div>
-</div>
-<div class="carousel-item text-center ">
-  <img src="{{ asset('/imgs/doctor_3.PNG') }}" class=" rounded-circle" alt="...">
-  <div class="carousel-caption ">
-     <p> Duis leo felis, porttitor ac interdum sit amet, volutpat sit amet nisi. Sed sit amet risus et ex accumsan placerat at tristique dui. Suspendisse eget lacinia elit. Donec accumsan eget lacus vel accumsan placerat at elementum.</p>
-      <h4>Alexandra Love - <span>Fashion Magazine</span></h4>
+    <p>  علوم قسم حاسب , شغوف بالبرمجة والتحليل , خريج الدفعة الأولى من برنامج ال iti للبرمجيات مفتوحة المصدر </p>
+      <h2>محمد جمال</h2>
   </div>
 </div>
 </div>
@@ -552,8 +732,8 @@
   </div>
 
 {{-- Seventh Section "Contact_us" --}}
-
-<div class="Contact_Us">
+<div id="contact_us"></div>
+<div class="Contact_Us" >
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-12 mr-5">
@@ -575,12 +755,25 @@
           </div>
       </div>
       <div class="col-md-6">
-        <form>
-          <input type="text" placeholder="الاسم" class="form-control my-3 " >
-          <input type="email" placeholder="الايميل" class="form-control my-3" >
-          <textarea type="text" placeholder="رسالتك" class="form-control my-3" rows="6" id="mytext4" ></textarea>
+
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+        <form method="POST" action="/contact">
+        @csrf
+          <input type="text" placeholder="الاسم" name="name" class="form-control my-3 " >
+          <input type="email" placeholder="الايميل" name="email" class="form-control my-3" >
+          <textarea type="text" placeholder="رسالتك" name="message" class="form-control my-3" rows="6" id="mytext4" ></textarea>
+          <button class="btn btn-info p-3" id="Contact_send_message"> إرسال <span><i class="fas fa-arrow-left"></i> </span></button>
         </form>
-        <button class="btn btn-info p-3" id="Contact_send_message"> إرسال <span><i class="fas fa-arrow-left"></i> </span></button>
+
       </div>
     </div>
   </div>
@@ -588,6 +781,13 @@
 
 <div>
 <a href="#home_slider"><i class="fas fa-chevron-circle-up" style="font-size: 50px;margin:0 60px 80px 0;color: #17a2b8"></i></a>
+</div>
+
+
+{{-- Footer Section --}}
+
+<div >
+  <footer class="container-fluid bg-primary text-white d-flex justify-content-center align-items-center navbar-fixed-bottom" style="position: relative;bottom:0px !important;height: 60px">Copyright by Ghosts 2020 ©</footer>
 </div>
 
 
@@ -703,6 +903,37 @@
       ulLegs.style.transitionDuration = '1s';
       ulLegs.style.opacity = '1';
   });
+
+
+// colors_option
+
+$("#colors_div i").click(function () {
+  $("#colors_option").toggle();
+  });
+
+let li_collection = $('#colors_option ul li');
+li_collection.eq(0).css('backgroundColor','#6a8caf');
+li_collection.eq(1).css('backgroundColor','#14a59e');
+li_collection.eq(2).css('backgroundColor','#8c8eb1');
+li_collection.eq(3).css('backgroundColor','#45aaff');
+
+li_collection.on( "click", function() {
+  let li_color = $(this).css('backgroundColor');
+  // $('html').css('backgroundColor',li_color);
+  $(".navbar,#h_1,#h_2,#h_3,#h_4").css('backgroundColor',li_color);
+  $(".carousel-caption h1,.mydiv_content").css('color',li_color);
+});
+
+
+// loading page
+
+$(document).ready(function(){
+  $("#loading").fadeOut(1000, function() {
+    $("body").css("overflow","auto");
+  });
+})
+
+
 
 
   </script>

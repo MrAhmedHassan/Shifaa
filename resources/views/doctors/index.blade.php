@@ -52,6 +52,20 @@
                     </ul>
                 </aside>
             </div>
+            <div class="col-md-5 tall">
+                <a href="/profiles/{{$doctor->id}}">
+                    <h4 class="text-primary">د/{{$doctor->name}}</h4>
+                </a>
+                <p class="text-white">دكتور {{$doctor->category->category}}</p>
+                <p>
+         <i name="gemy" class="fa fa-star fa-2x" id="star5"></i>
+         <i name="gemy" class="fa fa-star fa-2x" id="star4"></i>
+         <i name="gemy" class="fa fa-star fa-2x" id="star3"></i>
+         <i name="gemy" class="fa fa-star fa-2x" id="star2"></i>
+         <i name="gemy" class="fa fa-star fa-2x" id="star1"></i>
+       </p>
+       <div name="gemy1" class="gemy2" id="val" style="display:none" >{{$doctor->averageRating}}</div>
+
 
         <div class="col-md-10 tall">
             <div class="row" id="myUL">
@@ -141,25 +155,109 @@ function forGldia(type) {
 
 
 
+            <div class="col-md-5">
+                <table class="table table-striped table-dark text-center border border-warning">
+                    <thead class="bg-primary">
+                        <tr style="font-size: 20px; color:#ffd7db">
+                            <th scope="col">الأيام</th>
+                            <th scope="col">من / إلي</th>
+                            <th scope="col">الحجز</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
+                    @php
+                        $reveals = $doctor->reveals;
+                    @endphp
+                    @if(count($reveals) < 1)
+                        <tr class="text-primary">
+                            <td>
+                                <p style="font-size: 20px">لم يحدد</p>
+                            <td>
+                                <p style="font-size: 20px">لم يحدد</p>
+                            </td>
+                            <td>غيرمتاح</td>
+                        </tr>
+                        @elseif(count($reveals) <= 3)
+
+                        @foreach($reveals as $reveal)
+                            <tr class="text-primary">
+                                <td>
+                                {{--                                <p style="font-size: 20px">السبت</p>--}}
+                                {{ \Carbon\Carbon::parse($reveal->date)->format('D')}}
+                                {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                <td>
+                                    <p style="font-size: 20px">     {{$reveal->start}}
+                                        /       {{$reveal->end}} </p>
+                                </td>
+                                <td>  <form method="post" action="/reservations/{{$reveal->id}}/{{$doctor->id}}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">احجز</button>
+
+
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                        @else
+
+                        @for($i=0 ; $i<3 ;$i++)
+                            <tr class="text-primary">
+                                <td>
+                                {{--                                <p style="font-size: 20px">السبت</p>--}}
+                                {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('D')}}
+                                {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+                                <td>
+                                    <p style="font-size: 20px">     {{$reveals[$i]->start}}
+                                        /       {{$reveals[$i]->end}} </p>
+                                </td>
+                                <td>
+                                    <form method='post' action="/reservations/{{$reveals[$i]->id}}/{{$doctor->id}}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">احجز</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endfor
+
+                        @endif
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    @endforeach
+</div>
+
+<div >
+    <footer class="container-fluid bg-primary text-white d-flex justify-content-center align-items-center navbar-fixed-bottom" style="position: absolute;top:100% !important;height: 60px">Copyright by Ghosts 2020 ©</footer>
+</div>
+
+<script type="text/javascript">
 
 var gemy=document.getElementsByName("gemy");
 var gemy1=document.getElementsByName("gemy1");
 var arraySparsee2 = [];
 for (var i=0;i<gemy1.length;i++){
+
     arraySparsee2.push(parseInt(gemy1[i].innerText)) ;
+
 }
 var start=0;
 var end=5;
 for (var i=0;i<arraySparsee2.length;i++){
-    console.log(arraySparsee2[i]);
+  //  console.log(arraySparsee2[i]);
+
     if(arraySparsee2[i]==1){
         arr=[];
         for(j=start;j<end;j++)
       {
         arr.push(gemy[j]);
       }
-      console.log(arr[0]);
+      arr[0].style.color="yellow";
     start+=5;
     end+=5;
     continue;

@@ -13,24 +13,16 @@ class AssistantController extends Controller
 {
     public function index()
     {
-        // $user = auth()->user();
-        // if ($user->hasRole('Admin')) {
-            // $assistants = [];
-            // $users = User::all();
-            // foreach ($users as $user) {
-            //     if ($user->hasRole('Assistant')) {
-            //         $assistants[] = $user;
-                // }
                 $user = auth()->user();
                 if ($user->hasRole('Admin')) {
-                $assistants = User::role('Assistant')->get();
+                $assistants = User::role('Assistant')->paginate(4);
                 return view('/dashboard/assistants/index')->with('assistants',$assistants);
                 }
-
+            
         elseif($user->hasRole('Doctor')) {
-            $assistants = auth()->user()->assistants;
+            $assistants = auth()->user()->with('assistants')->where('doctor_id_assistant',auth()->user()->id )->paginate(4);
             return view('/dashboard/assistants/index')->with('assistants',$assistants);
-             }  
+             }
         }
 
     public function create()

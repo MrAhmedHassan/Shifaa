@@ -58,6 +58,11 @@ class User extends Authenticatable
         return $this->belongsTo(Category::class);
     }
 
+
+
+
+
+
     public function profile()
     {
         return $this->hasOne(Profile::class,'user_id');
@@ -85,6 +90,11 @@ class User extends Authenticatable
         return $this->hasMany(Reservation::class,'doctor_id');
     }
 
+
+    public function rate(){
+        return  $this->hasOne(Rating::class,'rateable_id');
+
+    }
 
 
 }

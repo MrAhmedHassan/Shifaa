@@ -121,6 +121,28 @@
                         <span class="glyphicon glyphicon-home"></span>
                         <a href="/home">الصفحة الرئيسية</a>
                     </li>
+                    @role('Admin')
+                    <li>
+                        <span class="glyphicon glyphicon-user"></span>
+                        <a href="options.html">إدارة الدكاترة</a>
+                        <ul class="drop_main_menu">
+                        <li><a href="/dashboardDoctors">عرض الكل</a></li>
+
+                        </ul>
+                    </li>
+                    @endrole
+
+                    @role('Admin')
+                    <li>
+                        <span class="glyphicon glyphicon-user"></span>
+                        <a href="options.html">ادارة الرسائل الواردة</a>
+                        <ul class="drop_main_menu">
+                        <li><a href="/contacts">عرض الرسائل الواردة</a></li>
+                        </ul>
+                    </li>
+                    @endrole
+
+                    @role('Admin|Doctor')
                     <li>
                         <span class="glyphicon glyphicon-user"></span>
                         <a href="options.html">إدارة المساعدين</a>
@@ -129,6 +151,10 @@
                             <li><a href="/assistants">عرض الكل</a></li>
                         </ul>
                     </li>
+
+
+                    @endrole
+                    @role('Admin|Doctor')
                     <li>
                         <span class="glyphicon glyphicon-edit"></span>
                         <a href="">إدارة المقالات</a>
@@ -137,6 +163,8 @@
                             <li><a href="/articles">عرض الكل</a></li>
                         </ul>
                     </li>
+                    @endrole
+                    @role('Admin|Doctor|Assistant')
                     <li>
                         <span class="glyphicon glyphicon-time"></span>
                         <a href="">إدارة المواعيد</a>
@@ -145,6 +173,8 @@
                             <li><a href="/reveals">عرض الكل</a></li>
                         </ul>
                     </li>
+                    @endrole
+                    @role('Admin|Doctor|Assistant')
                     <li>
                         <span class="glyphicon glyphicon-picture"></span>
                         <a href="">إدارة الحجوزات</a>
@@ -153,6 +183,7 @@
                             <li><a href="/reservations">عرض الكل</a></li>
                         </ul>
                     </li>
+                    @endrole
                 </ul>
             </div>
         </div>
@@ -163,7 +194,7 @@
         @yield('dashboard_content')
 
 
-        
+
     </div>
     <!--/End body container section-->
 </div>
