@@ -8,8 +8,8 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use willvincent\Rateable\Rateable;
 
-// class User extends Authenticatable implements MustVerifyEmail
 class User extends Authenticatable 
+// class User extends Authenticatable implements MustVerifyEmail
 {
     use Rateable;
     use Notifiable;

@@ -40,6 +40,7 @@
             </div>
             <div class="col-md-4">
                 <div>
+                    <h3 class="text-muted mt-4 text-center">مساحة اعلانية</h3>
                     <img class="advPic" src="{{ asset('/imgs/adv_1.jpg') }}" alt="adv_1">
                     <img class="advPic" src="{{ asset('/imgs/adv_4.jpg') }}" alt="adv_2">
                     <img class="advPic" src="{{ asset('/imgs/adv_3.jpg') }}" alt="adv_3">
@@ -49,5 +50,8 @@
     </div>
 </div>
 
+<div >
+    <footer class="container-fluid bg-primary text-white d-flex justify-content-center align-items-center navbar-fixed-bottom" style="position: relative;bottom:0px !important;height: 60px">Copyright by Ghosts 2020 ©</footer>
+</div>
 
 @endsection
