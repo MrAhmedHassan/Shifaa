@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ShefaDash</title>
-    <link href="../Adminy-master/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../Adminy-master/css/icon.css" rel="stylesheet">
-    <link href="../Adminy-master/css/style.css" rel="stylesheet">
-    <link href="../Adminy-master/css/ar.css" rel="stylesheet" class="lang_css arabic">
+    <link href="{{asset('Adminy-master/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('Adminy-master/css/icon.css')}}" rel="stylesheet">
+    <link href="{{asset('Adminy-master/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('Adminy-master/css/ar.css')}}" rel="stylesheet" class="lang_css arabic">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -144,10 +144,10 @@
                     @role('Admin|Doctor')
                     <li>
                         <span class="glyphicon glyphicon-edit"></span>
-                        <a href="">إدارة المقالات</a>
+                        <a href="">إدارة أمراض العصر</a>
                         <ul class="drop_main_menu">
-                            <li><a href="add_new_user.html">إضافة مقالة جديد</a></li>
-                            <li><a href="/articles">عرض الكل</a></li>
+                            <li><a href="/trends/create">إضافة مرض جديد</a></li>
+                            <li><a href="/trends">عرض الكل</a></li>
                         </ul>
                     </li>
                     @endrole
@@ -187,9 +187,9 @@
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script type="text/javascript" src="../Adminy-master/js/jquery-2.1.4.min.js"></script>
-<script src="../Adminy-master/js/bootstrap.min.js"></script>
-<script src="../Adminy-master/js/js.js"></script>
+<script type="text/javascript" src="{{asset('Adminy-master/js/jquery-2.1.4.min.js')}}"></script>
+<script src="{{asset('Adminy-master/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('Adminy-master/js/js.js')}}"></script>
 </body>
 
 </html>

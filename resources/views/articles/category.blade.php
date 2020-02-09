@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="mt-5">
-<a href="{{route('articles.create')}}" class="btn btn-warning btn-lg ml-2 h-50"> كتابة مقال </a>
-</div>
+
 
     <article  class="container blogs">
             <div class="row">

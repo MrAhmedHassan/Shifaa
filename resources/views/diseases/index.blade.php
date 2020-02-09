@@ -21,7 +21,7 @@
                         <h5 class="card-title">   طبيب {{$user->name}} تخصص {{$user->category->category}}</h5>
                         <p><img src="{{$user->avatar}}" class="rounded-circle img-fluid" style="width:10rem"></p>
                          <!-- this btn waiting handling of profile -->
-                         <a href="#" class="btn btn-primary">عرض الملف الشخصي</a>
+                         <a href="/profiles/{{$user->id}}" class="btn btn-primary">عرض الملف الشخصي</a>
                     </div>
                     @endforeach
                 </div>

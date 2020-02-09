@@ -329,45 +329,25 @@
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
 
-      <!--First slide-->
+
+
       <div class="carousel-item active">
 
         <div class="row">
+        @for($i=0 ; 3 > $i  ;$i++)
           <div class="col-md-4">
             <div class="card mb-2">
-              <img class="card-img-top" src="{{ asset('/imgs/disease_1.jpg') }}"
+              <img class="card-img-top" src="{{$trends[$i]->avatar}}"
                 alt="Card image cap">
               <div class="card-body">
-                <h4 class="card-title">الشيخوخة</h4>
-                <p class="card-text">كلما تقدمنا أكثر في العمر فان بشرتنا أيضا تصاب بالشيخوخة، فكيف يمكن تخفيف تأثيرات التقدم في العمر على البشرة؟</p>
+                <h4 class="card-title">{{$trends[$i]->title}}</h4>
+                <p class="card-text">{{$trends[$i]->description}}</p>
                   <a class="btn btn-primary">اعرف المزيد</a>
                 </div>
             </div>
           </div>
+          @endfor
 
-          <div class="col-md-4 clearfix d-none d-md-block">
-            <div class="card mb-2">
-              <img class="card-img-top" src="{{ asset('/imgs/disease_2.jpg') }}"
-                alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">كورونا</h4>
-                <p class="card-text">لا زال موضوع انتشار هذا الفيروس غير معروف حتى الان، لكن منظمة الصحة العالمية تشجع الدول الأعضاء على مواصلة مراقبة التهابات الجهاز التنفسي الحاد عن كثب</p>
-                  <a class="btn btn-primary">اعرف المزيد</a>
-                </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 clearfix d-none d-md-block">
-            <div class="card mb-2">
-              <img class="card-img-top" src="{{ asset('/imgs/disease_3.jpg') }}"
-                alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">الاكتئاب</h4>
-                <p class="card-text">هو مرض يصيب النفس والجسم. يؤثر الاكتئاب على طريقة التفكير والتصرف ومن شأنه أن يؤدي إلى العديد من المشاكل العاطفية والجسمانية.</p>
-                  <a class="btn btn-primary">اعرف المزيد</a>
-                </div>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -377,42 +357,19 @@
       <div class="carousel-item">
 
         <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-2">
-              <img class="card-img-top" src="{{ asset('/imgs/disease_4.jpg') }}"
-                alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">الام الظهر</h4>
-                <p class="card-text">الشكوى من الم الظهر  مسألة شائعة جدًا، إذ يعتبر السبب الأكثر انتشارا للتوجه للعلاج الطبي   .
-                  الأنباء المشجعة هي أنه بالامكان تجنب غالبية أنواع الام الظهر .</p>
-                  <a class="btn btn-primary">اعرف المزيد</a>
-                </div>
-            </div>
-          </div>
-
+        @for($i=3 ; count($trends) > $i  ;$i++)
           <div class="col-md-4 clearfix d-none d-md-block">
             <div class="card mb-2">
-              <img class="card-img-top" src="{{ asset('/imgs/disease_5.jpg') }}"
+              <img class="card-img-top" src="{{$trends[$i]->avatar}}"
                 alt="Card image cap">
               <div class="card-body">
-                <h4 class="card-title">ضعف النظر</h4>
-                <p class="card-text">يمكن أن يكون ضعف النظر، وراثيا، نتيجة لمرض او إصابة ويتطلب التعامل معه تكيفا خاصا. كل ما اردتم معرفته عن ضعف الرؤية في المقالة التالية.</p>
-                  <a class="btn btn-primary">اعرف المزيد</a>
-                </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 clearfix d-none d-md-block">
-            <div class="card mb-2">
-              <img class="card-img-top" src="{{ asset('/imgs/disease_6.jpg') }}"
-                alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">الام العظام</h4>
-                <p class="card-text">صحيح أن جسم الإنسان يعتبر آلة معقدة وعجيبة، لكنه يميل أيضا إلى التعطل، دون أن تتوفر له قطع غيار. اليكم استعراضا لآلام العظام وتأهيل الهيكل العظمي بالطرق المدمجة.</p>
+                <h4 class="card-title"> {{$trends[$i]->title}}</h4>
+                <p class="card-text">{{$trends[$i]->description}}</p>
                 <a class="btn btn-primary">اعرف المزيد</a>
               </div>
             </div>
           </div>
+          @endfor
         </div>
 
       </div>

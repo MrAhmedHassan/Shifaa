@@ -75,9 +75,8 @@
                         @foreach($reveals as $reveal)
                             <tr class="text-primary">
                                 <td>
-                                {{--                                <p style="font-size: 20px">السبت</p>--}}
                                 {{ \Carbon\Carbon::parse($reveal->date)->format('D')}}
-                                {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
+
                                 <td>
                                     <p style="font-size: 20px">     {{$reveal->start}}
                                         /       {{$reveal->end}} </p>

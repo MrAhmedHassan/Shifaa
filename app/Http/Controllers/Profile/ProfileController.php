@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Role;
 
 class ProfileController extends Controller
 {
-    
+
     public function __construct()
 
     {
@@ -66,11 +66,12 @@ class ProfileController extends Controller
     {
         $user = User::find($profile);
         if ($user->hasRole('Admin')) {
-            dd('funk');
         } else if ($user->hasRole('Doctor')) {
             return view('profile/doctor/show', ['user' => $user]);
         }
     }
+
+    
 
     public function edit($profile)
     {

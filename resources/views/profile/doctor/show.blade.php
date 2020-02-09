@@ -16,7 +16,7 @@
     </div>
     <div class="doctor-image">
         <img src="{{$user->avatar}}">
-        <span class="Doc-Name">{{$user->name}}</span>
+        <h1>{{$user->name}}</h1>
         <span class="Doc-Job">(طبيب {{$user->category->category}})</span>
     </div>
 
@@ -33,7 +33,6 @@
         <div id="val" style="display:none">{{$user->averageRating}}</div>
 
         <div class="col-sm-5 sdefine">
-            <h3>نبذة عني يا كبير</h3>
             <p class="ydefine">{{$user->profile->abstract}}</p>
         </div>
         <div class="col-sm-4 zdefine d-flex justify-content-end">
@@ -112,12 +111,9 @@
                     @foreach($reveals as $reveal)
                         <tr class="text-primary">
                             <td>
-                            {{--                                <p style="font-size: 20px">السبت</p>--}}
                             {{ \Carbon\Carbon::parse($reveal->date)->format('D')}}
-                            {{--                                {{ date('dddd', strtotime($reveal->date)) }}                            </td>--}}
                             <td>
-                                <p style="font-size: 20px">     {{$reveal->from}}
-                                    /       {{$reveal->to}} </p>
+                                <p style="font-size: 20px">  {{ \Carbon\Carbon::parse($reveal->start)->format('H:00')}} / {{ \Carbon\Carbon::parse($reveal->end)->format('H:00')}} </p>
                             </td>
                             <td>  <form method="post" action="/reservations/{{$reveal->id}}/{{$user->id}}">
                                     @csrf

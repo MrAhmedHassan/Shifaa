@@ -12,13 +12,17 @@
 
 use App\Article;
 
-Route::get('/', function () {
-    return view('home.index');
-});
+
+Route::get('/','Trend\TrendController@home');
+
+// Route::get('/', function () {
+
+//     return view('home.index');
+// });
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 // this route is only for test
 Route::get('/tests/{test}','Personal\PersonalController@show');
@@ -109,9 +113,12 @@ Route::group([
 Route::get('/reveals', 'RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create', 'RevealTime\RevealTimeController@create')->name('reveal.create');
 Route::post('/reveals/store', 'RevealTime\RevealTimeController@store');
+
 Route::get('/reveals/{reveal}/edit', 'RevealTime\RevealTimeController@edit')->name('reveals.edit');
 Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name('reveals.update');
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
+
+
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
 
 //reservation
@@ -137,3 +144,18 @@ Route::get('/dashboard',function(){
 Route::fallback(function () {
   return  redirect('/');
 });
+
+//just for admin
+// Route::get('/trends/create', dd('web now'));
+
+Route::get('/trends', 'Trend\TrendController@index')->middleware(['role:Admin','auth']);
+Route::get('/trends/create',function(){return view('dashboard.trends.create');})->middleware(['role:Admin','auth']);
+Route::post('/trends/store', 'Trend\TrendController@store')->name('trends.store')->middleware(['role:Admin','auth']);
+Route::delete('/trends/{trend}', 'Trend\TrendController@destroy')->name('trends.delete')->middleware(['role:Admin','auth']);
+
+// Route::get('/trends/{trend}/edit', 'Trend\TrendController@edit')->name('trends.edit');
+// Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
+
+
+
+
