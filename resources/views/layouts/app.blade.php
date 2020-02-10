@@ -140,19 +140,31 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    {{ __('خروج') }}
-                                </a>
-                                <hr>
+{{--                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();--}}
+{{--                                                    document.getElementById('logout-form').submit();">--}}
+{{--                                    {{ __('خروج') }}--}}
+{{--                                </a>--}}
+{{--                                <hr>--}}
+                                @if(auth()->user())
+                                    @role('Doctor')
                                 <div id="div_user_profile">
                                     <a href="/profiles" class="ml-3" id="user_profile">البروفايل</a>
                                 </div>
                                 <hr>
+                                    @endrole
+                                @endif
+                                @if(auth()->user())
+                                    @role('Admin|Doctor|Assistant')
                                 <div id="div_user_profile">
                                     <a href="/dashboard" class="ml-3" id="user_profile">لوحة التحكم</a>
                                 </div>
-
+                                <hr>
+                                    @endrole
+                                @endif
+                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('خروج') }}
+                                </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>

@@ -109,7 +109,7 @@
                             </td>
 
                             <td>
-                                    <button  class="btn btn-success" onclick="btnAjax('/reservations/{{$reveal->id}}/{{$user->id}}');" >احج</button>
+                                    <button  class="btn btn-success" onclick="btnAjax('/reservations/{{$reveal->id}}/{{$user->id}}');" >احجز</button>
                             </td>
                         </tr>
                     @endforeach
@@ -138,31 +138,6 @@
         </div>
     </div>
 </div>
-{{--------------------------The Fuckin Main Page-----------------------------------}}
-
-<script  >
-   function btnAjax(url){
-        $.ajax({
-            headers: {
-
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            type:'post',
-
-            url:url,
-
-            data:{reserved:true},
-            success:function(response){
-
-                let message = document.getElementById('message');
-                message.style.display = "block";
-                message.innerHTML = response.message;
-                console.log(response.message);
-            }
-        });
-    }
-
-</script>
 
 <script type="text/javascript"  >
 
@@ -204,4 +179,29 @@ var star1= document.getElementById("star1");
   }
 
 </script>
+
+<script  >
+    function btnAjax(url){
+        $.ajax({
+            headers: {
+
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type:'post',
+
+            url:url,
+
+            data:{reserved:true},
+            success:function(response){
+
+                let message = document.getElementById('message');
+                message.style.display = "block";
+                message.innerHTML = response.message;
+                console.log(response.message);
+            }
+        });
+    }
+
+</script>
+
 @endsection

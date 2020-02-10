@@ -84,15 +84,15 @@ Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('
 //});
 
 // Route::get('/profiles','Profile\ProfileController@showMyProfile')->name('profiles.showMy');;
-Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
+Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show')->middleware(['role:Doctor', 'auth']);
 //route for rate
 Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
 Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
-Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
-Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
+Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit')->middleware(['role:Doctor', 'auth']);
+Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update')->middleware(['role:Doctor', 'auth']);
 
-Route::get('/profile/complete', 'Complete\CompleteController@show')->name('profiles.create');
-Route::post('/profiles', 'Complete\CompleteController@store')->name('profiles.complete');
+Route::get('/profile/complete', 'Complete\CompleteController@show')->name('profiles.create')->middleware(['role:Doctor', 'auth']);
+Route::post('/profiles', 'Complete\CompleteController@store')->name('profiles.complete')->middleware(['role:Doctor', 'auth']);
 
 // Route::put('/profiles/{profile}',"function(){dd('pooop')}");
 

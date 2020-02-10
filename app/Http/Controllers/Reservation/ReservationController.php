@@ -50,12 +50,11 @@ class ReservationController extends Controller
                 return response()->json(['message'=>'نجح الحجز']);
                 // return redirect("profiles/$doctor");
             } else {
-                return response()->json(['message'=>'الحجز ممتلئ']);
+                return response()->json(['message'=>'الحجز ممتلئ ..يرجي الحجز في ميعاد اخر']);
 
-                // return dd('this day is completed');
             }
         } else {
-            return view('auth.login');
+            return response()->json(['message'=>'من فضلك يرجي التسجيل اولا']);
         }
     }
 

@@ -60,8 +60,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:1', 'confirmed'],
             'avatar' => ['mimes:jpeg,jpg,png','max:2000'],
-            'certification' => ['mimes:jpeg,jpg,png' , 'max:2000'],
-            'role'=>['required'],
+
 
         ]);
     }
@@ -72,16 +71,8 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $data )
     {
-        $certificationName='default.jpg';
-        if(request()->has('certification')) {
-            $certificationUploaded = \request()->file('certification');
-            $certificationName = time() . '.' . $certificationUploaded->getClientOriginalExtension();
-            $certificationPath = public_path('/image/certification');
-            $certificationUploaded->move($certificationPath, $certificationName);
-        }
-
         $avatarName='default.jpg';
         if(request()->has('avatar')) {
             $avatarUploaded = \request()->file('avatar');
@@ -90,25 +81,59 @@ class RegisterController extends Controller
             $avatarUploaded->move($avatarPath, $avatarName);
         }
 
-        $user =  User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'DoctorCertificate' => '/image/certification/'.$certificationName,
-            'avatar' => '/image/avatar/'.$avatarName,
-            'category_id'=> \request()->category
-        ]);
+        if(request()->role == 'Doctor'){
 
-        Profile::create([
-            'abstract' => 'مستخدم حديث',
-            'address'=> 'غير معروف الان',
-            'price'=> 0,
-            'user_id'=> $user->id
-        ]);
+                request()->validate([
+                'certification' => 'required|mimes:jpeg,jpg,png,max:2000',
+                'category'=>'required',
+                'role'=>'required',
+
+            ]);
+
+
+            $certificationName="";
+            if(request()->has('certification')) {
+                $certificationUploaded = \request()->file('certification');
+                $certificationName = time() . '.' . $certificationUploaded->getClientOriginalExtension();
+                $certificationPath = public_path('/image/certification');
+                $certificationUploaded->move($certificationPath, $certificationName);
+            }
+
+            $user =  User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'DoctorCertificate' => '/image/certification/'.$certificationName,
+                'avatar' => '/image/avatar/'.$avatarName,
+                'category_id'=> \request()->category
+            ]);
+
+            Profile::create([
+                'abstract' => 'مستخدم حديث',
+                'address'=> 'غير معروف الان',
+                'price'=> 0,
+                'user_id'=> $user->id
+            ]);
+
+
+
+        }else if(request()->role == 'Patient'){
+
+            $user =  User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'DoctorCertificate' => null,
+                'avatar' => '/image/avatar/'.$avatarName,
+                'category_id'=> null
+            ]);
+
+        }
 
         $roleInput = request()->role;
         $role =  Role::where('name','=',$roleInput)->first();
         $user->assignRole([$role->name]);
+
         return $user;
     }
 }
