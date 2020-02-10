@@ -38,8 +38,8 @@ Route::get('/', 'Home\HomeController@topRated');
 
 
 // this route is only for test
-Route::get('/tests/{test}','Personal\PersonalController@show');
-Route::post('/tests/{test}','Personal\PersonalController@store');
+Route::get('/tests/{test}', 'Personal\PersonalController@show');
+Route::post('/tests/{test}', 'Personal\PersonalController@store');
 
 
 //for the contact us
@@ -83,7 +83,7 @@ Route::get('/prof', 'Profile\ProfileController@index');
 // });
 
 // articles
-Route::group(['namespace'=>'Article'],function () {
+Route::group(['namespace' => 'Article'], function () {
     // Controllers Within The "App\Http\Controllers\Article" Namespace
     Route::get('/articles', 'ArticleController@index')->name('articles.index');
     Route::get('/doctor_article/{doctor}', 'ArticleController@doctor_article')->name('doctor.article');
@@ -92,7 +92,7 @@ Route::group(['namespace'=>'Article'],function () {
     Route::get('/articles/{article}/edit', 'ArticleController@edit')->name('articles.edit')->middleware(['role:Admin|Doctor','auth']);
     Route::put('/articles/{article}', 'ArticleController@update')->name('articles.update')->middleware(['role:Admin|Doctor','auth']);
     Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
-    Route::delete('/articles/{id}', 'ArticleController@destroy')->name('articles.destroy')->middleware(['role:Admin|Doctor','auth']);
+    Route::delete('/articles/{id}', 'ArticleController@destroy')->name('articles.destroy')->middleware(['role:Admin|Doctor', 'auth']);
     Route::get('/articles/cat/{cat}', 'ArticleController@category')->name('articles.category');
 });
 
@@ -106,50 +106,56 @@ Route::put('/comments/{comment}', 'Comment\CommentController@update');
 Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('comment.destroy');
 
 
-Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show');
+// Route::get('/profiles','Profile\ProfileController@showMyProfile')->name('profiles.showMy');;
+//route for rate
+// Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
 
-Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
+// Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
+// Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
+// Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
+//--------------------------------------------------------
+Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show')->middleware(['role:Doctor', 'auth']);
+Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit')->middleware(['role:Doctor', 'auth']);
+Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update')->middleware(['role:Doctor', 'auth']);
 Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile')->name('profiles.another');
-Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
-Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
+Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
+//--------------------------------------------------------------
+Route::get('/profile/complete', 'Complete\CompleteController@show')->name('profiles.create')->middleware(['role:Doctor', 'auth']);
+Route::post('/profiles', 'Complete\CompleteController@store')->name('profiles.complete')->middleware(['role:Doctor', 'auth']);
 
-Route::get('/profile/complete', 'Complete\CompleteController@show')->name('profiles.create');
-Route::post('/profiles', 'Complete\CompleteController@store')->name('profiles.complete');
 
-// Route::put('/profiles/{profile}',"function(){dd('pooop')}");
+//doctor
+Route::group([
+    'namespace' => 'Doctor',
+], function () {
+    Route::get('/doctors', 'DoctorController@index');
+    Route::get('/dashboardDoctors', 'DoctorController@dashboardDoctors')->middleware(['role:Admin', 'auth']);
+    Route::get('/doctors/{doctor}', 'DoctorController@show');
+    Route::delete('/doctors/{doctor}', 'DoctorController@delete')->middleware(['role:Admin', 'auth']);
+});
 
-Route::get('/doctors', 'Doctor\DoctorController@index');
-Route::get('/dashboardDoctors', 'Doctor\DoctorController@dashboardDoctors');
-Route::get('/doctors/{doctor}', 'Doctor\DoctorController@show');
-Route::delete('/doctors/{doctor}', 'Doctor\DoctorController@delete');
 //assistant
 Route::group([
-    'middleware' => ['auth','role:Admin|Doctor'],
+    'middleware' => ['auth', 'role:Admin|Doctor'],
     'namespace' => 'Assistant',
     'prefix' => 'assistants'
-    ],function () {
+], function () {
     Route::get('/', 'AssistantController@index');
     Route::get('create', 'AssistantController@create');
     Route::post('store', 'AssistantController@store');
     Route::delete('{assistant}', 'AssistantController@delete');
 });
+
 //create routes for and reveal time
 Route::get('/reveals', 'RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create', 'RevealTime\RevealTimeController@create')->name('reveal.create');
 Route::post('/reveals/store', 'RevealTime\RevealTimeController@store');
-
 Route::get('/reveals/{reveal}/edit', 'RevealTime\RevealTimeController@edit')->name('reveals.edit');
 Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name('reveals.update');
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 
-
-//Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
-
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
-// Route::get('/reservations', function(){
-//     return dd('ssss');
-// });
 
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');
@@ -159,14 +165,25 @@ Route::get('/dash', function () {
     return view('/dashboard/index');
 });
 
-Route::get('/dashboard',function(){
-   return view('dashboard.index');
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
 });
 // Route::get('/assistant/create', 'Article\ArticleController@create')->name('articles.create');
+Route::get('/a',function (){
+
+    return response()->json(['success'=>'Got Simple Ajax Request.']);
+
+});
+
+Route::get('/ajax',function (){
+
+    return view('test');
+
+});
 
 // not found page redirect to home page
 Route::fallback(function () {
-  return  redirect('/');
+    return  redirect('/');
 });
 
 //just for admin
@@ -182,6 +199,6 @@ Route::get('/trends/{trend}', 'Trend\TrendController@show')->name('trends.show')
 // Route::get('/trends/{trend}/edit', 'Trend\TrendController@edit')->name('trends.edit');
 // Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
 
-
+Route::get('/map',function(){return view('map.index');});
 
 

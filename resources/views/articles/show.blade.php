@@ -19,7 +19,7 @@
                 <div class="d-flex">
                     @if(auth()->user())
                         @if(auth()->user()->hasRole('Admin') || auth()->user()->id ==$article->user->id )
-                             <a href="/articles/{{$article->id}}/edit" class="btn btn-dark btn-sm ml-2">تعديل  المقال</a>
+                             <a href="/articles/{{$article->id}}/edit" class="btn btn-success btn-sm ml-2">تعديل  المقال</a>
                         @endif
                     @endif
 

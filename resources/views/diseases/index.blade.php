@@ -7,7 +7,7 @@
 
         <div class="row">
             <div class="col-md-8 column">
-                <div class="content text-center p-5">
+                <div class="content text-center p-5 " style="line-height: 250%;">
                     <h3 class="text-danger mb-4">{{$diseases->title}}</h3>
                     <p>{{$diseases->description}}</p>
                 </div>

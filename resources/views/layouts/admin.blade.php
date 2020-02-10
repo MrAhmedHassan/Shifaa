@@ -124,7 +124,7 @@
                     @role('Admin')
                     <li>
                         <span class="glyphicon glyphicon-user"></span>
-                        <a href="options.html">إدارة الدكاترة</a>
+                        <a href="options.html">إدارة الأطباء</a>
                         <ul class="drop_main_menu">
                         <li><a href="/dashboardDoctors">عرض الكل</a></li>
 
@@ -154,7 +154,7 @@
 
 
                     @endrole
-                    @role('Admin|Doctor')
+                    @role('Admin')
                     <li>
                         <span class="glyphicon glyphicon-edit"></span>
                         <a href="">إدارة أمراض العصر</a>
@@ -194,7 +194,7 @@
         @yield('dashboard_content')
 
 
-        
+
 
     </div>
     <!--/End body container section-->
