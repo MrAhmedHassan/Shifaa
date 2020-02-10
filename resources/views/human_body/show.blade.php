@@ -6,12 +6,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="content">
+                <div class="content h-100">
 
 
 
-                    <div class="container">
-                        <div class="row pt-5 d-flex justify-content-center mb-5">
+                    {{-- <div class="container"> --}}
+                        <div class="row pt-5 d-flex justify-content-center mb-5 ">
 
 
                             <img src= "../images/{{$humanbody->image}}" class="brainImag">
@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-8 m-auto text-break">
+                            <div class="col-md-8 m-auto text-break ">
                                 <p class="text-right mb-5">
 
                                 {{$humanbody->description}}
@@ -32,7 +32,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    {{-- </div> --}}
 
 
 

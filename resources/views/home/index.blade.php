@@ -74,9 +74,9 @@
 </div>
 
 
-<div class="d-flex justify-content-center align-items-center">
+<div class="d-flex justify-content-center align-items-center ">
 {{-- <div class="my_skew"> --}}
-    <div class="my_skew container">
+    <div class="my_skew container d-flex justify-content-center align-items-center">
       <div class="row">
         <section id="h_4"><a href="#questions"><i class="far fa-question-circle"></i><h3>اختبر نفسك</h3></a></section>
         <section id="h_3"><a href="#most_diseases"><i class="fas fa-capsules"></i><h3>الوقاية من امراض العصر</h3></a></section>
@@ -504,34 +504,82 @@
 
           </div>
 
-        </div>
-        <!--/.First slide-->
+        <div class="row">
+            @if(count($trends) < 1)
 
-        <!--Second slide-->
-        <div class="carousel-item">
+            <h1>There is no article now</h1>
 
-          <div class="row">
-          @for($i=3 ; count($trends) > $i  ;$i++)
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$trends[$i]->avatar}}"
-                  alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title"> {{$trends[$i]->title}}</h4>
-                  <p class="card-text">{{$trends[$i]->description}}</p>
-                  <a class="btn btn-primary">اعرف المزيد</a>
-                </div>
-              </div>
-            </div>
-            @endfor
-          </div>
+                @elseif(count($trends) <= 3 )
+
+                @for($i=0 ; count($trends) > $i  ;$i++)
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 330px" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">{{$trends[$i]->title}}</h4>
+                                <p class="card-text">{{$trends[$i]->description}}</p>
+                                <a class="btn btn-primary">اعرف المزيد</a>
+                            </div>
+                        </div>
+                    </div>
+                @endfor
+
+                @elseif(count($trends) > 3)
+
+                @for($i=0 ; count($trends) > $i  ;$i++)
+                    @if($i == 3)
+                        @break
+                    @endif
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 330px" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">{{$trends[$i]->title}}</h4>
+                                <p class="card-text">{{$trends[$i]->description}}</p>
+                                <a class="btn btn-primary">اعرف المزيد</a>
+                            </div>
+                        </div>
+                    </div>
+
+                @endfor
+
+            @endif
+
 
         </div>
         <!--/.Second slide-->
 
+      </div>
+      <!--/.First slide-->
+
+      <!--Second slide-->
+        @if(count($trends) > 3)
+      <div class="carousel-item">
+
+        <div class="row">
+        @for($i=3 ; count($trends) > $i  ;$i++)
+                @if($i == 6)
+                    @break
+                @endif
+          <div class="col-md-4 clearfix d-sm-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 330px" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title"> {{$trends[$i]->title}}</h4>
+                <p class="card-text">{{$trends[$i]->description}}</p>
+                <a class="btn btn-primary">اعرف المزيد</a>
+              </div>
+            </div>
+          </div>
+
+          @endfor
+        </div>
 
       </div>
-      <!--/.Slides-->
+        @endif
+      <!--/.Second slide-->
+
+
     </div>
     <!--/.Carousel Wrapper-->
   </div>

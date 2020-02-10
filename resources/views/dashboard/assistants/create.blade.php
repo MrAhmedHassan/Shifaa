@@ -69,7 +69,7 @@
 
 
                             <!-- Send button -->
-                            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">حفظ المساعد</button>
+                            <button class="btn btn-primary btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">حفظ المساعد</button>
 
                         </form>
                         <!-- Form -->

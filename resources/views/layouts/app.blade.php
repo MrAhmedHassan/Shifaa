@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+{{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -50,7 +50,11 @@
     {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> --}}
 
 {{-- <link href="{{ asset('css/preview.css') }}" rel="stylesheet"> --}}
-<link href="{{ asset('css/rate.css') }}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ asset('css/rate.css') }}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
 </head>
 
 <body align=right dir=rtl>
@@ -138,19 +142,31 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    {{ __('خروج') }}
-                                </a>
-                                <hr>
+{{--                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();--}}
+{{--                                                    document.getElementById('logout-form').submit();">--}}
+{{--                                    {{ __('خروج') }}--}}
+{{--                                </a>--}}
+{{--                                <hr>--}}
+                                @if(auth()->user())
+                                    @role('Doctor')
                                 <div id="div_user_profile">
                                     <a href="/profiles" class="ml-3" id="user_profile">البروفايل</a>
                                 </div>
                                 <hr>
+                                    @endrole
+                                @endif
+                                @if(auth()->user())
+                                    @role('Admin|Doctor|Assistant')
                                 <div id="div_user_profile">
                                     <a href="/dashboard" class="ml-3" id="user_profile">لوحة التحكم</a>
                                 </div>
-
+                                <hr>
+                                    @endrole
+                                @endif
+                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('خروج') }}
+                                </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
@@ -181,6 +197,8 @@
     <!--Scripts -->
 
 <script src="{{ asset('project_js.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 
 
 </body>

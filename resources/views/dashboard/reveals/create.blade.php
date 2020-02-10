@@ -61,7 +61,7 @@
                 <!-- limit -->
                 <div class="form-group">
                     <label for="exampleFormControlInput3" class='font-weight-bold'>عدد الكشوفات</label>
-                    <input type="number" name="limit" min="10" max="30" class="form-control" id="exampleFormControlInput3" required>
+                    <input type="number" name="limit"  class="form-control" id="exampleFormControlInput3" required>
                 </div>
 
 
@@ -78,7 +78,7 @@
                 <br>
 
                 <!-- Send button -->
-                <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">إضافة حجز</button>
+                <button class="btn btn-primary btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">إضافة حجز</button>
 
             </form>
             <!-- Form -->
