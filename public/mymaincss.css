@@ -854,7 +854,7 @@ svg, defs, clipPath {
 
 .body_hover #body_hover_init
 {
-    position: absolute; 
+    position: absolute;
     right: 30% ;
     top: 10px;
 }
@@ -1484,4 +1484,11 @@ body {
 {
     font-size: 33px;
     text-shadow: 2px 2px 4px #000000;
+}
+
+.doctorNameLink:hover {
+    text-decoration: none;
+}
+.doctorName {
+    font-size: 28px;
 }
