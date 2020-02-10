@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Reservation;
 use App\Reveal;
 use Illuminate\Http\Request;
+
 class ReservationController extends Controller
 {
     public function index()

@@ -58,11 +58,10 @@ class RevealTimeController extends Controller
 
 
 
-    public  function edit($id)
+    public function edit($id)
     {
         $reveal = Reveal::find($id);
-        // rename fucking gemytest page 
-        return view('gemytest/gemytest', ['reveal' => $reveal]);
+        return view('dashboard/reveals/edit')->with(['reveal' => $reveal]);
     }
 
 
@@ -71,12 +70,15 @@ class RevealTimeController extends Controller
         $reveal =  Reveal::find($id);
 
         $reveal->date = request()->input('date');
-        $reveal->from = request()->input('from');
-        $reveal->to = request()->input('to');
+        $reveal->start = request()->input('start');
+        $reveal->end = request()->input('end');
         $reveal->limit = request()->input('limit');
-        $reveal->doctor_id = auth()->user()->id;
-        $reveal->save();
-        //return redirect('/teachers');
+        if (auth()->user()->hasRole('Doctor')) {
+            $reveal->doctor_id = auth()->user()->id;
+        } else if (auth()->user()->hasRole('Assistant')) {
+            $reveal->doctor_id = auth()->user()->doctor->id;
+        }        $reveal->save();
+        return redirect('/reveals');
     }
 
 

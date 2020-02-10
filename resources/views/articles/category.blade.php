@@ -1,14 +1,13 @@
 @extends('layouts.app')
 @section('content')
-<div class="mt-5">
-<a href="{{route('articles.create')}}" class="btn btn-warning btn-lg ml-2 h-50"> كتابة مقال </a>
-</div>
+
 
     <article  class="container blogs">
             <div class="row">
-
             <aside class="single_sidebar_widget post_category_widget col-md-4 col-sm-6">
-                <div class="d-flex justify-content-center"><h3 class="widget_title">الأقسام</h3></div>
+                <div class="d-flex justify-content-center">
+                    <h3 class="widget_title">الأقسام</h3>
+                </div>
                 <ul class="list cat-list">
 
 
@@ -21,12 +20,8 @@
 
                 </ul>
             </aside>
-
-
             <div class="col-md-8 col-sm-6">
             @foreach($category->articles as $article)
-
-
                 <a href="/articles/{{$article->id}}"><div class="card mb-3" >
                     <div class="card-img-div">
                         <!-- <img class="card-img-top img-fluid"  src="{{ asset('/imgs/blog_1.PNG') }}" alt="Card image cap"> -->
@@ -40,7 +35,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title text-primary">{{$article->title }}</h5>
+                        <h5 class="card-title text-primary">{{$article->title }}</h5>
 
                       <p class="ArticleBody text-dark">{{ substr(strip_tags($article->description), 0, 200) }}
                          {{ strlen(strip_tags($article->description)) > 50 ? "...اقرأ المزيد..." : "" }}
@@ -53,13 +48,7 @@
 
 
                 @endforeach
-
-
-
             </div>
-
             </div>
-
     </article>
-
 @endsection

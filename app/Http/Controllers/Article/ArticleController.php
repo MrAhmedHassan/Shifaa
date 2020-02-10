@@ -16,12 +16,23 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
         $categories = Category::all();
-        return view('/articles/index')->with(['articles' => $articles,'categories'=>$categories]);
+        return view('/articles/index')->with(['articles' => $articles, 'categories' => $categories]);
+    }
+
+    public function doctor_article($id)
+    {
+        $articles = Article::where(['user_id' => $id])->get();
+        //need to filter category
+        // $categories = Category::where(['id'=>$articles->category_id)->get();
+        // $categories = Category::where(['id' => $articles])->get();
+        $categories = Category::all();
+
+        return view('/articles/doctor_article')->with(['articles' => $articles, 'categories' => $categories]);
     }
 
     public function category($cat)
     {
-        $category = Category::where(['id'=>$cat])->first();
+        $category = Category::where(['id' => $cat])->first();
         return view('/articles/category')->with(['category' => $category]);
     }
 
@@ -56,7 +67,6 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $category = Category::all();
         return view('articles/edit')->with(['article' => $article, 'categories' => $category]);
-
     }
 
     public function update($id)
@@ -72,7 +82,7 @@ class ArticleController extends Controller
             $avatarUploaded->move($avatarPath, $avatarName);
             $article->avatar = '/image/article/' . $avatarName;
         }
-       $article->save();
+        $article->save();
         return redirect("/articles/{$article->id}");
     }
 
@@ -90,6 +100,4 @@ class ArticleController extends Controller
 
         return redirect('/articles');
     }
-
-
 }

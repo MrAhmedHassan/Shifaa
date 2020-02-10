@@ -37,7 +37,7 @@
                                 <td>{{$value->end}}</td>
                                 <td>{{$value->limit}}</td>
                                 <td>
-                                    <a href="#"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
+                                    <a href="/reveals/{{$value->id}}/edit"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
                                         data-placement="top" title="تعديل"></button></a>
 
                                         <form action="/reveals/{{$value->id}}" style="display: inline-flex" method="post">

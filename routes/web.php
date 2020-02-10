@@ -11,18 +11,46 @@
 */
 
 use App\Article;
+use App\Rating;
 
-Route::get('/', function () {
-    return view('home.index');
-});
+//Route::get('/', function () {
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//});
+
+
+
+// Route::get('/','Trend\TrendController@home');
+
+// Route::get('/', function () {
+
+//     return view('home.index');
+// });
+
+Auth::routes(['verify'=>true]);
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// Auth::routes(['verify'=>true]);
+
+//retreve the top rateable doctors in the main page
+Route::get('/', 'Home\HomeController@topRated');
+
 
 // this route is only for test
 Route::get('/tests/{test}', 'Personal\PersonalController@show');
 Route::post('/tests/{test}', 'Personal\PersonalController@store');
+
+
+//for the contact us
+
+Route::post('/contact', 'Contact\ContactController@store');
+Route::get('/contacts', 'Contact\ContactController@index');
+// Route::get('/contacts', function(){
+//     dd('fuck');
+// });
+
+Route::delete('/contacts/{id}', 'Contact\ContactController@destroy');
 
 
 
@@ -58,10 +86,11 @@ Route::get('/prof', 'Profile\ProfileController@index');
 Route::group(['namespace' => 'Article'], function () {
     // Controllers Within The "App\Http\Controllers\Article" Namespace
     Route::get('/articles', 'ArticleController@index')->name('articles.index');
-    Route::get('/article/create', 'ArticleController@create')->name('articles.create')->middleware(['role:Admin|Doctor', 'auth']);
-    Route::post('/articles/store', 'ArticleController@store')->name('articles.store')->middleware(['role:Admin|Doctor', 'auth']);
-    Route::get('/articles/{article}/edit', 'ArticleController@edit')->name('articles.edit')->middleware(['role:Admin|Doctor', 'auth']);
-    Route::put('/articles/{article}', 'ArticleController@update')->name('articles.update')->middleware(['role:Admin|Doctor', 'auth']);
+    Route::get('/doctor_article/{doctor}', 'ArticleController@doctor_article')->name('doctor.article');
+    Route::get('/article/create', 'ArticleController@create')->name('articles.create')->middleware(['role:Admin|Doctor','auth']);
+    Route::post('/articles/store', 'ArticleController@store')->name('articles.store')->middleware(['role:Admin|Doctor','auth']);
+    Route::get('/articles/{article}/edit', 'ArticleController@edit')->name('articles.edit')->middleware(['role:Admin|Doctor','auth']);
+    Route::put('/articles/{article}', 'ArticleController@update')->name('articles.update')->middleware(['role:Admin|Doctor','auth']);
     Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
     Route::delete('/articles/{id}', 'ArticleController@destroy')->name('articles.destroy')->middleware(['role:Admin|Doctor', 'auth']);
     Route::get('/articles/cat/{cat}', 'ArticleController@category')->name('articles.category');
@@ -76,25 +105,24 @@ Route::put('/comments/{comment}', 'Comment\CommentController@update');
 
 Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('comment.destroy');
 
-//Route::get('/test',function (){
-//    $user = \App\User::find(auth()->user()->id);
-//    $cat = \App\Category::find(7);
-//    dd($cat->users[0]);
-//    return view('profile/show');
-//});
 
 // Route::get('/profiles','Profile\ProfileController@showMyProfile')->name('profiles.showMy');;
-Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show')->middleware(['role:Doctor', 'auth']);
 //route for rate
-Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
-Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
+// Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
+
+// Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
+// Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
+// Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
+//--------------------------------------------------------
+Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show')->middleware(['role:Doctor', 'auth']);
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit')->middleware(['role:Doctor', 'auth']);
 Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update')->middleware(['role:Doctor', 'auth']);
-
+Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile')->name('profiles.another');
+Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
+//--------------------------------------------------------------
 Route::get('/profile/complete', 'Complete\CompleteController@show')->name('profiles.create')->middleware(['role:Doctor', 'auth']);
 Route::post('/profiles', 'Complete\CompleteController@store')->name('profiles.complete')->middleware(['role:Doctor', 'auth']);
 
-// Route::put('/profiles/{profile}',"function(){dd('pooop')}");
 
 //doctor
 Route::group([
@@ -122,14 +150,13 @@ Route::group([
 Route::get('/reveals', 'RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create', 'RevealTime\RevealTimeController@create')->name('reveal.create');
 Route::post('/reveals/store', 'RevealTime\RevealTimeController@store');
+
 Route::get('/reveals/{reveal}/edit', 'RevealTime\RevealTimeController@edit')->name('reveals.edit');
 Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name('reveals.update');
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
+
+
 //Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
-
-
-
-
 
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
@@ -165,5 +192,18 @@ Route::get('/ajax',function (){
 Route::fallback(function () {
     return  redirect('/');
 });
+
+//just for admin
+// Route::get('/trends/create', dd('web now'));
+
+Route::get('/trends', 'Trend\TrendController@index')->middleware(['role:Admin','auth']);
+Route::get('/trends/create',function(){return view('dashboard.trends.create');})->middleware(['role:Admin','auth']);
+Route::post('/trends/store', 'Trend\TrendController@store')->name('trends.store')->middleware(['role:Admin','auth']);
+Route::delete('/trends/{trend}', 'Trend\TrendController@destroy')->name('trends.delete')->middleware(['role:Admin','auth']);
+
+// Route::get('/trends/{trend}/edit', 'Trend\TrendController@edit')->name('trends.edit');
+// Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
+
+
 
 

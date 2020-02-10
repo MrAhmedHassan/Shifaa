@@ -18,7 +18,7 @@ class AssistantController extends Controller
                 $assistants = User::role('Assistant')->paginate(4);
                 return view('/dashboard/assistants/index')->with('assistants',$assistants);
                 }
-
+            
         elseif($user->hasRole('Doctor')) {
             $assistants = auth()->user()->with('assistants')->where('doctor_id_assistant',auth()->user()->id )->paginate(4);
             return view('/dashboard/assistants/index')->with('assistants',$assistants);

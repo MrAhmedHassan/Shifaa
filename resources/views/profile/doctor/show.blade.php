@@ -4,13 +4,15 @@
 <div class="container myMain-Section mt-5">
     <div class="row">
         <div class="col-sm-12 myImage-Section">
-            <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">
+            <img src="{{ asset('/imgs/doctor_profile.jpg') }}">
         </div>
     </div>
-    <div class="doctor-image">
+    <div class="doctor-image d-flex">
         <img src="{{$user->avatar}}">
-        <span class="Doc-Name">{{$user->name}}</span>
-        <span class="Doc-Job">(طبيب {{$user->category->category}})</span>
+        <div class="d-flex flex-column mt-4 mr-4 text-white">
+            <h3 style="font-size: 25px;text-shadow: 2px 2px 4px #000000;">{{$user->name}}</h3>
+            <h4 style="font-size: 25px;text-shadow: 2px 2px 4px #000000;" class="Doc-Job">(طبيب {{$user->category->category}})</h4>
+        </div>
     </div>
 
     <div class="row btnsForProfil mt-5">
@@ -26,7 +28,6 @@
         <div id="val" style="display:none">{{$user->averageRating}}</div>
 
         <div class="col-sm-5 sdefine">
-            <h3>نبذة عني يا كبير</h3>
             <p class="ydefine">{{$user->profile->abstract}}</p>
         </div>
         <div class="col-sm-4 zdefine d-flex justify-content-end">
@@ -38,8 +39,13 @@
                 @if(auth()->user())
                     @if(auth()->user()->id == $user->id)
                         <a href="/profile/complete" class="btn btn-info">أكمل الملف الشخصي</a>
+                        <a href="/doctor_article/{{$user->id}}" class="btn btn-info mr-3">مقالاتي</a>
+
                     @endif
                 @endif
+
+
+
         </div>
     </div>
     <div class="row mt-5">
@@ -96,16 +102,14 @@
                         </td>
                         <td>غيرمتاح</td>
                     </tr>
-                @elseif(count($reveals) <= 3)
+                @elseif(count($reveals) <= 4)
                     @foreach($reveals as $reveal)
                         <tr class="text-primary">
                             <td>
-
                             {{ \Carbon\Carbon::parse($reveal->date)->format('d/m D')}}
-                             </td>
+                            </td>
                             <td>
-                                <p style="font-size: 20px">     {{$reveal->start}}
-                                    /       {{$reveal->end}} </p>
+                                <p style="font-size: 20px">  {{ \Carbon\Carbon::parse($reveal->start)->format('H:00')}} / {{ \Carbon\Carbon::parse($reveal->end)->format('H:00')}} </p>
                             </td>
 
                             <td>
@@ -116,14 +120,14 @@
 
                 @else
 
-                    @for($i=0 ; $i<3 ;$i++)
+                    @for($i=0 ; $i<4 ;$i++)
                         <tr class="text-primary">
                             <td>
                             {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('d/m D')}}
                             </td>
                             <td>
-                                <p style="font-size: 20px">     {{$reveals[$i]->start}}
-                                    /       {{$reveals[$i]->end}} </p>
+                                <p style="font-size: 20px">  {{ \Carbon\Carbon::parse($reveals[$i]->start)->format('H:00')}} / {{ \Carbon\Carbon::parse($reveals[$i]->end)->format('H:00')}} </p>
+
                             </td>
                             <td>
                                     <button class="btn btn-success" onclick="btnAjax('/reservations/{{$reveals[$i]->id}}/{{$user->id}}');" >احجز</button>
@@ -148,6 +152,8 @@ var star1= document.getElementById("star1");
  var star5= document.getElementById("star5");
 
  var star= document.getElementById("val");
+
+
  parseInt( star);
 
   if(star.innerText>=1.0000&&star.innerText< 1.9000)
