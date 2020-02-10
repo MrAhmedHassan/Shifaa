@@ -74,9 +74,9 @@
 </div>
 
 
-<div class="d-flex justify-content-center align-items-center">
+<div class="d-flex justify-content-center align-items-center ">
 {{-- <div class="my_skew"> --}}
-    <div class="my_skew container">
+    <div class="my_skew container d-flex justify-content-center align-items-center">
       <div class="row">
         <section id="h_4"><a href="#questions"><i class="far fa-question-circle"></i><h3>اختبر نفسك</h3></a></section>
         <section id="h_3"><a href="#most_diseases"><i class="fas fa-capsules"></i><h3>الوقاية من امراض العصر</h3></a></section>
@@ -491,8 +491,7 @@
         @for($i=0 ; 3 > $i  ;$i++)
           <div class="col-md-4">
             <div class="card mb-2">
-              <img class="card-img-top" src="{{$trends[$i]->avatar}}"
-                alt="Card image cap">
+              <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 330px" alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-title">{{$trends[$i]->title}}</h4>
                 <p class="card-text">{{$trends[$i]->description}}</p>
@@ -512,10 +511,9 @@
 
         <div class="row">
         @for($i=3 ; count($trends) > $i  ;$i++)
-          <div class="col-md-4 clearfix d-none d-md-block">
+          <div class="col-md-4 clearfix d-sm-block">
             <div class="card mb-2">
-              <img class="card-img-top" src="{{$trends[$i]->avatar}}"
-                alt="Card image cap">
+              <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 330px" alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-title"> {{$trends[$i]->title}}</h4>
                 <p class="card-text">{{$trends[$i]->description}}</p>

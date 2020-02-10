@@ -11,13 +11,15 @@
 
     <div class="row">
         <div class="col-sm-12 myImage-Section">
-            <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">
+            <img src="{{ asset('/imgs/doctor_profile.jpg') }}">
         </div>
-    </div>
-    <div class="doctor-image">
+    </div>  
+    <div class="doctor-image d-flex">
         <img src="{{$user->avatar}}">
-        <h1>{{$user->name}}</h1>
-        <span class="Doc-Job">(طبيب {{$user->category->category}})</span>
+        <div class="d-flex flex-column mt-4 mr-4 text-white">
+            <h3 style="font-size: 25px;text-shadow: 2px 2px 4px #000000;">{{$user->name}}</h3>
+            <h4 style="font-size: 25px;text-shadow: 2px 2px 4px #000000;" class="Doc-Job">(طبيب {{$user->category->category}})</h4>
+        </div>
     </div>
 
     <div class="row btnsForProfil mt-5">
@@ -44,7 +46,7 @@
                 @if(auth()->user())
                     @if(auth()->user()->id == $user->id)
                         <a href="/profile/complete" class="btn btn-info">أكمل الملف الشخصي</a>
-                        <a href="/doctor_article/{{$user->id}}" class="btn btn-dark">مقالاتي</a>
+                        <a href="/doctor_article/{{$user->id}}" class="btn btn-info mr-3">مقالاتي</a>
 
                     @endif
                 @endif
