@@ -34,8 +34,7 @@
                                 <td>{{$value->email}}</td>
                                 <td>{{$value->message}}</td>
                                 <td>
-                                    <a href="#"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
-                                        data-placement="top" title="تعديل"></button></a>
+                                  
 
                                         <form action="/contacts/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}

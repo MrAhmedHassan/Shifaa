@@ -24,6 +24,12 @@ class TrendController extends Controller
         return view('/dashboard/trends/index')->with('trends', $trends);
     }
 
+    public function show($id)
+    {
+       $trends = Trend::find($id);
+       return view('/trend/show')->with('trends',$trends);
+    }
+
     public function store()
     {
         $trend = new Trend;

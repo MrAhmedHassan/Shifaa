@@ -34,8 +34,6 @@
                                 <td>{{$value->name}}</td>
                                 <td>{{$value->email}}</td>
                                 <td>
-                                    <a href="#"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
-                                                        data-placement="top" title="تعديل"></button></a>
 
                                     <form action="/doctors/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}

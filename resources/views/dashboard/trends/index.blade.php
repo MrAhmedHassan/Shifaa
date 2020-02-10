@@ -39,7 +39,6 @@
 
 
                         <td>
-                            <a href="/trends/{{$trend->id}}/edit"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="تعديل"></button></a>
 
                             <form action="/trends/{{$trend->id}}" style="display: inline-flex" method="post">
                                 {{method_field('DELETE')}}

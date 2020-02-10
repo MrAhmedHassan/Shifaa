@@ -41,8 +41,7 @@
 
                                 <td>{{$value->reveal->date}}</td>
                                 <td>
-                                    <a href="#"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
-                                        data-placement="top" title="تعديل"></button></a>
+                                  
 
                                         <form action="/reservations/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}
