@@ -180,6 +180,6 @@ Route::delete('/trends/{trend}', 'Trend\TrendController@destroy')->name('trends.
 // Route::get('/trends/{trend}/edit', 'Trend\TrendController@edit')->name('trends.edit');
 // Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
 
-
+Route::get('/map',function(){return view('map.index');});
 
 

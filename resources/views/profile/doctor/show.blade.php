@@ -8,7 +8,6 @@
 {{-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
 
 <div class="container myMain-Section mt-5">
-
     <div class="row">
         <div class="col-sm-12 myImage-Section">
             <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">
@@ -48,14 +47,11 @@
 
                     @endif
                 @endif
-
-
-
         </div>
     </div>
     <div class="row mt-5">
         <div class="col-sm-6">
-            <div class="d-flex justify-content-center flex-column p-3 bg-primary mb-3 align-items-center renewTheShape">
+            <div class="rounded d-flex justify-content-center flex-column p-3 bg-primary mb-3 align-items-center renewTheShape">
                 <h4 class="text-center text-white">أديني تقييم عشان مزعلكش</h4>
                 <form action="/rate" method="POST">
                     {{ csrf_field() }}
@@ -70,17 +66,17 @@
                     </div>
                 </form>
             </div>
-            <div class="d-flex justify-content-center flex-column p-3 bg-primary mb-3 renewTheShape">
+            <div class="rounded d-flex justify-content-center flex-column p-3 bg-primary mb-3 renewTheShape">
                 <h3 class="text-center text-white">عدد المقالات</h3>
                 <p class="text-center">{{count($user->articles)}}</p>
             </div>
-            <div class="d-flex justify-content-center flex-column p-3 bg-primary mb-3 renewTheShape">
+            <div class=" rounded d-flex justify-content-center flex-column p-3 bg-primary mb-3 renewTheShape">
                 <h3 class="text-center text-white">عدد الكشوفات</h3>
                 <p class="text-center">{{count($user->doctorReservations)}}</p>
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="text-center border border-primary bg-primary renewTheShape mb-5">
+            <div class="rounded text-center border border-primary bg-primary renewTheShape mb-5">
                 <h3 class="text-white">سعر الكشف</h3>
                 <label>{{$user->profile->price}} جنيه</label>
                 <h3 class="text-white">عنوان العيادة</h3>

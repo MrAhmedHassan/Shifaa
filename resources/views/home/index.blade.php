@@ -455,86 +455,86 @@
 
 {{-- Fourth Section "most_diseases" --}}
 <div class="container" id="most_diseases">
-  <div class="row">
-    <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> أمراض العصر</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
-  </div>
-</div>
-
-<div class="most_diseases container my-4" >
-
-  <!--Carousel Wrapper-->
-  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-    <!--Controls-->
-    <div class="controls-top d-flex justify-content-center align-items-center">
-      <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-circle-right mb-4" style="font-size: 2.5rem"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fas fa-chevron-circle-left mb-4"  style="font-size: 2.5rem" ></i></a>
+    <div class="row">
+      <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> أمراض العصر</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
     </div>
-    <!--/.Controls-->
+  </div>
 
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-      <li data-target="#multi-item-example" data-slide-to="1"></li>
-      <li data-target="#multi-item-example" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
+  <div class="most_diseases container my-4" >
 
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
+    <!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-
-
-      <div class="carousel-item active">
-
-        <div class="row">
-        @for($i=0 ; 3 > $i  ;$i++)
-          <div class="col-md-4">
-            <div class="card mb-2">
-              <img class="card-img-top" src="{{$trends[$i]->avatar}}"
-                alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">{{$trends[$i]->title}}</h4>
-                <p class="card-text">{{$trends[$i]->description}}</p>
-                  <a class="btn btn-primary">اعرف المزيد</a>
-                </div>
-            </div>
-          </div>
-          @endfor
-
-        </div>
-
+      <!--Controls-->
+      <div class="controls-top d-flex justify-content-center align-items-center">
+        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-circle-right mb-4" style="font-size: 2.5rem"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fas fa-chevron-circle-left mb-4"  style="font-size: 2.5rem" ></i></a>
       </div>
-      <!--/.First slide-->
+      <!--/.Controls-->
 
-      <!--Second slide-->
-      <div class="carousel-item">
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+        <li data-target="#multi-item-example" data-slide-to="1"></li>
+        <li data-target="#multi-item-example" data-slide-to="2"></li>
+      </ol>
+      <!--/.Indicators-->
 
-        <div class="row">
-        @for($i=3 ; count($trends) > $i  ;$i++)
-          <div class="col-md-4 clearfix d-none d-md-block">
-            <div class="card mb-2">
-              <img class="card-img-top" src="{{$trends[$i]->avatar}}"
-                alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title"> {{$trends[$i]->title}}</h4>
-                <p class="card-text">{{$trends[$i]->description}}</p>
-                <a class="btn btn-primary">اعرف المزيد</a>
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+
+
+
+        <div class="carousel-item active">
+
+          <div class="row">
+          @for($i=0 ; 3 > $i  ;$i++)
+            <div class="col-md-4">
+              <div class="card mb-2">
+                <img class="card-img-top" src="{{$trends[$i]->avatar}}"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">{{$trends[$i]->title}}</h4>
+                  <p class="card-text">{{$trends[$i]->description}}</p>
+                    <a class="btn btn-primary">اعرف المزيد</a>
+                  </div>
               </div>
             </div>
+            @endfor
+
           </div>
-          @endfor
+
         </div>
+        <!--/.First slide-->
+
+        <!--Second slide-->
+        <div class="carousel-item">
+
+          <div class="row">
+          @for($i=3 ; count($trends) > $i  ;$i++)
+            <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="{{$trends[$i]->avatar}}"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title"> {{$trends[$i]->title}}</h4>
+                  <p class="card-text">{{$trends[$i]->description}}</p>
+                  <a class="btn btn-primary">اعرف المزيد</a>
+                </div>
+              </div>
+            </div>
+            @endfor
+          </div>
+
+        </div>
+        <!--/.Second slide-->
+
 
       </div>
-      <!--/.Second slide-->
-
-
+      <!--/.Slides-->
     </div>
-    <!--/.Slides-->
+    <!--/.Carousel Wrapper-->
   </div>
-  <!--/.Carousel Wrapper-->
-</div>
 
 
 {{-- Fifth Section "questions" --}}
@@ -873,7 +873,7 @@ $(human_body).mouseover(function(){
 });
 
 
-// colors_option 
+// colors_option
 
 $("#colors_div i").click(function () {
   $("#colors_option").toggle();
