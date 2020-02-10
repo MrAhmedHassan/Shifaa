@@ -150,19 +150,12 @@ Route::group([
 Route::get('/reveals', 'RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create', 'RevealTime\RevealTimeController@create')->name('reveal.create');
 Route::post('/reveals/store', 'RevealTime\RevealTimeController@store');
-
 Route::get('/reveals/{reveal}/edit', 'RevealTime\RevealTimeController@edit')->name('reveals.edit');
 Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name('reveals.update');
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 
-
-//Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
-
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
-// Route::get('/reservations', function(){
-//     return dd('ssss');
-// });
 
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');

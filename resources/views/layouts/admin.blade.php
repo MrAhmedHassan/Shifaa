@@ -154,7 +154,7 @@
 
 
                     @endrole
-                    @role('Admin|Doctor')
+                    @role('Admin')
                     <li>
                         <span class="glyphicon glyphicon-edit"></span>
                         <a href="">إدارة أمراض العصر</a>
@@ -194,7 +194,7 @@
         @yield('dashboard_content')
 
 
-        
+
 
     </div>
     <!--/End body container section-->
