@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use willvincent\Rateable\Rateable;
 
-class User extends Authenticatable 
+class User extends Authenticatable
 // class User extends Authenticatable implements MustVerifyEmail
 {
     use Rateable;
@@ -23,7 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password', 'avatar',
         'DoctorCertificate','category_id' ,
-        'doctor_id_assistant'
+        'doctor_id_assistant', 'average_rate'
     ];
 
     /**
