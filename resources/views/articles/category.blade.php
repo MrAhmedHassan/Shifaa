@@ -5,6 +5,8 @@
     <article  class="container blogs">
             <div class="row">
             <aside class="single_sidebar_widget post_category_widget col-md-4 col-sm-6">
+            <a href="{{route('articles.index')}}" class="btn btn-primary w-100 mb-3"> عودة الى كل المقالات </a>
+
                 <div class="d-flex justify-content-center">
                     <h3 class="widget_title">الأقسام</h3>
                 </div>

@@ -96,10 +96,7 @@ Route::group(['namespace' => 'Article'], function () {
     Route::get('/articles/cat/{cat}', 'ArticleController@category')->name('articles.category');
 });
 
-
-// Route::get('/comments', 'Comment\CommentController@index')->name('comments.index');
 Route::post('/comments/store/{article_id}', 'Comment\CommentController@store')->name('comments.store');
-//this is needs a different view to show
 Route::get('/comments/{comment}/edit', 'Comment\CommentController@edit')->name('comments.edit');
 Route::put('/comments/{comment}', 'Comment\CommentController@update');
 
@@ -130,6 +127,7 @@ Route::group([
 ], function () {
     Route::get('/doctors', 'DoctorController@index');
     Route::get('/dashboardDoctors', 'DoctorController@dashboardDoctors')->middleware(['role:Admin', 'auth']);
+    Route::get('/dashboardDoctors/{doctor}', 'DoctorController@dashboardDoctorshow')->middleware(['role:Admin', 'auth']);
     Route::get('/doctors/{doctor}', 'DoctorController@show');
     Route::delete('/doctors/{doctor}', 'DoctorController@delete')->middleware(['role:Admin', 'auth']);
 });
@@ -150,31 +148,24 @@ Route::group([
 Route::get('/reveals', 'RevealTime\RevealTimeController@index')->name('reveal.index');
 Route::get('/reveals/create', 'RevealTime\RevealTimeController@create')->name('reveal.create');
 Route::post('/reveals/store', 'RevealTime\RevealTimeController@store');
-
 Route::get('/reveals/{reveal}/edit', 'RevealTime\RevealTimeController@edit')->name('reveals.edit');
 Route::put('/reveals/{reveal}', 'RevealTime\RevealTimeController@update')->name('reveals.update');
 Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->name('reveals.delete');
 
-
-//Route::get('/doctors/{doctor}','Doctor\DoctorController@show');
-
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index');
-// Route::get('/reservations', function(){
-//     return dd('ssss');
-// });
 
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');
 
 // Dashboard
-Route::get('/dash', function () {
-    return view('/dashboard/index');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 });
+
+Route::get('/dashboard', 'Dashboard\DashboardController@index');
+
+
 // Route::get('/assistant/create', 'Article\ArticleController@create')->name('articles.create');
 Route::get('/a',function (){
 
@@ -196,13 +187,14 @@ Route::fallback(function () {
 //just for admin
 // Route::get('/trends/create', dd('web now'));
 
-Route::get('/trends', 'Trend\TrendController@index')->middleware(['role:Admin','auth']);
+Route::get('/trends/all', 'Trend\TrendController@index')->middleware(['role:Admin','auth']);
+
+
 Route::get('/trends/create',function(){return view('dashboard.trends.create');})->middleware(['role:Admin','auth']);
 Route::post('/trends/store', 'Trend\TrendController@store')->name('trends.store')->middleware(['role:Admin','auth']);
 Route::delete('/trends/{trend}', 'Trend\TrendController@destroy')->name('trends.delete')->middleware(['role:Admin','auth']);
+Route::get('/trends/{trend}', 'Trend\TrendController@show')->name('trends.show');
 
-// Route::get('/trends/{trend}/edit', 'Trend\TrendController@edit')->name('trends.edit');
-// Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
 
 Route::get('/map',function(){return view('map.index');});
 

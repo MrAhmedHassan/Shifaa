@@ -5,31 +5,21 @@
 <div class="pain">
     <div class="container" id="up">
 
+    
         <div class="row">
-            <div class="col-md-8 column">
-                <div class="content text-center p-5 " style="line-height: 250%;">
-                    <h3 class="text-danger mb-4">{{$diseases->title}}</h3>
-                    <p>{{$diseases->description}}</p>
+            <div class="col-md-8 column mt-2">
+
+                <div class="content text-center p-5">
+                    <h3 class="text-danger mb-4">{{$trends->title}}</h3>
+                    <p>{{$trends->description}}</p>
                 </div>
 
                 <div class="card text-center">
                     <div class="card-header">
-                        فريق شفاء يتمنى لك الشفاء العاجل وينصحك بزيارة طبيب مختص
+                        فريق شفاء يتمنى لك دوام الصحة والعافية ويذكرك بأن الوقاية دائما خير من العلاج  
                     </div>
                     <div class="row justify-content-center align-items-center">
-                    @foreach($diseases->category->users as $user);
-                    
-                        <div class="col-md-3">
-                            <div class="card-body my-3" style="background-color: rgba(0,0,0,.03)">
-                                <h5 class="card-title">   طبيب {{$user->name}} تخصص {{$user->category->category}}</h5>
-                                <p><img src="{{$user->avatar}}" class="rounded-circle img-fluid" style="width:10rem"></p>
-                                <!-- this btn waiting handling of profile -->
-                                <a href="/profiles/{{$user->id}}" class="btn btn-primary">عرض البروفايل</a>
-                            </div>
-                        </div>
-                    
-                    
-                    @endforeach
+                   
                 </div>
                 </div>
 

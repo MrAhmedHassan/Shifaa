@@ -58,7 +58,7 @@
 </head>
 
 <body align=right dir=rtl>
-    <div id="app" style="background-color: #daffff;">
+    <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">

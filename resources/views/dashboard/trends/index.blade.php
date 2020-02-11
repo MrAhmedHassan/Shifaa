@@ -39,7 +39,6 @@
 
 
                         <td>
-                            <a href="/trends/{{$trend->id}}/edit"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="تعديل"></button></a>
 
                             <form action="/trends/{{$trend->id}}" style="display: inline-flex" method="post">
                                 {{method_field('DELETE')}}
@@ -55,14 +54,7 @@
 
                 <nav class="text-center">
                     <ul class="pagination">
-                        <li class="disabled"><a aria-label="Previous" href="#"><span aria-hidden="true">»</span></a>
-                        </li>
-                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a aria-label="Next" href="#"><span aria-hidden="true">«</span></a></li>
+                    {{$trends->links()}}
                     </ul>
                 </nav>
             </div>
