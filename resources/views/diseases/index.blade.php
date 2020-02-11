@@ -24,7 +24,7 @@
                                 <h5 class="card-title">   طبيب {{$user->name}} تخصص {{$user->category->category}}</h5>
                                 <p><img src="{{$user->avatar}}" class="rounded-circle img-fluid" style="width:10rem"></p>
                                 <!-- this btn waiting handling of profile -->
-                                <a href="#" class="btn btn-primary">عرض البروفايل</a>
+                                <a href="/profiles/{{$user->id}}" class="btn btn-primary">عرض البروفايل</a>
                             </div>
                         </div>
                     
@@ -49,8 +49,5 @@
 </div>
 
 
-<div >
-    <footer class="container-fluid bg-primary text-white d-flex justify-content-center align-items-center navbar-fixed-bottom" style="position: relative;bottom:0px !important;height: 60px">Copyright by Ghosts 2020 ©</footer>
-</div>
 
 @endsection

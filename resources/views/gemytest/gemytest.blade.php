@@ -1,9 +1,8 @@
 @extends('/layouts/app')
-
 @section('content')
 
 
-    <div class='container mt-5'>
+    <div class='container mt-5 rates'>
 
         <form method='post' action='/reveals' enctype="multipart/form-data">
             @csrf

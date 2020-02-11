@@ -134,7 +134,6 @@ class RegisterController extends Controller
         $roleInput = request()->role;
         $role =  Role::where('name','=',$roleInput)->first();
         $user->assignRole([$role->name]);
-
         return $user;
     }
 }

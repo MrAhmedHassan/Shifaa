@@ -99,7 +99,6 @@ class   ProfileController extends Controller
     }
 
 
-
     public function edit($profile)
     {
         if (auth()->user()->id == $profile) {

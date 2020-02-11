@@ -35,7 +35,6 @@ p
 /* in app.blade.php */
 #nav_register{
     color:#0065e1;
-    font-family: 'Amiri', sans-serif;
 }
 
 #nav_register:hover{
@@ -528,21 +527,22 @@ font-size:25px;
     bottom: 15px;
     right: 13px;
     text-align: center;
-    background-color: white;
+    background-color: rgb(154, 192, 223);
     transition: bottom 1s .2s;
 }
 
 .doctor-layer1 h4
 {
-    color: #191192 !important;
+    color: #150ab4 !important;
     font-size: 1.5rem;
     font-weight: 500;
     font-family: 'Amiri', serif;
+    margin-top: 10px;
 }
 
 .doctor-layer1 p
 {
-    color: #795d03 !important;
+    color: #076b63 !important;
     font-family: 'Amiri', serif;
     font-weight: 500;
     font-size: large;
@@ -565,7 +565,6 @@ font-size:25px;
     font-size: 1.8rem;
     font-weight: 500;
     color: white;
-    padding-top: 50px;
 }
 
 .doctor-layer2  p
@@ -612,18 +611,12 @@ font-size:25px;
 
     .top_rated_doctors .doctor-layer2 h4
     {
-        padding-top: 20px ;
-    }
-
-    .top_rated_doctors .doctor-layer2 h4
-    {
         font-size: 1.4rem;
-        padding-top: 40px ;
     }
 
     .top_rated_doctors .doctor-layer2 p
     {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
 
 }
@@ -680,8 +673,8 @@ font-size:25px;
 {
     .top_rated_doctors
     {
-        height: 2500px;
-        margin-top: 600px;
+        height: 800px;
+        margin-top: 400px;
     }
 
     .top_rated_doctors .item-doctor
@@ -691,13 +684,29 @@ font-size:25px;
 
     .top_rated_doctors .doctor-layer1
     {
-        height: 15%;
+        height: 30%;
     }
 
     .top_rated_doctors .doctor-layer2
     {
         position: absolute;
-        left: 20px ;
+        bottom: 120%;
+        left: 12px ;
+    }
+
+    .top_rated_doctors .doctor-layer2 h4
+    {
+        font-size: 30px !important;
+    }
+
+    .top_rated_doctors .doctor-layer2 p
+    {
+        font-size: 25px !important;
+    }
+
+    .top_rated_doctors .doctor-layer2 a
+    {
+        font-size: 20px !important;
     }
 
     .top_rated_doctors .doctor-layer1 h4
@@ -718,7 +727,22 @@ font-size:25px;
 
     .top_rated_doctors .doctor-layer2 a
     {
-        font-size: 20px;
+        font-size: 30px;
+    }
+
+    .top_rated_doctors .item-doctor
+    {
+        /* height: ; */
+        background-color: #191192;
+        /* width: 100% !important; */
+    }
+}
+
+@media only screen and (max-width: 575px)
+{
+    .top_rated_doctors
+    {
+        height: 1600px;
     }
 }
 
@@ -823,9 +847,10 @@ svg, defs, clipPath {
 
 .body_hover .list-group a
 {
-    background-color: rgb(65, 166, 248);
+    background-color: rgb(121, 177, 223);
     color: black;
     font-size: 20px;
+    text-align: start;
 }
 
 .body_hover .list-group a:hover
@@ -1183,14 +1208,6 @@ margin-top: 20px ;
     background:radial-gradient(ellipse at center,#bfdfe1 0%,#97c6c6 81%);
 }
 
-@media only screen and (max-width: 767px)
-{
-    .top_rated_doctors
-    {
-        margin-bottom: 400px;
-    }
-}
-
 /* "doctors" */
 
 .doctors
@@ -1486,9 +1503,68 @@ body {
     text-shadow: 2px 2px 4px #000000;
 }
 
+#radio_select
+{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+ /* footer */
+
+#footer_home
+{
+    height: 350px;
+    background-color: #f7fafb ;
+    padding-top: 30px;
+    text-align: start;
+}
+
+@media only screen and (max-width: 767px)
+{
+#footer_home
+{
+    height: 750px;
+}
+}
+
+@media only screen and (max-width: 400px)
+{
+    #footer_home
+{
+    height: 950px;
+}
 .doctorNameLink:hover {
     text-decoration: none;
 }
 .doctorName {
     font-size: 28px;
+}
+
+/*About Canvas*/
+.aboutCanvas {
+    margin-top: 80px;
+}
+.liCanvas:hover {
+    text-decoration: none;
+    color: rgb(205, 50, 135);
+}   
+
+}
+
+
+/* map */
+
+.aboutCanvas .list-group-item
+{
+    background-color: #5c9dc8;
+    color: rgb(251, 251, 251);
+    font-size: 18px;
+    text-shadow: .5px .5px .5px;
+}
+
+.aboutCanvas .liCanvas h3
+{
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #000000;
 }
