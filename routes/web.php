@@ -58,7 +58,7 @@ Route::delete('/contacts/{id}', 'Contact\ContactController@destroy');
 
 Route::get('/bodies', 'Body\BodyController@index')->name('body.index');
 Route::get('/bodies/{body}', 'Body\BodyController@show')->name('body.show');
-Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.show');
+// Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.show');
 
 //get the user data with their articles
 // Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
@@ -72,15 +72,6 @@ Route::get('/diseases/{disease}', 'Disease\DiseaseController@show')->name('disea
 // Route::get('/user', 'Comment\CommentController@index');
 
 Route::get('/prof', 'Profile\ProfileController@index');
-
-// test route
-// Route::get('/art/{id}', 'Article\ArticleController@indexarticle')->name('articles.index');
-
-//test here without controller
-// Route::get('/art/{id}', function(){
-//     $art = Article::find(2);
-//     dd($art->comments);
-// });
 
 // articles
 Route::group(['namespace' => 'Article'], function () {
@@ -101,15 +92,7 @@ Route::get('/comments/{comment}/edit', 'Comment\CommentController@edit')->name('
 Route::put('/comments/{comment}', 'Comment\CommentController@update');
 
 Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('comment.destroy');
-
-
-// Route::get('/profiles','Profile\ProfileController@showMyProfile')->name('profiles.showMy');;
-//route for rate
-// Route::get('/profiles/{Profile}', 'Profile\ProfileController@showAnotherProfile');
-
-// Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate');
-// Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit');
-// Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');
+    
 //--------------------------------------------------------
 Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show')->middleware(['role:Doctor', 'auth']);
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit')->middleware(['role:Doctor', 'auth']);
