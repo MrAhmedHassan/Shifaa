@@ -13,47 +13,17 @@ class HomeController extends Controller
 {
     public function topRated(){
 
- $topRated=User::all();
- $arr2=[];
- foreach($topRated as $topRate)
- {
-    $arr2[]=User::all()->avg('rating');
-    //$arr2[]= Rating::where('rateable_id',$topRate->id)->avg('rating');
- }
+        $trends = Trend::all();
 
- //dd( $arr2);
-
- $trends = Trend::all();
-
-    /* $topRated =Rating::select('*')
-            ->orderBy('average', 'desc')
-            ->groupBy('rateable_id')
-            ->get()->take(4);*/
-           // dd($topRated);
-
-     /*$usrAvgRate=User::all();
-        $avgRate = Rating::all();
-        //  dd($avgRate);
-        $avgRate = Rating::max('average');
-        $topRated= Rating::where([
-            ['average',$avgRate ]
-
-
-        ])->offset(0)->limit(4)->get();
-
-        if( count($topRated)<4)
-        {
-            $avgRate-=1;
-            $topRated= Rating::where([
-                ['rating',$avgRate ]
-
-
-            ])->offset(0)->limit(4)->get();
-        }*/
+        $topDoctors = User::with('category')
+            ->where('average_rate', '<>', null)
+            ->orderBy('average_rate', 'desc')
+            ->take(4)
+            ->get();
 
 
 
-  return view('/home/index',['topRated'=> $topRated, 'trends'=>$trends ]);
+  return view('/home/index',['topDoctors'=> $topDoctors , 'trends'=>$trends ]);
 
     }
 

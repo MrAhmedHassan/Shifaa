@@ -48,28 +48,5 @@
 </div>
 
 
-<script  >
-    function btnAjax(url){
-        $.ajax({
-            headers: {
-
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            type:'post',
-
-            url:url,
-
-            data:{reserved:true},
-            success:function(response){
-
-                let message = document.getElementById('message');
-                message.style.display = "block";
-                message.innerHTML = response.message;
-                console.log(response.message);
-            }
-        });
-    }
-
-</script>
 
 @endsection

@@ -15,7 +15,7 @@
             </div>
             <!--/End system bath-->
             <div class="page_content">
-                <h1 class="heading_title">عرض كل المساعدين</h1>
+                <h1 class="heading_title">عرض الاطباء</h1>
 
                 <div class="wrap">
                     <table class="table table-bordered">
@@ -34,6 +34,8 @@
                                 <td>{{$value->name}}</td>
                                 <td>{{$value->email}}</td>
                                 <td>
+                                    <a href="dashboardDoctors/{{$value->id}}"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
+                                                        data-placement="top" title="تعديل"></button></a>
 
                                     <form action="/doctors/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}

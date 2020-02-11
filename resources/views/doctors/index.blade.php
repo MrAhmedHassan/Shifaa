@@ -81,7 +81,7 @@
                                     <div name="gemy1" class="gemy2" id="val" style="display:none">{{$doctor->averageRating}}</div>
                                     <span class="details text-white" style="font-weight: bold">
                                             نبذة : {{$doctor->profile->abstract}}</span>
-                                    </i>
+{{--                                    </i>--}}
                                     <i class="fa fa-map-marker fa-2x d-flex justify-content-start  text-primary">
                                         <span class="details text-white mt-2 mr-2">عنوان العيادة : {{$doctor->profile->address}}</span>
                                     </i>
@@ -167,6 +167,7 @@ for (var i=0;i<arraySparsee2.length;i++){
         arr.push(gemy[j]);
       }
       console.log(arr[0]);
+        arr[0].style.color="yellow";
     start+=5;
     end+=5;
     continue;
