@@ -12,15 +12,7 @@
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
-    $(".user_info").click(function () {
-        if ($(".main_container").hasClass("user_side_open")) {
-            $(".main_container").removeClass("user_side_open");
-            $(".user_details").addClass("close_user_details");
-        } else {
-            $(".main_container").addClass("user_side_open");
-            $(".user_details").removeClass("close_user_details");
-        }
-    });
+
 
     function hideSideBar() {
         if ($(window).width() < 768) {

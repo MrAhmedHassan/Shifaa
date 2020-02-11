@@ -26,21 +26,16 @@
                   data-placement="right" title="Tooltip on left"></span>
         </div>
         <div class="col-sm-3 col-xs-12 head_buttons_area bring_right hidden-xs">
-            <div class="inline-block messages bring_right">
-                <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" data-placement="left"
-                      title="الرسائل"><span class="notifications">9</span></span>
-            </div>
             <div class="inline-block full_screen bring_right hidden-xs">
                 <span class="glyphicon glyphicon-fullscreen" data-toggle="tooltip" data-placement="left"
                       title="شاشة كاملة"></span>
             </div>
         </div>
         <div class=" col-sm-4 col-xs-12 user_header_area bring_left left_text">
-            <span class="change_lang bring_left">EN</span>
 
             <div class="user_info inline-block">
-                <img src="{{ asset('/imgs/docImage.jpg') }}" alt="" class="img-circle">
-                <span class="h4 nomargin user_name">Hosam Zewain</span>
+                <img src="{{ auth()->user()->avatar }}" alt="" class="img-circle">
+                <span class="h4 nomargin user_name">{{auth()->user()->name}}</span>
                 <span class="glyphicon glyphicon-cog"></span>
             </div>
         </div>
@@ -50,67 +45,12 @@
     <!--Start body container section-->
     <div class="row container_section">
 
-        <!--Start left sidebar-->
-        <div class="user_details close_user_details  bring_left">
-            <div class="user_area">
-                <img class="img-thumbnail img-rounded bring_right" src="{{ asset('/imgs/docImage.jpg') }}">
-
-                <h1 class="h3">حسام جمال زوين</h1>
-
-                <p><a href="">بيانات المستخدم</a></p>
-
-                <p><a href="">تغيير كلمة المرور</a></p>
-
-                <p><a href="">المساعدة</a></p>
-            </div>
-            <div class="who_is_online">
-                <h3>العامليين حاليا علي النظام</h3>
-
-                <div class="employee_online">
-                    <img src="{{ asset('/imgs/docImage.jpg') }}" class="img-circle bring_right">
-
-                    <p>حسام جمال توفيق زوين</p>
-
-                    <p>مركز التقنية - جامعة المنصورة</p>
-                </div>
-                <div class="employee_online">
-                    <img src="{{ asset('/imgs/docImage.jpg') }}" class="img-circle bring_right">
-
-                    <p>حسام جمال توفيق زوين</p>
-
-                    <p>مركز التقنية - جامعة المنصورة</p>
-                </div>
-                <div class="employee_online">
-                    <img src="{{ asset('/imgs/docImage.jpg') }}" class="img-circle bring_right">
-
-                    <p>حسام جمال توفيق زوين</p>
-
-                    <p>مركز التقنية - جامعة المنصورة</p>
-                </div>
-                <div class="employee_online">
-                    <img src="{{ asset('/imgs/docImage.jpg') }}" class="img-circle bring_right">
-
-                    <p>حسام جمال توفيق زوين</p>
-
-                    <p>مركز التقنية - جامعة المنصورة</p>
-                </div>
-                <div class="employee_online">
-                    <img src="{{ asset('/imgs/docImage.jpg') }}" class="img-circle bring_right">
-
-                    <p>حسام جمال توفيق زوين</p>
-
-                    <p>مركز التقنية - جامعة المنصورة</p>
-                </div>
-            </div>
-        </div>
-        <!--/End left sidebar-->
 
         <!--Start Side bar main menu-->
         <div class="main_sidebar bring_right">
             <div class="main_sidebar_wrapper">
                 <form class="form-inline search_box text-center">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="كلمة البحث">
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>
                         </button>
                     </div>
@@ -119,7 +59,7 @@
                 <ul>
                     <li>
                         <span class="glyphicon glyphicon-home"></span>
-                        <a href="/home">الصفحة الرئيسية</a>
+                        <a href="/dashboard">الصفحة الرئيسية</a>
                     </li>
                     @role('Admin')
                     <li>
@@ -160,7 +100,7 @@
                         <a href="">إدارة أمراض العصر</a>
                         <ul class="drop_main_menu">
                             <li><a href="/trends/create">إضافة مرض جديد</a></li>
-                            <li><a href="/trends">عرض الكل</a></li>
+                            <li><a href="/trends/all">عرض الكل</a></li>
                         </ul>
                     </li>
                     @endrole

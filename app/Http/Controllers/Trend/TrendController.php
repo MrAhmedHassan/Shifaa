@@ -20,7 +20,7 @@ class TrendController extends Controller
 
     public function index()
     {
-        $trends = Trend::all();
+        $trends = Trend::paginate(3);
         return view('/dashboard/trends/index')->with('trends', $trends);
     }
 
@@ -44,8 +44,7 @@ class TrendController extends Controller
         }
 
         $trend->save();
-
-        return redirect('/trends');
+        return redirect('/trends/all');
     }
 
 
@@ -54,7 +53,7 @@ class TrendController extends Controller
         $trend = Trend::find($id);
         $trend->delete();
 
-        return redirect('/trends');
+        return redirect('/trends/all');
     }
 
     // public function edit($id)
