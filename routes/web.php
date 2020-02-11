@@ -194,6 +194,8 @@ Route::get('/trends', 'Trend\TrendController@index')->middleware(['role:Admin','
 Route::get('/trends/create',function(){return view('dashboard.trends.create');})->middleware(['role:Admin','auth']);
 Route::post('/trends/store', 'Trend\TrendController@store')->name('trends.store')->middleware(['role:Admin','auth']);
 Route::delete('/trends/{trend}', 'Trend\TrendController@destroy')->name('trends.delete')->middleware(['role:Admin','auth']);
+Route::get('/trends/{trend}', 'Trend\TrendController@show')->name('trends.show');
+
 
 // Route::get('/trends/{trend}/edit', 'Trend\TrendController@edit')->name('trends.edit');
 // Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update');

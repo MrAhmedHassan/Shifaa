@@ -14,9 +14,6 @@ class humanBodyController extends Controller
 return view('/human_body/index');
 
     }
-      
-    
-
 
     public function show($id)
     {
