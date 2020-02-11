@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Contact;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Contact;
@@ -16,20 +15,24 @@ class ContactController extends Controller
         $message->email = request()->input('email');
         $message->message = request()->input('message');
         $message->save();
+
+        Session()->flash('message', ' شكرا لتواصلك معنا عزيزي المستخدم .. نعدك بسرعة الرد على استفسارك .. '); 
+
+        
         return redirect('/#contact_us');
     }
 
 
-    public function index(){
+    public function index()
+    {
         $messages = Contact::all();
-      // return view('contacts/index',['messages'=>$messages]);
-       return view('/dashboard/contacts/index')->with('messages', $messages);
-   }
+        return view('/dashboard/contacts/index')->with('messages', $messages);
+    }
 
-   public function destroy($id)
-   {
-       $article =  Contact::find($id);
-       $article->delete();
-       return redirect('/contacts');
-   }
+    public function destroy($id)
+    {
+        $article =  Contact::find($id);
+        $article->delete();
+        return redirect('/contacts');
+    }
 }

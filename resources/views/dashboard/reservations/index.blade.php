@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('dashboard_content')
 
-    
         <!--Start Main content container-->
         <div class="main_content_container">
             <div class="main_container  main_menu_open">
@@ -35,14 +34,12 @@
                                 <td>{{$value->patient->id}}</td>
                                 <td>{{$value->doctor->name}}</td>
                                 <td>{{ date('D', strtotime($value->date)) }}</td>
-                           
                                 <td>{{$value->reveal->start}}</td>
                                 <td>{{$value->reveal->end}}</td>
 
                                 <td>{{$value->reveal->date}}</td>
                                 <td>
-                                    <a href="#"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
-                                        data-placement="top" title="تعديل"></button></a>
+                                  
 
                                         <form action="/reservations/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}
@@ -57,14 +54,7 @@
 
                         <nav class="text-center">
                             <ul class="pagination">
-                                <li class="disabled"><a aria-label="Previous" href="#"><span aria-hidden="true">»</span></a>
-                                </li>
-                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a aria-label="Next" href="#"><span aria-hidden="true">«</span></a></li>
+                                {{ $reservations->links() }}
                             </ul>
                         </nav>
                     </div>

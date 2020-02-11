@@ -12,7 +12,6 @@ use App\Result;
 class PersonalController extends Controller
 {
 
-  
     public function show($id)
 
     {
@@ -37,14 +36,12 @@ class PersonalController extends Controller
     {
 
         ///////////////////////////////////////////////////
-       
         $test = Test::find($id);
         $doing = request()->doing;
         $wedding =request()->wedding;
         $friend =request()->friend;
         $car =   request()->car;
         $angry =request()->angry;
-        
         $doing2 = request()->doing2;
         $wedding2 = request()->wedding2;
         $friend2 = request()->friend2;
@@ -139,7 +136,6 @@ class PersonalController extends Controller
 
         }
 
-       
 
         $sum = 0;
 
@@ -199,6 +195,20 @@ class PersonalController extends Controller
         $results = Result::where([
             ['test_id', $id],
         ])->get();
-        return view('gemytest2/result', ['results' => $results, 'sum' => $sum]);
+
+        for($i=0;$i<count($results);$i++)
+        {
+            $range=range($results[$i]->start,$results[$i]->end);
+
+            if(in_array($sum,$range))
+            {
+                return view('gemytest2/gemytest2', ['result' => $results[$i]->result , 'test'=> $test]);
+//                dd($results[$i]->result);
+//                echo "<div class='text text-light bg-success p-3 '>".$results[$i]->result."</div>";
+            }
+
+        }
+
+//        return view('gemytest2/result', ['results' => $results, 'sum' => $sum]);
     }
 }

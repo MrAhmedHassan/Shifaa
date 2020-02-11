@@ -27,7 +27,9 @@ class UsersTableSeeder extends Seeder
         App\User::create([
             'name'=>'admin',
             'email'=>'admin@admin.com',
-            'password'=>\Illuminate\Support\Facades\Hash::make('123456')
+            'password'=>\Illuminate\Support\Facades\Hash::make('123456'),
+            'email_verified_at'=>time()
         ])->assignRole('Admin');
+
     }
 }

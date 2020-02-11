@@ -9,7 +9,7 @@ use App\Profile;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
-class ProfileController extends Controller
+class   ProfileController extends Controller
 {
 
     public function __construct()
@@ -29,7 +29,7 @@ class ProfileController extends Controller
             $newRating = 1;
         }
 
-        $post = User::find($request->id);
+        $user = User::find($request->id);
         $rating = \willvincent\Rateable\Rating::where([
             ['user_id', auth()->user()->id],
             ['rateable_id', $request->id],
@@ -47,37 +47,26 @@ class ProfileController extends Controller
        if($rating){
         $rating->rating = $newRating;
        // $rating->average = (($post->averageRating)+ $newRating)/($count+1);
-        $post->ratings()->save($rating);
-       return redirect()->route('profiles.another', $request->id);
+//           dd($post->ratings);
+        $user->ratings()->save($rating);
+        $user->average_rate = $user->averageRating;
+        $user->save();
+//           dd( $user->averageRating);
+
+           return redirect()->route('profiles.another', $request->id);
       }else{
         request()->validate(['rate' => 'required']);
-        $post = User::find($request->id);
+        $user = User::find($request->id);
         $rating = new \willvincent\Rateable\Rating;
         $rating->rating = $request->rate;
        // $rating->average = (($post->averageRating)+$newRating)/($count+1);
         $rating->user_id = auth()->user()->id;
-        $post->ratings()->save($rating);
+        $user->ratings()->save($rating);
+        $user->average_rate = $user->averageRating;
+        $user->save();
         return redirect()->route('profiles.another', $request->id);
     }
 
-
-
-
-
-
-        if ($rating) {
-            $rating->rating = $newRating;
-            $post->ratings()->save($rating);
-            return redirect()->route("profiles.show");
-        } else {
-            request()->validate(['rate' => 'required']);
-            $post = User::find($request->id);
-            $rating = new \willvincent\Rateable\Rating;
-            $rating->rating = $request->rate;
-            $rating->user_id = auth()->user()->id;
-            $post->ratings()->save($rating);
-            return redirect()->route("profiles.show");
-        }
     }
     // end ratind
 
@@ -101,7 +90,6 @@ class ProfileController extends Controller
         }
     }
 
-    
 
     public function edit($profile)
     {

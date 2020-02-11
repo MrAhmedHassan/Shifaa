@@ -1,12 +1,12 @@
 
-body {
+.rates {
     background: #FDFDFD;
       font-family: "Segoe WP","Segoe UI", Helvetica, Arial, sans-serif;
       text-align:center;
   }
 
 
-  em {
+  ..rates em {
       display: block;
       margin: .5em auto 2em;
       color: #bbb;
