@@ -43,7 +43,7 @@
     @csrf
     <!-- title -->
     <div class="md-form mt-3 mb-3" style="font-family: 'Cairo', sans-serif">
-        <label>عنوان لمرض</label>
+        <label>عنوان المرض</label>
         <input type="text" name="title" id="" class="form-control" value="" required>
     </div>
 
@@ -67,7 +67,7 @@
 
 
     <!-- Send button -->
-    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">حفظ المقال</button>
+    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">حفظ المرض</button>
 
 </form>
 <!-- Form -->

@@ -35,7 +35,6 @@ p
 /* in app.blade.php */
 #nav_register{
     color:#0065e1;
-    font-family: 'Amiri', sans-serif;
 }
 
 #nav_register:hover{
@@ -1541,4 +1540,31 @@ body {
 .doctorName {
     font-size: 28px;
 }
+
+/*About Canvas*/
+.aboutCanvas {
+    margin-top: 80px;
+}
+.liCanvas:hover {
+    text-decoration: none;
+    color: rgb(205, 50, 135);
+}   
+
+}
+
+
+/* map */
+
+.aboutCanvas .list-group-item
+{
+    background-color: #5c9dc8;
+    color: rgb(251, 251, 251);
+    font-size: 18px;
+    text-shadow: .5px .5px .5px;
+}
+
+.aboutCanvas .liCanvas h3
+{
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #000000;
 }

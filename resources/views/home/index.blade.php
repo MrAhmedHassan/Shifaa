@@ -370,12 +370,10 @@
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
     <defs>
       <clipPath id="A1">
-        <polygon points="128 37,190 37,190 45,128 45"></polygon>
-        <!--العين-->
+          <polygon points="120 37,190 37,190 45,120 45"></polygon> <!--العين-->
       </clipPath>
       <clipPath id="A2">
-        <polygon points="131 45,156 45,156 55,165 55,165 45,188 45,188 60,183 60,165 80,165 89,156 89,156 80,136 60,131 60"></polygon>
-        <!--أنف,أذن,حنجرة-->
+          <polygon points="128 45,188 45,188 85,128 85"></polygon> <!--أنف,أذن,حنجرة-->
       </clipPath>
       <clipPath id="A3">
         <polygon points="123 4,123 90,190 90,190 4"></polygon>
@@ -492,14 +490,14 @@
         <div id="figura">
           <img style="opacity: .4;" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
           <map name="recortes">
-            <area id="eye" shape="poly" coords="128,37,190,37,190,45,128,45" href="#" alt="eye" title="العين">
-            <area id="nose" shape="poly" coords="131,45,156,45,156,55,165,55,165,45,188,45,188,60,183,60,165,80,165,89,156,89,156,80,136,60,131,60" href="" alt="nose" title="أنف,أذن,حنجرة">
-            <area id="head" shape="poly" coords="123,4,123,90,190,90,190,4" href="" alt="head" title="الرأس,العنق">
-            <area id="chest" shape="poly" coords="104,93,107,151,133,151,158,140,179,151,210,151,213,93,179,86,159,90,141,86" href="" title="الصدر">
-            <area id="arms" shape="poly" coords="100,94,100,152,50,295,25,310,18,282,88,94,100,94,212,94,216,152,258,295,281,310,292,295,232,94,212,94" href="" title="الأذرع">
-            <area id="bely" shape="poly" coords="100,152,112,187,112,187,112,236,158,297,205,236,205,187,216,152,182,152,158,142,135,152" href="" title="البطن,الحوض">
-            <area id="legs" shape="poly" coords="101,297,78,512,110,512,158,297,208,512,238,512,216,297" href="" alt="legs" title="الأرجل">
-            <img id="capaRecorte" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
+              <area id="eye" shape="poly" coords="120,37,190,37,190,45,120,45" href="#" alt="eye" title="العين">
+              <area id="nose" shape="poly" coords="120,45,188,45,188,85,120,85" href="" alt="nose" title="أنف,أذن,حنجرة">
+              <area id="head" shape="poly" coords="123,4,123,90,190,90,190,4" href="" alt="head" title="الرأس,العنق">
+              <area id="chest" shape="poly" coords="104,93,107,151,133,151,158,140,179,151,210,151,213,93,179,86,159,90,141,86" href="" title="الصدر">
+              <area id="arms" shape="poly" coords="100,94,100,152,50,295,25,310,18,282,88,94,100,94,212,94,216,152,258,295,281,310,292,295,232,94,212,94" href="" title="الأذرع">
+              <area id="bely" shape="poly" coords="100,152,112,187,112,187,112,236,158,297,205,236,205,187,216,152,182,152,158,142,135,152" href="" title="البطن,الحوض">
+              <area id="legs" shape="poly" coords="101,297,78,512,110,512,158,297,208,512,238,512,216,297" href="" alt="legs" title="الأرجل">
+              <img id="capaRecorte" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
           </map>
           <img src="https://lh3.googleusercontent.com/-HqFCpcmlv1U/VjZqE6e7u0I/AAAAAAAAGao/hIQohrsu0xI/s800-Ic42/transparente.gif" id="imagen" usemap="#recortes">
         </div>
@@ -885,7 +883,7 @@
     </div>
     <div class="col-md-4 flex-column">
       <h1 class="text-primary pb-2">الوصول السريع</h1>
-      <a href="#" style="text-decoration: none"><h4 class="text-muted mb-3 ">خريطة المويع</h4></a>
+      <a href="/map" style="text-decoration: none"><h4 class="text-muted mb-3 ">خريطة المويع</h4></a>
       <a href="/doctors" style="text-decoration: none"><h4 class="text-muted mb-3 ">البحث عن طبيب</h4></a>
       <a href="/#contact_us" style="text-decoration: none"><h4 class="text-muted mb-3 ">ارسال رسالة لشفاء</h4></a>
       <a href="#top_rated_doctors" style="text-decoration: none"><h4 class="text-muted mb-3 ">أشهر الأطباء في الموقع</h4></a>
@@ -1023,7 +1021,7 @@
   });
 
 
-  // colors_option 
+  // colors_option
 
   $("#colors_div i").click(function() {
     $("#colors_option").toggle();
