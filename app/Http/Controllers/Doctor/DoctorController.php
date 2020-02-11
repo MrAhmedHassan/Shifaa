@@ -19,7 +19,10 @@ class DoctorController extends Controller
     }
 
 
-
+public function dashboardDoctorshow($id){
+    $user = User::find($id);
+    return view('dashboard.doctors.show', ['user' => $user]);
+}
 
     public function show($doctor){
         $user = User::find($doctor);

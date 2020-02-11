@@ -130,6 +130,7 @@ Route::group([
 ], function () {
     Route::get('/doctors', 'DoctorController@index');
     Route::get('/dashboardDoctors', 'DoctorController@dashboardDoctors')->middleware(['role:Admin', 'auth']);
+    Route::get('/dashboardDoctors/{doctor}', 'DoctorController@dashboardDoctorshow')->middleware(['role:Admin', 'auth']);
     Route::get('/doctors/{doctor}', 'DoctorController@show');
     Route::delete('/doctors/{doctor}', 'DoctorController@delete')->middleware(['role:Admin', 'auth']);
 });
