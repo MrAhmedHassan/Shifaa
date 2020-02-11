@@ -8,8 +8,8 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use willvincent\Rateable\Rateable;
 
-class User extends Authenticatable implements 
-// class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
+// class User extends Authenticatable
 {
     use Rateable;
     use Notifiable;
@@ -22,36 +22,26 @@ class User extends Authenticatable implements
      */
     protected $fillable = [
         'name', 'email', 'password', 'avatar',
-        'DoctorCertificate','category_id' ,
+        'DoctorCertificate', 'category_id',
         'doctor_id_assistant', 'average_rate'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
     public function articles()
     {
-    return $this->hasMany(Article::class,'user_id');
+        return $this->hasMany(Article::class, 'user_id');
     }
 
     public function comments()
     {
-        return $this->hasMany(Comment::class,'user_id');
+        return $this->hasMany(Comment::class, 'user_id');
     }
 
     public function category()
@@ -61,36 +51,38 @@ class User extends Authenticatable implements
 
     public function profile()
     {
-        return $this->hasOne(Profile::class,'user_id');
+        return $this->hasOne(Profile::class, 'user_id');
     }
 
 
     public function reveals()
     {
-        return $this->hasMany(Reveal::class,'doctor_id');
+        return $this->hasMany(Reveal::class, 'doctor_id');
     }
 
-    public function assistants(){
-        return $this->hasMany(User::class , 'doctor_id_assistant');
+    public function assistants()
+    {
+        return $this->hasMany(User::class, 'doctor_id_assistant');
     }
 
-    public function doctor(){
-        return $this->belongsTo(User::class , 'doctor_id_assistant');
+    public function doctor()
+    {
+        return $this->belongsTo(User::class, 'doctor_id_assistant');
     }
 
-    public function patientReservations(){
-        return $this->hasMany(Reservation::class,'patient_id');
+    public function patientReservations()
+    {
+        return $this->hasMany(Reservation::class, 'patient_id');
     }
 
-    public function doctorReservations(){
-        return $this->hasMany(Reservation::class,'doctor_id');
-    }
-
-
-    public function rate(){
-        return  $this->hasOne(Rating::class,'rateable_id');
-
+    public function doctorReservations()
+    {
+        return $this->hasMany(Reservation::class, 'doctor_id');
     }
 
 
+    public function rate()
+    {
+        return  $this->hasOne(Rating::class, 'rateable_id');
+    }
 }
