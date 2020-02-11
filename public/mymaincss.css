@@ -1492,3 +1492,12 @@ body {
 .doctorName {
     font-size: 28px;
 }
+
+/*About Canvas*/
+.aboutCanvas {
+    margin-top: 80px;
+}
+.liCanvas:hover {
+    text-decoration: none;
+    color: rgb(205, 50, 135);
+}   

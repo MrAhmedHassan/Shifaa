@@ -321,10 +321,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
       <clipPath id="A1">
-          <polygon points="128 37,190 37,190 45,128 45"></polygon> <!--العين-->
+          <polygon points="120 37,190 37,190 45,120 45"></polygon> <!--العين-->
       </clipPath>
       <clipPath id="A2">
-          <polygon points="131 45,156 45,156 55,165 55,165 45,188 45,188 60,183 60,165 80,165 89,156 89,156 80,136 60,131 60"></polygon> <!--أنف,أذن,حنجرة-->
+          <polygon points="128 45,188 45,188 85,128 85"></polygon> <!--أنف,أذن,حنجرة-->
       </clipPath>
       <clipPath id="A3">
           <polygon points="123 4,123 90,190 90,190 4"></polygon> <!--الرأس,العنق-->
@@ -436,8 +436,8 @@
       <div id="figura">
           <img style="opacity: .4;" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
           <map name="recortes">
-              <area id="eye" shape="poly" coords="128,37,190,37,190,45,128,45" href="#" alt="eye" title="العين">
-              <area id="nose" shape="poly" coords="131,45,156,45,156,55,165,55,165,45,188,45,188,60,183,60,165,80,165,89,156,89,156,80,136,60,131,60" href="" alt="nose" title="أنف,أذن,حنجرة">
+              <area id="eye" shape="poly" coords="120,37,190,37,190,45,120,45" href="#" alt="eye" title="العين">
+              <area id="nose" shape="poly" coords="120,45,188,45,188,85,120,85" href="" alt="nose" title="أنف,أذن,حنجرة">
               <area id="head" shape="poly" coords="123,4,123,90,190,90,190,4" href="" alt="head" title="الرأس,العنق">
               <area id="chest" shape="poly" coords="104,93,107,151,133,151,158,140,179,151,210,151,213,93,179,86,159,90,141,86" href="" title="الصدر">
               <area id="arms" shape="poly" coords="100,94,100,152,50,295,25,310,18,282,88,94,100,94,212,94,216,152,258,295,281,310,292,295,232,94,212,94" href="" title="الأذرع">
