@@ -197,7 +197,7 @@
     <!--Scripts -->
 
 <script src="{{ asset('project_js.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 
 

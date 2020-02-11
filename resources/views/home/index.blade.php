@@ -1,28 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @extends('layouts.app')
 @section('content')
 
@@ -101,7 +76,7 @@
 
 <div class="d-flex justify-content-center align-items-center ">
 {{-- <div class="my_skew"> --}}
-    <div class="my_skew container d-flex justify-content-center align-items-center">
+    <div class="my_skew container d-flex justify-content-center align-items-center" id="top_rated_doctors">
       <div class="row">
         <section id="h_4"><a href="#questions"><i class="far fa-question-circle"></i><h3>اختبر نفسك</h3></a></section>
         <section id="h_3"><a href="#most_diseases"><i class="fas fa-capsules"></i><h3>الوقاية من امراض العصر</h3></a></section>
@@ -357,17 +332,18 @@
 {{--        </div>--}}
 
 @foreach($topDoctors as $topDoctor)
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6">
             <div class="item-doctor ">
-                <img class="img-fluid w-100" src="{{ $topDoctor->avatar }}">
-                <div class="doctor-layer1">
+                <img class="img-fluid w-100" style="height: 330px" src="{{ $topDoctor->avatar }}">
+                <div class="doctor-layer1 d-flex flex-column justify-content-center align-items-center">
                     <h4>{{$topDoctor->name}}</h4>
                     <p>دكتور {{$topDoctor->category->category}}</p>
                 </div>
 
-                <div class="doctor-layer2" >
+                <div class="doctor-layer2 d-flex flex-column justify-content-center align-items-center" >
                     <h4> عن د. {{$topDoctor->name}}</h4>
-                    <p>{{$topDoctor->profile->abstract}}</p> <a href="*" >اعرف المزيد</a>
+                    <p>{{$topDoctor->profile->abstract}}</p>
+                    <a href="*" >اعرف المزيد</a>
                 </div>
             </div>
         </div>
@@ -394,12 +370,10 @@
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
     <defs>
       <clipPath id="A1">
-        <polygon points="128 37,190 37,190 45,128 45"></polygon>
-        <!--العين-->
+          <polygon points="120 37,190 37,190 45,120 45"></polygon> <!--العين-->
       </clipPath>
       <clipPath id="A2">
-        <polygon points="131 45,156 45,156 55,165 55,165 45,188 45,188 60,183 60,165 80,165 89,156 89,156 80,136 60,131 60"></polygon>
-        <!--أنف,أذن,حنجرة-->
+          <polygon points="128 45,188 45,188 85,128 85"></polygon> <!--أنف,أذن,حنجرة-->
       </clipPath>
       <clipPath id="A3">
         <polygon points="123 4,123 90,190 90,190 4"></polygon>
@@ -516,14 +490,14 @@
         <div id="figura">
           <img style="opacity: .4;" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
           <map name="recortes">
-            <area id="eye" shape="poly" coords="128,37,190,37,190,45,128,45" href="#" alt="eye" title="العين">
-            <area id="nose" shape="poly" coords="131,45,156,45,156,55,165,55,165,45,188,45,188,60,183,60,165,80,165,89,156,89,156,80,136,60,131,60" href="" alt="nose" title="أنف,أذن,حنجرة">
-            <area id="head" shape="poly" coords="123,4,123,90,190,90,190,4" href="" alt="head" title="الرأس,العنق">
-            <area id="chest" shape="poly" coords="104,93,107,151,133,151,158,140,179,151,210,151,213,93,179,86,159,90,141,86" href="" title="الصدر">
-            <area id="arms" shape="poly" coords="100,94,100,152,50,295,25,310,18,282,88,94,100,94,212,94,216,152,258,295,281,310,292,295,232,94,212,94" href="" title="الأذرع">
-            <area id="bely" shape="poly" coords="100,152,112,187,112,187,112,236,158,297,205,236,205,187,216,152,182,152,158,142,135,152" href="" title="البطن,الحوض">
-            <area id="legs" shape="poly" coords="101,297,78,512,110,512,158,297,208,512,238,512,216,297" href="" alt="legs" title="الأرجل">
-            <img id="capaRecorte" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
+              <area id="eye" shape="poly" coords="120,37,190,37,190,45,120,45" href="#" alt="eye" title="العين">
+              <area id="nose" shape="poly" coords="120,45,188,45,188,85,120,85" href="" alt="nose" title="أنف,أذن,حنجرة">
+              <area id="head" shape="poly" coords="123,4,123,90,190,90,190,4" href="" alt="head" title="الرأس,العنق">
+              <area id="chest" shape="poly" coords="104,93,107,151,133,151,158,140,179,151,210,151,213,93,179,86,159,90,141,86" href="" title="الصدر">
+              <area id="arms" shape="poly" coords="100,94,100,152,50,295,25,310,18,282,88,94,100,94,212,94,216,152,258,295,281,310,292,295,232,94,212,94" href="" title="الأذرع">
+              <area id="bely" shape="poly" coords="100,152,112,187,112,187,112,236,158,297,205,236,205,187,216,152,182,152,158,142,135,152" href="" title="البطن,الحوض">
+              <area id="legs" shape="poly" coords="101,297,78,512,110,512,158,297,208,512,238,512,216,297" href="" alt="legs" title="الأرجل">
+              <img id="capaRecorte" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
           </map>
           <img src="https://lh3.googleusercontent.com/-HqFCpcmlv1U/VjZqE6e7u0I/AAAAAAAAGao/hIQohrsu0xI/s800-Ic42/transparente.gif" id="imagen" usemap="#recortes">
         </div>
@@ -678,7 +652,7 @@
         <div class="card">
 
           <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/angry.jpg') }}" alt="Card image cap">
-          <div class="card-body">
+          <div class="card-body text-right">
             <h3 class="card-title">اختبار العصبية</h3>
             <h4 class="card-text">اكتشف هل انت شخص عصبي ؟</h4>
           </div>
@@ -690,7 +664,7 @@
       <a href="/tests/2">
         <div class="card">
           <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/weight.jpg') }}" alt="Card image cap">
-          <div class="card-body">
+          <div class="card-body text-right">
             <h3 class="card-title">اختبار الوزن</h3>
             <h4 class="card-text">هل تحتاج لإنقاص وزنك ؟</h4>
           </div>
@@ -702,7 +676,7 @@
       <a href="/tests/3">
         <div class="card">
           <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/alone.jpg') }}" alt="Card image cap">
-          <div class="card-body">
+          <div class="card-body text-right">
             <h3 class="card-title">اختبار الاكتئاب</h3>
             <h4 class="card-text">هل تعاني من الاكتئاب ؟</h4>
           </div>
@@ -714,7 +688,7 @@
       <a href="/tests/4">
         <div class="card">
           <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/child.jpg') }}" alt="Card image cap">
-          <div class="card-body">
+          <div class="card-body text-right">
             <h3 class="card-title">اختبار الانتقائية</h3>
             <h4 class="card-text">هل طفلك انتقائي ؟</h4>
           </div>
@@ -727,7 +701,7 @@
       <a href="/tests/5">
         <div class="card">
           <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/stingy.jpg') }}" alt="Card image cap">
-          <div class="card-body">
+          <div class="card-body text-right">
             <h3 class="card-title">اختبار البخل</h3>
             <h4 class="card-text">هل انت شخص تميل الى البخل ؟</h4>
           </div>
@@ -740,7 +714,7 @@
       <a href="/tests/6">
         <div class="card">
           <img class="card-img-top" style="height: 40vh" src="{{ asset('/imgs/cleaning.jpg') }}" alt="Card image cap">
-          <div class="card-body">
+          <div class="card-body text-right">
             <h3 class="card-title">اختبار هوس النظافة</h3>
             <h4 class="card-text">هل تعانين من هوس النظافة ؟</h4>
           </div>
@@ -831,7 +805,7 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-12 mr-5">
-        <h1>تواصل معنا</h1>
+        <h1 class="text-right">تواصل معنا</h1>
 
         @if(Session()->has('message'))
         <div class="row">
@@ -846,7 +820,7 @@
       <div class="col-md-6 mt-5">
         <p class="text-center text-muted">يسعدنا تواصلكم معنا .. يمكنكم إرسال رسالة لنا وسوف يتم الرد عليكم في اقرب وقت .. شكرا لكم</p>
 
-        <p class="text-center mb-4"><i class="fas fa-envelope text-muted mx-3"></i><a class="text-Primary" href="#">Hellow@gmail.com</a></p>
+        <p class="text-center mb-4"><i class="fas fa-envelope text-muted mx-3"></i><a class="text-Primary" href="#">Shefaa@gmail.com</a></p>
         <p class="text-center"><i class="fas fa-phone-alt text-muted mx-3"></i> 001-000-000-000</p>
         <div class="brands d-flex justify-content-center my-4 text-muted">
           <a href="#"><i class="fab fa-facebook-f fa-lg mx-2 d-flex justify-content-center align-items-center"></i></a>
@@ -874,7 +848,7 @@
           <input type="text" placeholder="الاسم" name="name" class="form-control my-3 ">
           <input type="email" placeholder="الايميل" name="email" class="form-control my-3">
           <textarea type="text" placeholder="رسالتك" name="message" class="form-control my-3" rows="6" id="mytext4"></textarea>
-          <button class="btn btn-info p-3" id="Contact_send_message"> إرسال <span><i class="fas fa-arrow-left"></i> </span></button>
+          <button class="btn btn-info p-3" id="Contact_send_message"> إرسال <span><i class="fas fa-arrow-left text-white"></i> </span></button>
         </form>
 
       </div>
@@ -882,19 +856,53 @@
   </div>
 </div>
 
-<div>
-  <a href="#home_slider"><i class="fas fa-chevron-circle-up" style="font-size: 50px;margin:0 60px 80px 0;color: #17a2b8"></i></a>
-</div>
-
 
 {{-- Footer Section --}}
 
-<div>
-  <footer class="container-fluid bg-primary text-white d-flex justify-content-center align-items-center navbar-fixed-bottom" style="position: relative;bottom:0px !important;height: 60px">Copyright by Ghosts 2020 ©</footer>
+<footer id="footer_home"  >
+  <div class="d-flex align-items-end">
+  <a href="#home_slider"><i class="fas fa-chevron-circle-up mr-4" style="font-size: 50px;color: #17a2b8"></i></a>
+
+  <div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="d-flex">
+        <h1 class="text-primary">عن شفاء</h1>
+        <i class="fas fa-hand-holding-heart text-primary mr-2 mt-2 " style="font-size: 30px;"></i>
+      </div>
+    <h5 style="line-height: 160%" class="text-muted">عمل شفاء لتوفير المعلومات الطبية والصحية الموثوقة والشاملة للقارئ العربي أينما كان، وتؤمن بحق الجميع في المعرفة والوصول إلى المعلومات الطبية بيسر وسهولة . .</h5>
+      </div>
+    <div class="col-md-4 text-muted">
+      <h1 class="text-primary">تواصل معنا</h1>
+      <h3 class="mb-2"><i class="fas fa-map-marker-alt ml-3 text-muted" style="font-size: 22px"></i>العنوان</h3>
+      <h6 class="mb-2">1 محمود سلامة، كوم الدكة غرب، العطارين، الإسكندرية</h6>
+      <h3 class="mb-2"> <i class="fas fa-phone ml-3 text-muted" style="font-size: 22px"></i>رقم الهاتف</h3>
+      <h6 class="mb-2"> 001-000-000-000</h6>
+      <h3 class="mb-2"><i class="fas fa-envelope ml-3 text-muted" style="font-size: 22px"></i>الإيميل </h3>
+      <a href="#"><h6> Shefaa@gmail.com</h6></a>
+    </div>
+    <div class="col-md-4 flex-column">
+      <h1 class="text-primary pb-2">الوصول السريع</h1>
+      <a href="/map" style="text-decoration: none"><h4 class="text-muted mb-3 ">خريطة المويع</h4></a>
+      <a href="/doctors" style="text-decoration: none"><h4 class="text-muted mb-3 ">البحث عن طبيب</h4></a>
+      <a href="/#contact_us" style="text-decoration: none"><h4 class="text-muted mb-3 ">ارسال رسالة لشفاء</h4></a>
+      <a href="#top_rated_doctors" style="text-decoration: none"><h4 class="text-muted mb-3 ">أشهر الأطباء في الموقع</h4></a>
+    </div>
+  </div>
 </div>
+</footer>
+<div class="d-flex justify-content-center align-items-center bg-primary py-2 text-white">
+  <h6>Copyright by Ghosts 2020 ©</h6>
+</div>
+
+{{-- <div class="d-flex justify-content-center align-items-center shefa_brand">
+  <i class="fas fa-hand-holding-heart ml-2" style="font-size: 30px;"></i>
+  <h1 style="font-family: 'Aref Ruqaa', serif;">شفاء</h1>
+</div> --}}
 
 
 <script>
+
   let box = document.getElementById('box');
 
   let eye = document.getElementById("eye");
@@ -1013,7 +1021,7 @@
   });
 
 
-  // colors_option 
+  // colors_option
 
   $("#colors_div i").click(function() {
     $("#colors_option").toggle();

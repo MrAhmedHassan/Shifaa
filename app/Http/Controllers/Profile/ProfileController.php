@@ -12,15 +12,20 @@ use Spatie\Permission\Models\Role;
 class   ProfileController extends Controller
 {
 
-    public function __construct()
-
-    {
-        $this->middleware(['auth', 'verified']);
-    }
+//    public function __construct()
+//
+//    {
+//        $this->middleware(['auth', 'verified']);
+//    }
 
     public function addRate(Request $request)
 
     {
+        if(auth()->user()){
+            dd('auth');
+        }else{
+            dd('not auth');
+        }
         $newRating = request()->input('rate');
 
         if ($newRating > 5) {
@@ -70,15 +75,17 @@ class   ProfileController extends Controller
         }
     }
 
+
     public function showAnotherProfile($profile)
     {
         $user = User::find($profile);
+
         if ($user->hasRole('Admin')) {
         } else if ($user->hasRole('Doctor')) {
             return view('profile/doctor/show', ['user' => $user]);
+        }else{
         }
     }
-
 
 
     public function edit($profile)
@@ -95,15 +102,8 @@ class   ProfileController extends Controller
     {
         if (auth()->user()->id == $profile) {
             $user = User::find($profile);
-            //            $mypro = $user->profile->id;
-            //            $myProfile = Profile::find($mypro);
-            // dd($myProfile);
-            // dd(request()->input('address'));
             $user->name = request()->input('name');
             $user->email = request()->input('email');
-            //            $myProfile ->abstract = request()->input('abstract');
-            //            $myProfile -> address = request()->input('address');
-            //            $myProfile -> price = request()->input('price');
 
             if (request()->has('avatar')) {
                 $avatarUploaded = \request()->file('avatar');
