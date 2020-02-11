@@ -424,27 +424,12 @@
 </div>
 
 
+
+<!-- start -->
 {{-- Fourth Section "most_diseases" --}}
 <div class="container" id="most_diseases">
-  <div class="row">
-    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5">
-      <h2 class="mydiv_content"> أمراض العصر</h2>
-      <hr class="myline_small">
-      <hr class="myline_big">
-      <hr class="myline_small">
-    </div>
-  </div>
-</div>
-
-<div class="most_diseases container my-4">
-
-  <!--Carousel Wrapper-->
-  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-    <!--Controls-->
-    <div class="controls-top d-flex justify-content-center align-items-center">
-      <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-circle-right mb-4" style="font-size: 2.5rem"></i></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fas fa-chevron-circle-left mb-4" style="font-size: 2.5rem"></i></a>
+    <div class="row">
+      <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content"> أمراض العصر</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
     </div>
   </div>
 
@@ -474,42 +459,53 @@
 
 
         <div class="carousel-item active">
-
-          <div class="row">
-          @for($i=0 ; 3 > $i  ;$i++)
-            <div class="col-md-4">
-              <div class="card mb-2">
-                <img class="card-img-top" src="{{$trends[$i]->avatar}}"
-                  alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">{{$trends[$i]->title}}</h4>
-                  <p class="card-text">{{$trends[$i]->description}}</p>
-                    <a class="btn btn-primary">اعرف المزيد</a>
-                  </div>
-              </div>
-            </div>
-            @endfor
-
-          </div>
-
         <div class="row">
-          @for($i=0 ;$i < 3 ;$i++)
-          <div class="col-md-4">
-            <div class="card mb-2">
-              <img class="card-img-top" src="{{$trends[$i]->avatar}}" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">{{$trends[$i]->title}}</h4>
+            @if(count($trends) < 1)
 
-                <a href="/trends/{{$trends[$i]->id}}">
+            <h1>There is no article now</h1>
+
+                @elseif(count($trends) <= 3 )
+
+                @for($i=0 ; count($trends) > $i  ;$i++)
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 240px" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">{{$trends[$i]->title}}</h4>
+                                <a href="/trends/{{$trends[$i]->id}}">
                   <p class="card-text text-dark">{{ substr(strip_tags($trends[$i]->description), 0, 200) }}
                     {{ strlen(strip_tags($trends[$i]->description)) > 100 ? "...اقرأ المزيد..." : "" }}
                   </p>
                 </a>
+                            </div>
+                        </div>
+                    </div>
+                @endfor
 
-              </div>
-            </div>
-          </div>
-          @endfor
+                @elseif(count($trends) > 3)
+
+                @for($i=0 ; count($trends) > $i  ;$i++)
+                    @if($i == 3)
+                        @break
+                    @endif
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 240px" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">{{$trends[$i]->title}}</h4>
+                                <a href="/trends/{{$trends[$i]->id}}">
+                  <p class="card-text text-dark">{{ substr(strip_tags($trends[$i]->description), 0, 200) }}
+                    {{ strlen(strip_tags($trends[$i]->description)) > 100 ? "...اقرأ المزيد..." : "" }}
+                  </p>
+                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                @endfor
+
+            @endif
+
 
         </div>
         <!--/.Second slide-->
@@ -522,19 +518,20 @@
       <div class="carousel-item">
 
         <div class="row">
-          @for($i=3; $i < count($trends); $i++)
-          <div class="col-md-4 clearfix d-none d-md-block">
+        @for($i=3 ; count($trends) > $i  ;$i++)
+                @if($i == 6)
+                    @break
+                @endif
+          <div class="col-md-4 clearfix d-sm-block">
             <div class="card mb-2">
-              <img class="card-img-top" src="{{$trends[$i]->avatar}}" alt="Card image cap">
+              <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 240px" alt="Card image cap">
               <div class="card-body">
-                <h4 class="card-text"> {{$trends[$i]->title}}</h4>
-
+                <h4 class="card-title"> {{$trends[$i]->title}}</h4>
                 <a href="/trends/{{$trends[$i]->id}}">
                   <p class="card-text text-dark">{{ substr(strip_tags($trends[$i]->description), 0, 200) }}
                     {{ strlen(strip_tags($trends[$i]->description)) > 100 ? "...اقرأ المزيد..." : "" }}
                   </p>
                 </a>
-
               </div>
             </div>
           </div>
@@ -543,8 +540,14 @@
         </div>
 
       </div>
+        @endif
+      <!--/.Second slide-->
+
+
     </div>
     <!--/.Carousel Wrapper-->
+  </div>
+
   </div>
 
 
