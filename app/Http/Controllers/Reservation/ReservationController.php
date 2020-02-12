@@ -43,12 +43,12 @@ class ReservationController extends Controller
 
             $checkLimit = Reservation::where('reveal_id', $reveal)->count();
             if ($checkLimit < $limit) {
-                Reservation::create([
+              $reservation =   Reservation::create([
                     'patient_id' => auth()->user()->id,
                     'reveal_id' => $reveal,
                     'doctor_id' => $doctor
                 ]);
-                return response()->json(['message'=>'نجح الحجز']);
+                return response()->json(['message'=>"تم الحجز ورقم حجز حضرتكم هو ($reservation->id)"]);
                 // return redirect("profiles/$doctor");
             } else {
                 return response()->json(['message'=>'الحجز ممتلئ ..يرجي الحجز في ميعاد اخر']);

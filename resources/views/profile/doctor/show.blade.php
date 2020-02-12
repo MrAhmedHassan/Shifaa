@@ -110,7 +110,7 @@
                             </td>
 
                             <td>
-                                    <button  class="btn btn-success" onclick="btnAjax('/reservations/{{$reveal->id}}/{{$user->id}}');" >احجز</button>
+                                    <button  id ="{{$reveals[$i]->id}}" class="btn btn-success" onclick="btnAjax('/reservations/{{$reveal->id}}/{{$user->id}}',{{$reveals[$i]->id}});" >احجز</button>
                             </td>
                         </tr>
                     @endforeach
@@ -127,7 +127,7 @@
 
                             </td>
                             <td>
-                                    <button class="btn btn-success" onclick="btnAjax('/reservations/{{$reveals[$i]->id}}/{{$user->id}}');" >احجز</button>
+                                    <button id ="{{$reveals[$i]->id}}" class="btn btn-success" onclick="btnAjax('/reservations/{{$reveals[$i]->id}}/{{$user->id}}',{{$reveals[$i]->id}});" >احجز</button>
                             </td>
                         </tr>
                     @endfor
@@ -183,7 +183,9 @@ var star1= document.getElementById("star1");
 </script>
 
 <script  >
-    function btnAjax(url){
+    function btnAjax(url,id){
+       let btn = document.getElementById(id).disabled = true;
+
         $.ajax({
             headers: {
 

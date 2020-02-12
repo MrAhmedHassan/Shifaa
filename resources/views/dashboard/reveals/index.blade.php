@@ -21,7 +21,9 @@
                     <div class="wrap">
                         <table class="table table-bordered">
                             <tr>
-                                <td>#</td>
+                                @role('Admin')
+                                <td>الطبيب</td>
+                                @endrole
                                 <td>اليوم</td>
                                 <td>من</td>
                                 <td>إلى </td>
@@ -31,7 +33,9 @@
 
                             @foreach($reveals as $value)
                             <tr class="text-center">
-                                <td>{{$value->id}}</td>
+                                @role('Admin')
+                                <td>{{$value->doctor->name}}</td>
+                                @endrole
                                 <td>{{ date('d/m D', strtotime($value->date)) }}</td>
                                 <td>{{$value->start}}</td>
                                 <td>{{$value->end}}</td>

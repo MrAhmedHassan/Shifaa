@@ -90,7 +90,9 @@
                         <span class="glyphicon glyphicon-user"></span>
                         <a href="options.html">إدارة المساعدين</a>
                         <ul class="drop_main_menu">
+                            @role('Doctor')
                             <li><a href="/assistants/create">إضافة مساعد جديد</a></li>
+                            @endrole
                             <li><a href="/assistants">عرض الكل</a></li>
                         </ul>
                     </li>
