@@ -27,7 +27,7 @@ Auth::routes(['verify'=>true]);
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'Home\HomeController@topRated');
+Route::get('/', 'Home\HomeController@topRated')->name('home.index');
 //-----------------------------------------------------------------------
 //test
 Route::get('/tests/{test}', 'Personal\PersonalController@show');
@@ -69,7 +69,7 @@ Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('
 Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show')->middleware(['role:Doctor', 'auth']);
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit')->middleware(['role:Doctor', 'auth']);
 Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update')->middleware(['role:Doctor', 'auth']);
-Route::get('/profiles/{profile}', 'Profile\ProfileController@showAnotherProfile');
+Route::get('/profiles/{profile}', 'Profile\ProfileController@showAnotherProfile')->name('profiles.another');
 Route::post('/rate', 'Profile\ProfileController@addRate')->name('profiles.addRate')->middleware(['auth']);
 
 //-----------------------------------

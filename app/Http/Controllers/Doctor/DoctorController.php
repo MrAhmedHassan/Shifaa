@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
     public function index(){
          $doctors = User::role('Doctor')->where('approve','<>', null)->paginate(20);
+        
         return view('doctors/index',['doctors'=>$doctors]);
     }
 

@@ -22,7 +22,7 @@ class HomeController extends Controller
             ->get();
 
 
-
+//return redirect()->route('home.index',['topDoctors'=> $topDoctors , 'trends'=>$trends ]);
   return view('/home/index',['topDoctors'=> $topDoctors , 'trends'=>$trends ]);
 
     }

@@ -1548,7 +1548,7 @@ body {
 .liCanvas:hover {
     text-decoration: none;
     color: rgb(205, 50, 135);
-}   
+}
 
 }
 
@@ -1567,4 +1567,9 @@ body {
 {
     font-size: 30px;
     text-shadow: 1px 1px 1px #000000;
+}
+
+.aboutCanvas a
+{
+    text-decoration: none;
 }

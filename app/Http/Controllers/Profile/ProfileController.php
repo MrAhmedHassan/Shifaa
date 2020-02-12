@@ -21,11 +21,7 @@ class   ProfileController extends Controller
     public function addRate(Request $request)
 
     {
-        if(auth()->user()){
-            dd('auth');
-        }else{
-            dd('not auth');
-        }
+
         $newRating = request()->input('rate');
 
         if ($newRating > 5) {
