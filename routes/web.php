@@ -25,9 +25,10 @@ use App\Rating;
 
 Auth::routes(['verify'=>true]);
 
+
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'Home\HomeController@topRated')->name('home.index');
+Route::get('/', 'Home\HomeController@topRated')->name('home.index')->middleware(['verified']);
 //-----------------------------------------------------------------------
 //test
 Route::get('/tests/{test}', 'Personal\PersonalController@show');
@@ -63,7 +64,7 @@ Route::post('/comments/store/{article_id}', 'Comment\CommentController@store')->
 Route::get('/comments/{comment}/edit', 'Comment\CommentController@edit')->name('comments.edit');
 Route::put('/comments/{comment}', 'Comment\CommentController@update');
 Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('comment.destroy');
-    
+
 //--------------------------------------------------------
 // profile
 Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show')->middleware(['role:Doctor', 'auth']);
