@@ -35,7 +35,7 @@ class   ProfileController extends Controller
             ['user_id', auth()->user()->id],
             ['rateable_id', $request->id],
             ['rateable_type', 'App\User']
-        ])->first(););
+        ])->first();
 
        if($rating){
         $rating->rating = $newRating;
