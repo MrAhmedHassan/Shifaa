@@ -3,18 +3,19 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use willvincent\Rateable\Rateable;
 
-class User extends Authenticatable implements MustVerifyEmail
-// class User extends Authenticatable
+//class User extends Authenticatable implements MustVerifyEmail
+ class User extends Authenticatable
 {
     use Rateable;
     use Notifiable;
     use HasRoles;
-
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -23,7 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name', 'email', 'password', 'avatar',
         'DoctorCertificate', 'category_id',
-        'doctor_id_assistant', 'average_rate'
+        'doctor_id_assistant', 'average_rate','approve'
     ];
 
     protected $hidden = [

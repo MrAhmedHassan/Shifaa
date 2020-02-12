@@ -12,15 +12,16 @@ use Spatie\Permission\Models\Role;
 class   ProfileController extends Controller
 {
 
-    public function __construct()
-
-    {
-        $this->middleware(['auth', 'verified']);
-    }
+//    public function __construct()
+//
+//    {
+//        $this->middleware(['auth', 'verified']);
+//    }
 
     public function addRate(Request $request)
 
     {
+
         $newRating = request()->input('rate');
 
         if ($newRating > 5) {
@@ -36,22 +37,12 @@ class   ProfileController extends Controller
             ['rateable_type', 'App\User']
         ])->first();
 
-       // $avg = Rating::select("rating")->where('rateable_id',$request->id)->avg('rating');
-       // if($avg=='')
-       // {
-          //  $avg=0;
-        //}
-
-       // $count= Rating::select("rating")->where('rateable_id',$request->id)->count();
-
        if($rating){
         $rating->rating = $newRating;
-       // $rating->average = (($post->averageRating)+ $newRating)/($count+1);
-//           dd($post->ratings);
+
         $user->ratings()->save($rating);
         $user->average_rate = $user->averageRating;
         $user->save();
-//           dd( $user->averageRating);
 
            return redirect()->route('profiles.another', $request->id);
       }else{
@@ -59,7 +50,6 @@ class   ProfileController extends Controller
         $user = User::find($request->id);
         $rating = new \willvincent\Rateable\Rating;
         $rating->rating = $request->rate;
-       // $rating->average = (($post->averageRating)+$newRating)/($count+1);
         $rating->user_id = auth()->user()->id;
         $user->ratings()->save($rating);
         $user->average_rate = $user->averageRating;
@@ -81,12 +71,15 @@ class   ProfileController extends Controller
         }
     }
 
+
     public function showAnotherProfile($profile)
     {
         $user = User::find($profile);
+
         if ($user->hasRole('Admin')) {
         } else if ($user->hasRole('Doctor')) {
             return view('profile/doctor/show', ['user' => $user]);
+        }else{
         }
     }
 
@@ -105,15 +98,8 @@ class   ProfileController extends Controller
     {
         if (auth()->user()->id == $profile) {
             $user = User::find($profile);
-            //            $mypro = $user->profile->id;
-            //            $myProfile = Profile::find($mypro);
-            // dd($myProfile);
-            // dd(request()->input('address'));
             $user->name = request()->input('name');
             $user->email = request()->input('email');
-            //            $myProfile ->abstract = request()->input('abstract');
-            //            $myProfile -> address = request()->input('address');
-            //            $myProfile -> price = request()->input('price');
 
             if (request()->has('avatar')) {
                 $avatarUploaded = \request()->file('avatar');

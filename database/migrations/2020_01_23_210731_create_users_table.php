@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('average_rate')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+            $table->string('approve')->nullable();
             $table->unsignedBigInteger('doctor_id_assistant')->nullable()->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('doctor_id_assistant')->references('id')->on('users');
             $table->BigInteger('category_id')->unsigned()->nullable();

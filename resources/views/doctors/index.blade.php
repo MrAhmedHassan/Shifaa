@@ -98,6 +98,8 @@
     </div>
 
 </div>
+{{ $doctors->links() }}
+
 
 <script type="text/javascript">
 

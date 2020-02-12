@@ -821,6 +821,12 @@ svg, defs, clipPath {
     clip-path: url(#A7);
 }
 
+.body_hover area
+{
+    cursor: pointer;
+}
+
+
 .body_hover .box {
     position: relative;
     width: 100%;
@@ -1550,7 +1556,7 @@ body {
 .liCanvas:hover {
     text-decoration: none;
     color: rgb(205, 50, 135);
-}   
+}
 
 }
 
@@ -1569,4 +1575,9 @@ body {
 {
     font-size: 30px;
     text-shadow: 1px 1px 1px #000000;
+}
+
+.aboutCanvas a
+{
+    text-decoration: none;
 }

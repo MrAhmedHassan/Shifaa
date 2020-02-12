@@ -86,250 +86,15 @@
       </div>
     </div>
   </div>
-  {{-- </div> --}}
-</div>
 
 
 
 {{-- Second Section "top_rated_doctors" --}}
 
 
-
-
-{{--<div class="top_rated_doctors container" >--}}
-{{--<div class="row">--}}
-{{--  <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content">أشهر الاطباء</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>--}}
-
-{{--  @if(count($topRated)<1)--}}
-{{--  <div class="col-md-3">--}}
-{{--    <div class="item-doctor ">--}}
-{{--      <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_3.PNG') }}">--}}
-{{--      <div class="doctor-layer1 d-flex justify-content-center align-items-center flex-column">--}}
-{{--        <h4>لم يحدد </h4>--}}
-{{--        <p> لم يحدد </p>--}}
-{{--        </div>--}}
-
-{{--        <div class="doctor-layer2" >--}}
-{{--        <h4> لم يحدد  </h4>--}}
-{{--        <p>  لم يحدد  </p> <a href="*" >اعرف المزيد</a>--}}
-{{--          </div>--}}
-{{--      </div>--}}
-{{--    </div>  --}}
-{{--    @else--}}
-{{--    @php--}}
-{{--    $arrid5=[];--}}
-{{--    $arravatar5=[];--}}
-{{--    $arrname5=[];--}}
-{{--    $arrcategory5=[];--}}
-
-
-{{--    foreach($topRated as $topRate)--}}
-{{--    {--}}
-{{--        if($topRate->averageRating==5)--}}
-{{--        {--}}
-{{--            $arrid5[]=$topRate->id;--}}
-{{--            $arrname5[]=$topRate->name;--}}
-{{--            $arravatar5[]=$topRate->avatar;--}}
-{{--            $arrcategory5[]=$topRate->category->category;--}}
-{{--        }--}}
-{{--    }--}}
-
-{{--   if(count($arrid5)==1 )--}}
-{{--   {--}}
-{{--       for($i=0;$i<1;$i++)--}}
-{{--       {--}}
-{{--           echo "--}}
-
-
-{{--           <div class='col-md-3'>--}}
-{{--    <div class='item-doctor' >--}}
-{{--      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>--}}
-{{--      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>--}}
-{{--        <h4> $arrname5[$i] </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--        </div>--}}
-
-{{--        <div class='doctor-layer2' >--}}
-{{--        <h4> $arrname5[$i]  </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--     <br> <a href='profiles/$arrid5[$i]' >اعرف المزيد</a>--}}
-{{--          </div>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-
-
-
-{{--           ";--}}
-{{--       }--}}
-{{--   }else if(count($arrid5)==2)--}}
-{{--   {--}}
-{{--       for($i=0;$i<2;$i++)--}}
-{{--       {--}}
-{{--           echo "--}}
-
-
-{{--           <div class='col-md-3'>--}}
-{{--    <div class='item-doctor' >--}}
-{{--      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>--}}
-{{--      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>--}}
-{{--        <h4> $arrname5[$i] </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--        </div>--}}
-
-{{--        <div class='doctor-layer2' >--}}
-{{--        <h4> $arrname5[$i]  </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>--}}
-{{--          </div>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-
-
-
-{{--           ";--}}
-{{--       }--}}
-{{--   }else if(count($arrid5)==3 )--}}
-{{--   {--}}
-{{--       for($i=0;$i<3;$i++)--}}
-{{--       {--}}
-{{--           echo "--}}
-
-
-{{--           <div class='col-md-3'>--}}
-{{--    <div class='item-doctor' >--}}
-{{--      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>--}}
-{{--      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>--}}
-{{--        <h4> $arrname5[$i] </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--        </div>--}}
-
-{{--        <div class='doctor-layer2' >--}}
-{{--        <h4> $arrname5[$i]  </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>--}}
-{{--          </div>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-
-
-
-{{--           ";--}}
-{{--       }--}}
-{{--   }else if(count($arrid5)==4)--}}
-{{--   {--}}
-{{--       for($i=0;$i<4;$i++)--}}
-{{--       {--}}
-{{--           echo "--}}
-
-
-{{--           <div class='col-md-3'>--}}
-{{--    <div class='item-doctor' >--}}
-{{--      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>--}}
-{{--      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>--}}
-{{--        <h4> $arrname5[$i] </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--        </div>--}}
-
-{{--        <div class='doctor-layer2' >--}}
-{{--        <h4> $arrname5[$i]  </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>--}}
-{{--          </div>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-
-
-
-{{--           ";--}}
-{{--       }--}}
-{{--   }else if(count($arrid5)==5 )--}}
-{{--   {--}}
-{{--       for($i=0;$i<5;$i++)--}}
-{{--       {--}}
-{{--           echo "--}}
-
-
-{{--           <div class='col-md-3'>--}}
-{{--    <div class='item-doctor' >--}}
-{{--      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>--}}
-{{--      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>--}}
-{{--        <h4> $arrname5[$i] </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--        </div>--}}
-
-{{--        <div class='doctor-layer2' >--}}
-{{--        <h4> $arrname5[$i]  </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>--}}
-{{--          </div>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-
-
-
-{{--           ";--}}
-{{--       }--}}
-{{--   }else if(count($arrid5)>5)--}}
-{{--   {--}}
-{{--       for($i=0;$i<5;$i++)--}}
-{{--       {--}}
-{{--           echo "--}}
-
-
-{{--           <div class='col-md-3'>--}}
-{{--    <div class='item-doctor' >--}}
-{{--      <img class='img-fluid 'w-100 style='height: 275px' src=' $arravatar5[$i]'>--}}
-{{--      <div class='doctor-layer1 d-flex justify-content-center align-items-center flex-column'>--}}
-{{--        <h4> $arrname5[$i] </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--        </div>--}}
-
-{{--        <div class='doctor-layer2' >--}}
-{{--        <h4> $arrname5[$i]  </h4>--}}
-{{--        $arrcategory5[$i]--}}
-{{--     <br> <a href='profiles/ $arrid5[$i]' >اعرف المزيد</a>--}}
-{{--          </div>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-
-
-
-{{--           ";--}}
-{{--       }--}}
-{{--   }--}}
-{{--    @endphp--}}
-
-{{--    @endif--}}
-
-
-
-
-
-
-
-{{--  </div>--}}
-{{--</div>--}}
-
-
-
 <div class="top_rated_doctors container">
     <div class="row">
      <div  class="col-md-12 d-flex flex-column justify-content-center align-items-center mb-5"><h2 class="mydiv_content">أشهر الاطباء</h2><hr class="myline_small"><hr class="myline_big"><hr class="myline_small"></div>
-
-{{--        <div class="col-md-3">--}}
-{{--            <div class="item-doctor ">--}}
-{{--                <img class="img-fluid w-100" src="{{ asset('/imgs/doctor_4.PNG') }}">--}}
-{{--                <div class="doctor-layer1">--}}
-{{--                    <h4>احمد النجم</h4>--}}
-{{--                    <p>دكتور باطنة</p>--}}
-{{--                </div>--}}
-
-{{--                <div class="doctor-layer2" >--}}
-{{--                    <h4> عن د. احمد النجم</h4>--}}
-{{--                    <p>إستشاري الباطنة والسكر والروماتيزم كلية الطب جامعة الإسكندرية</p> <a href="*" >اعرف المزيد</a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
 
 @foreach($topDoctors as $topDoctor)
         <div class="col-md-3 col-sm-6">
@@ -490,13 +255,13 @@
         <div id="figura">
           <img style="opacity: .4;" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
           <map name="recortes">
-              <area id="eye" shape="poly" coords="120,37,190,37,190,45,120,45" href="#" alt="eye" title="العين">
-              <area id="nose" shape="poly" coords="120,45,188,45,188,85,120,85" href="" alt="nose" title="أنف,أذن,حنجرة">
-              <area id="head" shape="poly" coords="123,4,123,90,190,90,190,4" href="" alt="head" title="الرأس,العنق">
-              <area id="chest" shape="poly" coords="104,93,107,151,133,151,158,140,179,151,210,151,213,93,179,86,159,90,141,86" href="" title="الصدر">
-              <area id="arms" shape="poly" coords="100,94,100,152,50,295,25,310,18,282,88,94,100,94,212,94,216,152,258,295,281,310,292,295,232,94,212,94" href="" title="الأذرع">
-              <area id="bely" shape="poly" coords="100,152,112,187,112,187,112,236,158,297,205,236,205,187,216,152,182,152,158,142,135,152" href="" title="البطن,الحوض">
-              <area id="legs" shape="poly" coords="101,297,78,512,110,512,158,297,208,512,238,512,216,297" href="" alt="legs" title="الأرجل">
+              <area id="eye" shape="poly" coords="120,37,190,37,190,45,120,45" alt="eye" title="العين">
+              <area id="nose" shape="poly" coords="120,45,188,45,188,85,120,85"  alt="nose" title="أنف,أذن,حنجرة">
+              <area id="head" shape="poly" coords="123,4,123,90,190,90,190,4"  alt="head" title="الرأس,العنق">
+              <area id="chest" shape="poly" coords="104,93,107,151,133,151,158,140,179,151,210,151,213,93,179,86,159,90,141,86"  title="الصدر">
+              <area id="arms" shape="poly" coords="100,94,100,152,50,295,25,310,18,282,88,94,100,94,212,94,216,152,258,295,281,310,292,295,232,94,212,94"  title="الأذرع">
+              <area id="bely" shape="poly" coords="100,152,112,187,112,187,112,236,158,297,205,236,205,187,216,152,182,152,158,142,135,152"  title="البطن,الحوض">
+              <area id="legs" shape="poly" coords="101,297,78,512,110,512,158,297,208,512,238,512,216,297"  alt="legs" title="الأرجل">
               <img id="capaRecorte" src="{{ asset('/imgs/snipMan.PNG') }}" alt="body">
           </map>
           <img src="https://lh3.googleusercontent.com/-HqFCpcmlv1U/VjZqE6e7u0I/AAAAAAAAGao/hIQohrsu0xI/s800-Ic42/transparente.gif" id="imagen" usemap="#recortes">

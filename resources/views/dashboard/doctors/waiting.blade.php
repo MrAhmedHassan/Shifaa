@@ -34,6 +34,8 @@
                                 <td>{{$value->name}}</td>
                                 <td>{{$value->email}}</td>
                                 <td>
+                                    <a href="dashboardDoctors/{{$value->id}}"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
+                                                                                      data-placement="top" title="فحص"></button></a>
 
                                     <form action="/doctors/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}
