@@ -115,10 +115,8 @@ Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');
 //----------------------------------------------------------------------------------
 // Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
-//----------------------------------------------------------------------------
+Route::get('/dashboard', 'Dashboard\DashboardController@index');
+
 //trends
 Route::get('/trends', 'Trend\TrendController@index')->middleware(['role:Admin','auth']);
 Route::get('/trends/create',function(){return view('dashboard.trends.create');})->middleware(['role:Admin','auth']);
