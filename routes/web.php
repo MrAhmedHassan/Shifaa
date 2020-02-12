@@ -41,10 +41,28 @@ Route::delete('/contacts/{id}', 'Contact\ContactController@destroy');
 //human body
 Route::get('/bodies', 'Body\BodyController@index')->name('body.index');
 Route::get('/bodies/{body}', 'Body\BodyController@show')->name('body.show');
+<<<<<<< HEAD
+// Route::get('/articles/{id}', 'Article\ArticleController@show')->name('articles.show');
+
+//get the user data with their articles
+// Route::get('/diseases', 'Disease\DiseaseController@index')->name('diseases.index');
+Route::get('/diseases/{disease}', 'Disease\DiseaseController@show')->name('diseases.show');
+
+// test route
+// Route::get('/cat', 'Category\CategoryController@index');
+// test route cat with article
+// Route::get('/cat', 'Category\CategoryController@index');
+// test route user with comment
+// Route::get('/user', 'Comment\CommentController@index');
+
+Route::get('/prof', 'Profile\ProfileController@index');
+
+=======
 //--------------------------------------------------------------------------
 //diseases
 Route::get('/diseases/{disease}', 'Disease\DiseaseController@show')->name('diseases.show');
 //-----------------------------------------------------------------------------
+>>>>>>> 53a3a81ba03ffd647359b54c0e4db9a8b762a336
 // articles
 Route::group(['namespace' => 'Article'], function () {
     // Controllers Within The "App\Http\Controllers\Article" Namespace
@@ -64,8 +82,13 @@ Route::post('/comments/store/{article_id}', 'Comment\CommentController@store')->
 Route::get('/comments/{comment}/edit', 'Comment\CommentController@edit')->name('comments.edit');
 Route::put('/comments/{comment}', 'Comment\CommentController@update');
 Route::delete('/comment/{comment}', 'Comment\CommentController@destroy')->name('comment.destroy');
+<<<<<<< HEAD
+    
+//--------------------------------------------------------
+=======
 //----------------------------------------------------------------------------------
 //profile
+>>>>>>> 53a3a81ba03ffd647359b54c0e4db9a8b762a336
 Route::get('/profiles', 'Profile\ProfileController@showMyProfile')->name('profiles.show')->middleware(['role:Doctor', 'auth']);
 Route::get('/profiles/{profile}/edit', 'Profile\ProfileController@edit')->name('profiles.edit')->middleware(['role:Doctor', 'auth']);
 Route::put('/profiles/{profile}', 'Profile\ProfileController@update')->name('profiles.update')->middleware(['role:Doctor', 'auth']);
