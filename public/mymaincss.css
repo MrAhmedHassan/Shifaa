@@ -33,11 +33,13 @@ p
 }
 
 /* in app.blade.php */
-#nav_register{
+#nav_register
+{
     color:#0065e1;
 }
 
-#nav_register:hover{
+#nav_register:hover
+{
     color:#03326b
 }
 

@@ -339,7 +339,7 @@
                     <div class="col-md-4">
                         <div class="card mb-2">
                             <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 240px" alt="Card image cap">
-                            <div class="card-body">
+                            <div class="card-body text-right">
                                 <h4 class="card-title">{{$trends[$i]->title}}</h4>
                                 <a href="/trends/{{$trends[$i]->id}}">
                   <p class="card-text text-dark">{{ substr(strip_tags($trends[$i]->description), 0, 200) }}
@@ -373,7 +373,7 @@
           <div class="col-md-4 clearfix d-sm-block">
             <div class="card mb-2">
               <img class="card-img-top" src="{{$trends[$i]->avatar}}" style="height: 240px" alt="Card image cap">
-              <div class="card-body">
+              <div class="card-body text-right">
                 <h4 class="card-title"> {{$trends[$i]->title}}</h4>
                 <a href="/trends/{{$trends[$i]->id}}">
                   <p class="card-text text-dark">{{ substr(strip_tags($trends[$i]->description), 0, 200) }}
