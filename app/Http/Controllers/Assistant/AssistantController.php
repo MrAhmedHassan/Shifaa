@@ -18,7 +18,7 @@ class AssistantController extends Controller
                 $assistants = User::role('Assistant')->paginate(4);
                 return view('/dashboard/assistants/index')->with('assistants',$assistants);
                 }
-            
+
         elseif($user->hasRole('Doctor')) {
             $assistants = auth()->user()->with('assistants')->where('doctor_id_assistant',auth()->user()->id )->paginate(4);
             return view('/dashboard/assistants/index')->with('assistants',$assistants);
@@ -33,6 +33,13 @@ class AssistantController extends Controller
 
     public function store(Request $request)
     {
+        request()->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+            'avatar' => ['mimes:jpeg,jpg,png','max:2000'],
+        ]);
+
         $avatarName = 'default.jpg';
         if (request()->has('avatar')) {
             $avatarUploaded = \request()->file('avatar');

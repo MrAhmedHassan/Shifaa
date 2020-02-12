@@ -79,7 +79,7 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right mt-3" style="font-family: 'cairo', sans-serif;font-weight: 900">الصورة الشخصية</label>
                             <div class="col-md-6">
-                                <input id="avatar" type="file" name="avatar"  class="mt-3 form-control @error('password') is-invalid @enderror"><br>
+                                <input id="avatar" type="file" name="avatar"  class="mt-3 form-control @error('avatar') is-invalid @enderror"><br>
 
                                 @error('avatar')
                                 <span class="invalid-feedback" role="alert">
