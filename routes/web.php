@@ -118,7 +118,7 @@ Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDe
 Route::get('/dashboard', 'Dashboard\DashboardController@index');
 
 //trends
-Route::get('/trends', 'Trend\TrendController@index')->middleware(['role:Admin','auth']);
+Route::get('/trends/all', 'Trend\TrendController@index')->middleware(['role:Admin','auth']);
 Route::get('/trends/create',function(){return view('dashboard.trends.create');})->middleware(['role:Admin','auth']);
 Route::post('/trends/store', 'Trend\TrendController@store')->name('trends.store')->middleware(['role:Admin','auth']);
 Route::delete('/trends/{trend}', 'Trend\TrendController@destroy')->name('trends.delete')->middleware(['role:Admin','auth']);
