@@ -4,7 +4,7 @@
     <!-- waiting yehia to see these fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cairo|Tajawal&display=swap" rel="stylesheet">
 
-    <div class="container bootstrap snippet mt-5">
+    <div class="container bootstrap snippet " style="margin-top: 80px">
         <h1 class="text-dark" style="font-family: 'Cairo', sans-serif;">
             <span class="glyphicon glyphicon-user"></span>اكمل ملفك الشخصي</h1>
         <hr>

@@ -11,7 +11,7 @@
                     </div>
                     <ul class="list-group p-0" id="departUL">
                         <div class="mb-2" onclick="forAll('departUL')" onmouseover="this.style.cursor = 'pointer'">
-                            <li class="list-group-item list-group-item-dark" id="allDepartments">الكل</li>
+                            <li class="list-group-item list-group-item-dark" id="allDepartments">كل الأطباء</li>
                         </div>
                         <div class="mb-2" onclick="forDep('Gldia')" onmouseover="this.style.cursor = 'pointer'">
                             <li class="list-group-item list-group-item-dark" id="Gldia">جلدية</li>

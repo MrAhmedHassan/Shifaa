@@ -800,11 +800,14 @@
 
   li_collection.on("click", function() {
     let li_color = $(this).css('backgroundColor');
+    localStorage.setItem('myseem',JSON.stringify(li_color))
     // $('html').css('backgroundColor',li_color);
     $(".navbar,#h_1,#h_2,#h_3,#h_4").css('backgroundColor', li_color);
     $(".carousel-caption h1,.mydiv_content").css('color', li_color);
   });
 
+    $(".navbar,#h_1,#h_2,#h_3,#h_4").css('backgroundColor', color_seem);
+    $(".carousel-caption h1,.mydiv_content").css('color', color_seem);
 
   // loading page
 
