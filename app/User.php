@@ -24,7 +24,7 @@ use willvincent\Rateable\Rateable;
     protected $fillable = [
         'name', 'email', 'password', 'avatar',
         'DoctorCertificate', 'category_id',
-        'doctor_id_assistant', 'average_rate'
+        'doctor_id_assistant', 'average_rate','approve'
     ];
 
     protected $hidden = [
