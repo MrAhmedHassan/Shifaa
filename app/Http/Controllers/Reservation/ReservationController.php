@@ -62,7 +62,6 @@ class ReservationController extends Controller
     public function softDelete($reveal)
     {
         $reservations = Reservation::where('reveal_id', $reveal)->get();
-        dd($reservations);
         foreach ($reservations as $reservation) {
             $reservation->delete();
         }
