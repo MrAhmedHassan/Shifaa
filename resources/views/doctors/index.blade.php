@@ -11,7 +11,7 @@
                     </div>
                     <ul class="list-group p-0" id="departUL">
                         <div class="mb-2" onclick="forAll('departUL')" onmouseover="this.style.cursor = 'pointer'">
-                            <li class="list-group-item list-group-item-dark" id="allDepartments">الكل</li>
+                            <li class="list-group-item list-group-item-dark" id="allDepartments">كل الأطباء</li>
                         </div>
                         <div class="mb-2" onclick="forDep('Gldia')" onmouseover="this.style.cursor = 'pointer'">
                             <li class="list-group-item list-group-item-dark" id="Gldia">جلدية</li>
@@ -29,7 +29,7 @@
                             <li class="list-group-item list-group-item-dark" id="teeth">أسنان</li>
                         </div>
                         <div class="mb-2" onclick="forDep('bons')" onmouseover="this.style.cursor = 'pointer'">
-                            <li class="list-group-item list-group-item-dark" id="bons">عظام</li>
+                            <li onclick="theActiveColor()" class="list-group-item list-group-item-dark" id="bons">عظام</li>
                         </div>
                         <div class="mb-2" onclick="forDep('heart')" onmouseover="this.style.cursor = 'pointer'">
                             <li class="list-group-item list-group-item-dark" id="heart"> قلب وأوعيه دموية</li>
@@ -102,7 +102,7 @@
 
 
 <script type="text/javascript">
-
+//beActive
 
 /****************************Search***************************/
 function forAllDoctors() {
@@ -123,7 +123,15 @@ function forAllDoctors() {
 /******************************Search By Side Bar*********************************/
 
 function forDep(type) {
+    let allLis = document.getElementsByClassName('list-group-item-dark');
+    for (let index = 0; index < allLis.length; index++) {
+        allLis[index].classList.remove('beActive');
+    }
     let searchDiv = document.getElementById(type).innerText;
+    let specificLi = document.getElementById(type);
+
+    specificLi.classList.add('beActive');
+
     let ul = document.getElementById('myUL');
     let li = ul.getElementsByClassName('allAboutDoctor');
     for( let c = 0; c < li.length; c++ ) {
@@ -141,14 +149,26 @@ function forDep(type) {
 
 function forAll(type) {
     let searchDiv = document.getElementById(type).innerText;
+    let allLis = document.getElementsByClassName('list-group-item-dark');
+    for (let index = 0; index < allLis.length; index++) {
+        allLis[index].classList.remove('beActive');
+    }
+    let x = document.getElementById('allDepartments');
+    x.classList.add('beActive');
+
+
     let ul = document.getElementById('myUL');
     let li = ul.getElementsByClassName('allAboutDoctor');
+
     for( let c = 0; c < li.length; c++ ) {
             li[c].style.display = "";
     }
 }
 
+function byEslam(type) {
 
+
+}
 
 
 

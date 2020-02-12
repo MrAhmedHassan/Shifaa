@@ -1098,7 +1098,9 @@ text-decoration: none;
 .theGoodDoctor {
     background-color: rgb(52, 105, 123);
 }
-
+.beActive {
+    background-color: rgb(237, 242, 247);
+}
 .theGoodDoctor aside ul div li:hover {
     background-color: rgb(237, 242, 247);
     color: black;
@@ -1204,7 +1206,7 @@ text-decoration: none;
 
 .blogs_show
 {
-margin-top: 20px ;
+margin-top: 60px  !important;
 }
 
 
