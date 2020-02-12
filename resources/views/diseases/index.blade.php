@@ -17,8 +17,8 @@
                         فريق شفاء يتمنى لك الشفاء العاجل وينصحك بزيارة طبيب مختص
                     </div>
                     <div class="row justify-content-center align-items-center">
-                    @foreach($diseases->category->users as $user);
-                    
+                    @foreach($doctors as $user);
+
                         <div class="col-md-3">
                             <div class="card-body my-3" style="background-color: rgba(0,0,0,.03)">
                                 <h5 class="card-title">   طبيب {{$user->name}} تخصص {{$user->category->category}}</h5>
@@ -27,8 +27,8 @@
                                 <a href="/profiles/{{$user->id}}" class="btn btn-primary">عرض البروفايل</a>
                             </div>
                         </div>
-                    
-                    
+
+
                     @endforeach
                 </div>
                 </div>

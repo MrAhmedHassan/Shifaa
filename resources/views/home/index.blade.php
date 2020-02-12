@@ -108,7 +108,7 @@
                 <div class="doctor-layer2 d-flex flex-column justify-content-center align-items-center" >
                     <h4> عن د. {{$topDoctor->name}}</h4>
                     <p>{{$topDoctor->profile->abstract}}</p>
-                    <a href="*" >اعرف المزيد</a>
+                    <a href="/profiles/{{$topDoctor->id}}" >اعرف المزيد</a>
                 </div>
             </div>
         </div>

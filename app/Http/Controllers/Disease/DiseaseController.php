@@ -24,6 +24,8 @@ class DiseaseController extends Controller
 
 
        $diseases = Disease::find($id);
-       return view('/diseases/index')->with('diseases',$diseases);
+       $category_id = $diseases->category->id;
+        $doctors = User::with('category')->where('category_id','=',$category_id)->where('approve','<>', null)->get();
+       return view('/diseases/index')->with(['diseases'=>$diseases,'doctors'=>$doctors]);
     }
 }

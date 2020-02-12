@@ -8,9 +8,12 @@
             <h3 class="text-danger mb-2">طبيب {{$article->user->name}}</h3>
             <h5 class="text-muted mb-5">{{$article->created_at}}</h5>
             <div class="blogs_show_img">
-                <img class="img-fluid" src="{{$article->avatar}}" alt="article img" style="height: 365px;width: 730px"></div>
-                <h4 class="pt-5" style="font-family: 'Amiri', serif;
-                ">{{$article->description}} </h4>
+                <img class="img-fluid" src="{{$article->avatar}}" alt="article img" style="height: 365px;width: 730px">
+            </div>
+                <h4 class="pt-5" style="font-family: 'Amiri', serif;">{{$article->description}}</h4>
+            
+
+
 
             <div class="row">
             <div class="col-md-12 " style="background-color: white">
