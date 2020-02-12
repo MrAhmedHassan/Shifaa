@@ -59,14 +59,9 @@ class ReservationController extends Controller
         }
     }
 
-    public function softDelete($reveal)
+    public function softDelete($reservation)
     {
-        $reservations = Reservation::where('reveal_id', $reveal)->get();
-        foreach ($reservations as $reservation) {
-            $reservation->delete();
-        }
-        $reveal = Reveal::find($reveal)->delete();
-
+        Reservation::where('id',$reservation)->delete();
         return redirect('/reservations');
     }
 }
