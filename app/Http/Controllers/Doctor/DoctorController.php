@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
     public function index(){
-         $doctors = User::role('Doctor')->get();
+         $doctors = User::role('Doctor')->where('approve','<>', null)->paginate(20);
+        
         return view('doctors/index',['doctors'=>$doctors]);
     }
 
@@ -17,6 +19,19 @@ class DoctorController extends Controller
         $doctors = User::role('Doctor')->paginate(4);
         return view('dashboard.doctors.index',['doctors'=>$doctors]);
     }
+
+    public function dashboardWaitingDoctors(){
+        $doctors = User::role('Doctor')->where('approve','=', null)->paginate(4);
+        return view('dashboard.doctors.waiting',['doctors'=>$doctors]);
+    }
+
+    public function approve($id){
+        $doctor = User::find($id);
+        $doctor->approve = "approved";
+        $doctor->save();
+        return redirect('/dashboardDoctors');
+    }
+
 
 
 public function dashboardDoctorshow($id){

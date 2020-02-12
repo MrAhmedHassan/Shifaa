@@ -152,7 +152,6 @@ var star1= document.getElementById("star1");
 
 
  parseInt( star);
-
   if(star.innerText>=1.0000&&star.innerText< 1.9000)
   {
       star1.style.color="yellow";

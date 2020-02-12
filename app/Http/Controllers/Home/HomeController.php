@@ -16,13 +16,13 @@ class HomeController extends Controller
         $trends = Trend::all();
 
         $topDoctors = User::with('category')
-            ->where('average_rate', '<>', null)
+            ->where('average_rate', '<>', null)->where('approve','<>',null)
             ->orderBy('average_rate', 'desc')
             ->take(4)
             ->get();
 
 
-
+//return redirect()->route('home.index',['topDoctors'=> $topDoctors , 'trends'=>$trends ]);
   return view('/home/index',['topDoctors'=> $topDoctors , 'trends'=>$trends ]);
 
     }

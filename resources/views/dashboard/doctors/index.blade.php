@@ -22,7 +22,7 @@
                         <tr>
                             <td>#</td>
                             <td>الصورة</td>
-                            <td>اسم المساعد</td>
+                            <td>اسم الطبيب</td>
                             <td>البريد الالكتروني</td>
                             <td>التحكم</td>
                         </tr>
@@ -34,8 +34,6 @@
                                 <td>{{$value->name}}</td>
                                 <td>{{$value->email}}</td>
                                 <td>
-                                    <a href="dashboardDoctors/{{$value->id}}"><button class="glyphicon glyphicon-pencil" data-toggle="tooltip"
-                                                        data-placement="top" title="تعديل"></button></a>
 
                                     <form action="/doctors/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}

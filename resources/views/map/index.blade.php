@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="aboutCanvas">
-        <h1 class="text-center">Our Map</h1>
+    <div class="aboutCanvas" style="margin-top: 80px">
+        <h1 class="text-center" style="color:#0065e1;text-shadow: 1px 1px 1px #000000;">خريطة الموقع</h1>
     <div class="container-fluid d-flex justify-content-center">
         <canvas></canvas>
     </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2 text-center">
-                <a href="" class="liCanvas"><h3>الصفحة الرئيسية</h3></a>
+                <a href="/home" class="liCanvas"><h3>الصفحة الرئيسية</h3></a>
                 <ul class="list-group">
                     <li class="list-group-item border border-dark">أشهر الأطباء</li>
                     <li class="list-group-item border border-dark">شخص نفسك</li>
@@ -21,7 +21,7 @@
                 </ul>
             </div>
             <div class="col-sm-3 text-center">
-                <a href="" class="liCanvas"><h3>المقالات</h3></a>
+                <a href="/articles" class="liCanvas"><h3>المقالات</h3></a>
                 <ul class="list-group">
                     <li class="list-group-item border border-dark">عرض مقالات طبية</li>
                     <li class="list-group-item border border-dark">إنشاء مقالات طبية في تخصص معين</li>
@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <div class="col-sm-2 text-center">
-                <a href="" class="liCanvas"><h3>الأمراض</h3></a>
+                <a href="/home/#body_hover" class="liCanvas"><h3>الأمراض</h3></a>
                 <ul class="list-group">
                     <li class="list-group-item border border-dark">عرض أمراض الجسم</li>
                     <li class="list-group-item border border-dark">مقالة عن كل مرض</li>
@@ -39,7 +39,7 @@
                 </ul>
             </div>
             <div class="col-sm-3 text-center">
-                <a href="" class="liCanvas"><h3>الدكاترة</h3></a>
+                <a href="/doctors" class="liCanvas"><h3>الأطباء</h3></a>
                 <ul class="list-group">
                     <li class="list-group-item border border-dark">دليل الأطباء</li>
                     <li class="list-group-item border border-dark">البحث عن طبيب في تخصص معين</li>
@@ -47,7 +47,7 @@
                 </ul>
             </div>
             <div class="col-sm-2 text-center">
-                <a href="" class="liCanvas"><h3>أجهزة الإنسان</h3></a>
+                <a href="/bodies" class="liCanvas"><h3>أجهزة الإنسان</h3></a>
                 <ul class="list-group">
                     <li class="list-group-item border border-dark">عرض أجهزة جسم الإنسان</li>
                     <li class="list-group-item border border-dark">نبذة مختصرة عن كل جهاز</li>

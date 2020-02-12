@@ -72,8 +72,6 @@
                             </div>
                         </div>
 
-
-
                         {{-- <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -117,9 +115,9 @@
                                 </div>
                             </div>
 
-                        <div class="form-group row" id="certification" style="display: none">
-                            <label class="col-md-4 col-form-label text-md-right">Doctor'sCertificate</label>
-                            <div class="col-md-6">
+                        <div class="form-group" id="certification" style="display: none">
+                            <label class="float-right mt-3" style="font-family: 'cairo', sans-serif;font-weight: 900" >  وثيقة تأكيد المهنة</label>
+                            <div class="col-md-6 float-right mt-2 ml-5" style="margin-right: 100px">
                                 <input type="file" id="certification"  class="form-control @error('certification') is-invalid @enderror" name="certification"><br>
                                 @error('certification')
                                 <span class="invalid-feedback" role="alert">
@@ -127,16 +125,17 @@
                                     </span>
                                 @enderror
                             </div>
+                            <div class="clearfix"></div>
                         </div>
 
 
                         @php
                         $categories = \App\Category::all();
                         @endphp
-                        <div class="form-group row" id="category" style="display: none">
-                            <label class="col-md-4 col-form-label text-md-right d-flex justify-content-end" style="font-family: 'cairo', sans-serif;font-weight: 900">{{ __('التخصص') }}</label>
+                        <div class="form-group" id="category" style="display: none">
+                            <label class="float-right mt-2 ml-5 mr-3" style="font-family: 'cairo', sans-serif;font-weight: 900">{{ __('التخصص') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7 float-right mb-4 " style="margin-right: 100px">
                                 <div class="form-check">
                                     <select name="category" class=" form-control @error('category') is-invalid @enderror " name="category">
                                       @foreach($categories as $category)
@@ -150,10 +149,11 @@
                                     </span>
                                 @enderror
                             </div>
+                            <div class="clearfix"></div>
                         </div>
 
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group">
                             <div class="col-md-6 offset-md-4 d-flex justify-content-end mt-2">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('تسجيل') }}
