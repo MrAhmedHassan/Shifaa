@@ -113,11 +113,7 @@ Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->n
 Route::get('/reservations', 'Reservation\ReservationController@index');
 Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete');
-//----------------------------------------------------------------------------------
-// Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
+
 //----------------------------------------------------------------------------
 //trends
 Route::get('/trends', 'Trend\TrendController@index')->middleware(['role:Admin','auth']);

@@ -819,6 +819,12 @@ svg, defs, clipPath {
     clip-path: url(#A7);
 }
 
+.body_hover area
+{
+    cursor: pointer;
+}
+
+
 .body_hover .box {
     position: relative;
     width: 100%;
