@@ -88,10 +88,12 @@
             </div>
           </div>
          </div>
-         <div class="col-md-4 d-flex flex-column justify-content-center align-items-center adv_blogs_show">
-            <h3 class="text-muted mt-4">مساحة اعلانية</h3>
+         <div class="col-md-4 d-flex flex-column justify-content-start align-items-center adv_blogs_show">
+            <h3 class="text-muted">مساحة اعلانية</h3>
             <img src="{{ asset('/imgs/adv_1.jpg') }}" class="img-fluid ">
             <img src="{{ asset('/imgs/adv_4.jpg') }}" class="img-fluid ">
+            <img src="{{ asset('/imgs/adv_3.jpg') }}" class="img-fluid ">
+            <img src="{{ asset('/imgs/adv_1.jpg') }}" class="img-fluid ">
             <img src="{{ asset('/imgs/adv_3.jpg') }}" class="img-fluid ">
          </div>
         </div>
