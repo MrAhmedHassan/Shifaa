@@ -18,15 +18,16 @@
                     <h1 class="heading_title">عرض كل الرسائل</h1>
 
                     <div class="wrap">
-                        <table class="table table-bordered">
-                            <tr>
+                        <table id="myTable" class="table table-bordered">
+                            <thead>
                                 <td>#</td>
                                 <td>الاسم</td>
                                 <td> الايميل</td>
                                 <td> محتوى الرسالة</td>
                                 <td>التحكم</td>
-                            </tr>
+                            </thead>
 
+                            <tbody>
                             @foreach($messages as $value)
                             <tr class="text-center">
                                 <td>{{$value->id}}</td>
@@ -34,7 +35,7 @@
                                 <td>{{$value->email}}</td>
                                 <td>{{$value->message}}</td>
                                 <td>
-                                  
+
 
                                         <form action="/contacts/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}
@@ -47,6 +48,7 @@
                                 </td>
                             </tr>
                             @endforeach
+                            </tbody>
 
                         </table>
 

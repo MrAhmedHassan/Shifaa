@@ -68,7 +68,7 @@
             </div>
             <div class=" rounded d-flex justify-content-center flex-column p-3 bg-primary mb-3 renewTheShape">
                 <h3 class="text-center text-white">عدد الكشوفات</h3>
-                <p class="text-center fa-2x" style="color:#aec9e0">{{count($user->doctorReservations)}}</p>
+                <p class="text-center">{{count($all)}}</p>
             </div>
         </div>
         <div class="col-sm-6">
@@ -100,8 +100,8 @@
                         <td>غيرمتاح</td>
                     </tr>
                 @elseif(count($reveals) <= 4)
-                    @foreach($reveals as $reveal)
-                        <tr class="text-primary">
+                    @foreach($reveals as $key=>$reveal)
+                        <tr class="text-white">
                             <td>
                             {{ \Carbon\Carbon::parse($reveal->date)->format('d/m D')}}
                             </td>
@@ -110,7 +110,7 @@
                             </td>
 
                             <td>
-                                    <button  class="btn btn-success" onclick="btnAjax('/reservations/{{$reveal->id}}/{{$user->id}}');" >احجز</button>
+                                    <button  id ="{{$reveal->id}}" class="btn btn-success" onclick="btnAjax('/reservations/{{$reveal->id}}/{{$user->id}}',{{$reveal->id}});" >احجز</button>
                             </td>
                         </tr>
                     @endforeach
@@ -118,7 +118,7 @@
                 @else
 
                     @for($i=0 ; $i<4 ;$i++)
-                        <tr class="text-primary">
+                        <tr class="text-white">
                             <td>
                             {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('d/m D')}}
                             </td>
@@ -127,7 +127,7 @@
 
                             </td>
                             <td>
-                                    <button class="btn btn-success" onclick="btnAjax('/reservations/{{$reveals[$i]->id}}/{{$user->id}}');" >احجز</button>
+                                    <button id ="{{$reveals[$i]->id}}" class="btn btn-success" onclick="btnAjax('/reservations/{{$reveals[$i]->id}}/{{$user->id}}',{{$reveals[$i]->id}});" >احجز</button>
                             </td>
                         </tr>
                     @endfor
@@ -183,7 +183,9 @@ var star1= document.getElementById("star1");
 </script>
 
 <script  >
-    function btnAjax(url){
+    function btnAjax(url,id){
+       let btn = document.getElementById(id).disabled = true;
+
         $.ajax({
             headers: {
 

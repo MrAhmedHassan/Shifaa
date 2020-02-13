@@ -17,29 +17,34 @@
                     <h1 class="heading_title">عرض كل الحجوزات</h1>
 
                     <div class="wrap">
-                        <table class="table table-bordered">
-                            <tr>
-                                <td>#</td>
+                        <table id="myTable" class="table table-bordered">
+                            <thead>
                                 <td>رقم الحجز</td>
                                 <td>اسم المريض </td>
+                                @role('Admin')
+                                <td>اسم الدكتور</td>
+                                @endrole
                                 <td> الميعاد </td>
                                 <td>من </td>
                                 <td>إلى </td>
                                 <td> التاريخ </td>
                                 <td>التحكم</td>
-                            </tr>
+                            </thead>
+
+                            <tbody>
             @foreach($reservations as $value)
                             <tr class="text-center">
                                 <td>{{$value->id}}</td>
-                                <td>{{$value->patient->id}}</td>
+                                <td>{{$value->patient->name}}</td>
+                                @role('Admin')
                                 <td>{{$value->doctor->name}}</td>
-                                <td>{{ date('D', strtotime($value->date)) }}</td>
+                                @endrole
+                                <td>{{ date('D', strtotime($value->reveal->date)) }}</td>
                                 <td>{{$value->reveal->start}}</td>
                                 <td>{{$value->reveal->end}}</td>
-
                                 <td>{{$value->reveal->date}}</td>
                                 <td>
-                                  
+
 
                                         <form action="/reservations/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}
@@ -50,13 +55,8 @@
                                 </td>
                             </tr>
              @endforeach
+                            </tbody>
                         </table>
-
-                        <nav class="text-center">
-                            <ul class="pagination">
-                                {{ $reservations->links() }}
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>

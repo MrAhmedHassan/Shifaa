@@ -16,9 +16,9 @@ class ContactController extends Controller
         $message->message = request()->input('message');
         $message->save();
 
-        Session()->flash('message', ' شكرا لتواصلك معنا عزيزي المستخدم .. نعدك بسرعة الرد على استفسارك .. '); 
+        Session()->flash('message', ' شكرا لتواصلك معنا عزيزي المستخدم .. نعدك بسرعة الرد على استفسارك .. ');
 
-        
+
         return redirect('/#contact_us');
     }
 

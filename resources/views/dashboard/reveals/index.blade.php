@@ -19,19 +19,24 @@
                     <h1 class="heading_title">عرض كل المواعيد</h1>
 
                     <div class="wrap">
-                        <table class="table table-bordered">
-                            <tr>
-                                <td>#</td>
+                        <table id="myTable" class="table table-bordered">
+                            <thead>
+                                @role('Admin')
+                                <td>الطبيب</td>
+                                @endrole
                                 <td>اليوم</td>
                                 <td>من</td>
                                 <td>إلى </td>
                                 <td>الحد الاقصى </td>
                                 <td>التحكم</td>
-                            </tr>
+                            </thead>
 
+                            <tbody>
                             @foreach($reveals as $value)
                             <tr class="text-center">
-                                <td>{{$value->id}}</td>
+                                @role('Admin')
+                                <td>{{$value->doctor->name}}</td>
+                                @endrole
                                 <td>{{ date('d/m D', strtotime($value->date)) }}</td>
                                 <td>{{$value->start}}</td>
                                 <td>{{$value->end}}</td>
@@ -49,14 +54,9 @@
                                 </td>
                             </tr>
                             @endforeach
-
+                            </tbody>
                         </table>
 
-                        <nav class="text-center">
-                            <ul class="pagination">
-                            {{ $reveals->links() }}
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>

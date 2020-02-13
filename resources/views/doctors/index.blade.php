@@ -94,11 +94,15 @@
                     @endforeach
                 </div>
             </div>
+
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            {{ $doctors->links() }}
         </div>
     </div>
 
 </div>
-{{ $doctors->links() }}
+
 
 
 <script type="text/javascript">

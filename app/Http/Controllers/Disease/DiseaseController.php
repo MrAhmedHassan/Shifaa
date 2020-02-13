@@ -17,11 +17,6 @@ class DiseaseController extends Controller
 
     public function show($id)
     {
-// $cat = Disease::find('category_id');
-// dd($cat);
-//       $users = User::where(['category_id', $id])->first();
-//       dd($users);
-
 
        $diseases = Disease::find($id);
        $category_id = $diseases->category->id;

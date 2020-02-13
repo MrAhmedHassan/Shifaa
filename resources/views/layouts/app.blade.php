@@ -114,11 +114,6 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-{{--                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();--}}
-{{--                                                    document.getElementById('logout-form').submit();">--}}
-{{--                                    {{ __('خروج') }}--}}
-{{--                                </a>--}}
-{{--                                <hr>--}}
                                 @if(auth()->user())
                                     @role('Doctor')
                                 <div id="div_user_profile">

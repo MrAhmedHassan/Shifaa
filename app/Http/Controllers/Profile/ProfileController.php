@@ -1,22 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\Profile;
+
 use App\Rating;
 
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Profile;
+use App\Reservation;
+
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
 class   ProfileController extends Controller
 {
-
-//    public function __construct()
-//
-//    {
-//        $this->middleware(['auth', 'verified']);
-//    }
 
     public function addRate(Request $request)
 
@@ -37,34 +34,31 @@ class   ProfileController extends Controller
             ['rateable_type', 'App\User']
         ])->first();
 
-       if($rating){
-        $rating->rating = $newRating;
+        if ($rating) {
+            $rating->rating = $newRating;
 
-        $user->ratings()->save($rating);
-        $user->average_rate = $user->averageRating;
-        $user->save();
+            $user->ratings()->save($rating);
+            $user->average_rate = $user->averageRating;
+            $user->save();
 
-           return redirect()->route('profiles.another', $request->id);
-      }else{
-        request()->validate(['rate' => 'required']);
-        $user = User::find($request->id);
-        $rating = new \willvincent\Rateable\Rating;
-        $rating->rating = $request->rate;
-        $rating->user_id = auth()->user()->id;
-        $user->ratings()->save($rating);
-        $user->average_rate = $user->averageRating;
-        $user->save();
-        return redirect()->route('profiles.another', $request->id);
+            return redirect()->route('profiles.another', $request->id);
+        } else {
+            request()->validate(['rate' => 'required']);
+            $user = User::find($request->id);
+            $rating = new \willvincent\Rateable\Rating;
+            $rating->rating = $request->rate;
+            $rating->user_id = auth()->user()->id;
+            $user->ratings()->save($rating);
+            $user->average_rate = $user->averageRating;
+            $user->save();
+            return redirect()->route('profiles.another', $request->id);
+        }
     }
-
-    }
-    // end ratind
 
     public function showMyProfile()
     {
         $user = User::find(auth()->user()->id);
         if ($user->hasRole('Doctor')) {
-            //dd('fuck');
             return view('profile/doctor/show', ['user' => $user]);
         } else if ($user->hasRole('Patient')) {
             return view('profile/patient/show', ['user' => $user]);
@@ -75,11 +69,12 @@ class   ProfileController extends Controller
     public function showAnotherProfile($profile)
     {
         $user = User::find($profile);
-
+        $all = Reservation::withTrashed()->get();
         if ($user->hasRole('Admin')) {
+            return redirect('/');
         } else if ($user->hasRole('Doctor')) {
-            return view('profile/doctor/show', ['user' => $user]);
-        }else{
+            return view('profile/doctor/show', ['user' => $user, 'all' => $all]);
+        } else {
         }
     }
 
@@ -90,7 +85,7 @@ class   ProfileController extends Controller
             $user = User::find($profile);
             return view('profile.edit', ['user' => $user]);
         } else {
-            dd('Sorry,You Can\'t edit');
+            return view('auth.login');
         }
     }
 
