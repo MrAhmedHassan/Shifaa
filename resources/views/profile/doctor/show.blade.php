@@ -101,7 +101,7 @@
                     </tr>
                 @elseif(count($reveals) <= 4)
                     @foreach($reveals as $key=>$reveal)
-                        <tr class="text-primary">
+                        <tr class="text-white">
                             <td>
                             {{ \Carbon\Carbon::parse($reveal->date)->format('d/m D')}}
                             </td>
@@ -118,7 +118,7 @@
                 @else
 
                     @for($i=0 ; $i<4 ;$i++)
-                        <tr class="text-primary">
+                        <tr class="text-white">
                             <td>
                             {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('d/m D')}}
                             </td>

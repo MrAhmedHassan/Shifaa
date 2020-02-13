@@ -8,20 +8,11 @@
                 <div class="card-header">{{ __('عضوية جديدة') }}</div>
 
                 <div class="card-body" style="padding:0 ">
-                    {{-- <form method="POST" action="{{ route('register') }}">
-                        @csrf --}}
-
-                        {{-- <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('الاسم') }}</label> --}}
-                {{-- <div class="card-header">{{ __('Register') }}</div> --}}
-
                 <div class="card-body">
                     <!-- <form method="POST" action="{{ route('register') }}"> -->
                     <form method="POST" enctype='multipart/form-data' action="{{ route('register') }}">
                         @csrf
 
-                        {{-- <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label> --}}
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right" style="font-family: 'cairo', sans-serif;font-weight: 900">{{ __('الاسم') }}</label>
 
@@ -72,10 +63,6 @@
                             </div>
                         </div>
 
-                        {{-- <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('تسجيل') }} --}}
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right mt-3" style="font-family: 'cairo', sans-serif;font-weight: 900">الصورة الشخصية</label>
                             <div class="col-md-6">
@@ -97,11 +84,11 @@
                                         <label class="form-check-label ml-3 mb-2" for="exampleRadios1" style="font-family: 'cairo', sans-serif;font-weight: 900">
                                             دكتور
                                         </label>
-                                        <input type="radio" class="roles form-check-input @error('role') is-invalid @enderror" name="role" value="Doctor">
+                                        <input type="radio" class="roles mr-4 form-check-input @error('role') is-invalid @enderror" name="role" value="Doctor">
                                     </div>
                                     <div class="form-check">
-                                        <label class="form-check-label ml-4 mr-2 mb-2 " for="exampleRadios1" style="font-family: 'cairo', sans-serif;font-weight: 900">
-                                            زائر
+                                        <label class="form-check-label ml-4  mb-2 " for="exampleRadios1" style="font-family: 'cairo', sans-serif;font-weight: 900">
+                                            مستخدم
                                         </label>
                                         <input type="radio" class="roles form-check-input @error('role') is-invalid @enderror" name="role" value="Patient" >
                                     </div>
