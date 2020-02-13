@@ -34,7 +34,7 @@
                                 <td>{{$value->email}}</td>
                                 <td>{{$value->message}}</td>
                                 <td>
-                                  
+
 
                                         <form action="/contacts/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}
@@ -50,6 +50,11 @@
 
                         </table>
 
+                        <nav class="text-center">
+                            <ul class="pagination">
+                                {{ $messages->links() }}
+                            </ul>
+                        </nav>
 
                     </div>
                 </div>

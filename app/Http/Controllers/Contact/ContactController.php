@@ -16,16 +16,16 @@ class ContactController extends Controller
         $message->message = request()->input('message');
         $message->save();
 
-        Session()->flash('message', ' شكرا لتواصلك معنا عزيزي المستخدم .. نعدك بسرعة الرد على استفسارك .. '); 
+        Session()->flash('message', ' شكرا لتواصلك معنا عزيزي المستخدم .. نعدك بسرعة الرد على استفسارك .. ');
 
-        
+
         return redirect('/#contact_us');
     }
 
 
     public function index()
     {
-        $messages = Contact::all();
+        $messages = Contact::paginate(1);
         return view('/dashboard/contacts/index')->with('messages', $messages);
     }
 

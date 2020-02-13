@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 class DoctorController extends Controller
 {
     public function index(){
-         $doctors = User::role('Doctor')->where('approve','<>', null)->paginate(20);
-        
+         $doctors = User::role('Doctor')->where('approve','<>', null)->paginate(1);
+
         return view('doctors/index',['doctors'=>$doctors]);
     }
 
