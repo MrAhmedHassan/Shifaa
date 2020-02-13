@@ -10,15 +10,5 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    // test category relation with disease
-    // public function index(){
-    //     $cat = Category::find(1);
-    //     dd($cat->diseases);
-    // }
 
-    //   test category relation with disease
-    // public function index(){
-    //     $cat = Category::find(1);
-    //     dd($cat->articles);
-    // }
 }

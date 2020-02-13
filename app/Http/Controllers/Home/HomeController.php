@@ -22,53 +22,9 @@ class HomeController extends Controller
             ->get();
 
 
-//return redirect()->route('home.index',['topDoctors'=> $topDoctors , 'trends'=>$trends ]);
   return view('/home/index',['topDoctors'=> $topDoctors , 'trends'=>$trends ]);
 
     }
-
-
-   /* public function avgRate()
-    {
-
-        $users=User::all();
-        $arr2=[];
-        $arr4=[];
-
-       foreach($users as $user)
-       {
-        $arr2[] = Rating::select('rating')->where('rateable_id',$user->id)->avg('rating');
-        $arr4[]=Rating::where([
-            ['rateable_id',$user->id]
-        ])->get();
-
-       }
-
-       /*foreach($rate as $rat)
-     //  {
-           dd($rat);
-      // }
-
-
-       foreach($arr4 as $exper)
-       //{
-           foreach( $exper as $exp)
-          // {
-              // echo "rate :".$exp->rating."<br>";
-             // echo "id :". $exp->rateable_id;
-
-           //}
-
-       }*/
-
-      // dd($arr2);
-
-       // $users = DB::table('users')->distinct()->get();
-
-
-  //}
-
-
 
 }
 

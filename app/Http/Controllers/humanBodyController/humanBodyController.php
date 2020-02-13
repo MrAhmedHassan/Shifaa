@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class humanBodyController extends Controller
 {
     public function index(){
-      
+
         $humanbody = Body::all();
 
 return view('/human_body/index');
@@ -20,6 +20,6 @@ return view('/human_body/index');
         $humanbody = Body::find($id);
    return $humanbody['id'].$humanbody['title'].
  $humanbody['description']."<br>"."<img src=../images/".$humanbody['image'].">"."<br>";
-        
+
     }
 }

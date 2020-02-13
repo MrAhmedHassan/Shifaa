@@ -20,13 +20,6 @@ class CommentController extends Controller
 
     }
 
-    // public function edit($comment_id){
-    //         $comment = Comment::find($comment_id);
-    //         // return view('/articles/testcomment')->with(['comment'=>$comment]);
-    //         return view('/articles/show')->with(['article'=>$article,'comments'=>$comment]);
-
-    // }
-
     public function update($comment_id){
             $comment = Comment::find($comment_id);
             $comment -> comment = request()->input('comment');
@@ -43,16 +36,5 @@ public function destroy($id)
     return redirect("/articles/{$article}");
 }
 
-  // test user relation with comments
-    // public function index(){
-    //     $cat = Comment::find(1);
-    //     dd($cat->user_id);
-    // }
-
-    // test user relation with comments
-    // public function index(){
-    //     $cat = Comment::find(1);
-    //     dd($cat->article);
-    // }
 
 }

@@ -12,17 +12,17 @@ class ReservationController extends Controller
     {
         //        forAdmin
         if (auth()->user()->hasRole('Admin')) {
-            $reservations = Reservation::paginate(4);
+            $reservations = Reservation::all();
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         } else if (auth()->user()->hasRole('Doctor')) {
-            $reservations = Reservation::with('doctor')->where('doctor_id',auth()->user()->id)->paginate(4);
+            $reservations = Reservation::with('doctor')->where('doctor_id',auth()->user()->id)->get();
 //            $reservations = auth()->user()->doctorReservations;
             return view('/dashboard/reservations/index')->with('reservations', $reservations);
 
         } else if (auth()->user()->hasRole('Assistant')) {
             $myDoctor = auth()->user()->doctor;
-            $reservations = Reservation::with('doctor')->where('doctor_id',$myDoctor->id)->paginate(4);
+            $reservations = Reservation::with('doctor')->where('doctor_id',$myDoctor->id)->get();
 
 //            $reservations = $myDoctor->doctorReservations;
             return view('/dashboard/reservations/index')->with('reservations', $reservations);

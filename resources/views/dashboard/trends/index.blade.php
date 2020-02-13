@@ -18,8 +18,8 @@
             <h1 class="heading_title">عرض كل الأمراض</h1>
 
             <div class="wrap">
-                <table class="table table-bordered">
-                    <tr>
+                <table id="myTable" class="table table-bordered">
+                    <thead>
                         <td>#</td>
                         <td>الصورة</td>
                         <td>اسم المرض</td>
@@ -27,8 +27,9 @@
                         <td>التاريخ</td>
                         <td>التحكم</td>
 
-                    </tr>
+                    </thead>
 
+                    <tbody>
                     @foreach($trends as $trend)
                     <tr class="text-center">
                         <td>{{$trend->id}}</td>
@@ -50,13 +51,9 @@
                         </td>
                     </tr>
                     @endforeach
+                    </tbody>
                 </table>
 
-                <nav class="text-center">
-                    <ul class="pagination">
-                    {{$trends->links()}}
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>

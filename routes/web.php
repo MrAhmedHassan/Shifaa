@@ -13,20 +13,7 @@
 use App\Article;
 use App\Rating;
 
-//Route::get('/', function () {
-
-
-//});
-
-// Route::get('/', function () {
-
-//     return view('home.index');
-// });
-
 Auth::routes(['verify'=>true]);
-
-
-// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'Home\HomeController@topRated')->name('home.index');
 //-----------------------------------------------------------------------
@@ -137,3 +124,5 @@ Route::get('/map',function(){return view('map.index');});
 Route::fallback(function () {
     return  redirect('/');
 });
+
+

@@ -16,15 +16,15 @@ class RevealTimeController extends Controller
     {
         $user = auth()->user();
         if ($user->hasRole('Admin')) {
-            $reveals = Reveal::paginate(4);
+            $reveals = Reveal::all();
             return view('/dashboard/reveals/index')->with('reveals', $reveals);
 
         } else if ($user->hasRole('Doctor')) {
-            $reveals = Reveal::with('doctor')->where('doctor_id', '=', $user->id)->paginate(4);
+            $reveals = Reveal::with('doctor')->where('doctor_id', '=', $user->id)->get();
             return view('/dashboard/reveals/index')->with('reveals', $reveals);
 
         } else if ($user->hasRole('Assistant')) {
-            $reveals = Reveal::with('doctor')->where('doctor_id', '=', $user->doctor->id)->paginate(4);
+            $reveals = Reveal::with('doctor')->where('doctor_id', '=', $user->doctor->id)->get();
             return view('/dashboard/reveals/index')->with('reveals', $reveals);
 
         }
@@ -88,7 +88,7 @@ class RevealTimeController extends Controller
         foreach ($reservations as $reservation) {
             $reservation->delete();
         }
-        
+
         $reveal = Reveal::find($id)->delete();
 
         return redirect('/reveals');

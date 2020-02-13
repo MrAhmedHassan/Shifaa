@@ -17,8 +17,8 @@
                     <h1 class="heading_title">عرض كل الحجوزات</h1>
 
                     <div class="wrap">
-                        <table class="table table-bordered">
-                            <tr>
+                        <table id="myTable" class="table table-bordered">
+                            <thead>
                                 <td>رقم الحجز</td>
                                 <td>اسم المريض </td>
                                 @role('Admin')
@@ -29,7 +29,9 @@
                                 <td>إلى </td>
                                 <td> التاريخ </td>
                                 <td>التحكم</td>
-                            </tr>
+                            </thead>
+
+                            <tbody>
             @foreach($reservations as $value)
                             <tr class="text-center">
                                 <td>{{$value->id}}</td>
@@ -53,13 +55,8 @@
                                 </td>
                             </tr>
              @endforeach
+                            </tbody>
                         </table>
-
-                        <nav class="text-center">
-                            <ul class="pagination">
-                                {{ $reservations->links() }}
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>

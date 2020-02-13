@@ -18,15 +18,16 @@
                 <h1 class="heading_title">عرض الاطباء</h1>
 
                 <div class="wrap">
-                    <table class="table table-bordered">
-                        <tr>
+                    <table id="myTable" class="table table-bordered">
+                        <thead>
                             <td>#</td>
                             <td>الصورة</td>
                             <td>اسم الطبيب</td>
                             <td>البريد الالكتروني</td>
                             <td>التحكم</td>
-                        </tr>
+                        </thead>
 
+                        <tbody>
                         @foreach($doctors as $value)
                             <tr class="text-center">
                                 <td>{{$value->id}}</td>
@@ -48,14 +49,10 @@
                                 </td>
                             </tr>
                         @endforeach
+                        </tbody>
 
                     </table>
 
-                    <nav class="text-center">
-                        <ul class="pagination">
-                            {{ $doctors->links() }}
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>

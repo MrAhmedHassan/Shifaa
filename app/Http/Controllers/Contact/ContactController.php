@@ -25,7 +25,7 @@ class ContactController extends Controller
 
     public function index()
     {
-        $messages = Contact::paginate(1);
+        $messages = Contact::all();
         return view('/dashboard/contacts/index')->with('messages', $messages);
     }
 

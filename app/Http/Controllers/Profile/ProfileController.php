@@ -12,11 +12,6 @@ use Spatie\Permission\Models\Role;
 class   ProfileController extends Controller
 {
 
-//    public function __construct()
-//
-//    {
-//        $this->middleware(['auth', 'verified']);
-//    }
 
     public function addRate(Request $request)
 
@@ -58,13 +53,11 @@ class   ProfileController extends Controller
     }
 
     }
-    // end ratind
 
     public function showMyProfile()
     {
         $user = User::find(auth()->user()->id);
         if ($user->hasRole('Doctor')) {
-            //dd('fuck');
             return view('profile/doctor/show', ['user' => $user]);
         } else if ($user->hasRole('Patient')) {
             return view('profile/patient/show', ['user' => $user]);
@@ -77,6 +70,7 @@ class   ProfileController extends Controller
         $user = User::find($profile);
 
         if ($user->hasRole('Admin')) {
+            return redirect('/');
         } else if ($user->hasRole('Doctor')) {
             return view('profile/doctor/show', ['user' => $user]);
         }else{
@@ -90,7 +84,7 @@ class   ProfileController extends Controller
             $user = User::find($profile);
             return view('profile.edit', ['user' => $user]);
         } else {
-            dd('Sorry,You Can\'t edit');
+            return view('auth.login');
         }
     }
 

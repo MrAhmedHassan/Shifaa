@@ -11,13 +11,11 @@ use App\Article;
 
 class DashboardController extends Controller
 {
-    
+
     public function index(){
         $users = count(User::all());
         $articles = count(Article::all());
         $current = Carbon::now();
-        // $creation = auth()->user()->created_at;
-        // $finish_time = \Carbon\Carbon::parse($creation);
         $start_time = \Carbon\Carbon::parse($current);
         $finish_time = \Carbon\Carbon::parse('02/01/2020');
         $result = $finish_time->diffInDays($start_time, false);

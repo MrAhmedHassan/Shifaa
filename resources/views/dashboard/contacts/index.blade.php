@@ -18,15 +18,16 @@
                     <h1 class="heading_title">عرض كل الرسائل</h1>
 
                     <div class="wrap">
-                        <table class="table table-bordered">
-                            <tr>
+                        <table id="myTable" class="table table-bordered">
+                            <thead>
                                 <td>#</td>
                                 <td>الاسم</td>
                                 <td> الايميل</td>
                                 <td> محتوى الرسالة</td>
                                 <td>التحكم</td>
-                            </tr>
+                            </thead>
 
+                            <tbody>
                             @foreach($messages as $value)
                             <tr class="text-center">
                                 <td>{{$value->id}}</td>
@@ -47,14 +48,10 @@
                                 </td>
                             </tr>
                             @endforeach
+                            </tbody>
 
                         </table>
 
-                        <nav class="text-center">
-                            <ul class="pagination">
-                                {{ $messages->links() }}
-                            </ul>
-                        </nav>
 
                     </div>
                 </div>
