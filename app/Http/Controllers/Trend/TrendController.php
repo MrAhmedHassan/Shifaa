@@ -20,7 +20,7 @@ class TrendController extends Controller
 
     public function index()
     {
-        $trends = Trend::paginate(3);
+        $trends = Trend::all();
         return view('/dashboard/trends/index')->with('trends', $trends);
     }
 

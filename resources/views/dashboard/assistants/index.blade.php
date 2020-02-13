@@ -18,15 +18,16 @@
                     <h1 class="heading_title">عرض كل المساعدين</h1>
 
                     <div class="wrap">
-                        <table class="table table-bordered">
-                            <tr>
+                        <table id="myTable" class="table table-bordered">
+                            <thead>
                                 <td>#</td>
                                 <td>الصورة</td>
                                 <td>اسم المساعد</td>
                                 <td>البريد الالكتروني</td>
                                 <td>التحكم</td>
-                            </tr>
+                            </thead>
 
+                            <tbody>
                             @foreach($assistants as $value)
                             <tr class="text-center">
                                 <td>{{$value->id}}</td>
@@ -34,7 +35,7 @@
                                 <td>{{$value->name}}</td>
                                 <td>{{$value->email}}</td>
                                 <td>
-                                   
+
 
                                         <form action="/assistants/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}
@@ -47,14 +48,10 @@
                                 </td>
                             </tr>
                             @endforeach
-
+                            </tbody>
                         </table>
 
-                        <nav class="text-center">
-                            <ul class="pagination">
-                                {{ $assistants->links() }}
-                            </ul>
-                        </nav>
+
                     </div>
                 </div>
             </div>

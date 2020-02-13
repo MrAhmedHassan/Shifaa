@@ -19,8 +19,6 @@ class PersonalController extends Controller
 
         return view('gemytest2/gemytest2', compact('test'));
 
-
-        // return view('gemytest2/gemytest',compact('results'));
     }
 
     public function index1()
@@ -35,7 +33,6 @@ class PersonalController extends Controller
     public function store($id )
     {
 
-        ///////////////////////////////////////////////////
         $test = Test::find($id);
         $doing = request()->doing;
         $wedding =request()->wedding;
@@ -91,7 +88,6 @@ class PersonalController extends Controller
                 'friend2' => 'required',
                 'car2' => 'required',
                 'angry2' => 'required',
-               // 'title.required' => 'A title is required',
             ]);
 
         }else if(!($doing3&&$wedding3&&$friend3&& $car3&&$angry3)&&$test->id==3)
@@ -203,12 +199,9 @@ class PersonalController extends Controller
             if(in_array($sum,$range))
             {
                 return view('gemytest2/gemytest2', ['result' => $results[$i]->result , 'test'=> $test]);
-//                dd($results[$i]->result);
-//                echo "<div class='text text-light bg-success p-3 '>".$results[$i]->result."</div>";
             }
 
         }
 
-//        return view('gemytest2/result', ['results' => $results, 'sum' => $sum]);
     }
 }

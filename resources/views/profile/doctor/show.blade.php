@@ -48,7 +48,7 @@
     <div class="row mt-5">
         <div class="col-sm-6">
             <div class="rounded d-flex justify-content-center flex-column p-3 bg-primary mb-3 align-items-center renewTheShape">
-                <h4 class="text-center text-white">أديني تقييم عشان مزعلكش</h4>
+                <h4 class="text-center text-white">تقييم الطبيب</h4>
                 <form action="/rate" method="POST">
                     {{ csrf_field() }}
                     <div class="rating text-center">
@@ -58,13 +58,13 @@
                         <input id="e2" name="rate" value="2" type="radio"><label for="e2">☆</label>
                         <input  id="e1" name="rate" value="1" type="radio"><label for="e1">☆</label>
                         <input type="hidden" name="id" required="" value="{{ $user->id }}">
-                        <button id="submitRate" class="btn btn-success ml-3">Submit Review</button>
+                        <button id="submitRate" class="btn btn-success ml-3"> حفظ التقييم</button>
                     </div>
                 </form>
             </div>
             <div class="rounded d-flex justify-content-center flex-column p-3 bg-primary mb-3 renewTheShape">
                 <h3 class="text-center text-white">عدد المقالات</h3>
-                <p class="text-center">{{count($user->articles)}}</p>
+                <p class="text-center fa-2x"  style="color:#aec9e0">{{count($user->articles)}}</p>
             </div>
             <div class=" rounded d-flex justify-content-center flex-column p-3 bg-primary mb-3 renewTheShape">
                 <h3 class="text-center text-white">عدد الكشوفات</h3>
@@ -74,13 +74,13 @@
         <div class="col-sm-6">
             <div class="rounded text-center border border-primary bg-primary renewTheShape mb-5">
                 <h3 class="text-white">سعر الكشف</h3>
-                <label>{{$user->profile->price}} جنيه</label>
+                <label style="font-size: 25px;color:#aec9e0">{{$user->profile->price}} جنيه</label>
                 <h3 class="text-white">عنوان العيادة</h3>
-                <label>{{$user->profile->address}}</label>
+                <label style="font-size: 20px;color:#aec9e0">{{$user->profile->address}}</label>
             </div>
-            <table class="table table-striped table-dark text-center border border-warning">
+            <table class="table table-striped text-center reveals_table" style="background-color: #254c52;border-radius: 2%">
                 <thead>
-                    <tr style="font-size: 20px; color:#ffd7db">
+                    <tr style="font-size: 20px; color:#ffff">
                         <th scope="col">الأيام</th>
                         <th scope="col">من / إلي</th>
                         <th scope="col">الحجز</th>
@@ -91,7 +91,7 @@
                     $reveals = $user->reveals;
                 @endphp
                 @if(count($reveals) < 1)
-                    <tr class="text-light">
+                    <tr class="text-light" style="color:white">
                         <td>
                             <p style="font-size: 20px">لم يحدد</p>
                         <td>
@@ -100,8 +100,8 @@
                         <td>غيرمتاح</td>
                     </tr>
                 @elseif(count($reveals) <= 4)
-                    @foreach($reveals as $reveal)
-                        <tr class="text-primary">
+                    @foreach($reveals as $key=>$reveal)
+                        <tr class="text-white">
                             <td>
                             {{ \Carbon\Carbon::parse($reveal->date)->format('d/m D')}}
                             </td>
@@ -110,7 +110,7 @@
                             </td>
 
                             <td>
-                                    <button  class="btn btn-success" onclick="btnAjax('/reservations/{{$reveal->id}}/{{$user->id}}');" >احجز</button>
+                                    <button  id ="{{$reveal->id}}" class="btn btn-success" onclick="btnAjax('/reservations/{{$reveal->id}}/{{$user->id}}',{{$reveal->id}});" >احجز</button>
                             </td>
                         </tr>
                     @endforeach
@@ -118,7 +118,7 @@
                 @else
 
                     @for($i=0 ; $i<4 ;$i++)
-                        <tr class="text-primary">
+                        <tr class="text-white">
                             <td>
                             {{ \Carbon\Carbon::parse($reveals[$i]->date)->format('d/m D')}}
                             </td>
@@ -127,7 +127,7 @@
 
                             </td>
                             <td>
-                                    <button class="btn btn-success" onclick="btnAjax('/reservations/{{$reveals[$i]->id}}/{{$user->id}}');" >احجز</button>
+                                    <button id ="{{$reveals[$i]->id}}" class="btn btn-success" onclick="btnAjax('/reservations/{{$reveals[$i]->id}}/{{$user->id}}',{{$reveals[$i]->id}});" >احجز</button>
                             </td>
                         </tr>
                     @endfor
@@ -183,7 +183,9 @@ var star1= document.getElementById("star1");
 </script>
 
 <script  >
-    function btnAjax(url){
+    function btnAjax(url,id){
+       let btn = document.getElementById(id).disabled = true;
+
         $.ajax({
             headers: {
 

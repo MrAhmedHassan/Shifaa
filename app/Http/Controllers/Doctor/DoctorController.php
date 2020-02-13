@@ -11,17 +11,19 @@ class DoctorController extends Controller
 {
     public function index(){
          $doctors = User::role('Doctor')->where('approve','<>', null)->paginate(20);
-        
+
         return view('doctors/index',['doctors'=>$doctors]);
     }
 
     public function dashboardDoctors(){
-        $doctors = User::role('Doctor')->paginate(4);
+//        $doctors = User::role('Doctor')->paginate(4);
+        $doctors = User::role('Doctor')->get();
+
         return view('dashboard.doctors.index',['doctors'=>$doctors]);
     }
 
     public function dashboardWaitingDoctors(){
-        $doctors = User::role('Doctor')->where('approve','=', null)->paginate(4);
+        $doctors = User::role('Doctor')->where('approve','=', null)->get();
         return view('dashboard.doctors.waiting',['doctors'=>$doctors]);
     }
 
@@ -39,15 +41,7 @@ public function dashboardDoctorshow($id){
     return view('dashboard.doctors.show', ['user' => $user]);
 }
 
-    public function show($doctor){
-        $user = User::find($doctor);
-        if($user->getRoleNames()[0] === "Doctor"){
-            dd($user);
-            return $user ;
-        }else{
-            dd('Your Can see the data of this user');
-        }
-    }
+
 
     public function delete($doctor)
     {

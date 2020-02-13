@@ -71,6 +71,7 @@ class   ProfileController extends Controller
         $user = User::find($profile);
         $all = Reservation::withTrashed()->get();
         if ($user->hasRole('Admin')) {
+            return redirect('/');
         } else if ($user->hasRole('Doctor')) {
             return view('profile/doctor/show', ['user' => $user, 'all' => $all]);
         } else {
@@ -84,7 +85,7 @@ class   ProfileController extends Controller
             $user = User::find($profile);
             return view('profile.edit', ['user' => $user]);
         } else {
-            dd('Sorry,You Can\'t edit');
+            return view('auth.login');
         }
     }
 

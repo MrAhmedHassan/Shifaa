@@ -46,14 +46,14 @@
     word-wrap: break-word;
     width: 300px
 }
-.renewTheShape {
-    box-shadow: 3px 3px 20px;
+.renewTheShape,.reveals_table {
+    box-shadow: 3px 3px 8px;
     /* border-radius: 40px; */
     
-    background-color: #34697b!important;
+    background-color: #178394!important;
 }
 main {
-    background-color: #daffff;
+    background-color: #f3f0f000;
 }
 /*********************Table & Price,Address**********************/
 
@@ -176,3 +176,5 @@ main {
 .image-right-detail-section2 span{
     color:#7F7F7F;
 }
+
+

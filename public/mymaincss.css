@@ -286,6 +286,11 @@ font-size:25px;
         margin-right: 10px;
     }
 
+    #nav_register
+    {
+        margin-left: 20px;
+    }
+
 }
 
 
@@ -341,11 +346,22 @@ font-size:25px;
         right: 50%;
     }
 
-    .home_slider #carousel-caption_2
+    .home_slider #carousel-caption_2 
     {
         position: absolute;
         top: 35%;
         right: 10%;
+    }
+
+    .home_slider #carousel-caption_1 h1,.home_slider #carousel-caption_2 h1,.home_slider #carousel-caption_3 h1
+    {
+        color: white;
+    }
+
+    .home_slider #carousel-caption_1 h3,.home_slider #carousel-caption_2 h3,.home_slider #carousel-caption_3 h3
+    {
+        color:#1b195d;
+        font-size: 30px;
     }
 
     .home_slider #carousel-caption_3
@@ -387,6 +403,15 @@ font-size:25px;
             height: 70vh;
         }
     } */
+
+  /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+@media only screen and (max-width: 833px)
+{
+    .home_slider .carousel-caption h1
+{
+    font-size: 30px !important;
+}
+}
 
 
 
@@ -529,13 +554,13 @@ font-size:25px;
     bottom: 15px;
     right: 13px;
     text-align: center;
-    background-color: rgb(154, 192, 223);
+    background-color: rgba(255, 255, 255, 0.72);
     transition: bottom 1s .2s;
 }
 
 .doctor-layer1 h4
 {
-    color: #150ab4 !important;
+    color: #080082 !important;
     font-size: 1.5rem;
     font-weight: 500;
     font-family: 'Amiri', serif;
@@ -544,7 +569,7 @@ font-size:25px;
 
 .doctor-layer1 p
 {
-    color: #076b63 !important;
+    color: #4e4e4e !important;
     font-family: 'Amiri', serif;
     font-weight: 500;
     font-size: large;
@@ -852,11 +877,10 @@ svg, defs, clipPath {
     text-decoration: none;
     color: white;
 }
-
 .body_hover .list-group a
 {
-    background-color: rgb(121, 177, 223);
-    color: black;
+    background-color: #45aaff;
+    color: rgb(255, 255, 255);
     font-size: 20px;
     text-align: start;
 }
@@ -1096,7 +1120,7 @@ text-decoration: none;
 }
 
 .theGoodDoctor {
-    background-color: rgb(52, 105, 123);
+    background-color: #178394;
 }
 .beActive {
     background-color: rgb(237, 242, 247);
@@ -1254,7 +1278,6 @@ body {
 
 .doctors .docImage {
     border-radius: 50%;
-    border: 1px solid #000;
 }
 
 .doctors .editPartitionsOfPartThree

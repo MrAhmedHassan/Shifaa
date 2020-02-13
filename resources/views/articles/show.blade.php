@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 p-5 " style="background-color: white" >
             <h1 class="text-primary">{{$article->title}}</h1>
-            <h3 class="text-danger mb-2">طبيب {{$article->user->name}}</h3>
+            <h3 class="text-dark mb-2" style="color:#053979 !important">د/ {{$article->user->name}}</h3>
             <h5 class="text-muted mb-5">{{$article->created_at}}</h5>
             <div class="blogs_show_img">
                 <img class="img-fluid" src="{{$article->avatar}}" alt="article img" style="height: 365px;width: 730px">
@@ -22,7 +22,7 @@
                 <div class="d-flex">
                     @if(auth()->user())
                         @if(auth()->user()->hasRole('Admin') || auth()->user()->id ==$article->user->id )
-                             <a href="/articles/{{$article->id}}/edit" class="btn btn-success btn-sm ml-2">تعديل  المقال</a>
+                            <a href="/articles/{{$article->id}}/edit" class="btn btn-info btn-sm ml-2">تعديل  المقال</a>
                         @endif
                     @endif
 
@@ -31,7 +31,7 @@
                                 <form id="" action="/articles/{{$article->id}}" method="post">
                                         {{method_field('DELETE')}}
                                         @csrf
-                                 <button type="submit" class="btn btn-danger btn-sm" onclick='return confirm("هل أنت متأكد من حذف هذا المقال")'>حذف المقال</button>
+                                <button type="submit" class="btn btn-danger btn-sm" onclick='return confirm("هل أنت متأكد من حذف هذا المقال")'>حذف المقال</button>
                                 </form>
                             @endif
                         @endif

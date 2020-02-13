@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="doctor-layer2 d-flex flex-column justify-content-center align-items-center" >
-                    <h4> عن د. {{$topDoctor->name}}</h4>
+                    <h4>  د. {{$topDoctor->name}}</h4>
                     <p>{{$topDoctor->profile->abstract}}</p>
                     <a href="/profiles/{{$topDoctor->id}}" >اعرف المزيد</a>
                 </div>
@@ -657,13 +657,8 @@
 </div>
 </footer>
 <div class="d-flex justify-content-center align-items-center bg-primary py-2 text-white">
-  <h6>Copyright by Ghosts 2020 ©</h6>
+  <h6>Copyright by Shefaa 2020 ©</h6>
 </div>
-
-{{-- <div class="d-flex justify-content-center align-items-center shefa_brand">
-  <i class="fas fa-hand-holding-heart ml-2" style="font-size: 30px;"></i>
-  <h1 style="font-family: 'Aref Ruqaa', serif;">شفاء</h1>
-</div> --}}
 
 
 <script>

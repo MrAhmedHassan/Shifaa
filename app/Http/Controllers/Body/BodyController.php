@@ -8,11 +8,10 @@ use Illuminate\Http\Request;
 class BodyController extends Controller
 {
     public function index(){
-      
+
         $humanbody = Body::all();
         return view('human_body/index')->with('humanbody',$humanbody);
-        // dd($humanbody);
-      
+
     }
 
 
@@ -20,7 +19,6 @@ class BodyController extends Controller
     {
         $humanbody = Body::find($id);
         return view('human_body/show')->with('humanbody',$humanbody);
-        // dd($humanbody);
-        
+
     }
 }

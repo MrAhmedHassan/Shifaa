@@ -40,20 +40,36 @@
                             <!-- name -->
                             <div class="md-form mt-3 mb-3" style="font-family: 'Cairo', sans-serif">
                                 <label>الإسم</label>
-                                <input type="text" name="name" id="" class="form-control" value="" required>
+                                <input type="text" name="name" id="" class="form-control @error('name') is-invalid @enderror" value="" required>
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
+
                             <br>
                             <!--email-->
                             <div class="md-form mt-3 mb-3" style="font-family: 'Cairo', sans-serif">
                                 <label>البريد الإلكتروني</label>
-                                <input type="email" name="email" id="" class="form-control" value="" required>
+                                <input type="email" name="email" id="" class="form-control @error('email') is-invalid @enderror" value="" required>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
+
                             <br>
                             <!-- pass -->
                             <div class="md-form mb-3">
                                 <label for="password" style="font-family: 'Cairo', sans-serif">كلمة السر</label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                <input id="password"  type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <br>
@@ -61,7 +77,12 @@
                             <label style="font-family: 'Cairo', sans-serif">الصورة الشخصية</label>
                             <div class="file-field md-form mb-2">
                                 <div class="btn btn-outline-primary btn-rounded waves-effect btn-sm float-right">
-                                    <input type="file" name="avatar" value="">
+                                    <input type="file" name="avatar" value="" class="form-control @error('avatar') is-invalid @enderror">
+                                    @error('avatar')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <br>
