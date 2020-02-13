@@ -17,17 +17,20 @@
                 <!--/End system bath-->
                 <div class="page_content">
                     <div class="page_content">
-                        <div class="quick_links text-center">
+                        <div class="text-center">
                             <h1 class="heading_title">الوصول السريع</h1>
-<a href="/home">
-<div class="home_statics text-center">
-
+                            
+                    <a href="/home">
+                    <div class="home_statics text-center">
+    
                             <div style="background-color: #9b59b6">
                                 <span class="bring_right glyphicon glyphicon-home"></span>
                                 <h3>الصفحة الرئيسية</h3>
-
                                 <p class="h4">انقر للذهاب</p>
-</a>                                
+                            </div>
+                    </div>
+                    </a>                        
+
                             </div>
                     </div>
 

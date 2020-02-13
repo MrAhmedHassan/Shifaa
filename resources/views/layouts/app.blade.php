@@ -58,43 +58,37 @@
                         <!-- Navbar Links -->
                         <div class="nav-item-div">
                             <li class="nav-item mainA d-flex justify-content-center align-items-center">
-                                <i class="fas fa-home text-white" id="nav_1_i"></i>
-                                <a class="nav-link ml-4 " href="/" >الرئيسية</a>
+                                <a class="nav-link ml-3 " href="/" ><i class="ml-1 fas fa-home text-white" id="nav_1_i"></i>الرئيسية</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
-                            <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fas fa-book text-white" id="nav_2_i"></i>
-                                <a class="nav-link" href="/articles" > المقالات الطبية</a>
+                            <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
+                                <a class="nav-link" href="/articles" ><i class="ml-1 fas fa-book text-white" id="nav_2_i"></i> المقالات الطبية</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
-                            <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fas fa-user-md text-white" id="nav_3_i"></i>
-                                <a class="nav-link" href="/doctors"  >الأطباء</a>
+                            <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
+                                <a class="nav-link" href="/doctors"  ><i class="ml-1 fas fa-user-md text-white" id="nav_3_i"></i>الأطباء</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
-                            <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fas fa-child text-white" id="nav_4_i"></i>
-                                <a class="nav-link" href="/bodies" >جسم الإنسان</a>
+                            <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
+                                <a class="nav-link" href="/bodies" ><i class="ml-1 fas fa-child text-white" id="nav_4_i"></i>جسم الإنسان</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
-                            <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fas fa-users text-white" id="nav_5_i"></i>
-                                <a class="nav-link" href="/#about_us"  >من نحن ؟</a>
+                            <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
+                                <a class="nav-link" href="/#about_us"  ><i class="ml-1 fas fa-users text-white" id="nav_5_i"></i>من نحن ؟</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
-                            <li class="nav-item ml-4 d-flex justify-content-center align-items-center">
-                                <i class="fab fa-weixin text-white " id="nav_6_i"></i>
-                                <a class="nav-link" href="/#contact_us" >تواصل معنا</a>
+                            <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
+                                <a class="nav-link" href="/#contact_us" ><i class="ml-1 fab fa-weixin text-white " id="nav_6_i"></i>تواصل معنا</a>
                             </li>
                         </div>
                     </ul>
@@ -110,7 +104,7 @@
                         @if (Route::has('register'))
                         <li class="nav-item">
                             {{-- <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل') }}</a> --}}
-                            <a class="nav-link" href="{{ route('register') }}"><h4 id="nav_register">تسجيل</h4></a>
+                            <a class="nav-link " href="{{ route('register') }}"><h4 id="nav_register">تسجيل</h4></a>
                         </li>
                         @endif
                         @else

@@ -24,7 +24,7 @@
 
                         <div class="row">
                             <div class="col-md-8 m-auto text-break ">
-                                <p class="text-right mb-5">
+                                <p class="text-right mb-5 mt-2">
 
                                 {{$humanbody->description}}
 
