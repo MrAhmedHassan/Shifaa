@@ -48,7 +48,7 @@
                             {{ substr(strip_tags($article->description), 0, 200) }}
                             {{ strlen(strip_tags($article->description)) > 50 ? "...اقرأ المزيد..." : "" }}
                         </p>
-                    <a href="#">
+                    <a href="/profiles/{{$article->user->id}}">
                         <h5 class="text-muted d-inline ">طبيب {{$article->user->name}}</h5>
                     </a>
                     <span class="text-muted">| التعليقات ( {{count($article->comments)}} )</span>

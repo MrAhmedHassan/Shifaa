@@ -10,7 +10,7 @@
             <ul>
                 <li class="bring_right"><span class="glyphicon glyphicon-home "></span></li>
                 <li class="bring_right"><a href="">إدارة المواعيد</a></li>
-                <li class="bring_right"><a href="">إضافة ميعاد</a></li>
+                <li class="bring_right"><a href="">تعدبل الميعاد</a></li>
             </ul>
         </div>
         <!--/End system bath-->
@@ -30,7 +30,7 @@
                 <div class="card mt-5">
 
                     <h5 class="card-header info-color white-text text-center py-4" style="font-family: 'Cairo', sans-serif">
-                        <strong>إضافة حجز جديد</strong>
+                        <strong>تعديل الميعاد</strong>
                     </h5>
 
                     <!--Card content-->
@@ -78,7 +78,7 @@
                             <br>
 
                             <!-- Send button -->
-                            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">تعديل الموعد</button>
+                            <button class="btn btn-primary btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">تعديل الموعد</button>
 
                         </form>
                         <!-- Form -->

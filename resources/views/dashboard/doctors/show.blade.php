@@ -12,7 +12,7 @@
             <ul>
                 <li class="bring_right"><span class="glyphicon glyphicon-home "></span></li>
                 <li class="bring_right"><a href="">إدارة الاطباء</a></li>
-                <li class="bring_right"><a href="">فحص ايميل الطبيب</a></li>
+                <li class="bring_right"><a href="">فحص البريد الإلكتروني للطبيب</a></li>
             </ul>
         </div>
 
