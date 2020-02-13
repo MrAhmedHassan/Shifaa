@@ -39,7 +39,7 @@
                                 @role('Admin')
                                 <td>{{$value->doctor->name}}</td>
                                 @endrole
-                                <td>{{ date('D', strtotime($value->date)) }}</td>
+                                <td>{{ date('D', strtotime($value->reveal->date)) }}</td>
                                 <td>{{$value->reveal->start}}</td>
                                 <td>{{$value->reveal->end}}</td>
                                 <td>{{$value->reveal->date}}</td>

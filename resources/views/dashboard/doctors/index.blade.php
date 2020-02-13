@@ -9,8 +9,8 @@
             <div class="home_pass hidden-xs">
                 <ul>
                     <li class="bring_right"><span class="glyphicon glyphicon-home "></span></li>
-                    <li class="bring_right"><a href="">إدارة الدكاترة</a></li>
-                    <li class="bring_right"><a href="">عرض كل الدكاترة</a></li>
+                    <li class="bring_right"><a href="">إدارة الأطباء</a></li>
+                    <li class="bring_right"><a href="">عرض كل الأطباء</a></li>
                 </ul>
             </div>
             <!--/End system bath-->

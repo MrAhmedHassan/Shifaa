@@ -24,7 +24,7 @@
 
                         <div class="row">
                             <div class="col-md-8 m-auto text-break ">
-                                <p class="text-right mb-5">
+                                <p class="text-right mb-5 mt-2">
 
                                 {{$humanbody->description}}
 
@@ -50,8 +50,6 @@
     </div>
 </div>
 
-<div >
-    <footer class="container-fluid bg-primary text-white d-flex justify-content-center align-items-center navbar-fixed-bottom" style="position: relative;bottom:0px !important;height: 60px">Copyright by Ghosts 2020 ©</footer>
-</div>
+
 
 @endsection

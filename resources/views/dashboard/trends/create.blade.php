@@ -67,7 +67,7 @@
 
 
     <!-- Send button -->
-    <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">حفظ المرض</button>
+    <button class="btn btn-primary btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">حفظ المرض</button>
 
 </form>
 <!-- Form -->

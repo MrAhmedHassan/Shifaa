@@ -65,7 +65,7 @@
                     </li>
                     @role('Admin')
                     <li>
-                        <span class="glyphicon glyphicon-user"></span>
+                        <span class="glyphicon glyphicon-heart-empty"></span>
                         <a href="options.html">إدارة الأطباء</a>
                         <ul class="drop_main_menu">
                         <li><a href="/dashboardDoctors">عرض الكل</a></li>
@@ -77,7 +77,7 @@
 
                     @role('Admin')
                     <li>
-                        <span class="glyphicon glyphicon-user"></span>
+                        <span class="glyphicon glyphicon-envelope"></span>
                         <a href="options.html">ادارة الرسائل الواردة</a>
                         <ul class="drop_main_menu">
                         <li><a href="/contacts">عرض الرسائل الواردة</a></li>
@@ -121,7 +121,7 @@
                     @endrole
                     @role('Admin|Doctor|Assistant')
                     <li>
-                        <span class="glyphicon glyphicon-picture"></span>
+                        <span class="glyphicon glyphicon-pencil"></span>
                         <a href="">إدارة الحجوزات</a>
                         <ul class="drop_main_menu">
                             <!-- <li><a href="add_new_photo.html">حجز جديد</a></li> -->

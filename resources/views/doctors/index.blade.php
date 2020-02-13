@@ -11,7 +11,7 @@
                     </div>
                     <ul class="list-group p-0" id="departUL">
                         <div class="mb-2" onclick="forAll('departUL')" onmouseover="this.style.cursor = 'pointer'">
-                            <li class="list-group-item list-group-item-dark" id="allDepartments">الكل</li>
+                            <li class="list-group-item list-group-item-dark" id="allDepartments">كل الأطباء</li>
                         </div>
                         <div class="mb-2" onclick="forDep('Gldia')" onmouseover="this.style.cursor = 'pointer'">
                             <li class="list-group-item list-group-item-dark" id="Gldia">جلدية</li>
@@ -29,7 +29,7 @@
                             <li class="list-group-item list-group-item-dark" id="teeth">أسنان</li>
                         </div>
                         <div class="mb-2" onclick="forDep('bons')" onmouseover="this.style.cursor = 'pointer'">
-                            <li class="list-group-item list-group-item-dark" id="bons">عظام</li>
+                            <li onclick="theActiveColor()" class="list-group-item list-group-item-dark" id="bons">عظام</li>
                         </div>
                         <div class="mb-2" onclick="forDep('heart')" onmouseover="this.style.cursor = 'pointer'">
                             <li class="list-group-item list-group-item-dark" id="heart"> قلب وأوعيه دموية</li>
@@ -61,14 +61,14 @@
 
                 @foreach($doctors as $doctor)
 
-                        <div class="col-md-5 tall bg-dark mb-5 p-3 ml-3 mr-5 rounded allAboutDoctor" style="box-shadow: 3px 3px 20px;">
+                        <div class="col-md-5 tall mb-5 p-3 ml-3 mr-5 rounded allAboutDoctor" style="box-shadow: 3px 3px 8px;background-color:#178394">
                             <div class="row">
                                 <div class="col-md-5">
                                     <img class="docImage img-fluid" style="width: 150px; height: 150px;" src="{{ asset($doctor->avatar) }}" alt="Doctor">
                                 </div>
                                 <div class="col-md-7">
-                                    <a href="/profiles/{{$doctor->id}}" class="doctorNameLink">
-                                        <h4 class="text-primary doctorName">د/{{$doctor->name}}</h4>
+                                    <a href="/profiles/{{$doctor->id}}" class="doctorNameLink" style="text-decoration: none">
+                                        <h4 class="text-white doctorName">د/{{$doctor->name}}</h4>
                                     </a>
                                     <p class="text-white catDog">دكتور {{$doctor->category->category}}</p>
                                     <p>
@@ -82,10 +82,10 @@
                                     <span class="details text-white" style="font-weight: bold">
                                             نبذة : {{$doctor->profile->abstract}}</span>
 {{--                                    </i>--}}
-                                    <i class="fa fa-map-marker fa-2x d-flex justify-content-start  text-primary">
+                                    <i class="fa fa-map-marker fa-2x d-flex justify-content-start mt-3" style="color:#c6c8ca">
                                         <span class="details text-white mt-2 mr-2">عنوان العيادة : {{$doctor->profile->address}}</span>
                                     </i>
-                                    <i class="fa fa-money-bill d-flex justify-content-start text-primary mt-2" style="font-size: 20px;">
+                                    <i class="fa fa-money-bill d-flex justify-content-start mt-2" style="font-size: 20px;color:#c6c8ca">
                                         <span class="details text-white mr-2 mt-1">سعر الكشف :{{$doctor->profile->price}} جنيه </span>
                                     </i>
                                 </div>
@@ -106,7 +106,7 @@
 
 
 <script type="text/javascript">
-
+//beActive
 
 /****************************Search***************************/
 function forAllDoctors() {
@@ -127,7 +127,15 @@ function forAllDoctors() {
 /******************************Search By Side Bar*********************************/
 
 function forDep(type) {
+    let allLis = document.getElementsByClassName('list-group-item-dark');
+    for (let index = 0; index < allLis.length; index++) {
+        allLis[index].classList.remove('beActive');
+    }
     let searchDiv = document.getElementById(type).innerText;
+    let specificLi = document.getElementById(type);
+
+    specificLi.classList.add('beActive');
+
     let ul = document.getElementById('myUL');
     let li = ul.getElementsByClassName('allAboutDoctor');
     for( let c = 0; c < li.length; c++ ) {
@@ -145,14 +153,26 @@ function forDep(type) {
 
 function forAll(type) {
     let searchDiv = document.getElementById(type).innerText;
+    let allLis = document.getElementsByClassName('list-group-item-dark');
+    for (let index = 0; index < allLis.length; index++) {
+        allLis[index].classList.remove('beActive');
+    }
+    let x = document.getElementById('allDepartments');
+    x.classList.add('beActive');
+
+
     let ul = document.getElementById('myUL');
     let li = ul.getElementsByClassName('allAboutDoctor');
+
     for( let c = 0; c < li.length; c++ ) {
             li[c].style.display = "";
     }
 }
 
+function byEslam(type) {
 
+
+}
 
 
 

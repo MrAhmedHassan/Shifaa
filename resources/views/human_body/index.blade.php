@@ -5,9 +5,9 @@
   <div class="container">
 
     <div class="text-center p-5">
-   
+
       <h1 class="mb-3 text-white">أجهزة جسم الإنسان</h1>
-      <p class="text-white">
+      <p class="text-white" style="font-size:25px">
         في هذه الصفحة توضيح لجميع أجهزة جسم الإنسان وأعضائه، اضغط على الجهاز
         او العضو الذي تودّ القراءة عنه، لتحصل على كافة المعلومات عن تركيبه
         ووظائفه والأمراض والفحوصات والمقالات المتعلقة به
@@ -23,17 +23,17 @@
   <div class="container d-flex justify-content-center">
 
     
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 380px; right: 410px; text-decoration: none;font-size: 25px;color: #6160cc">الجهاز العصبي</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 510px; right: 375px; text-decoration: none;font-size: 25px;color: #6160cc">الجهاز المناعي</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 630px; right: 340px; text-decoration: none;font-size: 25px;color: #6160cc">الجهاز الهضمي</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 765px; right: 310px; text-decoration: none;font-size: 25px;color: #6160cc">الجهاز اللمفاوي</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 900px; right: 340px; text-decoration: none;font-size: 25px;color: #6160cc">الغدد الصماء</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 1030px; right: 390px; text-decoration: none;font-size: 25px;color: #6160cc">الجهاز  اللحافي</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 1015px; left: 310px; text-decoration: none;font-size: 25px;color: #6160cc">الجهاز الهيكلي والعضلي</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 870px; left: 315px; text-decoration: none;font-size: 25px;color: #6160cc">الجهاز التناسلي</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 715px; left: 325px; text-decoration: none;font-size: 25px;color: #6160cc">الجهاز البولي</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 575px; left: 345px; text-decoration: none;font-size: 25px;color: #6160cc">الجهاز التنفسي</a>
-        <a onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" href="#" style="color: blue; position: absolute; z-index: 2; top: 440px; left: 445px; text-decoration: none;font-size: 25px;color: #6160cc">جهاز الدوران</a>
+        <a style="position: absolute; z-index: 2; top: 380px; right: 410px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز العصبي</a>
+        <a style="position: absolute; z-index: 2; top: 510px; right: 375px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز المناعي</a>
+        <a style="position: absolute; z-index: 2; top: 630px; right: 340px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز الهضمي</a>
+        <a style="position: absolute; z-index: 2; top: 765px; right: 310px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز اللمفاوي</a>
+        <a style="position: absolute; z-index: 2; top: 900px; right: 340px; text-decoration: none;font-size: 25px;color:#0065e1">الغدد الصماء</a>
+        <a style="position: absolute; z-index: 2; top: 1030px; right: 390px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز  اللحافي</a>
+        <a style="position: absolute; z-index: 2; top: 1015px; left: 310px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز الهيكلي والعضلي</a>
+        <a style="position: absolute; z-index: 2; top: 870px; left: 315px; text-decoration: none;font-size: 25px;color: #0065e1">الجهاز التناسلي</a>
+        <a style="position: absolute; z-index: 2; top: 715px; left: 325px; text-decoration: none;font-size: 25px;color: #0065e1">الجهاز البولي</a>
+        <a style="position: absolute; z-index: 2; top: 575px; left: 345px; text-decoration: none;font-size: 25px;color: #0065e1">الجهاز التنفسي</a>
+        <a style="position: absolute; z-index: 2; top: 440px; left: 445px; text-decoration: none;font-size: 25px;color: #0065e1">جهاز الدوران</a>
 
     <map name="Devices">
 
