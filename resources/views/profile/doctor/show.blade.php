@@ -68,7 +68,7 @@
             </div>
             <div class=" rounded d-flex justify-content-center flex-column p-3 bg-primary mb-3 renewTheShape">
                 <h3 class="text-center text-white">عدد الكشوفات</h3>
-                <p class="text-center">{{count($user->doctorReservations)}}</p>
+                <p class="text-center">{{count($all)}}</p>
             </div>
         </div>
         <div class="col-sm-6">
