@@ -91,7 +91,7 @@
                     $reveals = $user->reveals;
                 @endphp
                 @if(count($reveals) < 1)
-                    <tr class="text-light" style="color:#aec9e0">
+                    <tr class="text-light" style="color:white">
                         <td>
                             <p style="font-size: 20px">لم يحدد</p>
                         <td>
