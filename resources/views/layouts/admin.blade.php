@@ -114,7 +114,9 @@
                         <span class="glyphicon glyphicon-time"></span>
                         <a href="">إدارة المواعيد</a>
                         <ul class="drop_main_menu">
+                            @role('Doctor|Assistant')
                             <li><a href="/reveals/create">إضافة ميعاد جديد</a></li>
+                            @endrole
                             <li><a href="/reveals">عرض الكل</a></li>
                         </ul>
                     </li>
