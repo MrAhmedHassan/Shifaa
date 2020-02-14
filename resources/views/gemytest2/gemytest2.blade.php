@@ -28,7 +28,7 @@
                     <div class="text-white  pt-3 mb-2 mt-1 define ">
                     <div class='text bg-info'><h3 class="p-2" id="questions_Qu">{{$question->question}}</h3> </div>
                     @foreach($question->answers as $answers)
-                    <h4 id="questions_An" class="py-2"><input type='radio' class='text text-dark bg-light mr-2' name={{$question->questionEnglish}} value={{$answers->value}}> {{ $answers->answer}}</h4><br>
+                    <h4 id="questions_An" class="py-2"><input type='radio' class='text text-dark bg-light mr-2' style="width: 22px;height: 22px" name={{$question->questionEnglish}} value={{$answers->value}}> {{ $answers->answer}}</h4><br>
                     <input type="hidden" name="test_id" value={{$question->test_id}} >
                     @endforeach
                     </div>
