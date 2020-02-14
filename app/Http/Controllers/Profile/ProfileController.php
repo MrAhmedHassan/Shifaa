@@ -10,6 +10,7 @@ use App\Profile;
 use App\Reservation;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 
 class   ProfileController extends Controller
@@ -93,6 +94,12 @@ class   ProfileController extends Controller
 
     public function update($profile)
     {
+        request()->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255',  Rule::unique('users')->ignore($profile),],
+            'avatar' => ['mimes:jpeg,jpg,png','max:2000'],
+        ]);
+
         if (auth()->user()->id == $profile) {
             $user = User::find($profile);
             $user->name = request()->input('name');

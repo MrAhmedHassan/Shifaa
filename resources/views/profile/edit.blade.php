@@ -18,7 +18,12 @@
         <div class="col-md-3">
             <img src="{{$user->avatar}}" class="avatar img-circle img-fluid" alt="avatar">
             <h6 style="font-family: 'Cairo', sans-serif">تغيير الصورة الشخصية</h6>
-            <input type="file" class="form-control" name="avatar">
+            <input type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar">
+            @error('avatar')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
         </div>
 
         <div class="col-md-9">
@@ -32,45 +37,27 @@
           <div class="form-group">
             <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">الاسم :</label>
             <div class="col-lg-8">
-              <input class="form-control" name="name" type="text" value="{{$user->name}}">
+              <input class="form-control @error('name') is-invalid @enderror" name="name" type="text" value="{{$user->name}}" required>
+                @error('name')
+                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">البريد الالكتروني :</label>
             <div class="col-lg-8">
-              <input class="form-control" name="email" type="email" value="{{$user->email}}">
+              <input class="form-control @error('email') is-invalid @enderror" name="email" type="email" value="{{$user->email}}" required>
+                @error('email')
+                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
             </div>
           </div>
 
-{{--          <hr>--}}
-{{--          <div class="alert alert-info alert-dismissable" style="font-family: 'Cairo', sans-serif">--}}
-{{--            <i class="fa fa-address-card" aria-hidden="true"></i>--}}
-
-{{--            <strong>اكمل ملفك الشخصي</strong> .. اختياري ..--}}
-{{--          </div>--}}
-
-{{--          <div class="form-group">--}}
-{{--            <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">نبذة :</label>--}}
-{{--            <div class="col-lg-8">--}}
-{{--              <textarea name="abstract" id="" class="form-control md-textarea" rows="3">{{$user->profile->abstract}}</textarea>--}}
-
-{{--            </div>--}}
-{{--          </div>--}}
-
-{{--          <div class="form-group">--}}
-{{--            <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">عنوان العيادة :</label>--}}
-{{--            <div class="col-lg-8">--}}
-{{--              <input class="form-control" name="address" type="text" value="{{$user->profile->address}}">--}}
-{{--            </div>--}}
-{{--          </div>--}}
-
-{{--          <div class="form-group">--}}
-{{--            <label class="col-lg-3 control-label" style="font-family: 'Cairo', sans-serif">سعر الكشف :</label>--}}
-{{--            <div class="col-lg-8">--}}
-{{--              <input class="form-control" name="price" type="text" value="{{$user->profile->price}}">--}}
-{{--            </div>--}}
-{{--          </div>--}}
           <button type="submit" class="btn btn-primary btn-lg btn-block container" style="font-family: 'Cairo', sans-serif"> حفظ التغييرات</button>
 </div>
       </div>
