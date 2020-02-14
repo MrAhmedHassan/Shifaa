@@ -1,21 +1,24 @@
 <?php
 
 namespace App\Http\Controllers\Profile;
+
 use App\Rating;
 
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Profile;
+use App\Reservation;
+
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
 class   ProfileController extends Controller
 {
 
-
     public function addRate(Request $request)
 
     {
+
 
         $newRating = request()->input('rate');
 
@@ -32,35 +35,35 @@ class   ProfileController extends Controller
             ['rateable_type', 'App\User']
         ])->first();
 
-       if($rating){
-        $rating->rating = $newRating;
+        if ($rating) {
+            $rating->rating = $newRating;
 
-        $user->ratings()->save($rating);
-        $user->average_rate = $user->averageRating;
-        $user->save();
+            $user->ratings()->save($rating);
+            $user->average_rate = $user->averageRating;
+            $user->save();
 
-           return redirect()->route('profiles.another', $request->id);
-      }else{
-        request()->validate(['rate' => 'required']);
-        $user = User::find($request->id);
-        $rating = new \willvincent\Rateable\Rating;
-        $rating->rating = $request->rate;
-        $rating->user_id = auth()->user()->id;
-        $user->ratings()->save($rating);
-        $user->average_rate = $user->averageRating;
-        $user->save();
-        return redirect()->route('profiles.another', $request->id);
-    }
-
+            return redirect()->route('profiles.another', $request->id);
+        } else {
+            request()->validate(['rate' => 'required']);
+            $user = User::find($request->id);
+            $rating = new \willvincent\Rateable\Rating;
+            $rating->rating = $request->rate;
+            $rating->user_id = auth()->user()->id;
+            $user->ratings()->save($rating);
+            $user->average_rate = $user->averageRating;
+            $user->save();
+            return redirect()->route('profiles.another', $request->id);
+        }
     }
 
     public function showMyProfile()
     {
         $user = User::find(auth()->user()->id);
+        $all = Reservation::withTrashed()->where('doctor_id', '=', $user->id)->get();
         if ($user->hasRole('Doctor')) {
-            return view('profile/doctor/show', ['user' => $user]);
+            return view('profile/doctor/show', ['user' => $user, 'all' => $all]);
         } else if ($user->hasRole('Patient')) {
-            return view('profile/patient/show', ['user' => $user]);
+            return view('profile/patient/show', ['user' => $user, 'all' => $all]);
         }
     }
 
@@ -68,12 +71,12 @@ class   ProfileController extends Controller
     public function showAnotherProfile($profile)
     {
         $user = User::find($profile);
-
+        $all = Reservation::withTrashed()->where('doctor_id', '=', $profile)->get();
         if ($user->hasRole('Admin')) {
             return redirect('/');
         } else if ($user->hasRole('Doctor')) {
-            return view('profile/doctor/show', ['user' => $user]);
-        }else{
+            return view('profile/doctor/show', ['user' => $user, 'all' => $all]);
+        } else {
         }
     }
 
@@ -94,6 +97,7 @@ class   ProfileController extends Controller
             $user = User::find($profile);
             $user->name = request()->input('name');
             $user->email = request()->input('email');
+            $all = Reservation::withTrashed()->where('doctor_id', '=', $profile)->get();
 
             if (request()->has('avatar')) {
                 $avatarUploaded = \request()->file('avatar');
@@ -105,12 +109,12 @@ class   ProfileController extends Controller
             $user->save();
 
             if ($user->hasRole('Doctor')) {
-                return view('profile.doctor.show', ['user' => $user]);
+                return view('profile.doctor.show', ['user' => $user, 'all' => $all]);
             } else if ($user->hasRole('Patient')) {
-                return view('profile.patient.show', ['user' => $user]);
+                return view('profile.patient.show', ['user' => $user, 'all' => $all]);
             }
         } else {
-            dd('Sorry, Your can\'t update');
+            return redirect('\login');
         }
     }
 }

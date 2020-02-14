@@ -61,7 +61,7 @@
                 <ul>
                     <li>
                         <span class="glyphicon glyphicon-home"></span>
-                        <a href="/dashboard">الصفحة الرئيسية</a>
+                        <a href="/dashboard">لوحة التحكم</a>
                     </li>
                     @role('Admin')
                     <li>
