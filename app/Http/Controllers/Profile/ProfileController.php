@@ -19,6 +19,7 @@ class   ProfileController extends Controller
 
     {
 
+
         $newRating = request()->input('rate');
 
         if ($newRating > 5) {
@@ -58,7 +59,7 @@ class   ProfileController extends Controller
     public function showMyProfile()
     {
         $user = User::find(auth()->user()->id);
-        $all = Reservation::withTrashed()->where('doctor_id','=', $user->id)->get();
+        $all = Reservation::withTrashed()->where('doctor_id', '=', $user->id)->get();
         if ($user->hasRole('Doctor')) {
             return view('profile/doctor/show', ['user' => $user, 'all' => $all]);
         } else if ($user->hasRole('Patient')) {
@@ -70,7 +71,7 @@ class   ProfileController extends Controller
     public function showAnotherProfile($profile)
     {
         $user = User::find($profile);
-        $all = Reservation::withTrashed()->where('doctor_id','=', $profile)->get();
+        $all = Reservation::withTrashed()->where('doctor_id', '=', $profile)->get();
         if ($user->hasRole('Admin')) {
             return redirect('/');
         } else if ($user->hasRole('Doctor')) {
@@ -96,6 +97,7 @@ class   ProfileController extends Controller
             $user = User::find($profile);
             $user->name = request()->input('name');
             $user->email = request()->input('email');
+            $all = Reservation::withTrashed()->where('doctor_id', '=', $profile)->get();
 
             if (request()->has('avatar')) {
                 $avatarUploaded = \request()->file('avatar');
@@ -107,12 +109,12 @@ class   ProfileController extends Controller
             $user->save();
 
             if ($user->hasRole('Doctor')) {
-                return view('profile.doctor.show', ['user' => $user]);
+                return view('profile.doctor.show', ['user' => $user, 'all' => $all]);
             } else if ($user->hasRole('Patient')) {
-                return view('profile.patient.show', ['user' => $user]);
+                return view('profile.patient.show', ['user' => $user, 'all' => $all]);
             }
         } else {
-            dd('Sorry, Your can\'t update');
+            return redirect('\login');
         }
     }
 }
