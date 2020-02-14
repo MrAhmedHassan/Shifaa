@@ -58,10 +58,11 @@ class   ProfileController extends Controller
     public function showMyProfile()
     {
         $user = User::find(auth()->user()->id);
+        $all = Reservation::withTrashed()->where('doctor_id','=', $user->id)->get();
         if ($user->hasRole('Doctor')) {
-            return view('profile/doctor/show', ['user' => $user]);
+            return view('profile/doctor/show', ['user' => $user, 'all' => $all]);
         } else if ($user->hasRole('Patient')) {
-            return view('profile/patient/show', ['user' => $user]);
+            return view('profile/patient/show', ['user' => $user, 'all' => $all]);
         }
     }
 
@@ -69,7 +70,7 @@ class   ProfileController extends Controller
     public function showAnotherProfile($profile)
     {
         $user = User::find($profile);
-        $all = Reservation::withTrashed()->get();
+        $all = Reservation::withTrashed()->where('doctor_id','=', $profile)->get();
         if ($user->hasRole('Admin')) {
             return redirect('/');
         } else if ($user->hasRole('Doctor')) {
