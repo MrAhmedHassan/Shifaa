@@ -8,33 +8,28 @@
             <div class="col-md-8">
                 <div class="content h-100">
 
-
-
                     {{-- <div class="container"> --}}
-                        <div class="row pt-5 d-flex justify-content-center mb-5 ">
+                    <div class="row pt-5 d-flex justify-content-center mb-5 ">
 
-
-                            <img src= "../images/{{$humanbody->image}}" class="brainImag">
+                        <img src="../images/{{$humanbody->image}}" class="brainImag">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="text-center text-danger">{{$humanbody->title}}</h2>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="text-center text-danger">{{$humanbody->title}}</h2>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-md-8 m-auto text-break ">
-                                <p class="text-right mb-5 mt-2">
+                    <div class="row">
+                        <div class="col-md-8 m-auto text-break ">
+                            <p class="text-right mb-5 mt-2">
 
                                 {{$humanbody->description}}
 
-                                </p>
-                            </div>
+                            </p>
                         </div>
+                    </div>
 
                     {{-- </div> --}}
-
-
 
                 </div>
             </div>
@@ -49,7 +44,5 @@
         </div>
     </div>
 </div>
-
-
 
 @endsection

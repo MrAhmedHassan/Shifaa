@@ -12,7 +12,6 @@
             </div>
             <ul class="list cat-list">
 
-
                 <li>
                     <a href="#" class="d-flex">
                         <p> {{$category->category}}</p>&nbsp

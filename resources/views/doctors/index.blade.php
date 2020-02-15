@@ -101,8 +101,6 @@
 
 </div>
 
-
-
 <script type="text/javascript">
 //beActive
 
@@ -257,7 +255,6 @@ for (var i=0;i<arraySparsee2.length;i++){
       {
         arr.push(gemy[j]);
       }
-      // console.log(arr[0]);
         arr[0].style.color="yellow";
     start+=5;
     end+=5;
@@ -319,7 +316,6 @@ for (var i=0;i<arraySparsee2.length;i++){
     continue;
    }
 }
-
 
 </script>
 @endsection

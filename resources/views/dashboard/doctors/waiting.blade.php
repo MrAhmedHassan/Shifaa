@@ -45,7 +45,6 @@
                                                 data-placement="top" title="حذف" style="color: brown"></button>
                                     </form>
 
-
                                 </td>
                             </tr>
                         @endforeach

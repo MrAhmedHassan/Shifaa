@@ -126,7 +126,6 @@
                         <span class="glyphicon glyphicon-pencil"></span>
                         <a href="">إدارة الحجوزات</a>
                         <ul class="drop_main_menu">
-                            <!-- <li><a href="add_new_photo.html">حجز جديد</a></li> -->
                             <li><a href="/reservations">عرض الكل</a></li>
                         </ul>
                     </li>
@@ -146,8 +145,7 @@
     </div>
     <!--/End body container section-->
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+
 <script type="text/javascript" src="{{asset('Adminy-master/js/jquery-2.1.4.min.js')}}"></script>
 <script src="{{asset('Adminy-master/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('Adminy-master/js/js.js')}}"></script>

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-<!-- waiting yehia to see these fonts -->
 <link href="https://fonts.googleapis.com/css?family=Cairo|Tajawal&display=swap" rel="stylesheet">
 
 <div class="container" style="margin-top: 80px">

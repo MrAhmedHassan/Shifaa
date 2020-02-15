@@ -20,7 +20,6 @@ class   ProfileController extends Controller
 
     {
 
-
         $newRating = request()->input('rate');
 
         if ($newRating > 5) {
@@ -83,6 +82,7 @@ class   ProfileController extends Controller
 
 
     public function edit($profile)
+
     {
         if (auth()->user()->id == $profile) {
             $user = User::find($profile);
@@ -93,11 +93,12 @@ class   ProfileController extends Controller
     }
 
     public function update($profile)
+
     {
         request()->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255',  Rule::unique('users')->ignore($profile),],
-            'avatar' => ['mimes:jpeg,jpg,png','max:2000'],
+            'avatar' => ['mimes:jpeg,jpg,png', 'max:2000'],
         ]);
 
         if (auth()->user()->id == $profile) {

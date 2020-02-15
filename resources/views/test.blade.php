@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <html>
-
 <head>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -9,11 +8,7 @@
 </head>
 
 <body>
-
-
-
 <div class="container">
-
 
     <table id ='myTable' class="table table-bordered">
         <thead>
@@ -40,16 +35,12 @@
                         <button class="glyphicon glyphicon-remove" data-toggle="tooltip"
                                 data-placement="top" title="حذف" style="color: brown"></button>
                     </form>
-
-
                 </td>
             </tr>
 </tbody>
 
     </table>
-
 </div>
-
 </body>
 
 <script

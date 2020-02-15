@@ -48,9 +48,6 @@
                                 type="submit" style="color: brown">قبول</button>
                     </form>
                 </div>
-
-
-
             </div>
         </div>
 

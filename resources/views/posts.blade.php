@@ -33,29 +33,29 @@
 
                         @if($posts->count())
 
-                            @foreach($posts as $post)
+                        @foreach($posts as $post)
 
-                            <tr>
+                        <tr>
 
-                                <td>{{ $post->id }}</td>
+                            <td>{{ $post->id }}</td>
 
-                                <td>{{ $post->name }}</td>
+                            <td>{{ $post->name }}</td>
 
-                                <td>
+                            <td>
 
-                                    <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $post->averageRating }}" data-size="xs" disabled="">
+                                <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $post->averageRating }}" data-size="xs" disabled="">
 
-                                </td>
+                            </td>
 
-                                <td>
+                            <td>
 
-                                    <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary btn-sm">View</a>
+                                <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary btn-sm">View</a>
 
-                                </td>
+                            </td>
 
-                            </tr>
+                        </tr>
 
-                            @endforeach
+                        @endforeach
 
                         @endif
 
@@ -74,9 +74,7 @@
 
 
 <script type="text/javascript">
-
     $("#input-id").rating();
-
 </script>
 
 @endsection

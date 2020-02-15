@@ -85,14 +85,7 @@
       }
       @endphp
 
-
       @endforeach
-
-      <!--area shape="circle" coords="452,44,42" href="/bodies/{body}" alt="Nerve" /-->
-
-
-
-
 
     </map>
     <img src="{{ asset('/imgs/body2.png') }}" alt="Body" usemap="#Devices" />

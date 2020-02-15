@@ -36,8 +36,6 @@
         <!--Card content-->
         <div class="card-body px-lg-5 pt-0">
 
-                
-
 <!-- Form -->
 <form class="text-right" method="post" action="/trends/store" enctype="multipart/form-data">
     @csrf
@@ -65,7 +63,6 @@
     <br>
     <br>
 
-
     <!-- Send button -->
     <button class="btn btn-primary btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" style="font-family: 'Cairo', sans-serif">حفظ المرض</button>
 
@@ -77,9 +74,6 @@
     </div>
     <!-- Material form contact -->
 </div>
-
-
-
 </div>
 </div>
 </div>

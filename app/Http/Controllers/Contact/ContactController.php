@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Contact;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Contact;
@@ -17,8 +18,6 @@ class ContactController extends Controller
         $message->save();
 
         Session()->flash('message', ' شكرا لتواصلك معنا عزيزي المستخدم .. نعدك بسرعة الرد على استفسارك .. ');
-
-
         return redirect('/#contact_us');
     }
 

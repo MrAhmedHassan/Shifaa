@@ -9,7 +9,6 @@
 
                 <div class="card-body" style="padding:0 ">
                 <div class="card-body">
-                    <!-- <form method="POST" action="{{ route('register') }}"> -->
                     <form method="POST" enctype='multipart/form-data' action="{{ route('register') }}">
                         @csrf
 

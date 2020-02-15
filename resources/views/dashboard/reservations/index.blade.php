@@ -45,7 +45,6 @@
                                 <td>{{$value->reveal->date}}</td>
                                 <td>
 
-
                                         <form action="/reservations/{{$value->id}}" style="display: inline-flex" method="post">
                                         {{method_field('DELETE')}}
                                          @csrf

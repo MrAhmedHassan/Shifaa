@@ -27,7 +27,6 @@ class AssistantController extends Controller
 
     public function create()
     {
-        // return response()->json(User::with("roles")->get());
        return view('dashboard/assistants/create');
     }
 

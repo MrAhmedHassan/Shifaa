@@ -57,10 +57,6 @@
                                 @if(auth()->user()->id == $user->id && auth()->user()->hasRole('Doctor'))
                                 <a href="/profile/complete" class="btn btn-info btn-sm ml-2 h-25">أكمل الملف الشخصي</a>
                                 @endif
-                                <!-- <form method='post' action='/profiles/complete' enctype="multipart/form-data">
-                                    @csrf
-                                    <button class="btn btn-info btn-sm ml-2 h-50">أكمل الملف الشخصي</button>
-                                    </form> -->
 
                             </div>
                         </div>
