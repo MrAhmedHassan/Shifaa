@@ -53,43 +53,50 @@
                 </aside>
             </div>
 
-        <div class="col-md-10 tall">
-            <div class="row" id="myUL">
-                <div class="col-md-12 d-flex justify-content-center">
-                    <input onkeyup="forAllDoctors()" class="mb-4 p-3 rounded w-50" type="text" id="myInput" style="background-color: blanchedalmond" placeholder="ابحث عن طبيب ..">
-                </div>
+            <div class="col-md-10 tall">
+                <div class="row" id="myUL">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <input onkeyup="forAllDoctors()" class="mb-4 p-3 rounded w-50" type="text" id="myInput" style="background-color: blanchedalmond" placeholder="ابحث عن طبيب ..">
+                    </div>
 
-                @foreach($doctors as $doctor)
+                    @foreach($doctors as $doctor)
 
-                        <div class="col-md-5 tall mb-5 p-3 ml-3 mr-5 rounded allAboutDoctor" style="box-shadow: 3px 3px 8px;background-color:#178394">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <img class="docImage img-fluid" style="width: 150px; height: 150px;" src="{{ asset($doctor->avatar) }}" alt="Doctor">
-                                </div>
-                                <div class="col-md-7">
-                                    <a href="/profiles/{{$doctor->id}}" class="doctorNameLink" style="text-decoration: none">
-                                        <h4 class="text-white doctorName">د/{{$doctor->name}}</h4>
-                                    </a>
-                                    <p class="text-white catDog">دكتور {{$doctor->category->category}}</p>
-                                    <p>
-                                        <i style="font-size: 20px" name="gemy" class="fa fa-star fa-2x" id="star5"></i>
-                                        <i style="font-size: 20px" name="gemy" class="fa fa-star fa-2x" id="star4"></i>
-                                        <i style="font-size: 20px" name="gemy" class="fa fa-star fa-2x" id="star3"></i>
-                                        <i style="font-size: 20px" name="gemy" class="fa fa-star fa-2x" id="star2"></i>
-                                        <i style="font-size: 20px" name="gemy" class="fa fa-star fa-2x" id="star1"></i>
-                                    </p>
-                                    <div name="gemy1" class="gemy2" id="val" style="display:none">{{$doctor->averageRating}}</div>
-                                    <span class="details text-white" style="font-weight: bold">
-                                            نبذة : {{$doctor->profile->abstract}}</span>
-                                    <i class="fa fa-map-marker fa-2x d-flex justify-content-start mt-3" style="color:#c6c8ca">
-                                        <span class="details text-white mt-2 mr-2">عنوان العيادة : {{$doctor->profile->address}}</span>
-                                    </i>
-                                    <i class="fa fa-money-bill d-flex justify-content-start mt-2" style="font-size: 20px;color:#c6c8ca">
-                                        <span class="details text-white mr-2 mt-1">سعر الكشف :{{$doctor->profile->price}} جنيه </span>
-                                    </i>
-                                </div>
+                    <div class="col-md-5 tall mb-5 p-3 ml-3 mr-5 rounded allAboutDoctor" style="box-shadow: 3px 3px 8px;background-color:#178394">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <img class="docImage img-fluid" style="width: 150px; height: 150px;" src="{{ asset($doctor->avatar) }}" alt="Doctor">
+                            </div>
+                            <div class="col-md-7">
+                                <a href="/profiles/{{$doctor->id}}" class="doctorNameLink" style="text-decoration: none">
+                                    <h4 class="text-white doctorName">د/{{$doctor->name}}</h4>
+                                </a>
+
+
+
+                                <p class="text-white catDog">دكتور {{$doctor->category->category}}</p>
+                               <p>
+                                    @for($i=5 ; $i>=1;$i--)
+                                    @if($i <= $doctor->average_rate)
+                                        <i style="font-size: 20px ;color:yellow" name="gemy" class="fa fa-star fa-2x" id="star5"></i>
+
+                                        @else
+                                        <i style="font-size: 20px " name="gemy" class="fa fa-star fa-2x" id="star5"></i>
+
+                                        @endif
+                                        @endfor
+                                </p>
+                                <div name="gemy1" class="gemy2" id="val" style="display:none">{{$doctor->averageRating}}</div>
+                                <span class="details text-white" style="font-weight: bold">
+                                    نبذة : {{$doctor->profile->abstract}}</span>
+                                <i class="fa fa-map-marker fa-2x d-flex justify-content-start mt-3" style="color:#c6c8ca">
+                                    <span class="details text-white mt-2 mr-2">عنوان العيادة : {{$doctor->profile->address}}</span>
+                                </i>
+                                <i class="fa fa-money-bill d-flex justify-content-start mt-2" style="font-size: 20px;color:#c6c8ca">
+                                    <span class="details text-white mr-2 mt-1">سعر الكشف :{{$doctor->profile->price}} جنيه </span>
+                                </i>
                             </div>
                         </div>
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -102,220 +109,68 @@
 </div>
 
 <script type="text/javascript">
-//beActive
+    //beActive
 
-/****************************Search***************************/
-function forAllDoctors() {
-    let searchInput = document.getElementById('myInput');
-    let filter = searchInput.value.toUpperCase();
-    let ul = document.getElementById('myUL');
-    let li = ul.getElementsByClassName('allAboutDoctor');
-    for( let c = 0; c < li.length; c++ ) {
-        let h4Name = li[c].getElementsByTagName("h4")[0];
-        let txtValue = h4Name.textContent || h4Name.innerText;
-        if( txtValue.toUpperCase().indexOf(filter) > -1 ) {
+    /****************************Search***************************/
+    function forAllDoctors() {
+        let searchInput = document.getElementById('myInput');
+        let filter = searchInput.value.toUpperCase();
+        let ul = document.getElementById('myUL');
+        let li = ul.getElementsByClassName('allAboutDoctor');
+        for (let c = 0; c < li.length; c++) {
+            let h4Name = li[c].getElementsByTagName("h4")[0];
+            let txtValue = h4Name.textContent || h4Name.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[c].style.display = "";
+            } else {
+                li[c].style.display = "none";
+            }
+        }
+    }
+    /******************************Search By Side Bar*********************************/
+
+    function forDep(type) {
+        let allLis = document.getElementsByClassName('list-group-item-dark');
+        for (let index = 0; index < allLis.length; index++) {
+            allLis[index].classList.remove('beActive');
+        }
+        let searchDiv = document.getElementById(type).innerText;
+        let specificLi = document.getElementById(type);
+
+        specificLi.classList.add('beActive');
+
+        let ul = document.getElementById('myUL');
+        let li = ul.getElementsByClassName('allAboutDoctor');
+        for (let c = 0; c < li.length; c++) {
+            let h4Name = li[c].getElementsByClassName("catDog")[0];
+            let txtValue = h4Name.textContent || h4Name.innerText;
+            if (txtValue.toUpperCase().indexOf(searchDiv) > -1) {
+                li[c].style.display = "";
+            } else {
+                li[c].style.display = "none";
+            }
+        }
+    }
+
+    /******************************Search All*********************************/
+
+    function forAll(type) {
+        let searchDiv = document.getElementById(type).innerText;
+        let allLis = document.getElementsByClassName('list-group-item-dark');
+        for (let index = 0; index < allLis.length; index++) {
+            allLis[index].classList.remove('beActive');
+        }
+        let x = document.getElementById('allDepartments');
+        x.classList.add('beActive');
+
+
+        let ul = document.getElementById('myUL');
+        let li = ul.getElementsByClassName('allAboutDoctor');
+
+        for (let c = 0; c < li.length; c++) {
             li[c].style.display = "";
-        } else {
-            li[c].style.display = "none";
         }
     }
-}
-/******************************Search By Side Bar*********************************/
-
-function forDep(type) {
-    let allLis = document.getElementsByClassName('list-group-item-dark');
-    for (let index = 0; index < allLis.length; index++) {
-        allLis[index].classList.remove('beActive');
-    }
-    let searchDiv = document.getElementById(type).innerText;
-    let specificLi = document.getElementById(type);
-
-    specificLi.classList.add('beActive');
-
-    let ul = document.getElementById('myUL');
-    let li = ul.getElementsByClassName('allAboutDoctor');
-    for( let c = 0; c < li.length; c++ ) {
-        let h4Name = li[c].getElementsByClassName("catDog")[0];
-        let txtValue = h4Name.textContent || h4Name.innerText;
-        if( txtValue.toUpperCase().indexOf(searchDiv) > -1 ) {
-            li[c].style.display = "";
-        } else {
-            li[c].style.display = "none";
-        }
-    }
-}
-
-/******************************Search All*********************************/
-
-function forAll(type) {
-    let searchDiv = document.getElementById(type).innerText;
-    let allLis = document.getElementsByClassName('list-group-item-dark');
-    for (let index = 0; index < allLis.length; index++) {
-        allLis[index].classList.remove('beActive');
-    }
-    let x = document.getElementById('allDepartments');
-    x.classList.add('beActive');
-
-
-    let ul = document.getElementById('myUL');
-    let li = ul.getElementsByClassName('allAboutDoctor');
-
-    for( let c = 0; c < li.length; c++ ) {
-            li[c].style.display = "";
-    }
-}
-
-var gemy=document.getElementsByName("gemy");
-var gemy1=document.getElementsByName("gemy1");
-var arraySparsee2 = [];
-for (var i=0;i<gemy1.length;i++){
-    arraySparsee2.push(parseInt(gemy1[i].innerText)) ;
-}
-var start=0;
-var end=5;
-for (var i=0;i<arraySparsee2.length;i++){
-    console.log(arraySparsee2[i]);
-    if(arraySparsee2[i]==1){
-        arr=[];
-        for(j=start;j<end;j++)
-        {
-            arr.push(gemy[j]);
-        }
-        console.log(arr[0]);
-        arr[0].style.color="yellow";
-        start+=5;
-        end+=5;
-        continue;
-    }else if(arraySparsee2[i]==2){
-        arr1=[];
-        for(j=start;j<end;j++)
-        {
-            arr1.push(gemy[j]);
-        }
-        arr1[0].style.color="yellow";
-        arr1[1].style.color="yellow";
-        start+=5;
-        end+=5;
-        continue;
-    }else if(arraySparsee2[i]==3){
-        arr2=[];
-        for(j=start;j<end;j++)
-        {
-            arr2.push(gemy[j]);
-        }
-        arr2[0].style.color="yellow";
-        arr2[1].style.color="yellow";
-        arr2[2].style.color="yellow";
-        start+=5;
-        end+=5;
-        continue;
-    }else if(arraySparsee2[i]==4){
-        arr3=[];
-        for(j=start;j<end;j++)
-        {
-            arr3.push(gemy[j]);
-        }
-        arr3[0].style.color="yellow";
-        arr3[1].style.color="yellow";
-        arr3[2].style.color="yellow";
-        arr3[3].style.color="yellow";
-        start+=5;
-        end+=5;
-        continue;
-    }else if(arraySparsee2[i]==5){
-        arr4=[];
-        for(j=start;j<end;j++)
-        {
-            arr4.push(gemy[j]);
-        }
-        arr4[0].style.color="yellow";
-        arr4[1].style.color="yellow";
-        arr4[2].style.color="yellow";
-        arr4[3].style.color="yellow";
-        arr4[4].style.color="yellow";
-        start+=5;
-        end+=5;
-        continue;
-    }
-}
-
-var gemy=document.getElementsByName("gemy");
-var gemy1=document.getElementsByName("gemy1");
-var arraySparsee2 = [];
-for (var i=0;i<gemy1.length;i++){
-    arraySparsee2.push(parseInt(gemy1[i].innerText)) ;
-}
-var start=0;
-var end=5;
-for (var i=0;i<arraySparsee2.length;i++){
-    console.log(arraySparsee2[i]);
-    if(arraySparsee2[i]==1){
-        arr=[];
-        for(j=start;j<end;j++)
-      {
-        arr.push(gemy[j]);
-      }
-        arr[0].style.color="yellow";
-    start+=5;
-    end+=5;
-    continue;
-   }else if(arraySparsee2[i]==2){
-       arr1=[];
-    for(j=start;j<end;j++)
-      {
-
-       arr1.push(gemy[j]);
-
-      }
-
-       arr1[0].style.color="yellow";
-       arr1[1].style.color="yellow";
-
-    start+=5;
-    end+=5;
-    continue;
-   }else if(arraySparsee2[i]==3){
-       arr2=[];
-    for(j=start;j<end;j++)
-      {
-        arr2.push(gemy[j]);
-      }
-     arr2[0].style.color="yellow";
-      arr2[1].style.color="yellow";
-       arr2[2].style.color="yellow";
-    start+=5;
-    end+=5;
-    continue;
-   }else if(arraySparsee2[i]==4){
-       arr3=[];
-    for(j=start;j<end;j++)
-      {
-
-        arr3.push(gemy[j]);
-      }
-    arr3[0].style.color="yellow";
-       arr3[1].style.color="yellow";
-       arr3[2].style.color="yellow";
-      arr3[3].style.color="yellow";
-    start+=5;
-    end+=5;
-    continue;
-   }else if(arraySparsee2[i]==5){
-       arr4=[];
-    for(j=start;j<end;j++)
-      {
-        arr4.push(gemy[j]);
-      }
-      arr4[0].style.color="yellow";
-       arr4[1].style.color="yellow";
-       arr4[2].style.color="yellow";
-       arr4[3].style.color="yellow";
-       arr4[4].style.color="yellow";
-    start+=5;
-    end+=5;
-    continue;
-   }
-}
 
 </script>
 @endsection
