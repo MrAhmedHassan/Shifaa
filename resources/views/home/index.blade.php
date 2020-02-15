@@ -655,6 +655,8 @@
     </div>
   </div>
 </div>
+      </div>
+    
 </footer>
 <div class="d-flex justify-content-center align-items-center bg-primary py-2 text-white">
   <h6>Copyright by Shefaa 2020 ©</h6>
