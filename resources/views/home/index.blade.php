@@ -644,7 +644,7 @@
       <h3 class="mb-2"> <i class="fas fa-phone ml-3 text-muted" style="font-size: 22px"></i>رقم الهاتف</h3>
       <h6 class="mb-2"> 001-000-000-000</h6>
       <h3 class="mb-2"><i class="fas fa-envelope ml-3 text-muted" style="font-size: 22px"></i>الإيميل </h3>
-      <a href="#"><h6> Shefaa@gmail.com</h6></a>
+      <a href="#"><h6> Shefaacompany@gmail.com</h6></a>
     </div>
     <div class="col-md-4 flex-column">
       <h1 class="text-primary pb-2">الوصول السريع</h1>
