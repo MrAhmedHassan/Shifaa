@@ -585,7 +585,7 @@
       <div class="col-md-6 mt-5">
         <p class="text-center text-muted">يسعدنا تواصلكم معنا .. يمكنكم إرسال رسالة لنا وسوف يتم الرد عليكم في اقرب وقت .. شكرا لكم</p>
 
-        <p class="text-center mb-4"><i class="fas fa-envelope text-muted mx-3"></i><a class="text-Primary" href="#">Shefaa@gmail.com</a></p>
+        <p class="text-center mb-4"><i class="fas fa-envelope text-muted mx-3"></i><a class="text-Primary" href="#">Shefaacompany@gmail.com</a></p>
         <p class="text-center"><i class="fas fa-phone-alt text-muted mx-3"></i> 001-000-000-000</p>
         <div class="brands d-flex justify-content-center my-4 text-muted">
           <a href="#"><i class="fab fa-facebook-f fa-lg mx-2 d-flex justify-content-center align-items-center"></i></a>
@@ -644,7 +644,7 @@
       <h3 class="mb-2"> <i class="fas fa-phone ml-3 text-muted" style="font-size: 22px"></i>رقم الهاتف</h3>
       <h6 class="mb-2"> 001-000-000-000</h6>
       <h3 class="mb-2"><i class="fas fa-envelope ml-3 text-muted" style="font-size: 22px"></i>الإيميل </h3>
-      <a href="#"><h6> Shefaacompany@gmail.com</h6></a>
+      <a href="#"><h6>Shefaacompany@gmail.com</h6></a>
     </div>
     <div class="col-md-4 flex-column">
       <h1 class="text-primary pb-2">الوصول السريع</h1>
