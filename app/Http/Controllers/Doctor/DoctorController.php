@@ -16,9 +16,7 @@ class DoctorController extends Controller
     }
 
     public function dashboardDoctors(){
-//        $doctors = User::role('Doctor')->paginate(4);
         $doctors = User::role('Doctor')->get();
-
         return view('dashboard.doctors.index',['doctors'=>$doctors]);
     }
 
@@ -34,14 +32,10 @@ class DoctorController extends Controller
         return redirect('/dashboardDoctors');
     }
 
-
-
 public function dashboardDoctorshow($id){
     $user = User::find($id);
     return view('dashboard.doctors.show', ['user' => $user]);
 }
-
-
 
     public function delete($doctor)
     {

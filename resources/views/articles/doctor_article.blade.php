@@ -38,9 +38,7 @@
             <a href="/articles/{{$article->id}}">
                 <div class="card mb-3">
                     <div class="card-img-div">
-                        <!-- <img class="card-img-top img-fluid"  src="{{ asset('/imgs/blog_1.PNG') }}" alt="Card image cap"> -->
                         <img class="card-img-top img-fluid" src="{{$article->avatar}}" style="height: 365px;width: 730px" alt="Card image cap">
-
                         <div class="card-date d-flex flex-column justify-content-center align-items-center text-white">
                             <h4>{{ date('j', strtotime($article->created_at)) }}</h4>
                             <h4>{{ date('M', strtotime($article->created_at)) }}</h4>

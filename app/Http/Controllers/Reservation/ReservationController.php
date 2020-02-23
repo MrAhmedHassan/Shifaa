@@ -49,7 +49,6 @@ class ReservationController extends Controller
                     'doctor_id' => $doctor
                 ]);
                 return response()->json(['message'=>"تم الحجز ورقم حجز حضرتكم هو ($reservation->id)"]);
-                // return redirect("profiles/$doctor");
             } else {
                 return response()->json(['message'=>'الحجز ممتلئ ..يرجي الحجز في ميعاد اخر']);
 

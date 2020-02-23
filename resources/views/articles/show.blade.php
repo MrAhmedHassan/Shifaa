@@ -11,9 +11,6 @@
                 <img class="img-fluid" src="{{$article->avatar}}" alt="article img" style="height: 365px;width: 730px">
             </div>
                 <h4 class="pt-5" style="font-family: 'Amiri', serif;">{{$article->description}}</h4>
-            
-
-
 
             <div class="row">
             <div class="col-md-12 " style="background-color: white">

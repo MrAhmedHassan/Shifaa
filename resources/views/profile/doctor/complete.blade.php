@@ -8,8 +8,6 @@
         <h1 class="text-dark" style="font-family: 'Cairo', sans-serif;">
             <span class="glyphicon glyphicon-user"></span>اكمل ملفك الشخصي</h1>
         <hr>
-        <!-- <div class="row"> -->
-        <!-- left column -->
         <form method='post' action='/profiles' enctype="multipart/form-data">
             @csrf
             <div class="alert alert-info alert-dismissable" style="font-family: 'Cairo', sans-serif">

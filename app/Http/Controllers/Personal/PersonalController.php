@@ -18,27 +18,27 @@ class PersonalController extends Controller
         $test = Test::find($id);
 
         return view('gemytest2/gemytest2', compact('test'));
-
     }
 
     public function index1()
-    {
 
+    {
 
         $questions = Question::all();
 
         return view('gemytest2/gemytest2', compact('questions'));
     }
 
-    public function store($id )
+    public function store($id)
+
     {
 
         $test = Test::find($id);
         $doing = request()->doing;
-        $wedding =request()->wedding;
-        $friend =request()->friend;
+        $wedding = request()->wedding;
+        $friend = request()->friend;
         $car =   request()->car;
-        $angry =request()->angry;
+        $angry = request()->angry;
         $doing2 = request()->doing2;
         $wedding2 = request()->wedding2;
         $friend2 = request()->friend2;
@@ -70,8 +70,7 @@ class PersonalController extends Controller
         $car6 =   request()->car6;
         $angry6 =  request()->angry6;
 
-        if(!($doing&&$wedding&&$friend&& $car&&$angry)&&$test->id==1)
-        {
+        if (!($doing && $wedding && $friend && $car && $angry) && $test->id == 1) {
             $validatedData = request()->validate([
                 'doing' => 'required',
                 'wedding' => 'required',
@@ -79,9 +78,7 @@ class PersonalController extends Controller
                 'car' => 'required',
                 'angry' => 'required',
             ]);
-
-        }else if(!($doing2&&$wedding2&&$friend2&& $car2&&$angry2)&&$test->id==2)
-        {
+        } else if (!($doing2 && $wedding2 && $friend2 && $car2 && $angry2) && $test->id == 2) {
             $validatedData = request()->validate([
                 'donig.required' => 'the question  is required',
                 'wedding2' => 'required',
@@ -89,9 +86,7 @@ class PersonalController extends Controller
                 'car2' => 'required',
                 'angry2' => 'required',
             ]);
-
-        }else if(!($doing3&&$wedding3&&$friend3&& $car3&&$angry3)&&$test->id==3)
-        {
+        } else if (!($doing3 && $wedding3 && $friend3 && $car3 && $angry3) && $test->id == 3) {
             $validatedData = request()->validate([
                 'doing3' => 'required',
                 'wedding3' => 'required',
@@ -99,9 +94,7 @@ class PersonalController extends Controller
                 'car3' => 'required',
                 'angry3' => 'required',
             ]);
-
-        }else if(!($doing4&&$wedding4&&$friend4&& $car4&&$angry4)&&$test->id==4)
-        {
+        } else if (!($doing4 && $wedding4 && $friend4 && $car4 && $angry4) && $test->id == 4) {
             $validatedData = request()->validate([
                 'doing4' => 'required',
                 'wedding4' => 'required',
@@ -109,9 +102,7 @@ class PersonalController extends Controller
                 'car4' => 'required',
                 'angry4' => 'required',
             ]);
-
-        }else if(!($doing5&&$wedding5&&$friend5&& $car5&&$angry5)&&$test->id==5)
-        {
+        } else if (!($doing5 && $wedding5 && $friend5 && $car5 && $angry5) && $test->id == 5) {
             $validatedData = request()->validate([
                 'doing5' => 'required',
                 'wedding5' => 'required',
@@ -119,9 +110,7 @@ class PersonalController extends Controller
                 'car5' => 'required',
                 'angry5' => 'required',
             ]);
-
-        }else if(!($doing6&&$wedding6&&$friend6&& $car6&&$angry6)&&$test->id==6)
-        {
+        } else if (!($doing6 && $wedding6 && $friend6 && $car6 && $angry6) && $test->id == 6) {
             $validatedData = request()->validate([
                 'doing6' => 'required',
                 'wedding6' => 'required',
@@ -129,9 +118,7 @@ class PersonalController extends Controller
                 'car6' => 'required',
                 'angry6' => 'required',
             ]);
-
         }
-
 
         $sum = 0;
 
@@ -192,16 +179,12 @@ class PersonalController extends Controller
             ['test_id', $id],
         ])->get();
 
-        for($i=0;$i<count($results);$i++)
-        {
-            $range=range($results[$i]->start,$results[$i]->end);
+        for ($i = 0; $i < count($results); $i++) {
+            $range = range($results[$i]->start, $results[$i]->end);
 
-            if(in_array($sum,$range))
-            {
-                return view('gemytest2/gemytest2', ['result' => $results[$i]->result , 'test'=> $test]);
+            if (in_array($sum, $range)) {
+                return view('gemytest2/gemytest2', ['result' => $results[$i]->result, 'test' => $test]);
             }
-
         }
-
     }
 }

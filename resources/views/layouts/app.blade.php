@@ -15,9 +15,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
 
-
-
-
     <link href="https://fonts.googleapis.com/css?family=Tajawal|Rakkas|Cairo|Amiri|Changa|Reem+Kufi|Harmattan|Aref+Ruqaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -28,10 +25,6 @@
 
     <link href="{{ asset('css/rate.css') }}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-
-
-
-
 
 </head>
 
@@ -58,53 +51,57 @@
                         <!-- Navbar Links -->
                         <div class="nav-item-div">
                             <li class="nav-item mainA d-flex justify-content-center align-items-center">
-                                <a class="nav-link ml-3 " href="/" ><i class="ml-1 fas fa-home text-white" id="nav_1_i"></i>الرئيسية</a>
+                                <a class="nav-link ml-3 " href="/"><i class="ml-1 fas fa-home text-white" id="nav_1_i"></i>الرئيسية</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
-                                <a class="nav-link" href="/articles" ><i class="ml-1 fas fa-book text-white" id="nav_2_i"></i> المقالات الطبية</a>
+                                <a class="nav-link" href="/articles"><i class="ml-1 fas fa-book text-white" id="nav_2_i"></i> المقالات الطبية</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
-                                <a class="nav-link" href="/doctors"  ><i class="ml-1 fas fa-user-md text-white" id="nav_3_i"></i>الأطباء</a>
+                                <a class="nav-link" href="/doctors"><i class="ml-1 fas fa-user-md text-white" id="nav_3_i"></i>الأطباء</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
-                                <a class="nav-link" href="/bodies" ><i class="ml-1 fas fa-child text-white" id="nav_4_i"></i>جسم الإنسان</a>
+                                <a class="nav-link" href="/bodies"><i class="ml-1 fas fa-child text-white" id="nav_4_i"></i>جسم الإنسان</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
-                                <a class="nav-link" href="/#about_us"  ><i class="ml-1 fas fa-users text-white" id="nav_5_i"></i>من نحن ؟</a>
+                                <a class="nav-link" href="/#about_us"><i class="ml-1 fas fa-users text-white" id="nav_5_i"></i>من نحن ؟</a>
                             </li>
                         </div>
 
                         <div class="nav-item-div">
                             <li class="nav-item ml-3 d-flex justify-content-center align-items-center">
-                                <a class="nav-link" href="/#contact_us" ><i class="ml-1 fab fa-weixin text-white " id="nav_6_i"></i>تواصل معنا</a>
+                                <a class="nav-link" href="/#contact_us"><i class="ml-1 fab fa-weixin text-white " id="nav_6_i"></i>تواصل معنا</a>
                             </li>
                         </div>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav w-25 my_user" >
+                    <ul class="navbar-nav w-25 my_user">
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
                             {{-- <a class="nav-link" href="{{ route('login') }}">{{ __('دخول') }}</a> --}}
-                            <a class="nav-link ml-3" href="{{ route('login') }}"><h4 id="nav_register">دخول</h4></a>
+                            <a class="nav-link ml-3" href="{{ route('login') }}">
+                                <h4 id="nav_register">دخول</h4>
+                            </a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
                             {{-- <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل') }}</a> --}}
-                            <a class="nav-link " href="{{ route('register') }}"><h4 id="nav_register">تسجيل</h4></a>
+                            <a class="nav-link " href="{{ route('register') }}">
+                                <h4 id="nav_register">تسجيل</h4>
+                            </a>
                         </li>
                         @endif
                         @else
@@ -115,20 +112,20 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @if(auth()->user())
-                                    @role('Doctor')
+                                @role('Doctor')
                                 <div id="div_user_profile">
                                     <a href="/profiles" class="ml-3" id="user_profile">البروفايل</a>
                                 </div>
                                 <hr>
-                                    @endrole
+                                @endrole
                                 @endif
                                 @if(auth()->user())
-                                    @role('Admin|Doctor|Assistant')
+                                @role('Admin|Doctor|Assistant')
                                 <div id="div_user_profile">
                                     <a href="/dashboard" class="ml-3" id="user_profile">لوحة التحكم</a>
                                 </div>
                                 <hr>
-                                    @endrole
+                                @endrole
                                 @endif
                                 <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -163,13 +160,9 @@
         </main>
     </div>
 
-
     <!--Scripts -->
-
-<script src="{{ asset('project_js.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-
+    <script src="{{ asset('project_js.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </body>
 

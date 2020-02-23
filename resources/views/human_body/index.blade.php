@@ -23,17 +23,17 @@
   <div class="container d-flex justify-content-center">
 
     
-        <a style="position: absolute; z-index: 2; top: 380px; right: 410px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز العصبي</a>
-        <a style="position: absolute; z-index: 2; top: 510px; right: 375px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز المناعي</a>
-        <a style="position: absolute; z-index: 2; top: 630px; right: 340px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز الهضمي</a>
-        <a style="position: absolute; z-index: 2; top: 765px; right: 310px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز اللمفاوي</a>
-        <a style="position: absolute; z-index: 2; top: 900px; right: 340px; text-decoration: none;font-size: 25px;color:#0065e1">الغدد الصماء</a>
-        <a style="position: absolute; z-index: 2; top: 1030px; right: 390px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز  اللحافي</a>
-        <a style="position: absolute; z-index: 2; top: 1015px; left: 310px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز الهيكلي والعضلي</a>
-        <a style="position: absolute; z-index: 2; top: 870px; left: 315px; text-decoration: none;font-size: 25px;color: #0065e1">الجهاز التناسلي</a>
-        <a style="position: absolute; z-index: 2; top: 715px; left: 325px; text-decoration: none;font-size: 25px;color: #0065e1">الجهاز البولي</a>
-        <a style="position: absolute; z-index: 2; top: 575px; left: 345px; text-decoration: none;font-size: 25px;color: #0065e1">الجهاز التنفسي</a>
-        <a style="position: absolute; z-index: 2; top: 440px; left: 445px; text-decoration: none;font-size: 25px;color: #0065e1">جهاز الدوران</a>
+        <a style="position: absolute; z-index: 2; top: 380px; right: 350px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز العصبي</a>
+        <a style="position: absolute; z-index: 2; top: 510px; right: 320px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز المناعي</a>
+        <a style="position: absolute; z-index: 2; top: 630px; right: 280px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز الهضمي</a>
+        <a style="position: absolute; z-index: 2; top: 765px; right: 250px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز اللمفاوي</a>
+        <a style="position: absolute; z-index: 2; top: 900px; right: 290px; text-decoration: none;font-size: 25px;color:#0065e1">الغدد الصماء</a>
+        <a style="position: absolute; z-index: 2; top: 1030px; right: 340px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز  اللحافي</a>
+        <a style="position: absolute; z-index: 2; top: 1015px; left: 240px; text-decoration: none;font-size: 25px;color:#0065e1">الجهاز الهيكلي والعضلي</a>
+        <a style="position: absolute; z-index: 2; top: 870px; left: 265px; text-decoration: none;font-size: 25px;color: #0065e1">الجهاز التناسلي</a>
+        <a style="position: absolute; z-index: 2; top: 715px; left: 275px; text-decoration: none;font-size: 25px;color: #0065e1">الجهاز البولي</a>
+        <a style="position: absolute; z-index: 2; top: 575px; left: 300px; text-decoration: none;font-size: 25px;color: #0065e1">الجهاز التنفسي</a>
+        <a style="position: absolute; z-index: 2; top: 440px; left: 390px; text-decoration: none;font-size: 25px;color: #0065e1">جهاز الدوران</a>
 
     <map name="Devices">
 
@@ -85,14 +85,7 @@
       }
       @endphp
 
-
       @endforeach
-
-      <!--area shape="circle" coords="452,44,42" href="/bodies/{body}" alt="Nerve" /-->
-
-
-
-
 
     </map>
     <img src="{{ asset('/imgs/body2.png') }}" alt="Body" usemap="#Devices" />

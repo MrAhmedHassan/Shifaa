@@ -22,9 +22,6 @@ class ArticleController extends Controller
     public function doctor_article($id)
     {
         $articles = Article::where(['user_id' => $id])->get();
-        //need to filter category
-        // $categories = Category::where(['id'=>$articles->category_id)->get();
-        // $categories = Category::where(['id' => $articles])->get();
         $categories = Category::all();
 
         return view('/articles/doctor_article')->with(['articles' => $articles, 'categories' => $categories]);

@@ -23,14 +23,7 @@ echo "<div class='text text-light bg-success p-3 '>".$results[$i]->result."</div
 
 }
 
-
-
    @endphp
-
-
-
-
-
 
 </div>
     </div>

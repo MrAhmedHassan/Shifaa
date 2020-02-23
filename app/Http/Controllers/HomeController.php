@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use willvincent\Rateable\Rateable;
 use Illuminate\Http\Request;
 use App\Post;
+
 class HomeController extends Controller
 
 {
@@ -21,8 +23,7 @@ class HomeController extends Controller
 
     {
 
-        $this->middleware(['auth','verified']);
-
+        $this->middleware(['auth', 'verified']);
     }
 
 
@@ -41,10 +42,4 @@ class HomeController extends Controller
     {
         return redirect('/');
     }
-
-  
-
-    
-
-
 }

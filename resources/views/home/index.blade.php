@@ -108,7 +108,7 @@
                 <div class="doctor-layer2 d-flex flex-column justify-content-center align-items-center" >
                     <h4>  د. {{$topDoctor->name}}</h4>
                     <p>{{$topDoctor->profile->abstract}}</p>
-                    <a href="/profiles/{{$topDoctor->id}}" >اعرف المزيد</a>
+                    <a href="/profiles/{{$topDoctor->id}}" >عرض البروفايل</a>
                 </div>
             </div>
         </div>
@@ -798,7 +798,6 @@
   li_collection.on("click", function() {
     let li_color = $(this).css('backgroundColor');
     localStorage.setItem('myseem',JSON.stringify(li_color))
-    // $('html').css('backgroundColor',li_color);
     $(".navbar,#h_1,#h_2,#h_3,#h_4").css('backgroundColor', li_color);
     $(".carousel-caption h1,.mydiv_content").css('color', li_color);
   });
@@ -808,13 +807,12 @@
 
   // loading page
 
-  // $(document).one(function(){
   $(document).ready(function() {
     $("#loading").fadeOut(1500, function() {
       $("body").css("overflow", "auto");
     });
   })
-  // })
+  
 </script>
 
 
