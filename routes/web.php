@@ -104,7 +104,7 @@ Route::delete('/reveals/{reveal}', 'RevealTime\RevealTimeController@destroy')->n
 //-------------------------------------------------------------------------------------
 //reservation
 Route::get('/reservations', 'Reservation\ReservationController@index')->middleware(['auth','verified']);
-Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store')->middleware(['auth','verified']);
+Route::post('reservations/{reveal}/{doctor}', 'Reservation\ReservationController@store');
 Route::delete('reservations/{reveal}', 'Reservation\ReservationController@softDelete')->middleware(['auth','verified']);
 //----------------------------------------------------------------------------------
 // Dashboard
