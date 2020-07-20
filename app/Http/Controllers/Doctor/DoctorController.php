@@ -41,6 +41,10 @@ public function dashboardDoctorshow($id){
     {
         $user = User::find($doctor);
         $user->delete();
+        $doctor_articles = $user->articles;
+        foreach($doctor_articles as $doctor_article){
+            $doctor_article->delete();
+        }
         return redirect('/dashboardDoctors');
     }
 }

@@ -97,4 +97,11 @@ class ArticleController extends Controller
 
         return redirect('/articles');
     }
+
+    public function removeAllArticles(){
+        $all_articles = Article::all();
+        foreach($all_articles as $article){
+            $article->delete();
+        }
+    }
 }
