@@ -126,6 +126,6 @@ Route::fallback(function () {
 });
 
 // customer route for remove all articles
-Route::get('/remove-all-articles','Article/ArticleController@removeAllArticles');
+Route::get('/remove-all-articles','Article\ArticleController@removeAllArticles');
 
 
